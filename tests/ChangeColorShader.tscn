@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=1]
+[ext_resource path="res://scenes/items/attack/swords/heavy_sword/heavy_sword.png" type="Texture" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/c_1 = Color( 1, 0, 0, 1 )
+shader_param/c_2 = null
+shader_param/c_3 = null
+shader_param/r_1 = Color( 0.282353, 0.137255, 0.788235, 1 )
+shader_param/r_2 = null
+shader_param/r_3 = null
+shader_param/u_tolerance = null
+_sections_unfolded = [ "shader_param" ]
+
+[node name="TestChangeColorShader" type="Node2D"]
+position = Vector2( 309.877, 91.236 )
+scale = Vector2( 4.69743, 4.69743 )
+_sections_unfolded = [ "Material", "texture" ]
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
+position = Vector2( -47.7346, -0.858871 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "texture" ]
+
