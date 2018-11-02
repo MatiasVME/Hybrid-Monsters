@@ -3,13 +3,13 @@
 [sub_resource type="ProceduralSky" id=1]
 
 radiance_size = 4
-sky_top_color = Color( 0.647059, 0.839216, 0.945098, 1 )
-sky_horizon_color = Color( 0.839216, 0.917647, 0.980392, 1 )
-sky_curve = 0.09
+sky_top_color = Color( 0.0470588, 0.454902, 0.976471, 1 )
+sky_horizon_color = Color( 0.556863, 0.823529, 0.909804, 1 )
+sky_curve = 0.25
 sky_energy = 1.0
-ground_bottom_color = Color( 0.156863, 0.184314, 0.211765, 1 )
-ground_horizon_color = Color( 0.423529, 0.396078, 0.372549, 1 )
-ground_curve = 0.02
+ground_bottom_color = Color( 0.101961, 0.145098, 0.188235, 1 )
+ground_horizon_color = Color( 0.482353, 0.788235, 0.952941, 1 )
+ground_curve = 0.01
 ground_energy = 1.0
 sun_color = Color( 1, 1, 1, 1 )
 sun_latitude = 35.0
@@ -65,7 +65,6 @@ ssao_radius2 = 0.0
 ssao_intensity2 = 1.0
 ssao_bias = 0.01
 ssao_light_affect = 0.0
-ssao_ao_channel_affect = 0.0
 ssao_color = Color( 0, 0, 0, 1 )
 ssao_quality = 0
 ssao_blur = 3
