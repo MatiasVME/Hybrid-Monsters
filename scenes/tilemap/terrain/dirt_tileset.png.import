@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monster_2.png-7cb6899e6636e7c0b9d0e179ed877f59.stex"
+path="res://.import/dirt_tileset.png-08f68588d2caa66273dc94f46255fbcf.stex"
 
 [deps]
 
-source_file="res://scenes/actors/players/monster_2.png"
-dest_files=[ "res://.import/monster_2.png-7cb6899e6636e7c0b9d0e179ed877f59.stex" ]
+source_file="res://scenes/tilemap/terrain/dirt_tileset.png"
+dest_files=[ "res://.import/dirt_tileset.png-08f68588d2caa66273dc94f46255fbcf.stex" ]
 
 [params]
 

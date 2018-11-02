@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monster_2.png-7cb6899e6636e7c0b9d0e179ed877f59.stex"
+path="res://.import/obstacle.png-5e74526870ee32a602f55a45cd105c77.stex"
 
 [deps]
 
-source_file="res://scenes/actors/players/monster_2.png"
-dest_files=[ "res://.import/monster_2.png-7cb6899e6636e7c0b9d0e179ed877f59.stex" ]
+source_file="res://scenes/tilemap/grid/obstacle.png"
+dest_files=[ "res://.import/obstacle.png-5e74526870ee32a602f55a45cd105c77.stex" ]
 
 [params]
 

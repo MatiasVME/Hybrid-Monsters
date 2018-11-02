@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rock_1.png-59da6fbc88f99bbbdd0e762c472ebed1.stex"
+path="res://.import/grid_lines.png-ee595546dcf168424de8d1c2db2e5fd6.stex"
 
 [deps]
 
-source_file="res://scenes/tilemaps/terrain/tiles/rock_1.png"
-dest_files=[ "res://.import/rock_1.png-59da6fbc88f99bbbdd0e762c472ebed1.stex" ]
+source_file="res://scenes/tilemap/grid_lines/grid_lines.png"
+dest_files=[ "res://.import/grid_lines.png-ee595546dcf168424de8d1c2db2e5fd6.stex" ]
 
 [params]
 

@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/tilemap/terrain/dirt_tileset.png" type="Texture" id=1]
+[ext_resource path="res://scenes/tilemap/terrain/rock_1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/tilemap/terrain/indestructible.png" type="Texture" id=3]
+
+[node name="Terrain" type="TileMap"]
+
+mode = 0
+tile_set = null
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Dirt1" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="Rock1" type="Sprite" parent="." index="1"]
+
+position = Vector2( 16, 0 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="Dirt2" type="Sprite" parent="." index="2"]
+
+position = Vector2( 32, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 16, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="Dirt3" type="Sprite" parent="." index="3"]
+
+position = Vector2( 48, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="Dirt4" type="Sprite" parent="." index="4"]
+
+position = Vector2( 64, 0 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 48, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+[node name="Indestructible1" type="Sprite" parent="." index="5"]
+
+position = Vector2( 64, 0 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 48, 0, 16, 16 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
+
+

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/monster_2.png-7cb6899e6636e7c0b9d0e179ed877f59.stex"
+path="res://.import/monster_7.png-a234f651bd4c3bc2829bb0995d9c961b.stex"
 
 [deps]
 
-source_file="res://scenes/actors/players/monster_2.png"
-dest_files=[ "res://.import/monster_2.png-7cb6899e6636e7c0b9d0e179ed877f59.stex" ]
+source_file="res://scenes/actors/players/monster_7.png"
+dest_files=[ "res://.import/monster_7.png-a234f651bd4c3bc2829bb0995d9c961b.stex" ]
 
 [params]
 

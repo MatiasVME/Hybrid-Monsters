@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt_tileset.png-b5b438ae1116e11e82b7c6811f814a62.stex"
+path="res://.import/rock_1.png-14926bcf1997c83a58c8630f8e121678.stex"
 
 [deps]
 
-source_file="res://scenes/tilemaps/terrain/tiles/dirt_tileset.png"
-dest_files=[ "res://.import/dirt_tileset.png-b5b438ae1116e11e82b7c6811f814a62.stex" ]
+source_file="res://scenes/tilemap/terrain/rock_1.png"
+dest_files=[ "res://.import/rock_1.png-14926bcf1997c83a58c8630f8e121678.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
