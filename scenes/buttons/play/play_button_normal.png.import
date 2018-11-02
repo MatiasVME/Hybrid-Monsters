@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/play_button_normal.png-327704da57834cf9bb5f5a053a5b4301.stex"
+path="res://.import/play_button_normal.png-470b0ee376bb76deecdd93c4459bf0f2.stex"
 
 [deps]
 
-source_file="res://scenes/buttons/play_button/play_button_normal.png"
-dest_files=[ "res://.import/play_button_normal.png-327704da57834cf9bb5f5a053a5b4301.stex" ]
+source_file="res://scenes/buttons/play/play_button_normal.png"
+dest_files=[ "res://.import/play_button_normal.png-470b0ee376bb76deecdd93c4459bf0f2.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
