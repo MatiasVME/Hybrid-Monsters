@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/play_button_hover.png-37c0b6c3095b037f55bcb6d22429c4cc.stex"
+path="res://.import/play_button_normal.png-327704da57834cf9bb5f5a053a5b4301.stex"
 
 [deps]
 
-source_file="res://scenes/buttons/PlayButton/play_button_hover.png"
-dest_files=[ "res://.import/play_button_hover.png-37c0b6c3095b037f55bcb6d22429c4cc.stex" ]
+source_file="res://scenes/buttons/play_button/play_button_normal.png"
+dest_files=[ "res://.import/play_button_normal.png-327704da57834cf9bb5f5a053a5b4301.stex" ]
 
 [params]
 
