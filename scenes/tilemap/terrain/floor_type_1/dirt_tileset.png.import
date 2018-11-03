@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dirt_tileset.png-08f68588d2caa66273dc94f46255fbcf.stex"
+path="res://.import/dirt_tileset.png-0fc9ba483d2a20cc9836d54cf89caa5e.stex"
 
 [deps]
 
-source_file="res://scenes/tilemap/terrain/dirt_tileset.png"
-dest_files=[ "res://.import/dirt_tileset.png-08f68588d2caa66273dc94f46255fbcf.stex" ]
+source_file="res://scenes/tilemap/terrain/floor_type_1/dirt_tileset.png"
+dest_files=[ "res://.import/dirt_tileset.png-0fc9ba483d2a20cc9836d54cf89caa5e.stex" ]
 
 [params]
 

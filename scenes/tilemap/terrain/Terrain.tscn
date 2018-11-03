@@ -1,8 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://scenes/tilemap/terrain/dirt_tileset.png" type="Texture" id=1]
+[ext_resource path="res://scenes/tilemap/terrain/floor_type_1/dirt_tileset.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tilemap/terrain/rock_1.png" type="Texture" id=2]
 [ext_resource path="res://scenes/tilemap/terrain/indestructible.png" type="Texture" id=3]
+
+
 
 [node name="Terrain" type="TileMap"]
 

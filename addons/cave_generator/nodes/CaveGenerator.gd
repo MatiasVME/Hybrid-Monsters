@@ -24,7 +24,7 @@ extends Node
 
 export (bool) var debug = false
 
-var size
+var size = Vector2()
 var map = []
 var tilemap
 var fill_wall_percent = 50
@@ -35,7 +35,7 @@ var fill_wall_percent = 50
 func _ready():
 	randomize()
 
-func map_generator(_tilemap, _smooth_iteration = 0, _sizev = Vector2(35, 35), _fill_wall_percent = 50):
+func generate_walls(_tilemap, _smooth_iteration = 0, _sizev = Vector2(35, 35), _delete_floor = false, _fill_wall_percent = 50):
 	tilemap = _tilemap
 	size = _sizev
 	fill_wall_percent = _fill_wall_percent
@@ -44,7 +44,30 @@ func map_generator(_tilemap, _smooth_iteration = 0, _sizev = Vector2(35, 35), _f
 	for i in _smooth_iteration:
 		smooth()
 	
+	if _delete_floor:
+		delete_floor()
+	
 	return tilemap
+
+# Recibe un tilemap y el tamaño y devuelve un terreno
+# con variaciones, el tile 0 es el terreno común y los
+# demás son variaciones.
+func generate_floor_map(tilemap, sizev):
+	# Cantidad de tipos de tiles que hay en el tilemap
+	var tile_type_amount = tilemap.tile_set.get_tiles_ids().size()
+	print(tile_type_amount)
+	
+	for i in sizev.y:
+		for j in sizev.x:
+			if randi() % 10 == 1:
+				tilemap.set_cellv(Vector2(j, i), rand_range(1, tile_type_amount - 1))
+				print("rare")
+			else:
+				print("normal")
+				tilemap.set_cellv(Vector2(j, i), 0)
+				
+#			if tilemap.get_cellv(Vector2(j,i)) == 0:
+#				tilemap.set_cellv(Vector2(j, i), -1)
 
 func smooth():
 	# new map to apply changes
@@ -81,6 +104,7 @@ func update_map():
 	for y in range(size.y):
 		for x in range(size.x):
 			var i = y * size.x + x
+			
 			tilemap.set_cell(x, y, map[i])
 	
 	return tilemap
@@ -112,6 +136,12 @@ func touching_walls(point):
 				result += 1
 	return result
 
+func delete_floor():
+	for i in size.y:
+		for j in size.x:
+			if tilemap.get_cellv(Vector2(j,i)) == 0:
+				tilemap.set_cellv(Vector2(j, i), -1)
+
 func debug(message, something1 = "", something2 = ""):
 	if debug:
-		print("[RPGElements] ", message, " ", something1, " ", something2)
+		print("[CaveGenerator] ", message, " ", something1, " ", something2)
