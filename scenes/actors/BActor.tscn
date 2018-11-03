@@ -38,7 +38,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.9375, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.127625, 0.153767, 0.796875, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Sprite:position")
@@ -65,13 +65,16 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.20007, 0.917384 ), Vector2( 0.916712, 1.13495 ), Vector2( 1, 1 ) ]
 }
 
-[node name="Actor" type="Node2D" index="0"]
+[node name="Actor" type="Node2D"]
 
+position = Vector2( 8, 8 )
 z_index = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_horizontal_guides_": [ 16.0 ],
+"_edit_vertical_guides_": [ 16.0 ]
 }
 type = 0
 
@@ -91,15 +94,14 @@ _sections_unfolded = [ "Playback Options" ]
 
 repeat = false
 playback_process_mode = 1
-playback_speed = 1.0
+playback_speed = 0.0
 playback/active = false
 playback/repeat = false
-playback/speed = 1.0
+playback/speed = 0.0
 
 [node name="Pivot" type="Position2D" parent="." index="2"]
 
-position = Vector2( 8, 8 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="0"]
 

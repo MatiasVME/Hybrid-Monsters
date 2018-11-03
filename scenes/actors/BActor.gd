@@ -2,10 +2,6 @@ extends "BPawn.gd"
 
 onready var Grid = get_parent()
 
-func _ready():
-	update_look_direction(Vector2(1, 0))
-#	move_to(position)
-
 func _process(delta):
 	var input_direction = get_input_direction()
 	if not input_direction:
@@ -37,7 +33,7 @@ func move_to(target_position):
 	$Tween.interpolate_property(
 		$Pivot,
 		"position", 
-		- move_direction * 8, 
+		-move_direction * 16, 
 		Vector2(), 
 		$AnimationPlayer.current_animation_length, 
 		Tween.TRANS_LINEAR, 
@@ -51,7 +47,6 @@ func move_to(target_position):
 	yield($AnimationPlayer, "animation_finished")
 	
 	set_process(true)
-
 
 func bump():
 	set_process(false)
