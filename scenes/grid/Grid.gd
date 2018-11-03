@@ -13,6 +13,8 @@ func request_move(pawn, direction):
 	
 	var cell_target_type = get_cellv(cell_target)
 	
+	print("cell_target_type: ", cell_target_type)
+	
 	match cell_target_type:
 		EMPTY:
 			return update_pawn_position(pawn, cell_start, cell_target)

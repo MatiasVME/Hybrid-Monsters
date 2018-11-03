@@ -2,6 +2,9 @@ extends "Pawn.gd"
 
 onready var Grid = get_parent()
 
+func spawn():
+	pass
+
 func move_to(target_position):
 	set_process(false)
 	$AnimationPlayer.play("walk")
