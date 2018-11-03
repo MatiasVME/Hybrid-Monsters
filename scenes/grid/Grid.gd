@@ -25,6 +25,7 @@ func request_move(pawn, direction):
 			print("Cell %s contains %s" % [cell_target, pawn_name])
 
 func update_pawn_position(pawn, cell_start, cell_target):
+#	print(pawn.type)
 	set_cellv(cell_target, pawn.type)
 	set_cellv(cell_start, EMPTY)
 	return map_to_world(cell_target) + cell_size / 2
