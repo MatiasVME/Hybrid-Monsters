@@ -60,7 +60,7 @@ func generate_floor_map(tilemap, sizev):
 	for i in sizev.y:
 		for j in sizev.x:
 			if randi() % 10 == 1:
-				tilemap.set_cellv(Vector2(j, i), rand_range(1, tile_type_amount - 1))
+				tilemap.set_cellv(Vector2(j, i), rand_range(1, tile_type_amount))
 			else:
 				tilemap.set_cellv(Vector2(j, i), 0)
 	
