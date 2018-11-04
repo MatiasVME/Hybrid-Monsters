@@ -9,6 +9,7 @@ func _ready():
 #
 #	set_values(random_skin)
 
+	# TEMP
 	$Pivot/Sprite.material.set_shader_param("c_1", Color(1,0,0))
 	$Pivot/Sprite.material.set_shader_param("c_2", Color(0,1,0))
 	$Pivot/Sprite.material.set_shader_param("c_3", Color(0,0,1))
@@ -19,9 +20,7 @@ func _ready():
 
 func set_values(hmcharacter, skin_num):
 	character = hmcharacter
-	
 
-	
 	$Pivot/Sprite.texture = get_skin(skin_num)
 
 func _process(delta):

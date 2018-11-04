@@ -18,6 +18,8 @@ config/icon="res://icon.png"
 
 Main="*res://scenes/autoloads/Main.gd"
 Elements="*res://scenes/autoloads/Elements.gd"
+DataManager="*res://scenes/autoloads/DataManager.tscn"
+DataVersionManager="*res://scenes/autoloads/DataVersionManager.gd"
 
 [display]
 
