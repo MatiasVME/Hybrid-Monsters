@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/various/front/Front.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main_screens/MainMenu.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]

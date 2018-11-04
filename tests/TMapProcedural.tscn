@@ -4,10 +4,10 @@
 [ext_resource path="res://scenes/tilemap/terrain/floor_type_1/FloorType1Tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://scenes/tilemap/terrain/TerrainTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://scenes/grid/Grid.gd" type="Script" id=4]
-[ext_resource path="res://scenes/actors/players/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/cave_generator/nodes/CaveGenerator.gd" type="Script" id=6]
-[ext_resource path="res://addons/cave_generator/icons/CaveGenerator.png" type="Texture" id=7]
-[ext_resource path="res://scenes/various/camera/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/cave_generator/nodes/CaveGenerator.gd" type="Script" id=5]
+[ext_resource path="res://addons/cave_generator/icons/CaveGenerator.png" type="Texture" id=6]
+[ext_resource path="res://scenes/various/camera/Camera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/various/spawns/Spawn.tscn" type="PackedScene" id=8]
 
 [node name="TMapProcedural" type="Node" index="0"]
 
@@ -34,7 +34,7 @@ format = 1
 tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Walls" type="TileMap" parent="." index="1"]
+[node name="Obstacles" type="TileMap" parent="." index="1"]
 
 mode = 0
 tile_set = ExtResource( 3 )
@@ -56,18 +56,16 @@ tile_data = PoolIntArray(  )
 script = ExtResource( 4 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Player" parent="Walls" index="0" instance=ExtResource( 5 )]
-
-position = Vector2( 180, 110 )
-
 [node name="CaveGenerator" type="Node" parent="." index="2"]
 
-script = ExtResource( 6 )
+script = ExtResource( 5 )
 __meta__ = {
-"_editor_icon": ExtResource( 7 )
+"_editor_icon": ExtResource( 6 )
 }
 debug = false
 
-[node name="Camera" parent="." index="3" instance=ExtResource( 8 )]
+[node name="Camera" parent="." index="3" instance=ExtResource( 7 )]
+
+[node name="Spawn" parent="." index="4" instance=ExtResource( 8 )]
 
 

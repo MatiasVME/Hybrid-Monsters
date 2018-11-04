@@ -61,14 +61,9 @@ func generate_floor_map(tilemap, sizev):
 		for j in sizev.x:
 			if randi() % 10 == 1:
 				tilemap.set_cellv(Vector2(j, i), rand_range(1, tile_type_amount - 1))
-				print("rare")
 			else:
-				print("normal")
 				tilemap.set_cellv(Vector2(j, i), 0)
-				
-#			if tilemap.get_cellv(Vector2(j,i)) == 0:
-#				tilemap.set_cellv(Vector2(j, i), -1)
-
+	
 func smooth():
 	# new map to apply changes
 	var new_map = []
@@ -122,7 +117,6 @@ func base_algoritm():
 				map[i] = 0 # empty
 	# draw the map
 	update_map()
-#	get_node("Smooth").set_disabled(false) # when we have a map user can smooth it
 
 # return count of touching walls 
 func touching_walls(point):
