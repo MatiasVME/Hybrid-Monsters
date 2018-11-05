@@ -1,23 +1,30 @@
+# Player.gd
+
 extends "../Actor.gd"
 
 var character
 
 func _ready():
 	# Random Skin for test
-#	randomize()
-#	var random_skin = int(round(rand_range(0, Main.SKIN_AMOUNT)))
-#
-#	set_values(random_skin)
+	randomize()
+	var random_skin = int(round(rand_range(1, Main.SKIN_PLAYER_AMOUNT)))
+
+	set_values(null, random_skin)
 
 	# TEMP
 	$Pivot/Sprite.material.set_shader_param("c_1", Color(1,0,0))
 	$Pivot/Sprite.material.set_shader_param("c_2", Color(0,1,0))
 	$Pivot/Sprite.material.set_shader_param("c_3", Color(0,0,1))
 	
-	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element(Main.WATER))
-	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.FIRE))
-	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.ELECTRIC))
-
+#	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element(Main.WATER))
+#	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.FIRE))
+#	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.ELECTRIC))
+	
+	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element_random())
+	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element_random())
+	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element_random())
+	
+	
 func set_values(hmcharacter, skin_num):
 	character = hmcharacter
 
@@ -41,7 +48,7 @@ func get_input_direction():
 	)
 	
 func get_skin(num):
-	if num > Main.SKIN_AMOUNT:
+	if num > Main.SKIN_PLAYER_AMOUNT:
 		print("Probablemente el skin ", num, ".png no existe")
 	
 	var skin = load(str("res://scenes/actors/players/skins/", str(num),".png"))

@@ -19,6 +19,7 @@ enum Elements {
 	GROUND
 }
 
-const SKIN_AMOUNT = 8
+const SKIN_PLAYER_AMOUNT = 8
+const SKIN_NORMAL_ENEMY_AMOUNT = 7
 
 var is_first_time = false

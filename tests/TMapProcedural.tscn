@@ -39,7 +39,7 @@ _sections_unfolded = [ "Cell" ]
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 16
+cell_quadrant_size = 64
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
 cell_tile_origin = 0
@@ -65,6 +65,8 @@ __meta__ = {
 debug = false
 
 [node name="Camera" parent="." index="3" instance=ExtResource( 7 )]
+
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Smoothing" ]
 
 [node name="Spawn" parent="." index="4" instance=ExtResource( 8 )]
 

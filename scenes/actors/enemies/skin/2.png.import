@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1.png-50895913d5e59f73db85490695a99d59.stex"
+path="res://.import/2.png-e11d0f444745c92e9bfecd322249903e.stex"
 
 [deps]
 
-source_file="res://scenes/actors/enemies/1.png"
-dest_files=[ "res://.import/1.png-50895913d5e59f73db85490695a99d59.stex" ]
+source_file="res://scenes/actors/enemies/skin/2.png"
+dest_files=[ "res://.import/2.png-e11d0f444745c92e9bfecd322249903e.stex" ]
 
 [params]
 
