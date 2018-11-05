@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/heavy_sword.png-5973c7954eb6c2a6355ee7ddb93acf4c.stex"
+path="res://.import/ruby_sword_wide.png-a4cb051d88b26f3cb9850935d813e29d.stex"
 
 [deps]
 
-source_file="res://scenes/items/attack/swords/heavy_sword/heavy_sword.png"
-dest_files=[ "res://.import/heavy_sword.png-5973c7954eb6c2a6355ee7ddb93acf4c.stex" ]
+source_file="res://scenes/items/attack/swords/ruby_swords/ruby_sword_wide.png"
+dest_files=[ "res://.import/ruby_sword_wide.png-a4cb051d88b26f3cb9850935d813e29d.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

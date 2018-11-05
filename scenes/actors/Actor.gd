@@ -1,6 +1,9 @@
-extends "Pawn.gd"
+extends Node2D
 
 onready var Grid = get_parent()
+
+# Debe de ser un Main.CellType
+var type = Main.PLAYER
 
 func spawn():
 	pass

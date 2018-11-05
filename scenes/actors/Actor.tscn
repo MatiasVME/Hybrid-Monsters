@@ -90,7 +90,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 16.0 ],
 "_edit_vertical_guides_": [ 16.0 ]
 }
-type = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 

@@ -8,6 +8,8 @@ func _ready():
 	var random_skin = int(round(rand_range(1, Main.SKIN_NORMAL_ENEMY_AMOUNT)))
 	$Pivot/Sprite.texture = get_skin(random_skin)
 	
+	type = Main.ENEMY
+	
 #	set_values(null, random_skin)
 
 func change_color():
