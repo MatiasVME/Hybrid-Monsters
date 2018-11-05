@@ -22,4 +22,13 @@ enum Elements {
 const SKIN_PLAYER_AMOUNT = 8
 const SKIN_NORMAL_ENEMY_AMOUNT = 7
 
+enum CellTypes {
+	EMPTY = -1,
+	PLAYER,
+	ENEMY,
+	BOSS,
+	OBSTACLE,
+	OBJECT
+}
+
 var is_first_time = false

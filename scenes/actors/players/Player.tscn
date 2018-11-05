@@ -23,6 +23,7 @@ _sections_unfolded = [ "Resource" ]
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
+type = 0
 
 [node name="Sprite" parent="Pivot" index="0"]
 

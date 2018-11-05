@@ -43,9 +43,12 @@ func enemy_spawn(enemy):
 			return
 		
 		occupied_spawn.append(rand_empty_position)
-		
+				
 		# Añadir el enemy en la posición
 		enemy.global_position = current_tilemap.map_to_world(rand_empty_position)
 		enemy.global_position.x += 8
 		enemy.global_position.y += 8
 		current_tilemap.add_child(enemy)
+		
+		# Añadir el tipo a la celda
+		current_tilemap.set_cellv(rand_empty_position, 0)

@@ -79,7 +79,7 @@ shader_param/r_3 = null
 shader_param/u_tolerance = null
 _sections_unfolded = [ "Resource" ]
 
-[node name="Actor" type="Node2D" index="0"]
+[node name="Actor" type="Node2D"]
 
 position = Vector2( 8, 8 )
 z_index = 1
@@ -90,7 +90,7 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 16.0 ],
 "_edit_vertical_guides_": [ 16.0 ]
 }
-type = 0
+type = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
