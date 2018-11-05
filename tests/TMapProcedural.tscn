@@ -34,7 +34,7 @@ format = 1
 tile_data = PoolIntArray(  )
 _sections_unfolded = [ "Cell" ]
 
-[node name="Obstacles" type="TileMap" parent="." index="1"]
+[node name="World" type="TileMap" parent="." index="1"]
 
 mode = 0
 tile_set = ExtResource( 3 )

@@ -18,7 +18,7 @@ shader_param/r_3 = null
 shader_param/u_tolerance = null
 _sections_unfolded = [ "Resource" ]
 
-[node name="Enemy" groups=[
+[node name="Enemy" index="0" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
 

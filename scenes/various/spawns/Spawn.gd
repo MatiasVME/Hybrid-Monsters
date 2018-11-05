@@ -8,16 +8,15 @@ func _ready():
 	randomize()
 
 # Usa esto primero que nada!!
-func set_current_tilemap(tilemap):
+func set_current_tilemap(tilemap, size_tilemap):
 	current_tilemap = tilemap
 	
 	# Busca posiciones vacias y las añade a empty_positions
 	#
 	empty_positions.clear()
-	var size = tilemap.cell_size
 	
-	for i in size.y:
-		for j in size.x:
+	for i in size_tilemap.y:
+		for j in size_tilemap.x:
 			if tilemap.get_cellv(Vector2(j,i)) == -1:
 				empty_positions.append(Vector2(j,i))
 

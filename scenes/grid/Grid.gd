@@ -11,30 +11,21 @@ func request_move(pawn, direction):
 	var cell_start = world_to_map(pawn.position)
 	var cell_target = cell_start + direction
 	
-	# Si el objetivo no tiene shape, entonces
-	# actualiza la posición
-#	print(tile_set.tile_get_shape(get_cellv(cell_target), 0))
-#	if tile_set.tile_get_shape(get_cellv(cell_target), 0) == null:
-#		print("nulo!!")
-#		return update_pawn_position(pawn, cell_start, cell_target)
-#	else:
-#		var object_pawn = get_cell_pawn(cell_target)
-#		object_pawn.queue_free()
-#		return update_pawn_position(pawn, cell_start, cell_target)
-
 	var cell_target_type = get_cellv(cell_target)
-#	print("cell_target_type: ", cell_target_type)
+	print("cell_target_type: ", cell_target_type)
 	match cell_target_type:
 		EMPTY:
+			print("empty")
 			return update_pawn_position(pawn, cell_start, cell_target)
 		OBJECT:
+			print("object")
 			var object_pawn = get_cell_pawn(cell_target)
 			object_pawn.queue_free()
 			return update_pawn_position(pawn, cell_start, cell_target)
 		ACTOR:
+			print("actor")
 			var pawn_name = get_cell_pawn(cell_target).name
 			print("Cell %s contains %s" % [cell_target, pawn_name])
-			pass
 
 func update_pawn_position(pawn, cell_start, cell_target):
 #	print(pawn.type)

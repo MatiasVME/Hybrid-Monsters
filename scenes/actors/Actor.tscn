@@ -79,7 +79,7 @@ shader_param/r_3 = null
 shader_param/u_tolerance = null
 _sections_unfolded = [ "Resource" ]
 
-[node name="Actor" type="Node2D"]
+[node name="Actor" type="Node2D" index="0"]
 
 position = Vector2( 8, 8 )
 z_index = 1
