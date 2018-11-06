@@ -26,7 +26,8 @@ func random_move():
 	var rand_dir = .get_rand_posible_dir()
 	
 	if rand_dir != null:
-		Grid.request_move(self, rand_dir)
+		var target_pos = Grid.request_move(self, rand_dir)
+		move_to(target_pos)
 	
 func move_to_player():
 	pass

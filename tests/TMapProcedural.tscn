@@ -2,7 +2,7 @@
 
 [ext_resource path="res://tests/TMapProcedural.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tilemap/terrain/floor_type_1/FloorType1Tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://scenes/tilemap/terrain/TerrainTileset.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/tilemap/terrain/WorldTileset.tres" type="TileSet" id=3]
 [ext_resource path="res://scenes/grid/Grid.gd" type="Script" id=4]
 [ext_resource path="res://addons/cave_generator/nodes/CaveGenerator.gd" type="Script" id=5]
 [ext_resource path="res://addons/cave_generator/icons/CaveGenerator.png" type="Texture" id=6]
@@ -39,7 +39,7 @@ _sections_unfolded = [ "Cell" ]
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
-cell_quadrant_size = 64
+cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 cell_half_offset = 2
 cell_tile_origin = 0
