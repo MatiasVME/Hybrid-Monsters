@@ -51,4 +51,4 @@ func enemy_spawn(enemy):
 		current_tilemap.add_child(enemy)
 		
 		# Añadir el tipo a la celda
-		current_tilemap.set_cellv(rand_empty_position, 0)
+		current_tilemap.set_cellv(rand_empty_position, Main.ENEMY)

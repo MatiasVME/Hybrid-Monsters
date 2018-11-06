@@ -24,10 +24,10 @@ const SKIN_NORMAL_ENEMY_AMOUNT = 7
 
 enum CellTypes {
 	EMPTY = -1,
+	FLOOR,
+	OBSTACLE,
 	PLAYER,
 	ENEMY,
-	BOSS,
-	OBSTACLE,
 	OBJECT
 }
 

@@ -5,10 +5,13 @@ extends "../Actor.gd"
 var character
 
 func _ready():
+	Grid.connect("can_move", self, "on_can_move")
+	Grid.connect("cant_move", self, "on_cant_move")
+	
 	# Random Skin for test
 	randomize()
 	var random_skin = int(round(rand_range(1, Main.SKIN_PLAYER_AMOUNT)))
-
+	
 	set_values(null, random_skin)
 
 	# TEMP
@@ -36,10 +39,11 @@ func _process(delta):
 		return
 	
 	var target_position = Grid.request_move(self, input_direction)
+	# Si target no es nulo
 	if target_position:
 		move_to(target_position)
-	else:
-		bump()
+#	else:
+#		bump()
 
 func get_input_direction():
 	return Vector2(
@@ -53,3 +57,23 @@ func get_skin(num):
 	
 	var skin = load(str("res://scenes/actors/players/skins/", str(num),".png"))
 	return skin
+	
+func attack(direction):
+	print("attack")
+	
+	# Para testear
+	var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
+	var enemy_pos = direction * 16
+	glove.global_position = enemy_pos
+	glove.z_index = 1
+	glove.look_at(direction)
+	
+	add_child(glove)
+	
+func on_can_move(cell_type):
+	pass
+	
+func on_cant_move(cell_type, direction):
+	match cell_type:
+		Main.OBSTACLE: bump()
+		Main.ENEMY: attack(direction)

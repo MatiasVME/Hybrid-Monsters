@@ -3,6 +3,9 @@ extends "res://addons/rpg_elements/nodes/RPGCharacter.gd"
 var element_1 setget set_element_1, get_element_1
 var element_2 setget set_element_2, get_element_2
 
+var weapon_primary
+var weapon_secondary
+
 func set_element_1(element_type):
 	element_1 = element_type
 	
