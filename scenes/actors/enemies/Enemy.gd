@@ -2,6 +2,8 @@
 
 extends "../Actor.gd"
 
+var follow_player = false
+
 func _ready():
 	# Random Skin for test
 	randomize()
@@ -14,8 +16,20 @@ func _ready():
 
 # Turno del enemigo
 func turn():
-	$Anim.play("bump")
+	if follow_player:
+		$Anim.play("bump")
+	else:
+		random_move()
 #	print("me muevo supuestamente")
+
+func random_move():
+	var rand_dir = .get_rand_posible_dir()
+	
+	if rand_dir != null:
+		Grid.request_move(self, rand_dir)
+	
+func move_to_player():
+	pass
 
 func change_color():
 	# TEMP
@@ -33,3 +47,11 @@ func get_skin(num):
 	
 	var skin = load(str("res://scenes/actors/enemies/skin/", str(num),".png"))
 	return skin
+
+func _on_ViewArea_area_entered(area):
+	if area.get_parent().is_in_group("Player"):
+		follow_player = true
+
+func _on_ViewArea_area_exited(area):
+	if area.get_parent().is_in_group("Player"):
+		follow_player = false

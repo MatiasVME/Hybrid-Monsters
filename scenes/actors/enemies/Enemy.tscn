@@ -23,7 +23,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 56.0
 
-[node name="Enemy" index="0" groups=[
+[node name="Enemy" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
 
@@ -51,5 +51,9 @@ audio_bus_name = "Master"
 [node name="Collision" type="CollisionShape2D" parent="ViewArea" index="0"]
 
 shape = SubResource( 2 )
+
+[connection signal="area_entered" from="ViewArea" to="." method="_on_ViewArea_area_entered"]
+
+[connection signal="area_exited" from="ViewArea" to="." method="_on_ViewArea_area_exited"]
 
 

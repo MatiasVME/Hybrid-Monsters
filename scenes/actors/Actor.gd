@@ -38,3 +38,36 @@ func bump():
 	$Anim.play("bump")
 	yield($Anim, "animation_finished")
 	set_process(true)
+	
+func get_rand_posible_dir():
+	var rand_pos
+	var posible_dir = get_posible_dir()
+	
+	if posible_dir != null:
+		rand_pos = randi() % posible_dir.size()
+		return posible_dir[rand_pos]
+	
+func get_posible_dir():
+	var pos_in_map = Grid.world_to_map(global_position)
+	var directions = [
+		Vector2(-1, 0),
+		Vector2(-1, -1),
+		Vector2(0, -1),
+		Vector2(1, -1), 
+		Vector2(1, 0), 
+		Vector2(1, 1), 
+		Vector2(0, 1), 
+		Vector2(-1, 1)
+	]
+	var posible_directions = []
+	
+	for dir in directions:
+		var new_pos = pos_in_map
+		new_pos.x += dir.x
+		new_pos.y += dir.y
+		
+		if Grid.get_cellv(new_pos) == -1:
+			posible_directions.append(dir)
+	
+	if posible_directions.size() > 0:
+		return posible_directions
