@@ -2,11 +2,15 @@
 
 extends "../Actor.gd"
 
+var turn_helper = preload("res://scenes/various/turn_helper/TurnHelper.tscn").instance()
+
 var character
 
 func _ready():
 	Grid.connect("can_move", self, "on_can_move")
 	Grid.connect("cant_move", self, "on_cant_move")
+	
+	add_child(turn_helper)
 	
 	# Random Skin for test
 	randomize()
@@ -42,8 +46,8 @@ func _process(delta):
 	# Si target no es nulo
 	if target_position:
 		move_to(target_position)
-#	else:
-#		bump()
+		
+	turn_helper.enemy_turn()
 
 func get_input_direction():
 	return Vector2(
@@ -59,7 +63,7 @@ func get_skin(num):
 	return skin
 	
 func attack(direction):
-	print("attack")
+	set_process(false)
 	
 	# Para testear
 	var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
@@ -70,6 +74,12 @@ func attack(direction):
 	
 	add_child(glove)
 	
+	yield(glove.get_node("Anim"), "animation_finished")
+	set_process(true)
+
+func turn():
+	pass
+
 func on_can_move(cell_type):
 	pass
 	

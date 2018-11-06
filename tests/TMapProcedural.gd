@@ -1,7 +1,7 @@
 extends Node
 
 var rec_player = preload("res://scenes/actors/players/Player.tscn")
-var rec_enemy = load("res://scenes/actors/enemies/Enemy.tscn")
+var rec_enemy = preload("res://scenes/actors/enemies/Enemy.tscn")
 
 func _ready():
 	var size_map = Vector2(100, 100)
@@ -21,7 +21,7 @@ func _ready():
 	$Spawn.player_spawn(my_player)
 	
 	# Generamos los enemigos
-	for i in 100:
+	for i in 50:
 		var inst_enemy = rec_enemy.instance()
 		inst_enemy.change_color()
 		$Spawn.enemy_spawn(inst_enemy)

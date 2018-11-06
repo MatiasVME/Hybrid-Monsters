@@ -12,6 +12,11 @@ func _ready():
 	
 #	set_values(null, random_skin)
 
+# Turno del enemigo
+func turn():
+	$Anim.play("bump")
+#	print("me muevo supuestamente")
+
 func change_color():
 	# TEMP
 	$Pivot/Sprite.material.set_shader_param("c_1", Color(1,0,0))

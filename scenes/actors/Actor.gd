@@ -10,7 +10,7 @@ func spawn():
 
 func move_to(target_position):
 	set_process(false)
-	$AnimationPlayer.play("walk")
+	$Anim.play("walk")
 
 	# Move the node to the target cell instantly,
 	# and animate the sprite moving from the start to the target cell
@@ -20,7 +20,7 @@ func move_to(target_position):
 		"position", 
 		-move_direction * 16, 
 		Vector2(), 
-		$AnimationPlayer.current_animation_length, 
+		$Anim.current_animation_length, 
 		Tween.TRANS_LINEAR, 
 		Tween.EASE_IN
 	)
@@ -29,12 +29,12 @@ func move_to(target_position):
 	$Tween.start()
 
 	# Stop the function execution until the animation finished
-	yield($AnimationPlayer, "animation_finished")
+	yield($Anim, "animation_finished")
 	
 	set_process(true)
 
 func bump():
 	set_process(false)
-	$AnimationPlayer.play("bump")
-	yield($AnimationPlayer, "animation_finished")
+	$Anim.play("bump")
+	yield($Anim, "animation_finished")
 	set_process(true)
