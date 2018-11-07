@@ -37,7 +37,7 @@ func move_or_attack():
 	if players_amount == 1:
 		# No hay que verificar la distancia
 		
-		var player_around = get_players_around(players_amount)
+		var player_around = get_players_around_dir(players_amount)
 		if player_around.size() == 1:
 			attack(player_around[0])
 		else:
@@ -62,7 +62,7 @@ func move_or_attack():
 	
 	pass
 
-func get_players_around(players_num):
+func get_players_around_dir(players_num):
 	if players_num == 0:
 		print("No hay jugadores en el mapa, como para que funcione is_player_around()")
 		return
@@ -73,11 +73,11 @@ func get_players_around(players_num):
 	
 	for dir in directions:
 		var search_pos = enemy_pos
-		enemy_pos.x += dir.x
-		enemy_pos.y += dir.y
+		search_pos.x += dir.x
+		search_pos.y += dir.y
 		
 		if Grid.get_cellv(search_pos) == Main.PLAYER:
-			player_positions.append(search_pos)
+			player_positions.append(dir)
 			
 			if players_num == 1:
 				return player_positions
@@ -97,7 +97,20 @@ func move_to_player(player):
 		random_move()
 
 func attack(player):
-	print(self, " te ataco: ", player)
+	var player_dir = get_players_around_dir(1)[0]
+	print("dir: ", player_dir)
+	
+	# Para testear
+	var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
+	var player_pos = player_dir * 16
+	glove.global_position = player_pos
+	glove.z_index = 1
+	glove.look_at(player_dir)
+	
+	add_child(glove)
+	
+	yield(glove.get_node("Anim"), "animation_finished")
+	set_process(true)
 
 func change_color():
 	# TEMP
