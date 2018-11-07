@@ -5,6 +5,17 @@ onready var Grid = get_parent()
 # Debe de ser un Main.CellType
 var type = Main.PLAYER
 
+var directions = [
+	Vector2(-1, 0),
+	Vector2(-1, -1),
+	Vector2(0, -1),
+	Vector2(1, -1), 
+	Vector2(1, 0), 
+	Vector2(1, 1), 
+	Vector2(0, 1), 
+	Vector2(-1, 1)
+]
+
 func spawn():
 	pass
 
@@ -49,16 +60,6 @@ func get_rand_posible_dir():
 	
 func get_posible_dir():
 	var pos_in_map = Grid.world_to_map(global_position)
-	var directions = [
-		Vector2(-1, 0),
-		Vector2(-1, -1),
-		Vector2(0, -1),
-		Vector2(1, -1), 
-		Vector2(1, 0), 
-		Vector2(1, 1), 
-		Vector2(0, 1), 
-		Vector2(-1, 1)
-	]
 	var posible_directions = []
 	
 	for dir in directions:

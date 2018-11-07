@@ -17,10 +17,10 @@ func _ready():
 # Turno del enemigo
 func turn():
 	if follow_player:
-		$Anim.play("bump")
+#		$Anim.play("bump")
+		move_or_attack()
 	else:
 		random_move()
-#	print("me muevo supuestamente")
 
 func random_move():
 	var rand_dir = .get_rand_posible_dir()
@@ -29,8 +29,75 @@ func random_move():
 		var target_pos = Grid.request_move(self, rand_dir)
 		move_to(target_pos)
 	
-func move_to_player():
+func move_or_attack():
+	# Busca el player mas cercano
+	var players = get_tree().get_nodes_in_group("Player")
+	var players_amount = players.size()
+	
+	if players_amount == 1:
+		# No hay que verificar la distancia
+		
+		var player_around = get_players_around(players_amount)
+		if player_around.size() == 1:
+			attack(player_around[0])
+		else:
+			move_to_player(players[0])
+	elif players_amount > 1:
+		# Hay que verficiar la distancia
+		pass
+	else:
+		# No hay players
+		return
+		
+	
+#	if player.global_position.distance_to():
+#		pass
+	
+	var player
+	
+	# Verifica si esta alrededor de el
+	
+	# Si esta alrededor lo atack, sino
+	# se mueve hacia el
+	
 	pass
+
+func get_players_around(players_num):
+	if players_num == 0:
+		print("No hay jugadores en el mapa, como para que funcione is_player_around()")
+		return
+	
+	var enemy_pos = Grid.world_to_map(global_position)
+	# Puede haber mas de un player atacando
+	var player_positions = []
+	
+	for dir in directions:
+		var search_pos = enemy_pos
+		enemy_pos.x += dir.x
+		enemy_pos.y += dir.y
+		
+		if Grid.get_cellv(search_pos) == Main.PLAYER:
+			player_positions.append(search_pos)
+			
+			if players_num == 1:
+				return player_positions
+			
+	return player_positions
+
+func move_to_player(player):
+	var dir = (player.global_position - global_position).normalized()
+	dir = Vector2(int(round(dir.x)), int(round(dir.y)))
+	
+	# Ver si en la dirección hay murallas 
+	var new_pos = Grid.request_move(self, dir)
+	
+	if new_pos != null:
+		.move_to(new_pos)
+	else:
+		random_move()
+
+func attack(player):
+	print(self, " te ataco: ", player)
 
 func change_color():
 	# TEMP
