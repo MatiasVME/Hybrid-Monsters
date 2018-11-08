@@ -63,9 +63,9 @@ func get_skin(num):
 	return skin
 	
 func attack(direction):
-	.attack()
-	
 	set_process(false)
+	
+	.attack()
 		
 	# Para testear
 	var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
@@ -78,7 +78,10 @@ func attack(direction):
 	
 	yield(glove.get_node("Anim"), "animation_finished")
 	set_process(true)
-	
+
+func damage(damage):
+	$Anim.play("damage")
+
 func turn():
 	pass
 	

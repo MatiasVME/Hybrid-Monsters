@@ -12,7 +12,9 @@ const DATA_VERSION = 0
 # usar solo en casos de que se requiera forzadamente.
 const DELETE_DATA = 0 #
 
-func _ready():	
+func _ready():
+	DataManager.load_data()
+	
 	# Tiene DELETE_DATA
 	if DataManager.data.has("DeleteData"):
 		# Si la DELETE_DATA es diferente
@@ -34,7 +36,7 @@ func _ready():
 			elif not DataManager.data["AcceptPrivacyPolicy"]:
 				Main.is_first_time = true
 			else:
-				all_data_config()
+				create_data_if_not_exist()
 	# No hay DataVersion es un nuevo usuario
 	else:
 		DataManager.data["DeleteData"] = DELETE_DATA
@@ -43,14 +45,13 @@ func _ready():
 			DataManager.data["AcceptPrivacyPolicy"] = false
 			Main.is_first_time = true
 		elif DataManager.data["AcceptPrivacyPolicy"] == true:
-			all_data_config()
+			create_data_if_not_exist()
 	
 	DataManager.Persistence.save_data()
 	debug_rpg_elements()
 
 func debug_rpg_elements():
 	pass
-#	stats.debug = Main.DEBUG
 
 func create_data_if_not_exist():
 	# Si la data no existe (No tiene DataVersion)
@@ -71,6 +72,7 @@ func create_data(data_version):
 	DataManager.Persistence.save_data()
 	
 func data_version_1():
+#	DataManager.data = 
 	pass
 	
 #func data_version_2():

@@ -44,7 +44,7 @@ func move_or_attack():
 		
 		var player_around = get_players_around_dir(players_amount)
 		if player_around.size() == 1:
-			attack(player_around[0])
+			attack(players[0])
 		else:
 			move_to_player(players[0])
 	elif players_amount > 1:
@@ -56,6 +56,8 @@ func move_or_attack():
 		
 func config_hm_character():
 	character = EnemyGenerator.get_random_enemy_character()
+	
+	character.connect("remove_hp", self, "_on_remove_hp")
 	
 func get_players_around_dir(players_num):
 	if players_num == 0:
@@ -93,7 +95,6 @@ func move_to_player(player):
 
 func attack(player):
 	var player_dir = get_players_around_dir(1)[0]
-	print("dir: ", player_dir)
 	
 	# Para testear
 	var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
@@ -104,7 +105,9 @@ func attack(player):
 	
 	add_child(glove)
 	
+#	player.damage(character.get_attack())
 	yield(glove.get_node("Anim"), "animation_finished")
+	
 	set_process(true)
 
 func change_color():
@@ -123,6 +126,12 @@ func get_skin(num):
 	
 	var skin = load(str("res://scenes/actors/enemies/skin/", str(num),".png"))
 	return skin
+
+# Signals
+#
+
+func _on_remove_hp(amount):
+	damage()
 
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
