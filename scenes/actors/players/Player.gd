@@ -63,6 +63,8 @@ func get_skin(num):
 	return skin
 	
 func attack(direction):
+	.attack()
+	
 	set_process(false)
 		
 	# Para testear
@@ -76,20 +78,16 @@ func attack(direction):
 	
 	yield(glove.get_node("Anim"), "animation_finished")
 	set_process(true)
-
+	
 func turn():
 	pass
-
+	
 func on_can_move(cell_type):
 	pass
 	
 func on_cant_move(pawn, cell_dest_type, direction):
 	if pawn.type != Main.PLAYER:
 		return
-	
-#	print("cell_type: ", cell_dest_type)
-#	print("direction: ", direction)
-#	print("get_used_cells_by_id(): ", Grid.get_used_cells_by_id(Main.ENEMY).size())
 	
 	match cell_dest_type:
 		Main.OBSTACLE:

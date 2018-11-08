@@ -32,6 +32,8 @@ func player_spawn(player):
 		player.global_position.x += 8
 		player.global_position.y += 8
 		current_tilemap.add_child(player)
+		
+		player.spawn()
 
 func enemy_spawn(enemy):
 	if empty_positions.size() > 0:
@@ -52,3 +54,5 @@ func enemy_spawn(enemy):
 		
 		# Añadir el tipo a la celda
 		current_tilemap.set_cellv(rand_empty_position, Main.ENEMY)
+		
+		enemy.spawn()

@@ -2,24 +2,35 @@ extends Node2D
 
 onready var Grid = get_parent()
 
+signal move
+signal attack
+signal spawn
+
 # Debe de ser un Main.CellType
 var type = Main.PLAYER
 
 var directions = [
 	Vector2(-1, 0),
-	Vector2(-1, -1),
+#	Vector2(-1, -1),
 	Vector2(0, -1),
-	Vector2(1, -1), 
+#	Vector2(1, -1), 
 	Vector2(1, 0), 
-	Vector2(1, 1), 
-	Vector2(0, 1), 
-	Vector2(-1, 1)
+#	Vector2(1, 1), 
+	Vector2(0, 1) 
+#	Vector2(-1, 1)
 ]
 
 func spawn():
-	pass
+	emit_signal("spawn")
+	
+	$Anim.play("spawn")
+
+func attack():
+	emit_signal("attack")
 
 func move_to(target_position):
+	emit_signal("move")
+	
 	set_process(false)
 	$Anim.play("walk")
 

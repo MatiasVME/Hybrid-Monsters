@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scenes/buttons/play/Play.tscn" type="PackedScene" id=1]
-[ext_resource path="res://fonts/nokia/main_title-nokia-24.tres" type="DynamicFont" id=2]
-[ext_resource path="res://scenes/buttons/info/Info.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/main_screens/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/buttons/play/Play.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/nokia/main_title-nokia-24.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/buttons/info/Info.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -36,9 +37,11 @@ tracks/1/keys = {
 "values": [ -9.5, -12.0, -6.5, -9.5 ]
 }
 
-[node name="MainMenu" type="Node2D" index="0"]
+[node name="MainMenu" type="Node2D"]
 
-[node name="Play" parent="." index="0" instance=ExtResource( 1 )]
+script = ExtResource( 1 )
+
+[node name="Play" parent="." index="0" instance=ExtResource( 2 )]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -67,7 +70,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.352941, 0.772549, 0.309804, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Monsters"
@@ -94,7 +97,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0.596078, 0.862745, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Hybrid"
@@ -105,7 +108,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Info" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Info" parent="." index="3" instance=ExtResource( 4 )]
 
 margin_left = 200.0
 margin_top = 8.0
@@ -130,7 +133,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0.596078, 0.862745, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0.1.0"
@@ -149,5 +152,7 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/idle = SubResource( 1 )
 blend_times = [  ]
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 
 

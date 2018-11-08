@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/various/random_name_generator/RandomNameGenerator.gd" type="Script" id=1]
+[ext_resource path="res://scenes/autoloads/random_name_generator/RandomNameGenerator.gd" type="Script" id=1]
+
 
 [node name="RandomNameGenerator" type="Node" index="0"]
 

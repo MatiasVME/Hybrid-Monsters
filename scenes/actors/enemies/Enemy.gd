@@ -2,6 +2,8 @@
 
 extends "../Actor.gd"
 
+var character
+
 var follow_player = false
 
 func _ready():
@@ -11,6 +13,9 @@ func _ready():
 	$Pivot/Sprite.texture = get_skin(random_skin)
 	
 	type = Main.ENEMY
+	
+	# Configura el character con datos aleatorios
+	config_hm_character()
 	
 #	set_values(null, random_skin)
 
@@ -49,19 +54,9 @@ func move_or_attack():
 		# No hay players
 		return
 		
+func config_hm_character():
+	character = EnemyGenerator.get_random_enemy_character()
 	
-#	if player.global_position.distance_to():
-#		pass
-	
-	var player
-	
-	# Verifica si esta alrededor de el
-	
-	# Si esta alrededor lo atack, sino
-	# se mueve hacia el
-	
-	pass
-
 func get_players_around_dir(players_num):
 	if players_num == 0:
 		print("No hay jugadores en el mapa, como para que funcione is_player_around()")

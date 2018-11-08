@@ -24,7 +24,7 @@
 tool
 extends "RPGElement.gd"
 
-export (String) var player_name setget set_player_name, get_player_name
+export (String) var character_name setget set_character_name, get_character_name
 
 export (int) var level = 1 setget get_level
 export (int) var level_max = 30 setget get_level_max, set_level_max
@@ -39,6 +39,7 @@ export (int) var max_energy = 20 setget set_max_energy, get_max_energy
 export (int) var defense_rate = 0 setget set_defense_rate, get_defense_rate
 # TODO: Implementar escudo
 # export (int) var shield
+export (int) var attack = 1 setget set_attack, get_attack
 
 var xp = 0
 var xp_required = get_xp_required(level + 1)
@@ -230,11 +231,11 @@ func get_level_max():
 func set_level_max(_level_max):
 	level_max = _level_max
 
-func set_player_name(_player_name):
-	player_name = _player_name
+func set_character_name(_character_name):
+	character_name = _character_name
 	
-func get_player_name():
-	return player_name
+func get_character_name():
+	return character_name
 	
 func set_hp(_hp):
 	hp = _hp
@@ -282,6 +283,12 @@ func set_defense_rate(_defense):
 	
 func get_defense_rate():
 	return defense_rate
+
+func set_attack(_attack):
+	attack = _attack
+	
+func get_attack():
+	return attack
 
 # Métodos "Privados"
 #

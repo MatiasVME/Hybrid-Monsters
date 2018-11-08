@@ -21,11 +21,10 @@ func request_move(pawn, direction):
 #			print("empty or floor")
 			return update_pawn_position(pawn.type, cell_start, cell_target)
 		Main.OBSTACLE, Main.ENEMY:
-			print("OBSTACLE")
+#			print("OBSTACLE")
 			emit_signal("cant_move", pawn, cell_target_type, direction)
 	
 func update_pawn_position(pawn_type, cell_start, cell_target):
-#	print(pawn_type)
 	set_cellv(cell_target, pawn_type)
 	set_cellv(cell_start, Main.EMPTY)
 	

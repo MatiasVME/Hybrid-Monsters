@@ -26,9 +26,9 @@ func generate_random_player():
 #
 
 func generate_player():
-	var player = $HMRPGHelper.get_hm_inst_character()
+	var player = HMRPGHelper.get_hm_inst_character()
 	
-	player.player_name = $RandomNameGenerator.generate()
+	player.character_name = RandomNameGenerator.generate()
 	player.level_max = 20
 	player.hp = 10
 	player.max_hp = 10
