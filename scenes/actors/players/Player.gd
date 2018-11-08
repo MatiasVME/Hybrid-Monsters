@@ -76,7 +76,24 @@ func attack(direction):
 	
 	add_child(glove)
 	
+	print("direction: ", direction)
+	
+	# Daño al enemigo
+	for dir in $Around.get_children():
+		print(dir.cast_to)
+		if dir.cast_to == direction:
+			var enemy = dir.get_collider()
+			print("collider: ", enemy)
+			
+			if enemy:
+				enemy.get_parent().damage(
+					DataManager.players[Main.current_player].attack
+				)
+				print("OKKKKKKKKKK!: ", inst2dict(enemy))
+				break
+	
 	yield(glove.get_node("Anim"), "animation_finished")
+
 	set_process(true)
 
 func damage(damage):

@@ -3,6 +3,8 @@ extends TileMap
 # Se emite esta señal cuando se puede mover
 signal can_move(cell_type)
 # Emite esta seña cuando no se puede mover
+# who: es quien no se puede mover
+# why: es por que, (quién esta ahí)
 signal cant_move(who, cell_dest_type, direction)
 
 func get_cell_pawn(coordinates):

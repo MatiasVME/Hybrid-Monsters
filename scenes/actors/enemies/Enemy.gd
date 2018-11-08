@@ -110,6 +110,15 @@ func attack(player):
 	
 	set_process(true)
 
+# Recibe daño
+func damage(amount):
+	print("damage: ", amount)
+	
+	# Si existe character
+	if character:
+		character.damage(amount)
+		$Anim.play("damage")
+
 func change_color():
 	# TEMP
 	$Pivot/Sprite.material.set_shader_param("c_1", Color(1,0,0))
@@ -131,7 +140,8 @@ func get_skin(num):
 #
 
 func _on_remove_hp(amount):
-	damage()
+	print(amount)
+	print("current_hp", character.hp)
 
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):

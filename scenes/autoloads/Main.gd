@@ -32,3 +32,6 @@ enum CellTypes {
 }
 
 var is_first_time = false
+
+# Player con el cual se esta jugando actualmente
+var current_player = 0

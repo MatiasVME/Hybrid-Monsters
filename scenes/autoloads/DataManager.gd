@@ -27,14 +27,13 @@ func load_players(folder, file):
 	load_data(folder, file)
 	
 	if data.has("Players"):
-		for i in players.size():
-			players.append(dict2inst(Main.data["Players"][i]))
-		print("=o, player cargado")
+		for i in data["Players"].size():
+			players.append(dict2inst(data["Players"][i]))
 	else:
 		players.append(HMRPGHelper.get_hm_inst_character())
+		save_players(folder, file)
 	
-#	print("pepito: ", data)
-#	save_players(folder, file)
+	print("players: ", players)
 
 # Guardar las instancias a diccionario
 func save_players(folder, file):
