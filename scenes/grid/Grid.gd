@@ -12,6 +12,10 @@ func get_cell_pawn(coordinates):
 		if world_to_map(node.position) == coordinates:
 			return(node)
 
+func remove_actor(pawn):
+	var cell = world_to_map(pawn.global_position)
+	set_cellv(cell, Main.EMPTY)
+
 func request_move(pawn, direction):
 	var cell_start = world_to_map(pawn.global_position)
 	var cell_target = cell_start + direction

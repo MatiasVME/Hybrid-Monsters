@@ -86,7 +86,7 @@ func attack(direction):
 			print("collider: ", enemy)
 			
 			if enemy:
-				enemy.get_parent().damage(
+				enemy.damage(
 					DataManager.players[Main.current_player].attack
 				)
 				print("OKKKKKKKKKK!: ", inst2dict(enemy))

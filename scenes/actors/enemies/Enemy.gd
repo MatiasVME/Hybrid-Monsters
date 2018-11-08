@@ -5,6 +5,7 @@ extends "../Actor.gd"
 var character
 
 var follow_player = false
+var is_mark_to_dead = false
 
 func _ready():
 	# Random Skin for test
@@ -21,6 +22,9 @@ func _ready():
 
 # Turno del enemigo
 func turn():
+	if is_mark_to_dead:
+		return
+	
 	if follow_player:
 #		$Anim.play("bump")
 		move_or_attack()
@@ -28,6 +32,9 @@ func turn():
 		random_move()
 
 func random_move():
+	if is_mark_to_dead:
+		return
+	
 	var rand_dir = .get_rand_posible_dir()
 	
 	if rand_dir != null:
@@ -35,6 +42,9 @@ func random_move():
 		move_to(target_pos)
 	
 func move_or_attack():
+	if is_mark_to_dead:
+		return
+	
 	# Busca el player mas cercano
 	var players = get_tree().get_nodes_in_group("Player")
 	var players_amount = players.size()
@@ -58,8 +68,12 @@ func config_hm_character():
 	character = EnemyGenerator.get_random_enemy_character()
 	
 	character.connect("remove_hp", self, "_on_remove_hp")
+	character.connect("dead", self, "_on_dead")
 	
 func get_players_around_dir(players_num):
+	if is_mark_to_dead:
+		return
+	
 	if players_num == 0:
 		print("No hay jugadores en el mapa, como para que funcione is_player_around()")
 		return
@@ -82,6 +96,9 @@ func get_players_around_dir(players_num):
 	return player_positions
 
 func move_to_player(player):
+	if is_mark_to_dead:
+		return
+	
 	var dir = (player.global_position - global_position).normalized()
 	dir = Vector2(int(round(dir.x)), int(round(dir.y)))
 	
@@ -94,6 +111,9 @@ func move_to_player(player):
 		random_move()
 
 func attack(player):
+	if is_mark_to_dead:
+		return
+		
 	var player_dir = get_players_around_dir(1)[0]
 	
 	# Para testear
@@ -112,12 +132,12 @@ func attack(player):
 
 # Recibe daño
 func damage(amount):
-	print("damage: ", amount)
-	
+	if is_mark_to_dead:
+		return
+		
 	# Si existe character
 	if character:
 		character.damage(amount)
-		$Anim.play("damage")
 
 func change_color():
 	# TEMP
@@ -140,8 +160,15 @@ func get_skin(num):
 #
 
 func _on_remove_hp(amount):
-	print(amount)
-	print("current_hp", character.hp)
+	if is_mark_to_dead:
+		return
+		
+	$Anim.play("damage")
+	
+func _on_dead():
+	is_mark_to_dead = true
+	Grid.remove_actor(self)
+	$Anim.play("dead")
 
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
@@ -150,3 +177,7 @@ func _on_ViewArea_area_entered(area):
 func _on_ViewArea_area_exited(area):
 	if area.get_parent().is_in_group("Player"):
 		follow_player = false
+
+func _on_Anim_animation_finished(anim_name):
+	if anim_name == "dead":
+		queue_free()
