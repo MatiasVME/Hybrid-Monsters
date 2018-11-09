@@ -72,6 +72,13 @@ signal no_energy
 
 func _ready():
 	# Señales si esta en modo debug
+	connect_debug_signals()
+#		connect("", self, "_on_")
+
+# Métodos Públicos
+#
+
+func connect_debug_signals():
 	if debug:
 		connect("level_up", self, "_on_level_up")
 		connect("add_xp", self, "_on_add_xp")
@@ -84,10 +91,6 @@ func _ready():
 		connect("remove_energy", self, "_on_remove_energy")
 		connect("full_energy", self, "_on_full_energy")
 		connect("no_energy", self, "_on_no_energy")
-#		connect("", self, "_on_")
-
-# Métodos Públicos
-#
 
 func add_xp(amount):
 	if level >= level_max:
@@ -155,11 +158,10 @@ func remove_hp(_hp):
 		
 		hp = 0
 		
-		# Previene que muera más de una vez
+		# Previene que no muera más de una vez
 		if not is_dead:
+			is_dead = true
 			emit_signal("dead")
-		
-		is_dead = true
 
 func revive():
 	if not is_dead:

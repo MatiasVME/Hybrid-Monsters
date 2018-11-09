@@ -5,6 +5,8 @@ extends "../Actor.gd"
 var character
 
 var follow_player = false
+# XP que vota el enemigo cuando muere
+var xp_drop = 20
 
 func _ready():
 	# Random Skin for test
@@ -168,6 +170,10 @@ func _on_dead():
 	is_mark_to_dead = true
 	Grid.remove_actor(self)
 	$Anim.play("dead")
+	
+	# En un futuro esto tiene que cambiar cuando se tenga
+	# mas de un player
+	DataManager.players[0].add_xp(xp_drop)
 
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):

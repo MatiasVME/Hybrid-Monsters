@@ -32,6 +32,7 @@ script = ExtResource( 2 )
 [node name="Sprite" parent="Pivot" index="0"]
 
 material = SubResource( 1 )
+position = Vector2( 3.57628e-07, -3.57628e-07 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility" ]
 
 [node name="ViewArea" type="Area2D" parent="." index="3"]

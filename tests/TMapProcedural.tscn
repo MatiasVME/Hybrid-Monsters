@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/various/camera/Camera.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/various/spawns/Spawn.tscn" type="PackedScene" id=8]
 
-[node name="TMapProcedural" type="Node"]
+[node name="TMapProcedural" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

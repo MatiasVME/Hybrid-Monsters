@@ -35,3 +35,10 @@ var is_first_time = false
 
 # Player con el cual se esta jugando actualmente
 var current_player = 0
+
+func init_game():
+#	DataManager.players[0].restore_hp()
+	DataManager.players[0].revive()
+	
+func exit_game():
+	pass

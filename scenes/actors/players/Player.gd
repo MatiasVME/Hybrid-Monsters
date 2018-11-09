@@ -97,6 +97,8 @@ func config_character():
 	# solo player.
 	DataManager.players[0].connect("remove_hp", self, "_on_remove_hp")
 	DataManager.players[0].connect("dead", self, "_on_dead")
+	DataManager.players[0].connect("level_up", self, "_on_level_up")
+	DataManager.players[0].connect("add_xp", self, "_on_add_xp")
 
 func damage(damage):
 	$Anim.play("damage")
@@ -126,3 +128,19 @@ func _on_dead():
 	is_mark_to_dead = true
 	Grid.remove_actor(self)
 	$Anim.play("dead")
+	
+	DataManager.save_players(DataManager.current_user, DataManager.current_user)
+
+func _on_level_up(current_level):
+	DataManager.players[0].hp += 2
+	DataManager.players[0].max_hp += 2
+
+	var effect_level_up = load("res://scenes/effects/level_up/LevelUp.tscn").instance()
+	add_child(effect_level_up)
+	
+	DataManager.save_players(DataManager.current_user, DataManager.current_user)
+	
+func _on_add_xp(amount):
+	print("xp_add: ", amount)
+	print("xp_requerida: ", DataManager.players[0].get_xp_required(DataManager.players[0].get_level() + 1))
+	print("level: ", DataManager.players[0].get_level())

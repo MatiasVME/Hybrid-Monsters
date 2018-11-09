@@ -28,3 +28,9 @@ func _ready():
 	
 	$Camera.set_focus(my_player)
 	$Camera.current = true
+	
+	DataManager.players[0].debug = true
+	DataManager.players[0].connect_debug_signals()
+	Main.init_game()
+	
+	print("hp del player", DataManager.players[0].hp)
