@@ -5,7 +5,6 @@ extends "../Actor.gd"
 var character
 
 var follow_player = false
-var is_mark_to_dead = false
 
 func _ready():
 	# Random Skin for test
@@ -125,7 +124,7 @@ func attack(player):
 	
 	add_child(glove)
 	
-#	player.damage(character.get_attack())
+	player.damage(character.get_attack())
 	yield(glove.get_node("Anim"), "animation_finished")
 	
 	set_process(true)

@@ -20,6 +20,8 @@ var directions = [
 #	Vector2(-1, 1)
 ]
 
+var is_mark_to_dead = false
+
 func spawn():
 	emit_signal("spawn")
 	

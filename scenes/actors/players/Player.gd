@@ -16,8 +16,10 @@ func _ready():
 	randomize()
 	var random_skin = int(round(rand_range(1, Main.SKIN_PLAYER_AMOUNT)))
 	
-	set_values(null, random_skin)
-
+	$Pivot/Sprite.texture = get_skin(random_skin)
+	
+	config_character()
+	
 	# TEMP
 	$Pivot/Sprite.material.set_shader_param("c_1", Color(1,0,0))
 	$Pivot/Sprite.material.set_shader_param("c_2", Color(0,1,0))
@@ -31,13 +33,11 @@ func _ready():
 	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element_random())
 	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element_random())
 	
-	
-func set_values(hmcharacter, skin_num):
-	character = hmcharacter
-
-	$Pivot/Sprite.texture = get_skin(skin_num)
 
 func _process(delta):
+	if is_mark_to_dead:
+		return
+	
 	var input_direction = get_input_direction()
 	if not input_direction:
 		return
@@ -76,28 +76,32 @@ func attack(direction):
 	
 	add_child(glove)
 	
-	print("direction: ", direction)
-	
 	# Daño al enemigo
 	for dir in $Around.get_children():
 		print(dir.cast_to)
 		if dir.cast_to == direction:
 			var enemy = dir.get_collider()
-			print("collider: ", enemy)
 			
 			if enemy:
 				enemy.damage(
 					DataManager.players[Main.current_player].attack
 				)
-				print("OKKKKKKKKKK!: ", inst2dict(enemy))
 				break
 	
 	yield(glove.get_node("Anim"), "animation_finished")
-
+	
 	set_process(true)
+	
+func config_character():
+	# Esto debe cambiar en un futuro ya que no solo existirá un
+	# solo player.
+	DataManager.players[0].connect("remove_hp", self, "_on_remove_hp")
+	DataManager.players[0].connect("dead", self, "_on_dead")
 
 func damage(damage):
 	$Anim.play("damage")
+	DataManager.players[0].damage(damage)
+	print("damage: ", damage)
 
 func turn():
 	pass
@@ -114,3 +118,11 @@ func on_cant_move(pawn, cell_dest_type, direction):
 			bump()
 		Main.ENEMY:
 			attack(direction)
+	
+func _on_remove_hp(amount):
+	print("HP: ", DataManager.players[0].hp, "/", DataManager.players[0].max_hp)
+	
+func _on_dead():
+	is_mark_to_dead = true
+	Grid.remove_actor(self)
+	$Anim.play("dead")

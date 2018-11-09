@@ -23,7 +23,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 56.0
 
-[node name="Enemy" index="0" groups=[
+[node name="Enemy" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
 
@@ -50,8 +50,6 @@ audio_bus_name = "Master"
 shape = SubResource( 2 )
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
-
-[connection signal="animation_started" from="Anim" to="." method="_on_Anim_animation_started"]
 
 [connection signal="area_entered" from="ViewArea" to="." method="_on_ViewArea_area_entered"]
 
