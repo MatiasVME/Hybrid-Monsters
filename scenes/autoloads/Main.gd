@@ -38,7 +38,10 @@ var current_player = 0
 
 func init_game():
 #	DataManager.players[0].restore_hp()
-	DataManager.players[0].revive()
+	if DataManager.players[0].is_dead:
+		DataManager.players[0].revive()
+	else:
+		DataManager.players[0].restore_hp()
 	
 func exit_game():
 	pass

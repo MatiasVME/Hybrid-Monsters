@@ -2,6 +2,8 @@
 
 extends "../Actor.gd"
 
+var HUD # Necesita ser seteado
+
 var turn_helper = preload("res://scenes/various/turn_helper/TurnHelper.tscn").instance()
 
 var character
@@ -48,6 +50,11 @@ func _process(delta):
 		move_to(target_position)
 		
 	turn_helper.enemy_turn()
+
+func set_hud(_hud):
+	HUD = _hud
+	
+	HUD.get_node("Status").update_all_status()
 
 func get_input_direction():
 	return Vector2(
@@ -103,8 +110,7 @@ func config_character():
 func damage(damage):
 	$Anim.play("damage")
 	DataManager.players[0].damage(damage)
-	print("damage: ", damage)
-
+	
 func turn():
 	pass
 	
@@ -124,6 +130,9 @@ func on_cant_move(pawn, cell_dest_type, direction):
 func _on_remove_hp(amount):
 	print("HP: ", DataManager.players[0].hp, "/", DataManager.players[0].max_hp)
 	
+	if HUD:
+		HUD.get_node("Status").update_hp_progress()
+	
 func _on_dead():
 	is_mark_to_dead = true
 	Grid.remove_actor(self)
@@ -134,8 +143,14 @@ func _on_dead():
 func _on_level_up(current_level):
 	DataManager.players[0].hp += 2
 	DataManager.players[0].max_hp += 2
+	
+	if int(current_level) % 3 == 0:
+		DataManager.players[0].attack += 1
+		print("=o attack=",DataManager.players[0].attack)
 
 	var effect_level_up = load("res://scenes/effects/level_up/LevelUp.tscn").instance()
+	effect_level_up.position.x += 8
+	effect_level_up.position.y -= 8
 	add_child(effect_level_up)
 	
 	DataManager.save_players(DataManager.current_user, DataManager.current_user)
@@ -144,3 +159,7 @@ func _on_add_xp(amount):
 	print("xp_add: ", amount)
 	print("xp_requerida: ", DataManager.players[0].get_xp_required(DataManager.players[0].get_level() + 1))
 	print("level: ", DataManager.players[0].get_level())
+	
+	if HUD:
+		print("update------------------")
+		HUD.get_node("Status").update_xp_progress()

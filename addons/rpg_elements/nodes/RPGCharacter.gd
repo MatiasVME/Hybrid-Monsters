@@ -96,9 +96,7 @@ func add_xp(amount):
 	if level >= level_max:
 		.debug("Esta en el máximo nivel, la experiencia no fue añadida")
 		return
-	
-	emit_signal("add_xp", amount)
-	
+
 	xp_total += amount
 	xp += amount
 	
@@ -109,6 +107,8 @@ func add_xp(amount):
 			level_up()
 		else:
 			break
+	
+	emit_signal("add_xp", amount)
 
 func level_up():
 	level += 1

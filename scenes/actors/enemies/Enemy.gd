@@ -6,7 +6,7 @@ var character
 
 var follow_player = false
 # XP que vota el enemigo cuando muere
-var xp_drop = 20
+var xp_drop = 5
 
 func _ready():
 	# Random Skin for test

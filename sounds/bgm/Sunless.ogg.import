@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sunless.ogg-44457f697099a255a75037092f2372a6.oggstr"
+
+[deps]
+
+source_file="res://sounds/bgm/Sunless.ogg"
+dest_files=[ "res://.import/Sunless.ogg-44457f697099a255a75037092f2372a6.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

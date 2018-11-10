@@ -33,4 +33,7 @@ func _ready():
 	DataManager.players[0].connect_debug_signals()
 	Main.init_game()
 	
+	# Añadimos el hud al final para que actualice los datos
+	my_player.set_hud($HUD)
+	
 	print("hp del player", DataManager.players[0].hp)

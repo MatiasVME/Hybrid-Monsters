@@ -17,7 +17,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.4, 1.5 ),
 "transitions": PoolRealArray( 1, 0.25, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -8 ) ]
@@ -41,7 +41,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.4, 0.6 ),
+"times": PoolRealArray( 0, 0.4, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -71,7 +71,7 @@ blend_times = [  ]
 [node name="Audio" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 3 )
-volume_db = 0.0
+volume_db = -20.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
