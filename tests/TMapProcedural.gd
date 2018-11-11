@@ -14,6 +14,8 @@ func _ready():
 		size_map,
 		true
 	)
+	
+	$CaveGenerator.add_border(2)
 
 	var my_player = rec_player.instance()
 
@@ -26,9 +28,18 @@ func _ready():
 		var inst_enemy = rec_enemy.instance()
 		inst_enemy.change_color()
 		$Spawn.enemy_spawn(inst_enemy)
+
+		# Hacemos que no spawneen cerca del player
+		if my_player.global_position.distance_to(inst_enemy.global_position) <= 16 * 8:
+			print("El enemigo spawneo muy cerca, será eliminado")
+			$World.remove_actor(inst_enemy)
+#			is_mark_to_dead = true
+			inst_enemy.queue_free()
 	
 	$Camera.set_focus(my_player)
 	$Camera.current = true
+	$Camera.limit_right = size_map.x * 16
+	$Camera.limit_bottom = size_map.y * 16
 	
 	DataManager.players[0].debug = true
 	DataManager.players[0].connect_debug_signals()

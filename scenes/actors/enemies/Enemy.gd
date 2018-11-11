@@ -27,11 +27,13 @@ func _ready():
 	players = get_tree().get_nodes_in_group("Player")
 	
 	# Si esta cerca de un player al inicio se remueve
-	for player in players:
-		if player.global_position.distance_to(global_position) <= 16 * 8:
-			print("El enemigo spawneo muy cerca, será eliminado")
-			Grid.remove_actor(self)
-			queue_free()
+#	for player in players:
+#		if player.global_position.distance_to(global_position) <= 16 * 8:
+#			print("El enemigo spawneo muy cerca, será eliminado")
+#			Grid.remove_actor(self)
+##			is_mark_to_dead = true
+#			queue_free()
+#			$Anim.play("dead")
 
 # Turno del enemigo
 func turn():

@@ -26,6 +26,7 @@ enum CellTypes {
 	EMPTY = -1,
 	FLOOR,
 	OBSTACLE,
+	INDESTRUCTIBLE,
 	PLAYER,
 	ENEMY,
 	OBJECT

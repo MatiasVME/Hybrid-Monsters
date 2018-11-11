@@ -22,7 +22,7 @@ var directions = [
 
 var is_mark_to_dead = false
 
-func spawn():
+func spawn():	
 	emit_signal("spawn")
 	
 	$Anim.play("spawn")

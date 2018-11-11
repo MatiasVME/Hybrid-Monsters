@@ -63,7 +63,13 @@ func generate_floor_map(tilemap, sizev):
 				tilemap.set_cellv(Vector2(j, i), rand_range(1, tile_type_amount))
 			else:
 				tilemap.set_cellv(Vector2(j, i), 0)
-	
+
+func add_border(border_tile_num):
+	for i in size.y:
+		for j in size.x:
+			if j == 0 or i == 0 or j == size.y - 1 or i == size.x - 1:
+				tilemap.set_cellv(Vector2(i, j), border_tile_num)
+
 func smooth():
 	# new map to apply changes
 	var new_map = []

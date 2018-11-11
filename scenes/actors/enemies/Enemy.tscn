@@ -23,7 +23,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 56.0
 
-[node name="Enemy" index="0" groups=[
+[node name="Enemy" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
 
@@ -37,7 +37,6 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibili
 
 [node name="ViewArea" type="Area2D" parent="." index="3"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
