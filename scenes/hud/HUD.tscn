@@ -253,6 +253,7 @@ _sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
 [node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 8 )]
 
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -268,6 +269,7 @@ text = "RESUME"
 
 [node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 8 )]
 
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

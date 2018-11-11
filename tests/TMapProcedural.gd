@@ -18,6 +18,7 @@ func _ready():
 	var my_player = rec_player.instance()
 
 	$Spawn.set_current_tilemap($World, size_map)
+	# Primero debe spawnear el player antes de los enemigos
 	$Spawn.player_spawn(my_player)
 	
 	# Generamos los enemigos

@@ -8,6 +8,8 @@ var follow_player = false
 # XP que vota el enemigo cuando muere
 var xp_drop = 5
 
+var players
+
 func _ready():
 	# Random Skin for test
 	randomize()
@@ -20,6 +22,16 @@ func _ready():
 	config_hm_character()
 	
 #	set_values(null, random_skin)
+	
+	# Obtenemos los players para acceder a ellos más fácilmente
+	players = get_tree().get_nodes_in_group("Player")
+	
+	# Si esta cerca de un player al inicio se remueve
+	for player in players:
+		if player.global_position.distance_to(global_position) <= 16 * 8:
+			print("El enemigo spawneo muy cerca, será eliminado")
+			Grid.remove_actor(self)
+			queue_free()
 
 # Turno del enemigo
 func turn():
@@ -46,8 +58,6 @@ func move_or_attack():
 	if is_mark_to_dead:
 		return
 	
-	# Busca el player mas cercano
-	var players = get_tree().get_nodes_in_group("Player")
 	var players_amount = players.size()
 	
 	if players_amount == 1:
