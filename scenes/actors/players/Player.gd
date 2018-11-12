@@ -152,8 +152,11 @@ func on_cant_move(pawn, cell_dest_type, direction):
 		Main.ENEMY:
 			attack(direction)
 		Main.CAVE:
+			set_process(false)
 			HUD.win()
-	
+			yield(HUD.get_node("AnimWinLost"), "animation_finished")
+			set_process(true)
+			
 func _on_remove_hp(amount):
 #	print("HP: ", DataManager.players[0].hp, "/", DataManager.players[0].max_hp)
 	

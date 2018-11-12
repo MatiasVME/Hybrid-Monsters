@@ -38,7 +38,7 @@ var is_first_time = false
 # Información del nivel
 #
 
-var total_enemies = 50
+var total_enemies = 10
 
 # Player con el cual se esta jugando actualmente
 var current_player = 0

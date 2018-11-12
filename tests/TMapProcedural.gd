@@ -4,7 +4,7 @@ var rec_player = preload("res://scenes/actors/players/Player.tscn")
 var rec_enemy = preload("res://scenes/actors/enemies/Enemy.tscn")
 
 func _ready():
-	var size_map = Vector2(50, 50)
+	var size_map = Vector2(30, 30)
 	
 	$CaveGenerator.generate_floor_map($Floor, size_map)
 

@@ -251,7 +251,7 @@ tracks/3/keys = {
 "values": [ false, false, true, true ]
 }
 
-[node name="HUD" type="CanvasLayer" groups=[
+[node name="HUD" type="CanvasLayer" index="0" groups=[
 "HUD",
 ]]
 

@@ -30,7 +30,7 @@ func win():
 	)
 	
 	$AnimWinLost.play("show")
-
+	
 func _on_dead():
 	$WinLost/Title.text = "You Lost"
 	$WinLost/Stats/Grid/DE.text = str(
