@@ -114,6 +114,27 @@ func damage(damage):
 func turn():
 	pass
 	
+
+func mine(direction):
+	set_process(false)
+	
+	# Para testear
+	var pickaxe = load("res://scenes/items/tools/pickaxes/Pickaxe.tscn").instance()
+	var wall_pos = direction * 16
+	pickaxe.global_position = wall_pos
+	pickaxe.z_index = 1
+	pickaxe.get_node("Sprite").look_at(-direction)
+	
+	add_child(pickaxe)
+	
+	for dir in $Around.get_children():
+		if dir.cast_to == direction:
+			Grid.remove_wall(self, direction)
+	
+	yield(pickaxe.get_node("Anim"), "animation_finished")
+	
+	set_process(true)
+
 func on_can_move(cell_type):
 	pass
 	
@@ -122,13 +143,15 @@ func on_cant_move(pawn, cell_dest_type, direction):
 		return
 	
 	match cell_dest_type:
-		Main.OBSTACLE:
+		Main.WALL:
+			mine(direction)
+		Main.INDESTRUCTIBLE_WALL:
 			bump()
 		Main.ENEMY:
 			attack(direction)
 	
 func _on_remove_hp(amount):
-	print("HP: ", DataManager.players[0].hp, "/", DataManager.players[0].max_hp)
+#	print("HP: ", DataManager.players[0].hp, "/", DataManager.players[0].max_hp)
 	
 	if HUD:
 		HUD.get_node("Status").update_hp_progress()
@@ -140,13 +163,16 @@ func _on_dead():
 	
 	DataManager.save_players(DataManager.current_user, DataManager.current_user)
 
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		enemy.get_node("Anim").play("win")
+	
 func _on_level_up(current_level):
 	DataManager.players[0].hp += 2
 	DataManager.players[0].max_hp += 2
 	
 	if int(current_level) % 3 == 0:
 		DataManager.players[0].attack += 1
-		print("=o attack=",DataManager.players[0].attack)
+#		print("=o attack=",DataManager.players[0].attack)
 
 	var effect_level_up = load("res://scenes/effects/level_up/LevelUp.tscn").instance()
 	effect_level_up.position.x += 8
@@ -156,10 +182,9 @@ func _on_level_up(current_level):
 	DataManager.save_players(DataManager.current_user, DataManager.current_user)
 	
 func _on_add_xp(amount):
-	print("xp_add: ", amount)
-	print("xp_requerida: ", DataManager.players[0].get_xp_required(DataManager.players[0].get_level() + 1))
-	print("level: ", DataManager.players[0].get_level())
+#	print("xp_add: ", amount)
+#	print("xp_requerida: ", DataManager.players[0].get_xp_required(DataManager.players[0].get_level() + 1))
+#	print("level: ", DataManager.players[0].get_level())
 	
 	if HUD:
-		print("update------------------")
 		HUD.get_node("Status").update_xp_progress()

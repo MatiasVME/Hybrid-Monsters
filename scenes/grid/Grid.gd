@@ -16,6 +16,13 @@ func remove_actor(pawn):
 	var cell = world_to_map(pawn.global_position)
 	set_cellv(cell, Main.EMPTY)
 
+func remove_wall(player, direction):
+	var wall = world_to_map(player.global_position)
+	wall.x += direction.x
+	wall.y += direction.y
+	
+	set_cellv(wall, Main.EMPTY)
+
 func request_move(pawn, direction):
 	var cell_start = world_to_map(pawn.global_position)
 	var cell_target = cell_start + direction
@@ -26,7 +33,7 @@ func request_move(pawn, direction):
 		Main.EMPTY, Main.FLOOR:
 #			print("empty or floor")
 			return update_pawn_position(pawn.type, cell_start, cell_target)
-		Main.OBSTACLE, Main.ENEMY:
+		Main.WALL, Main.ENEMY, Main.INDESTRUCTIBLE_WALL:
 #			print("OBSTACLE")
 			emit_signal("cant_move", pawn, cell_target_type, direction)
 	

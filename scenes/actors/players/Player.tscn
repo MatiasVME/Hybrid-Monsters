@@ -23,7 +23,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 

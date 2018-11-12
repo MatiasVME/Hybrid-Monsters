@@ -29,11 +29,10 @@ func _ready():
 		inst_enemy.change_color()
 		$Spawn.enemy_spawn(inst_enemy)
 
-		# Hacemos que no spawneen cerca del player
+		# Hacemos que se eliminen al spawnear cerca del player
 		if my_player.global_position.distance_to(inst_enemy.global_position) <= 16 * 8:
 			print("El enemigo spawneo muy cerca, será eliminado")
 			$World.remove_actor(inst_enemy)
-#			is_mark_to_dead = true
 			inst_enemy.queue_free()
 	
 	$Camera.set_focus(my_player)
@@ -48,4 +47,4 @@ func _ready():
 	# Añadimos el hud al final para que actualice los datos
 	my_player.set_hud($HUD)
 	
-	print("hp del player", DataManager.players[0].hp)
+#	print("hp del player", DataManager.players[0].hp)
