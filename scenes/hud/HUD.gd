@@ -1,5 +1,9 @@
 extends CanvasLayer
 
+func _ready():
+	if DataManager.players.size() > 0:
+		DataManager.players[0].connect("dead", self, "_on_dead")
+
 func _on_HUDInventory_toggled(button_pressed):
 	if button_pressed:
 		$AnimInv.play("show")
@@ -13,4 +17,7 @@ func _on_Resume_pressed():
 	$AnimMenu.play("hide")
 
 func _on_Menu_pressed():
-	get_tree().change_scene("res://scenes/main_screens/MainMenu.tscn")
+	get_tree().change_scene("res://scenes/Main.tscn")
+
+func _on_dead():
+	$AnimWinLost.play("show")

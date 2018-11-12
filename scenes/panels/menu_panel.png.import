@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/inventory_panel.png-d7c832f371f1426f573a2905fa9a2724.stex"
+path="res://.import/menu_panel.png-f0a05b0b5ab07e335cfe0203507ec04c.stex"
 
 [deps]
 
-source_file="res://scenes/panels/inventory/inventory_panel.png"
-dest_files=[ "res://.import/inventory_panel.png-d7c832f371f1426f573a2905fa9a2724.stex" ]
+source_file="res://scenes/panels/menu_panel.png"
+dest_files=[ "res://.import/menu_panel.png-f0a05b0b5ab07e335cfe0203507ec04c.stex" ]
 
 [params]
 

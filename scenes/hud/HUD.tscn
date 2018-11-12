@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/status/Status.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/panels/inventory/inventory_panel.png" type="Texture" id=5]
+[ext_resource path="res://scenes/panels/inventory_panel.png" type="Texture" id=5]
 [ext_resource path="res://scenes/buttons/hud_inventory/HUDInventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/panels/menu/menu_panel.png" type="Texture" id=7]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=7]
 [ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -131,6 +132,123 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 4, 1 ),
 "update": 0,
 "values": [ Vector2( 220, 0 ), Vector2( 220, -22 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "hide"
+length = 2.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 2 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "show"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 0, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "show"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Curtain:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Curtain:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 0, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("WinLost:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -162 ), Vector2( 0, -162 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("WinLost:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.4, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true ]
 }
 
 [node name="HUD" type="CanvasLayer" index="0" groups=[
@@ -300,6 +418,57 @@ margin_left = 220.0
 margin_right = 230.0
 rect_scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Curtain" type="ColorRect" parent="." index="8"]
+
+editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 248.0
+margin_bottom = 168.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Material", "Mouse", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimCurtain" type="AnimationPlayer" parent="Curtain" index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hide = SubResource( 5 )
+anims/show = SubResource( 6 )
+blend_times = [  ]
+
+[node name="WinLost" parent="." index="9" instance=ExtResource( 10 )]
+
+visible = false
+position = Vector2( 0, -162 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="AnimWinLost" type="AnimationPlayer" parent="." index="10"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/show = SubResource( 7 )
+blend_times = [  ]
 
 [connection signal="toggled" from="Inventory/HUDInventory" to="." method="_on_HUDInventory_toggled"]
 
