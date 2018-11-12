@@ -34,11 +34,20 @@ enum CellTypes {
 
 var is_first_time = false
 
+# Información del nivel
+#
+
+var total_enemies = 50
+
 # Player con el cual se esta jugando actualmente
 var current_player = 0
 
+# Guardado temporal de estadísticas del nivel
+var store_destroyed_enemies = 0
+
 func init_game():
-#	DataManager.players[0].restore_hp()
+	store_destroyed_enemies = 0
+	
 	if DataManager.players[0].is_dead:
 		DataManager.players[0].revive()
 	else:

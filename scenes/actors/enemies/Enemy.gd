@@ -177,6 +177,8 @@ func _on_dead():
 	# En un futuro esto tiene que cambiar cuando se tenga
 	# mas de un player
 	DataManager.players[0].add_xp(xp_drop)
+	
+	Main.store_destroyed_enemies += 1
 
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):

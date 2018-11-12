@@ -6,7 +6,7 @@
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=5]
 
-[node name="WinLost" type="Node2D"]
+[node name="WinLost" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -61,7 +61,6 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="Stats" type="Container" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -79,7 +78,6 @@ size_flags_vertical = 1
 
 [node name="Grid" type="GridContainer" parent="Stats" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -139,8 +137,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="DestroyedEnemies2" type="Label" parent="Stats/Grid" index="2"]
+[node name="Algo" type="Label" parent="Stats/Grid" index="2"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -162,8 +161,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="DE2" type="Label" parent="Stats/Grid" index="3"]
+[node name="A" type="Label" parent="Stats/Grid" index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -203,6 +203,7 @@ text = "MENU"
 
 [node name="Next" parent="." index="4" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 margin_left = 164.0
 margin_top = 124.0
 margin_right = 198.0

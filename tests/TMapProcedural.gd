@@ -4,7 +4,7 @@ var rec_player = preload("res://scenes/actors/players/Player.tscn")
 var rec_enemy = preload("res://scenes/actors/enemies/Enemy.tscn")
 
 func _ready():
-	var size_map = Vector2(100, 100)
+	var size_map = Vector2(30, 30)
 	
 	$CaveGenerator.generate_floor_map($Floor, size_map)
 
@@ -24,7 +24,7 @@ func _ready():
 	$Spawn.player_spawn(my_player)
 	
 	# Generamos los enemigos
-	for i in 50:
+	for i in Main.total_enemies:
 		var inst_enemy = rec_enemy.instance()
 		inst_enemy.change_color()
 		$Spawn.enemy_spawn(inst_enemy)
@@ -34,6 +34,9 @@ func _ready():
 			print("El enemigo spawneo muy cerca, será eliminado")
 			$World.remove_actor(inst_enemy)
 			inst_enemy.queue_free()
+	
+	# No siempre se añaden todos los enemigos
+	Main.total_enemies = get_tree().get_nodes_in_group("Enemy").size()
 	
 	$Camera.set_focus(my_player)
 	$Camera.current = true

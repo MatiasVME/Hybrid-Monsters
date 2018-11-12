@@ -159,12 +159,13 @@ func _on_remove_hp(amount):
 func _on_dead():
 	is_mark_to_dead = true
 	Grid.remove_actor(self)
-	$Anim.play("dead")
 	
 	DataManager.save_players(DataManager.current_user, DataManager.current_user)
-
+	
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		enemy.get_node("Anim").play("win")
+	
+	$Anim.play("dead")
 	
 func _on_level_up(current_level):
 	DataManager.players[0].hp += 2

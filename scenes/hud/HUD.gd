@@ -20,4 +20,11 @@ func _on_Menu_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 func _on_dead():
+	$WinLost/Title.text = "You Lost"
+	$WinLost/Stats/Grid/DE.text = str(
+		Main.store_destroyed_enemies,
+		"/",
+		Main.total_enemies
+	)
+	
 	$AnimWinLost.play("show")
