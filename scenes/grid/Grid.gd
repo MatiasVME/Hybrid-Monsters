@@ -33,8 +33,8 @@ func request_move(pawn, direction):
 		Main.EMPTY, Main.FLOOR:
 #			print("empty or floor")
 			return update_pawn_position(pawn.type, cell_start, cell_target)
-		Main.WALL, Main.ENEMY, Main.INDESTRUCTIBLE_WALL:
-#			print("OBSTACLE")
+		Main.WALL, Main.ENEMY, Main.INDESTRUCTIBLE_WALL, Main.CAVE:
+			print("OBSTACLE: ", cell_target_type)
 			emit_signal("cant_move", pawn, cell_target_type, direction)
 	
 func update_pawn_position(pawn_type, cell_start, cell_target):

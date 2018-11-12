@@ -6,6 +6,7 @@ signal move
 signal attack
 signal spawn
 
+
 # Debe de ser un Main.CellType
 var type = Main.PLAYER
 

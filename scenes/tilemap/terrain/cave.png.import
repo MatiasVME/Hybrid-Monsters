@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grid_lines.png-ee595546dcf168424de8d1c2db2e5fd6.stex"
+path="res://.import/cave.png-4df0534bbd59bc04c4497ccf62febb59.stex"
 
 [deps]
 
-source_file="res://scenes/tilemap/grid_lines/grid_lines.png"
-dest_files=[ "res://.import/grid_lines.png-ee595546dcf168424de8d1c2db2e5fd6.stex" ]
+source_file="res://scenes/tilemap/terrain/cave.png"
+dest_files=[ "res://.import/cave.png-4df0534bbd59bc04c4497ccf62febb59.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

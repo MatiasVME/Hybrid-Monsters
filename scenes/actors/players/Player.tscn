@@ -23,15 +23,11 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
-
-[node name="Pivot" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="Sprite" parent="Pivot" index="0"]
 
@@ -53,6 +49,8 @@ audio_bus_name = "Master"
 shape = SubResource( 2 )
 
 [node name="Around" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="Left" type="RayCast2D" parent="Around" index="0"]
 

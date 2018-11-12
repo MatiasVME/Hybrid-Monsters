@@ -3,13 +3,15 @@ extends Node
 var occupied_spawn = []
 var empty_positions = []
 var current_tilemap
+var size_tilemap
 
 func _ready():
 	randomize()
 
 # Usa esto primero que nada!!
-func set_current_tilemap(tilemap, size_tilemap):
+func set_current_tilemap(tilemap, _size_tilemap):
 	current_tilemap = tilemap
+	size_tilemap = _size_tilemap
 	
 	# Busca posiciones vacias y las añade a empty_positions
 	#
@@ -56,3 +58,21 @@ func enemy_spawn(enemy):
 		current_tilemap.set_cellv(rand_empty_position, Main.ENEMY)
 		
 		enemy.spawn()
+		
+func cave_spawn(player):
+	if empty_positions.size() > 0:
+		var rand_num = int(round(rand_range(0, empty_positions.size() - 1)))
+		var rand_empty_position = empty_positions[rand_num]
+		
+		var player_pos = current_tilemap.world_to_map(player.global_position)
+		
+		while occupied_spawn.has(rand_empty_position) or player_pos.distance_to(rand_empty_position) <= (size_tilemap / 2).x - 4:
+			rand_num = int(round(rand_range(0, empty_positions.size() - 1)))
+			rand_empty_position = empty_positions[rand_num]
+			print(".")
+		
+		print(rand_empty_position)
+		occupied_spawn.append(rand_empty_position)
+		
+		# Añadir el enemy en la posición
+		current_tilemap.set_cellv(rand_empty_position, Main.CAVE)

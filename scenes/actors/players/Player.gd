@@ -142,6 +142,8 @@ func on_cant_move(pawn, cell_dest_type, direction):
 	if pawn.type != Main.PLAYER:
 		return
 	
+	print(cell_dest_type, "=", Main.CAVE)
+	
 	match cell_dest_type:
 		Main.WALL:
 			mine(direction)
@@ -149,6 +151,8 @@ func on_cant_move(pawn, cell_dest_type, direction):
 			bump()
 		Main.ENEMY:
 			attack(direction)
+		Main.CAVE:
+			HUD.win()
 	
 func _on_remove_hp(amount):
 #	print("HP: ", DataManager.players[0].hp, "/", DataManager.players[0].max_hp)

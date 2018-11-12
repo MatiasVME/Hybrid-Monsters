@@ -4,7 +4,7 @@ var rec_player = preload("res://scenes/actors/players/Player.tscn")
 var rec_enemy = preload("res://scenes/actors/enemies/Enemy.tscn")
 
 func _ready():
-	var size_map = Vector2(30, 30)
+	var size_map = Vector2(50, 50)
 	
 	$CaveGenerator.generate_floor_map($Floor, size_map)
 
@@ -37,6 +37,8 @@ func _ready():
 	
 	# No siempre se añaden todos los enemigos
 	Main.total_enemies = get_tree().get_nodes_in_group("Enemy").size()
+	
+	$Spawn.cave_spawn(my_player)
 	
 	$Camera.set_focus(my_player)
 	$Camera.current = true
