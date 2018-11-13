@@ -10,6 +10,8 @@ var current_user = "Pepito"
 # La data actual en un diccionario
 var data = {}
 
+var player_config
+
 # La data instanciada del usuario seleccionado
 var players = []
 var inventories = []
@@ -21,6 +23,7 @@ func _ready():
 # Carga todos los datos del usuario
 func load_data_user(user):
 	load_players(user, user)
+	load_player_config(user)
 	
 # Cargar de diccionario en archivo a instancias
 func load_players(folder, file):
@@ -33,7 +36,19 @@ func load_players(folder, file):
 		players.append(HMRPGHelper.get_hm_inst_character())
 		save_players(folder, file)
 	
-	print("players: ", players)
+func load_player_config(folder):
+	Persistence.folder_name = folder
+	player_config = Persistence.get_data("Config")
+	
+	if player_config.empty():
+		Main.init_basic_player_config()
+		save_player_config(folder)
+
+func save_player_config(folder):
+	Persistence.folder_name = folder
+#	player_config = Persistence.get_data("Config")
+	Persistence.save_data("Config")
+	print("config: ", Persistence.get_data("Config"))
 
 # Guardar las instancias a diccionario
 func save_players(folder, file):

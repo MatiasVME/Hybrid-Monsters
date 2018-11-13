@@ -41,7 +41,7 @@ var is_first_time = false
 # Dificultad que varía dependiendo de las veces que ha ganado
 # las veces que a perdido y la dificultad seleccionada por el
 # jugador
-var var_dificulty
+var var_dificulty = 1.0
 
 enum Dificulty {
 	EASY,
@@ -66,21 +66,18 @@ func init_game():
 	else:
 		DataManager.players[0].restore_hp()
 	
-	calcule_dificulty(DataManager.players)
-	
 func exit_game():
 	pass
 	
-func calcule_dificulty(players_data):
+func init_basic_player_config():
 	var_dificulty = 1.0
 	
 	match dificulty_selected:
 		Dificulty.NORMAL: var_dificulty += 0.2
 		Dificulty.HARD: var_dificulty += 0.4
 	
-	var_dificulty += players_data[0].get_level() / 4
+	var_dificulty += DataManager.players[0].get_level() / 4
 	
-	print("var_dificulty: ", var_dificulty)
-	
-	
+	DataManager.player_config["Dificulty"] = dificulty_selected
+	DataManager.player_config["VarDificulty"] = var_dificulty
 	
