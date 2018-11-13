@@ -201,7 +201,20 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 text = "MENU"
 
-[node name="Next" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Resume" parent="." index="4" instance=ExtResource( 5 )]
+
+margin_left = 88.0
+margin_top = 124.0
+margin_right = 122.0
+margin_bottom = 139.0
+rect_scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Label" parent="Resume" index="0"]
+
+text = "RESUME"
+
+[node name="Next" parent="." index="5" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 margin_left = 164.0
@@ -217,6 +230,11 @@ text = "NEXT"
 
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
 
+[connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
+
+[connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
+
 
 [editable path="Menu"]
+[editable path="Resume"]
 [editable path="Next"]

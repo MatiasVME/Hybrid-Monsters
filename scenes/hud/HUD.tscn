@@ -337,12 +337,14 @@ blend_times = [  ]
 
 [node name="Menu" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
 position = Vector2( 240, 0 )
 scale = Vector2( 1e-05, 1e-05 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Panel" type="NinePatchRect" parent="Menu" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -368,6 +370,8 @@ axis_stretch_vertical = 1
 _sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
 [node name="Buttons" type="Node2D" parent="Menu/Panel" index="0"]
+
+editor/display_folded = true
 
 [node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 8 )]
 

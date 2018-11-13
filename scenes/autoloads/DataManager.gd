@@ -25,6 +25,10 @@ func load_data_user(user):
 	load_players(user, user)
 	load_player_config(user)
 	
+func save_data_user(user):
+	save_players(user, user)
+	save_player_config(user)
+	
 # Cargar de diccionario en archivo a instancias
 func load_players(folder, file):
 	load_data(folder, file)

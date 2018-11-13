@@ -50,7 +50,11 @@ enum Dificulty {
 }
 var dificulty_selected = Dificulty.NORMAL
 
-var total_enemies = 30 # luego cambiar
+enum Result {WIN, LOST}
+var result
+
+var map_size = 36
+var total_enemies = 5 # luego cambiar
 
 # Player con el cual se esta jugando actualmente
 var current_player = 0
@@ -80,4 +84,14 @@ func init_basic_player_config():
 	
 	DataManager.player_config["Dificulty"] = dificulty_selected
 	DataManager.player_config["VarDificulty"] = var_dificulty
-	
+	DataManager.player_config["MapSize"] = map_size
+
+func increase_dificulty():
+	var_dificulty = clamp(var_dificulty + 0.1, 1, 10)
+	map_size = clamp(map_size + 2, 20, 250)
+	total_enemies = clamp(total_enemies + 2, 10, 100)
+
+func diminish_dificulty():
+	var_dificulty = clamp(var_dificulty - 0.1, 1, 10)
+	map_size = clamp(map_size - 2, 20, 250)
+	total_enemies = clamp(total_enemies - 2, 10, 100)

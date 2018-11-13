@@ -28,7 +28,8 @@ func win():
 		"/",
 		Main.total_enemies
 	)
-	
+	Main.result = Main.WIN
+	$WinLost.result()
 	$AnimWinLost.play("show")
 	
 func _on_dead():
@@ -38,6 +39,6 @@ func _on_dead():
 		"/",
 		Main.total_enemies
 	)
-	$WinLost/Next.hide()
-	
+	Main.result = Main.LOST
+	$WinLost.result()
 	$AnimWinLost.play("show")
