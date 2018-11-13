@@ -1,12 +1,15 @@
 extends Node2D
 
+signal play
+
 func _ready():
 	pass
 
 func _on_Play_pressed():
-	DataManager.load_data_user("Pepito")
+	emit_signal("play")
+	$Anim.play("play")
 	
-#	print(DataManager.players[0])
-	print("DataManager.data: ", DataManager.data)
-	
-	get_tree().change_scene("res://tests/TMapProcedural.tscn")
+func _on_Anim_animation_finished(anim_name):
+	if anim_name == "play":
+		DataManager.load_data_user("Pepito")	
+		get_tree().change_scene("res://tests/TMapProcedural.tscn")

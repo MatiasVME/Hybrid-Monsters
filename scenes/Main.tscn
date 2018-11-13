@@ -1,11 +1,67 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/backgrounds/menu_bg/bg_black.png" type="Texture" id=2]
 [ext_resource path="res://scenes/various/front/Front.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/main_screens/MainMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/bgm/Underground.ogg" type="AudioStream" id=5]
 
-[node name="Main" type="Node2D"]
+[sub_resource type="Animation" id=1]
+
+resource_name = "stop_music"
+length = 2.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("MenuMusic:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -40.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MenuMusic:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.5 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Curtain/Black:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Curtain/Black:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 0, 0 ]
+}
+
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -25,5 +81,46 @@ _sections_unfolded = [ "Animation", "Offset", "Transform" ]
 [node name="Screens" type="Node" parent="." index="2"]
 
 [node name="MainMenu" parent="Screens" index="0" instance=ExtResource( 4 )]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
+
+[node name="Anim" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/stop_music = SubResource( 1 )
+blend_times = [  ]
+
+[node name="Curtain" type="Node2D" parent="." index="5"]
+
+z_index = 1
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Black" type="ColorRect" parent="Curtain" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 240.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 0 )
+_sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Rect" ]
 
 

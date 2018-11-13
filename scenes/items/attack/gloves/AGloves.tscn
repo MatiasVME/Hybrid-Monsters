@@ -66,7 +66,7 @@ anims/hit = SubResource( 1 )
 [node name="Hit1" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 3 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -75,7 +75,7 @@ bus = "Master"
 [node name="Hit2" type="AudioStreamPlayer" parent="." index="3"]
 
 stream = ExtResource( 4 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -84,7 +84,7 @@ bus = "Master"
 [node name="Hit3" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = ExtResource( 5 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -93,7 +93,7 @@ bus = "Master"
 [node name="Hit4" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 6 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

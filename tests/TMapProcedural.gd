@@ -4,18 +4,18 @@ var rec_player = preload("res://scenes/actors/players/Player.tscn")
 var rec_enemy = preload("res://scenes/actors/enemies/Enemy.tscn")
 
 func _ready():
-	var size_map = Vector2(30, 30)
+	var size_map = Vector2(60, 60)
 	
 	$CaveGenerator.generate_floor_map($Floor, size_map)
 
 	$CaveGenerator.generate_walls(
 		$World,
-		10,
+		5,
 		size_map,
 		true
 	)
 	
-	$CaveGenerator.add_border(2)
+	$CaveGenerator.add_border(Main.INDESTRUCTIBLE_WALL)
 
 	var my_player = rec_player.instance()
 
@@ -45,8 +45,8 @@ func _ready():
 	$Camera.limit_right = size_map.x * 16
 	$Camera.limit_bottom = size_map.y * 16
 	
-	DataManager.players[0].debug = true
-	DataManager.players[0].connect_debug_signals()
+#	DataManager.players[0].debug = true
+#	DataManager.players[0].connect_debug_signals()
 	Main.init_game()
 	
 	# Añadimos el hud al final para que actualice los datos
