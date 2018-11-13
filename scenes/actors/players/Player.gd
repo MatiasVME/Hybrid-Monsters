@@ -158,8 +158,10 @@ func on_cant_move(pawn, cell_dest_type, direction):
 			set_process(true)
 			
 func _on_remove_hp(amount):
-#	print("HP: ", DataManager.players[0].hp, "/", DataManager.players[0].max_hp)
-	
+	var damage_num = rec_damage_num.instance()
+	damage_num.get_node("Num").text = str("-", amount)
+	add_child(damage_num)
+
 	if HUD:
 		HUD.get_node("Status").update_hp_progress()
 	

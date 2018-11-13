@@ -38,7 +38,19 @@ var is_first_time = false
 # Información del nivel
 #
 
-var total_enemies = 10
+# Dificultad que varía dependiendo de las veces que ha ganado
+# las veces que a perdido y la dificultad seleccionada por el
+# jugador
+var var_dificulty
+
+enum Dificulty {
+	EASY,
+	NORMAL,
+	HARD
+}
+var dificulty_selected = Dificulty.NORMAL
+
+var total_enemies = 30 # luego cambiar
 
 # Player con el cual se esta jugando actualmente
 var current_player = 0
@@ -54,5 +66,21 @@ func init_game():
 	else:
 		DataManager.players[0].restore_hp()
 	
+	calcule_dificulty(DataManager.players)
+	
 func exit_game():
 	pass
+	
+func calcule_dificulty(players_data):
+	var_dificulty = 1.0
+	
+	match dificulty_selected:
+		Dificulty.NORMAL: var_dificulty += 0.2
+		Dificulty.HARD: var_dificulty += 0.4
+	
+	var_dificulty += players_data[0].get_level() / 4
+	
+	print("var_dificulty: ", var_dificulty)
+	
+	
+	

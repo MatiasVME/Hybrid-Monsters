@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 onready var Grid = get_parent()
 
+var rec_damage_num = preload("res://scenes/effects/damage_num/DamageNum.tscn")
+
 signal move
 signal attack
 signal spawn

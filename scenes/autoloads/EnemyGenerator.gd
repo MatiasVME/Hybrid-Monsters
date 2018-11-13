@@ -17,28 +17,43 @@ func get_random_enemy_character():
 		return create_rand_easy_enemy(character)
 	
 func create_rand_easy_enemy(character):
-	var hp = int(round(rand_range(2, 6)))
-	var attack = int(round(rand_range(1, 3)))
+	var hp = int(round(rand_range(Main.var_dificulty*1.4, Main.var_dificulty*3)))
+	var attack = int(round(rand_range(Main.var_dificulty, Main.var_dificulty*1.4)))
+	
+	print("create_rand_easy_enemy")
+	print("hp = ", hp)
+	print("attack = ", attack)
 	
 	character.hp = hp
 	character.max_hp = hp
+	character.attack = attack
 	
 	return character
 	
 func create_rand_normal_enemy(character):
-	var hp = int(round(rand_range(7, 10)))
-	var attack = int(round(rand_range(3, 6)))
+	var hp = int(round(rand_range(Main.var_dificulty*2.5, Main.var_dificulty*4.5)))
+	var attack = int(round(rand_range(Main.var_dificulty*1.4, Main.var_dificulty*2)))
+	
+	print("create_rand_normal_enemy")
+	print("hp = ", hp)
+	print("attack = ", attack)
 	
 	character.hp = hp
 	character.max_hp = hp
+	character.attack = attack
 	
 	return character
 
 func create_rand_hard_enemy(character):
-	var hp = int(round(rand_range(11, 15)))
-	var attack = int(round(rand_range(5, 8)))
+	var hp = int(round(rand_range(Main.var_dificulty*3.5, Main.var_dificulty*5.5)))
+	var attack = int(round(rand_range(Main.var_dificulty*2.4, Main.var_dificulty*3)))
+	
+	print("create_rand_hard_enemy")
+	print("hp = ", hp)
+	print("attack = ", attack)
 	
 	character.hp = hp
 	character.max_hp = hp
+	character.attack = attack
 	
 	return character

@@ -167,6 +167,10 @@ func _on_remove_hp(amount):
 	if is_mark_to_dead:
 		return
 		
+	var damage_num = rec_damage_num.instance()
+	damage_num.get_node("Num").text = str("-", amount)
+	add_child(damage_num)
+	
 	$Anim.play("damage")
 	
 func _on_dead():
