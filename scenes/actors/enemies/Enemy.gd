@@ -75,6 +75,9 @@ func config_hm_character():
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")
 	
+	$LifeBar.max_value = character.max_hp
+	$LifeBar.value = character.hp
+	
 func get_players_around_dir(players_num):
 	if is_mark_to_dead:
 		return
@@ -171,6 +174,8 @@ func _on_remove_hp(amount):
 	var damage_num = rec_damage_num.instance()
 	damage_num.get_node("Num").text = str("-", amount)
 	add_child(damage_num)
+	
+	$LifeBar.value = character.hp
 	
 	$Anim.play("damage")
 	

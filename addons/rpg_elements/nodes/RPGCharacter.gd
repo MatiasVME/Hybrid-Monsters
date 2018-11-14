@@ -142,6 +142,10 @@ func damage(_hp):
 
 # Ignora la defensa
 func remove_hp(_hp):
+	# Guarda el hp que se quita para luego enviarlo en 
+	# la señal remove_hp
+	var hp_deleted 
+	
 	if is_dead:
 		.debug("remove_hp(): El character esta muerto requiere ser revivido")
 		return
@@ -151,17 +155,20 @@ func remove_hp(_hp):
 		return
 	
 	if hp - _hp > 0:
-		emit_signal("remove_hp", _hp)
+		hp_deleted = _hp
 		hp -= _hp
 	else:
-		emit_signal("remove_hp", _hp - (_hp - hp))
-		
+		hp_deleted = _hp - (_hp - hp)	
 		hp = 0
 		
 		# Previene que no muera más de una vez
 		if not is_dead:
 			is_dead = true
+			emit_signal("remove_hp", hp_deleted)
 			emit_signal("dead")
+			return
+	
+	emit_signal("remove_hp", hp_deleted)
 
 func revive():
 	if not is_dead:

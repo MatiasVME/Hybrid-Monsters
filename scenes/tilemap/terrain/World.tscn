@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/tilemap/terrain/floor_type_1/dirt_tileset.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tilemap/terrain/rock_1.png" type="Texture" id=2]
 [ext_resource path="res://scenes/tilemap/terrain/indestructible.png" type="Texture" id=3]
 [ext_resource path="res://scenes/tilemap/terrain/cave.png" type="Texture" id=4]
 
-[node name="World" type="TileMap"]
+[sub_resource type="OccluderPolygon2D" id=1]
+
+closed = true
+cull_mode = 0
+polygon = PoolVector2Array( 0, 0, 0, 16, 16, 16, 16, 0 )
+
+[node name="World" type="TileMap" index="0"]
 
 mode = 0
 tile_set = null
@@ -42,6 +48,13 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
 _sections_unfolded = [ "Offset", "Region" ]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Wall" index="0"]
+
+visible = false
+occluder = SubResource( 1 )
+light_mask = 1
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Border" type="Sprite" parent="." index="2"]
 
