@@ -1,5 +1,8 @@
 extends Node
 
+# Dificultad del último enemigo creado
+var last_enemy_dificulty
+
 func ready():
 	randomize()
 
@@ -8,12 +11,15 @@ func get_random_enemy_character():
 	
 	if randi() % 9 == 0:
 #		print("create_rand_hard_enemy")
+		last_enemy_dificulty = "H"
 		return create_rand_hard_enemy(character)
 	elif randi() % 4 == 0:
 #		print("create_rand_normal_enemy")
+		last_enemy_dificulty = "N"
 		return create_rand_normal_enemy(character)
 	else:
 #		print("create_rand_easy_enemy")
+		last_enemy_dificulty = "E"
 		return create_rand_easy_enemy(character)
 	
 func create_rand_easy_enemy(character):

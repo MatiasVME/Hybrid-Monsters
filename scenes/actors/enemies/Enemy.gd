@@ -70,6 +70,7 @@ func move_or_attack():
 		
 func config_hm_character():
 	character = EnemyGenerator.get_random_enemy_character()
+	$DificultyNum/Num.text = EnemyGenerator.last_enemy_dificulty
 	
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")

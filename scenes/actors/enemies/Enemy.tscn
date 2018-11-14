@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/actors/enemies/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=3]
+[ext_resource path="res://scenes/effects/dificulty_num/DificultyNum.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -83,6 +84,8 @@ audio_bus_name = "Master"
 [node name="Collision" type="CollisionShape2D" parent="ViewArea" index="0"]
 
 shape = SubResource( 3 )
+
+[node name="DificultyNum" parent="." index="5" instance=ExtResource( 4 )]
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
 
