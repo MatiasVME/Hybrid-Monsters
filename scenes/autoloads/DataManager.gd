@@ -7,66 +7,95 @@ onready var Persistence = $Persistence
 # Al principio tendrá un solo usuario
 var current_user = "Pepito"
 
-# La data actual en un diccionario
-var data = {}
+var global_config # Es una referencia al diccionario de $GlobalConfig
+var user_config # Es una referencia al diccionario de $UserConfig
 
-var player_config
+var players = [] # Contiene instancias
+var inventories
+var stats
 
-# La data instanciada del usuario seleccionado
-var players = []
-var inventories = []
-var stats = []
+var inst_players = []
 
 func _ready():
-	pass
+	configure_persistence_node()
+	create_data_if_not_exist()
 
-# Carga todos los datos del usuario
-func load_data_user(user):
-	load_players(user, user)
-	load_player_config(user)
+func configure_persistence_node():
+	$GlobalConfig.folder_name = "Global"
 	
-func save_data_user(user):
-	save_players(user, user)
-	save_player_config(user)
+	$UserConfig.folder_name = current_user
+	$Players.folder_name = current_user
+	$Inventories.folder_name = current_user
+	$Stats.folder_name = current_user
+
+func create_data_if_not_exist():
+	global_config = $GlobalConfig.get_data()
 	
-# Cargar de diccionario en archivo a instancias
-func load_players(folder, file):
-	load_data(folder, file)
-	
-	if data.has("Players"):
-		for i in data["Players"].size():
-			players.append(dict2inst(data["Players"][i]))
+	if global_config.empty():
+		# Crea la data
+		#
+
+		create_global_config()
+		create_players()
+		create_user_config()
 	else:
-		players.append(HMRPGHelper.get_hm_inst_character())
-		save_players(folder, file)
+		# Carga la data
+		#
+		
+		load_players()
+		load_user_config()
 	
-func load_player_config(folder):
-	Persistence.folder_name = folder
-	player_config = Persistence.get_data("Config")
+func create_global_config():
+	global_config["DeleteData"] = 0 
+	$GlobalConfig.save_data()
 	
-	if player_config.empty():
-		Main.init_basic_player_config()
-		save_player_config(folder)
+func create_user_config():
+	user_config = $UserConfig.get_data("UserConfig")
+	
+	Main.init_basic_user_config()
+	
+	save_user_config()
 
-func save_player_config(folder):
-	Persistence.folder_name = folder
-#	player_config = Persistence.get_data("Config")
-	Persistence.save_data("Config")
-	print("config: ", Persistence.get_data("Config"))
-
-# Guardar las instancias a diccionario
-func save_players(folder, file):
-	data["Players"] = []
+func create_players():
+	var temp_data
+	temp_data = $Players.get_data("Players")
+	
+	players.append(PlayerGenerator.generate_first_player())
+	
+	temp_data[0] = inst2dict(players[0])
+	
+	$Players.save_data("Players")
+	
+func save_players():
+	var temp_data = $Players.get_data("Players")
+	temp_data.clear()
 	
 	for i in players.size():
-		data["Players"].append(inst2dict(players[i]))
+		temp_data[i] = inst2dict(players[i])
 		
-	save_data(folder, file)
-
-func save_data(folder = "Global", file = "Config"):
-	Persistence.folder_name = folder
-	Persistence.save_data(file)
+	$Players.save_data("Players")
 	
-func load_data(folder = "Global", file = "Config"):
-	Persistence.folder_name = folder
-	data = Persistence.get_data(file)
+func load_players():
+	var temp_data = $Players.get_data("Players")
+	players = []
+	print(temp_data)
+	
+	for player in temp_data.values():
+		players.append(dict2inst(player))
+
+func load_user_config():
+	user_config = $UserConfig.get_data("UserConfig")
+	
+	Main.dificulty_selected = user_config["Dificulty"]
+	Main.var_dificulty = user_config["VarDificulty"]
+	Main.map_size = user_config["MapSize"]
+	Main.total_enemies = user_config["TotalEnemies"]
+	
+func save_user_config():
+	user_config["Dificulty"] = Main.dificulty_selected
+	user_config["VarDificulty"] = Main.var_dificulty
+	user_config["MapSize"] = Main.map_size
+	user_config["TotalEnemies"] = Main.total_enemies
+	
+	$UserConfig.save_data("UserConfig")
+	

@@ -1,7 +1,6 @@
 extends Node
 
 func generate_first_player():
-	var all_player_data = {}
 	var player = generate_player()
 	
 	# Define los primeros elementos del primer
@@ -9,15 +8,11 @@ func generate_first_player():
 	player.element_1 = Main.FIRE
 	player.element_2 = Main.WATER
 	
-	all_player_data["Player"] = player
-	
 	# Seleccionar un numero de skin
 	var skin_num = 6
-	all_player_data["SkinNum"] = skin_num
+#	all_player_data["SkinNum"] = skin_num
 	
-	# TODO: Añadir Stats, WeightInventory
-	
-	return all_player_data
+	return player
 	
 func generate_random_player():
 	pass

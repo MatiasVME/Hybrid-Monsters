@@ -18,11 +18,11 @@ config/icon="res://icon.png"
 
 Main="*res://scenes/autoloads/Main.gd"
 Elements="*res://scenes/autoloads/Elements.gd"
+PlayerGenerator="*res://scenes/autoloads/PlayerGenerator.gd"
 DataManager="*res://scenes/autoloads/DataManager.tscn"
 DataVersionManager="*res://scenes/autoloads/DataVersionManager.gd"
 HMRPGHelper="*res://scenes/autoloads/rpg_elements_adaptation/HMRPGHelper.tscn"
 RandomNameGenerator="*res://scenes/autoloads/random_name_generator/RandomNameGenerator.tscn"
-PlayerGenerator="*res://scenes/autoloads/PlayerGenerator.gd"
 EnemyGenerator="*res://scenes/autoloads/EnemyGenerator.gd"
 
 [display]

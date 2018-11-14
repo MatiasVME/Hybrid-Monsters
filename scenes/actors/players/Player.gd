@@ -169,7 +169,7 @@ func _on_dead():
 	is_mark_to_dead = true
 	Grid.remove_actor(self)
 	
-	DataManager.save_players(DataManager.current_user, DataManager.current_user)
+	DataManager.save_players()
 	
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		enemy.get_node("Anim").play("win")
@@ -189,7 +189,7 @@ func _on_level_up(current_level):
 	effect_level_up.position.y -= 8
 	add_child(effect_level_up)
 	
-	DataManager.save_players(DataManager.current_user, DataManager.current_user)
+	DataManager.save_players()
 	
 func _on_add_xp(amount):
 #	print("xp_add: ", amount)

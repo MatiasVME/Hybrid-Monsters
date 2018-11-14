@@ -13,7 +13,8 @@ func result():
 		$Resume.show()
 		$Next.hide()
 		
-	DataManager.save_data_user(DataManager.current_user)
+	DataManager.save_user_config()
+	DataManager.save_players()
 
 func _on_Menu_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")

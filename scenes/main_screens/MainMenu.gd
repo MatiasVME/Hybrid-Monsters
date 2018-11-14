@@ -11,5 +11,5 @@ func _on_Play_pressed():
 	
 func _on_Anim_animation_finished(anim_name):
 	if anim_name == "play":
-		DataManager.load_data_user("Pepito")	
+#		DataManager.load_data_user("Pepito")	
 		get_tree().change_scene("res://scenes/levels/Levels.tscn")
