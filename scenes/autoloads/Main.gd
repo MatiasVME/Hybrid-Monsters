@@ -5,6 +5,9 @@ extends Node
 const VERSION = "0.1.0"
 const DEBUG = true
 
+var music = true
+var sound = true
+
 const RES_X = 240
 const RES_Y = 160
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bg_black.png-053e16116b8b5c1595a5c723e2771980.stex"
+path="res://.import/config_hover.png-3272ef82898f62dd178e98293218dbf3.stex"
 
 [deps]
 
-source_file="res://scenes/backgrounds/menu_bg/bg_black.png"
-dest_files=[ "res://.import/bg_black.png-053e16116b8b5c1595a5c723e2771980.stex" ]
+source_file="res://scenes/buttons/config/config_hover.png"
+dest_files=[ "res://.import/config_hover.png-3272ef82898f62dd178e98293218dbf3.stex" ]
 
 [params]
 
