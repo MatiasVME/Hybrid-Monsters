@@ -6,6 +6,13 @@ var rec_enemy = preload("res://scenes/actors/enemies/Enemy.tscn")
 func _ready():
 	Main.init_game()
 	
+	# Random Music
+	randomize()
+	var music_num = int(round(rand_range(MusicManager.WAR, MusicManager.TUNINUNININU)))
+	print("MusicNum: ", music_num)
+	MusicManager.select_music(music_num)
+	MusicManager.play_music()
+	
 	var size_map = Vector2(Main.map_size, Main.map_size)
 	
 	$CaveGenerator.generate_floor_map($Floor, size_map)

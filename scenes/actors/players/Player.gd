@@ -70,6 +70,10 @@ func get_skin(num):
 	return skin
 	
 func attack(direction):
+	if not directions.has(direction):
+		bump()
+		return
+	
 	set_process(false)
 	
 	.attack()
@@ -116,6 +120,10 @@ func turn():
 	
 
 func mine(direction):
+	if not directions.has(direction):
+		bump()
+		return
+	
 	set_process(false)
 	
 	# Para testear

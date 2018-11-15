@@ -17,6 +17,7 @@ func result():
 	DataManager.save_players()
 
 func _on_Menu_pressed():
+	MusicManager.stop_music()
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 func _on_Next_pressed():

@@ -19,6 +19,7 @@ func _on_Resume_pressed():
 	$AnimMenu.play("hide")
 
 func _on_Menu_pressed():
+	MusicManager.stop_music()
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 func win():

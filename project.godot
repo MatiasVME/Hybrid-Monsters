@@ -24,6 +24,7 @@ DataVersionManager="*res://scenes/autoloads/DataVersionManager.gd"
 HMRPGHelper="*res://scenes/autoloads/rpg_elements_adaptation/HMRPGHelper.tscn"
 RandomNameGenerator="*res://scenes/autoloads/random_name_generator/RandomNameGenerator.tscn"
 EnemyGenerator="*res://scenes/autoloads/EnemyGenerator.gd"
+MusicManager="*res://scenes/autoloads/MusicManager.tscn"
 
 [display]
 

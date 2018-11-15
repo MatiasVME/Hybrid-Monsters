@@ -99,3 +99,10 @@ func save_user_config():
 	
 	$UserConfig.save_data("UserConfig")
 	
+func remove_all_data():
+	$GlobalConfig.remove_all_data()
+	$Players.remove_all_data()
+	$UserConfig.remove_all_data()
+	$Inventories.remove_all_data()
+	$Stats.remove_all_data()
+

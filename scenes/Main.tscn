@@ -15,55 +15,55 @@ length = 2.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("MenuMusic:volume_db")
+tracks/0/path = NodePath("Curtain/Black:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, -40.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MenuMusic:pitch_scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 1.0, 0.5 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Curtain/Black:color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 2.5 ),
 "transitions": PoolRealArray( 0.25, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
-tracks/3/type = "value"
-tracks/3/path = NodePath("Curtain/Black:mouse_filter")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/path = NodePath("Curtain/Black:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 2, 0, 0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Underground:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.5, 0.5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Underground:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -40.0 ]
+}
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 resource_name = "config2menu"
 length = 0.4
@@ -94,7 +94,7 @@ tracks/1/keys = {
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 
 resource_name = "credits2menu"
 length = 0.4
@@ -125,9 +125,8 @@ tracks/1/keys = {
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
-resource_name = "menu2config"
 length = 0.4
 loop = false
 step = 0.1
@@ -156,9 +155,8 @@ tracks/1/keys = {
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource_name = "menu2credits"
 length = 0.4
 loop = false
 step = 0.1
@@ -251,16 +249,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 240, 0 )
 _sections_unfolded = [ "Transform", "custom_colors", "custom_fonts" ]
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="." index="2"]
-
-stream = ExtResource( 7 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = true
-mix_target = 0
-bus = "Master"
-
-[node name="Anim" type="AnimationPlayer" parent="." index="3"]
+[node name="Anim" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -270,20 +259,20 @@ playback_speed = 1.0
 anims/stop_music = SubResource( 1 )
 blend_times = [  ]
 
-[node name="ScreensAnim" type="AnimationPlayer" parent="." index="4"]
+[node name="ScreensAnim" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/config2menu = SubResource( 3 )
-anims/credits2menu = SubResource( 5 )
-anims/menu2config = SubResource( 2 )
-anims/menu2credits = SubResource( 4 )
+anims/config2menu = SubResource( 2 )
+anims/credits2menu = SubResource( 3 )
+anims/menu2config = SubResource( 4 )
+anims/menu2credits = SubResource( 5 )
 blend_times = [  ]
 
-[node name="Curtain" type="Node2D" parent="." index="5"]
+[node name="Curtain" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 z_index = 1
@@ -305,6 +294,17 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 0 )
 _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Rect" ]
+
+[node name="Underground" type="AudioStreamPlayer2D" parent="." index="5"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="pressed" from="Screens/MainMenu/Info" to="." method="_on_Info_pressed"]
 
