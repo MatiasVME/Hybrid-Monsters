@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/buttons/back/Back.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/buttons/large/Large.tscn" type="PackedScene" id=2]
+
+[node name="Config" type="Node2D"]
+
+[node name="Back" parent="." index="0" instance=ExtResource( 1 )]
+
+margin_left = 8.0
+margin_top = 120.0
+margin_right = 16.0
+margin_bottom = 129.0
+
+[node name="Large" parent="." index="1" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 62.0
+margin_bottom = 39.0
+
+[node name="Label" parent="Large" index="0"]
+
+text = "Delete Data"
+
+
+[editable path="Large"]

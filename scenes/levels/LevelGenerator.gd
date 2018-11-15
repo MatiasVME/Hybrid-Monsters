@@ -47,9 +47,6 @@ func _ready():
 	$Camera.limit_right = size_map.x * 16
 	$Camera.limit_bottom = size_map.y * 16
 	
-
 	# Añadimos el hud al final para que actualice los datos
 	my_player.set_hud($HUD)
-
-func generate():
-	pass
+	

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/backgrounds/menu_bg/bg_black.png" type="Texture" id=2]
-[ext_resource path="res://scenes/various/front/Front.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/various/front/Front.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/backgrounds/menu_bg/bg_black.png" type="Texture" id=3]
 [ext_resource path="res://scenes/main_screens/MainMenu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sounds/bgm/Underground.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scenes/main_screens/Config.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/main_screens/Credits.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/bgm/Underground.ogg" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 
@@ -61,7 +63,131 @@ tracks/3/keys = {
 "values": [ 2, 0, 0 ]
 }
 
-[node name="Main" type="Node2D"]
+[sub_resource type="Animation" id=3]
+
+resource_name = "config2menu"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( -120, 80 ), Vector2( 120, 80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera/Background:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 0.25, 4, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "credits2menu"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 360, 80 ), Vector2( 120, 80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera/Background:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 0.25, 4, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "menu2config"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 80 ), Vector2( -120, 80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera/Background:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 0.25, 4, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "menu2credits"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 120, 80 ), Vector2( 360, 80 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera/Background:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 0.25, 4, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
+}
+
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -69,29 +195,72 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="Main" type="Sprite" parent="." index="0"]
+[node name="Camera" type="Camera2D" parent="." index="0"]
+
+position = Vector2( 120, 80 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+smoothing_enabled = false
+smoothing_speed = 1.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
+
+[node name="Front" parent="Camera" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( -120, -80 )
+
+[node name="Background" type="Sprite" parent="Camera" index="1"]
 
 scale = Vector2( 4, 4 )
-texture = ExtResource( 2 )
-centered = false
-_sections_unfolded = [ "Animation", "Offset", "Transform" ]
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="Front" parent="." index="1" instance=ExtResource( 3 )]
-
-[node name="Screens" type="Node" parent="." index="2"]
+[node name="Screens" type="Node" parent="." index="1"]
 
 [node name="MainMenu" parent="Screens" index="0" instance=ExtResource( 4 )]
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="." index="3"]
+[node name="Camera" parent="Screens/MainMenu" index="11"]
 
-stream = ExtResource( 5 )
+current = false
+
+[node name="Config" parent="Screens" index="1" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( -240, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Credits" parent="Screens" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( 240, 0 )
+_sections_unfolded = [ "Transform", "custom_colors", "custom_fonts" ]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
 
-[node name="Anim" type="AnimationPlayer" parent="." index="4"]
+[node name="Anim" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -101,8 +270,22 @@ playback_speed = 1.0
 anims/stop_music = SubResource( 1 )
 blend_times = [  ]
 
+[node name="ScreensAnim" type="AnimationPlayer" parent="." index="4"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/config2menu = SubResource( 3 )
+anims/credits2menu = SubResource( 5 )
+anims/menu2config = SubResource( 2 )
+anims/menu2credits = SubResource( 4 )
+blend_times = [  ]
+
 [node name="Curtain" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
 z_index = 1
 _sections_unfolded = [ "Z Index" ]
 
@@ -123,4 +306,15 @@ size_flags_vertical = 1
 color = Color( 0, 0, 0, 0 )
 _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Rect" ]
 
+[connection signal="pressed" from="Screens/MainMenu/Info" to="." method="_on_Info_pressed"]
 
+[connection signal="pressed" from="Screens/MainMenu/Config" to="." method="_on_Config_pressed"]
+
+[connection signal="pressed" from="Screens/Config/Back" to="." method="_on_Back_pressed"]
+
+[connection signal="pressed" from="Screens/Credits/Back" to="." method="_on_BackCredits_pressed"]
+
+
+[editable path="Screens/MainMenu"]
+[editable path="Screens/Config"]
+[editable path="Screens/Credits"]

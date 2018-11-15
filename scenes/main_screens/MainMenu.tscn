@@ -66,7 +66,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
 }
 
-[node name="MainMenu" type="Node2D" index="0"]
+[node name="MainMenu" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -259,7 +259,33 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Anim" type="AnimationPlayer" parent="." index="9"]
+[node name="GithubGameOff" type="Label" parent="." index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 80.0
+margin_top = 144.0
+margin_right = 159.0
+margin_bottom = 154.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 15 )
+custom_colors/font_color = Color( 0.148284, 0.862745, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "#GithubGameOff"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="Anim" type="AnimationPlayer" parent="." index="10"]
 
 root_node = NodePath("..")
 autoplay = "idle"
@@ -270,8 +296,9 @@ anims/idle = SubResource( 1 )
 anims/play = SubResource( 2 )
 blend_times = [  ]
 
-[node name="Camera" type="Camera2D" parent="." index="10"]
+[node name="Camera" type="Camera2D" parent="." index="11"]
 
+visible = false
 position = Vector2( 120, 80 )
 anchor_mode = 1
 rotating = false
