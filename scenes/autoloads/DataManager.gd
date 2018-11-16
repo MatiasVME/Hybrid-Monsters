@@ -7,8 +7,8 @@ var global_config # Es una referencia al diccionario de $GlobalConfig
 var user_config # Es una referencia al diccionario de $UserConfig
 
 var players = [] # Contiene instancias
-var inventories
-var stats
+var inventories = []
+var stats = [] 
 
 var inst_players = []
 
@@ -34,12 +34,20 @@ func create_data_if_not_exist():
 		create_global_config()
 		create_players()
 		create_user_config()
+		create_inventories()
 	else:
 		# Carga la data
 		#
 		
+		# TODO: Cargar global_config
 		load_players()
 		load_user_config()
+		load_inventories()
+		
+		# Testeando inventario
+		var sword = ItemGenerator.get_random_sword_from_enemy(10, 2)
+		inventories[0].add_item(sword)
+		save_inventories()
 	
 func create_global_config():
 	global_config["DeleteData"] = 0 
@@ -74,7 +82,6 @@ func save_players():
 func load_players():
 	var temp_data = $Players.get_data("Players")
 	players = []
-	print(temp_data)
 	
 	for player in temp_data.values():
 		players.append(dict2inst(player))
@@ -87,7 +94,31 @@ func load_user_config():
 	Main.map_size = user_config["MapSize"]
 	Main.total_enemies = user_config["TotalEnemies"]
 #	Main. = user_config["TotalEnemies"]
+
+func create_inventories():
+	var w_inv = $RPGWeightInventory.duplicate()
+	w_inv.max_weight = 10
+	inventories.append(w_inv)
+
+	save_inventories()
 	
+func save_inventories():
+	var temp_data = $Inventories.get_data("Inventories")
+	temp_data.clear()
+	
+	for i in inventories.size():
+		temp_data[i] = inventories[i].inv2dict()
+		print(temp_data[i])
+		
+	$Inventories.save_data("Inventories")
+	
+func load_inventories():
+	var temp_data = $Inventories.get_data("Inventories")
+	inventories = []
+	
+	for inventory in temp_data.values():
+		inventories.append($SomeInv.dict2inv(inventory))
+
 func save_user_config():
 	user_config["Dificulty"] = Main.dificulty_selected
 	user_config["VarDificulty"] = Main.var_dificulty

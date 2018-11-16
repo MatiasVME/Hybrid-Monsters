@@ -39,3 +39,4 @@ func get_inst_stats():
 	
 func get_inst_weight_inventory():
 	return load("res://addons/rpg_elements/nodes/RPGWeightInventory.gd").instance()
+	

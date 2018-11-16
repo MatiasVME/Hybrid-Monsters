@@ -5,3 +5,4 @@ func get_hm_inst_character():
 	
 func get_hm_inst_sword():
 	return load("res://scenes/autoloads/rpg_elements_adaptation/item/attack/sword/HMSword.gd").new()
+	
