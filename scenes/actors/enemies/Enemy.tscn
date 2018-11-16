@@ -57,7 +57,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 radius = 56.0
 
-[node name="Enemy" groups=[
+[node name="Enemy" index="0" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
 

@@ -86,6 +86,7 @@ func load_user_config():
 	Main.var_dificulty = user_config["VarDificulty"]
 	Main.map_size = user_config["MapSize"]
 	Main.total_enemies = user_config["TotalEnemies"]
+#	Main. = user_config["TotalEnemies"]
 	
 func save_user_config():
 	user_config["Dificulty"] = Main.dificulty_selected

@@ -185,7 +185,7 @@ tracks/1/keys = {
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -234,17 +234,21 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
 [node name="MainMenu" parent="Screens" index="0" instance=ExtResource( 4 )]
 
+editor/display_folded = true
+
 [node name="Camera" parent="Screens/MainMenu" index="11"]
 
 current = false
 
 [node name="Config" parent="Screens" index="1" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 position = Vector2( -240, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Credits" parent="Screens" index="2" instance=ExtResource( 6 )]
 
+editor/display_folded = true
 position = Vector2( 240, 0 )
 _sections_unfolded = [ "Transform", "custom_colors", "custom_fonts" ]
 

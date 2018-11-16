@@ -9,7 +9,6 @@ func _ready():
 	# Random Music
 	randomize()
 	var music_num = int(round(rand_range(MusicManager.WAR, MusicManager.TUNINUNININU)))
-	print("MusicNum: ", music_num)
 	MusicManager.select_music(music_num)
 	MusicManager.play_music()
 	
@@ -35,7 +34,6 @@ func _ready():
 	# Generamos los enemigos
 	for i in Main.total_enemies:
 		var inst_enemy = rec_enemy.instance()
-		inst_enemy.change_color()
 		$Spawn.enemy_spawn(inst_enemy)
 
 		# Hacemos que se eliminen al spawnear cerca del player

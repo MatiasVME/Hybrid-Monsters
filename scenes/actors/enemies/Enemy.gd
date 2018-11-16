@@ -21,7 +21,8 @@ func _ready():
 	# Configura el character con datos aleatorios
 	config_hm_character()
 	
-#	set_values(null, random_skin)
+	# Asignamos los colores del enemigo
+	change_color()
 	
 	# Obtenemos los players para acceder a ellos más fácilmente
 	players = get_tree().get_nodes_in_group("Player")
@@ -32,7 +33,6 @@ func turn():
 		return
 	
 	if follow_player:
-#		$Anim.play("bump")
 		move_or_attack()
 	else:
 		random_move()
@@ -73,9 +73,8 @@ func config_hm_character():
 	$DificultyNum/Num.text = str(EnemyGenerator.last_enemy_dificulty)
 	
 	# Le agregamos una espada al enemigo
-	if randi() % 1 == 0:
+	if randi() % 5 == 0:
 		primary_weapon_data = ItemGenerator.get_random_sword_from_enemy(DataManager.players[0].level, EnemyGenerator.last_enemy_dificulty)
-		print("Se genero un primary weapon data!!: ", primary_weapon_data)
 	
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")
@@ -129,7 +128,7 @@ func attack(player):
 		
 	var player_dir = get_players_around_dir(1)[0]
 	
-	print("PrimaryWeaponData: ", primary_weapon_data)
+#	print("PrimaryWeaponData: ", primary_weapon_data)
 	
 	if primary_weapon_data != null:
 		var sword = load("res://scenes/items/attack/swords/Sword.tscn").instance()
@@ -140,7 +139,7 @@ func attack(player):
 		sword.look_at(player_dir)
 		
 		add_child(sword)
-		print("atacando con espada!!! :b")
+#		print("atacando con espada!!! :b")
 		
 		player.damage(character.get_attack() + primary_weapon_data.damage)
 		yield(sword.get_node("Anim"), "animation_finished")

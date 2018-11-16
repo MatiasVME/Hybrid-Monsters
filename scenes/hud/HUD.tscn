@@ -1,15 +1,14 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/status/Status.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/panels/inventory_panel.png" type="Texture" id=5]
-[ext_resource path="res://scenes/buttons/hud_inventory/HUDInventory.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=7]
-[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=6]
+[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 
@@ -282,47 +281,7 @@ margin_bottom = 145.0
 rect_scale = Vector2( 2, 2 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Inventory" type="Node2D" parent="." index="3"]
-
-editor/display_folded = true
-position = Vector2( 0, 4 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Panel" type="NinePatchRect" parent="Inventory" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 4.0
-margin_top = 160.0
-margin_right = 120.0
-margin_bottom = 229.0
-rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-texture = ExtResource( 5 )
-patch_margin_left = 8
-patch_margin_top = 8
-patch_margin_right = 8
-patch_margin_bottom = 8
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
-
-[node name="HUDInventory" parent="Inventory" index="1" instance=ExtResource( 6 )]
-
-margin_left = 98.0
-margin_top = 144.0
-margin_right = 120.0
-margin_bottom = 157.0
-rect_scale = Vector2( 2, 2 )
-toggle_mode = true
-_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
+[node name="Inventory" parent="." index="3" instance=ExtResource( 5 )]
 
 [node name="AnimInv" type="AnimationPlayer" parent="." index="4"]
 
@@ -358,7 +317,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -369,7 +328,7 @@ _sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
 [node name="Buttons" type="Node2D" parent="Menu/Panel" index="0"]
 
-[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 8 )]
+[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 7 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -385,7 +344,7 @@ margin_bottom = -4.0
 
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 8 )]
+[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 7 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -412,7 +371,7 @@ anims/hide = SubResource( 3 )
 anims/show = SubResource( 4 )
 blend_times = [  ]
 
-[node name="HUDMenuButton" parent="." index="7" instance=ExtResource( 9 )]
+[node name="HUDMenuButton" parent="." index="7" instance=ExtResource( 8 )]
 
 margin_left = 220.0
 margin_right = 230.0
@@ -454,7 +413,7 @@ anims/hide = SubResource( 5 )
 anims/show = SubResource( 6 )
 blend_times = [  ]
 
-[node name="WinLost" parent="." index="9" instance=ExtResource( 10 )]
+[node name="WinLost" parent="." index="9" instance=ExtResource( 9 )]
 
 visible = false
 position = Vector2( 0, -162 )
@@ -479,5 +438,6 @@ blend_times = [  ]
 [connection signal="pressed" from="HUDMenuButton" to="." method="_on_HUDMenuButton_pressed"]
 
 
+[editable path="Inventory"]
 [editable path="Menu/Panel/Buttons/Resume"]
 [editable path="Menu/Panel/Buttons/Menu"]
