@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iron_sword_jagged.png-1831d51b149eaa1f7d0e25919206d346.stex"
+path="res://.import/diamond-normal.png-1b7545dd36d7b30215f2169ae05cebf4.stex"
 
 [deps]
 
-source_file="res://scenes/items/attack/swords/iron_swords/iron_sword_jagged.png"
-dest_files=[ "res://.import/iron_sword_jagged.png-1831d51b149eaa1f7d0e25919206d346.stex" ]
+source_file="res://scenes/items/attack/swords/skins/diamond-normal.png"
+dest_files=[ "res://.import/diamond-normal.png-1b7545dd36d7b30215f2169ae05cebf4.stex" ]
 
 [params]
 

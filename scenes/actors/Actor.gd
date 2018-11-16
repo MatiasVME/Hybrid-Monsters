@@ -8,6 +8,10 @@ signal move
 signal attack
 signal spawn
 
+var primary_weapon
+var primary_weapon_data
+var secondary_weapon
+var secondary_weapon_data
 
 # Debe de ser un Main.CellType
 var type = Main.PLAYER

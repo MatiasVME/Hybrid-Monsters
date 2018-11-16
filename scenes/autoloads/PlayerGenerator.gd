@@ -24,11 +24,11 @@ func generate_player():
 	var player = HMRPGHelper.get_hm_inst_character()
 	
 	player.character_name = RandomNameGenerator.generate()
-	player.level_max = 20
-	player.hp = 10
-	player.max_hp = 10
-	player.energy = 10
-	player.max_energy = 10
+	player.level_max = 40
+	player.hp = 20
+	player.max_hp = 20
+	player.energy = 20
+	player.max_energy = 20
 	
 	return player
 	

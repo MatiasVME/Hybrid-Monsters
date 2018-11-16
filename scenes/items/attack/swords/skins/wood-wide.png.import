@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wood_sword_jagged.png-952cbd9b4143519707b8c4fe91736db1.stex"
+path="res://.import/wood-wide.png-4ce48ffdbb350091733cf5f21e4e6d20.stex"
 
 [deps]
 
-source_file="res://scenes/items/attack/swords/wood_swords/wood_sword_jagged.png"
-dest_files=[ "res://.import/wood_sword_jagged.png-952cbd9b4143519707b8c4fe91736db1.stex" ]
+source_file="res://scenes/items/attack/swords/skins/wood-wide.png"
+dest_files=[ "res://.import/wood-wide.png-4ce48ffdbb350091733cf5f21e4e6d20.stex" ]
 
 [params]
 

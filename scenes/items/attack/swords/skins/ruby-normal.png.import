@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/iron_sword.png-58871812050648023e7e4b6ff382bd18.stex"
+path="res://.import/ruby-normal.png-c33603eb1fe2353e42b65f5348412a68.stex"
 
 [deps]
 
-source_file="res://scenes/items/attack/swords/iron_swords/iron_sword.png"
-dest_files=[ "res://.import/iron_sword.png-58871812050648023e7e4b6ff382bd18.stex" ]
+source_file="res://scenes/items/attack/swords/skins/ruby-normal.png"
+dest_files=[ "res://.import/ruby-normal.png-c33603eb1fe2353e42b65f5348412a68.stex" ]
 
 [params]
 

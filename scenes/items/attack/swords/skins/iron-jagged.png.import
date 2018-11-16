@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ruby_sword_jagged.png-15eaa7f95f1be6158a300a94b82d98cd.stex"
+path="res://.import/iron-jagged.png-613175b876bb6b7effccc451d39af636.stex"
 
 [deps]
 
-source_file="res://scenes/items/attack/swords/ruby_swords/ruby_sword_jagged.png"
-dest_files=[ "res://.import/ruby_sword_jagged.png-15eaa7f95f1be6158a300a94b82d98cd.stex" ]
+source_file="res://scenes/items/attack/swords/skins/iron-jagged.png"
+dest_files=[ "res://.import/iron-jagged.png-613175b876bb6b7effccc451d39af636.stex" ]
 
 [params]
 

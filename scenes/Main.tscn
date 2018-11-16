@@ -45,7 +45,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.5, 2.5 ),
+"times": PoolRealArray( 0, 2, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.5, 0.5 ]
@@ -240,7 +240,6 @@ current = false
 
 [node name="Config" parent="Screens" index="1" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 position = Vector2( -240, 0 )
 _sections_unfolded = [ "Transform" ]
 
@@ -295,16 +294,14 @@ size_flags_vertical = 1
 color = Color( 0, 0, 0, 0 )
 _sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Rect" ]
 
-[node name="Underground" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="Underground" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 7 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true
-max_distance = 2000.0
-attenuation = 1.0
+mix_target = 0
 bus = "Master"
-area_mask = 1
 
 [connection signal="pressed" from="Screens/MainMenu/Info" to="." method="_on_Info_pressed"]
 

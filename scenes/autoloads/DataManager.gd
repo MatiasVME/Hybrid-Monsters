@@ -1,9 +1,5 @@
 extends Node
 
-# Se deja así para que pueda ser accedido de otras
-# partes
-onready var Persistence = $Persistence
-
 # Al principio tendrá un solo usuario
 var current_user = "Pepito"
 
@@ -105,4 +101,3 @@ func remove_all_data():
 	$UserConfig.remove_all_data()
 	$Inventories.remove_all_data()
 	$Stats.remove_all_data()
-

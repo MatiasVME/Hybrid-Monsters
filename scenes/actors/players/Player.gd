@@ -15,10 +15,10 @@ func _ready():
 	add_child(turn_helper)
 	
 	# Random Skin for test
-	randomize()
-	var random_skin = int(round(rand_range(1, Main.SKIN_PLAYER_AMOUNT)))
+#	randomize()
+#	var random_skin = int(round(rand_range(1, Main.SKIN_PLAYER_AMOUNT)))
 	
-	$Pivot/Sprite.texture = get_skin(random_skin)
+	$Pivot/Sprite.texture = get_skin(6)
 	
 	config_character()
 	
@@ -27,13 +27,13 @@ func _ready():
 	$Pivot/Sprite.material.set_shader_param("c_2", Color(0,1,0))
 	$Pivot/Sprite.material.set_shader_param("c_3", Color(0,0,1))
 	
-#	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element(Main.WATER))
-#	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.FIRE))
-#	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.ELECTRIC))
+	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element(Main.WATER))
+	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.FIRE))
+	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.ELECTRIC))
 	
-	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element_random())
-	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element_random())
-	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element_random())
+#	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element_random())
+#	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element_random())
+#	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element_random())
 	
 
 func _process(delta):
@@ -185,17 +185,17 @@ func _on_dead():
 	$Anim.play("dead")
 	
 func _on_level_up(current_level):
-	DataManager.players[0].hp += 2
-	DataManager.players[0].max_hp += 2
+	DataManager.players[0].hp += 4
+	DataManager.players[0].max_hp += 4
 	
 	if int(current_level) % 3 == 0:
 		DataManager.players[0].attack += 1
 #		print("=o attack=",DataManager.players[0].attack)
 
 	var effect_level_up = load("res://scenes/effects/level_up/LevelUp.tscn").instance()
+	add_child(effect_level_up)
 	effect_level_up.position.x += 8
 	effect_level_up.position.y -= 8
-	add_child(effect_level_up)
 	
 	DataManager.save_players()
 	

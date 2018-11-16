@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/diamond_sword_wide.png-503ae4054e6f03e8f58a19fc48ebb06f.stex"
+path="res://.import/ruby-jagged.png-f72118681d85b8af5a7755dff32064c1.stex"
 
 [deps]
 
-source_file="res://scenes/items/attack/swords/diamond_swords/diamond_sword_wide.png"
-dest_files=[ "res://.import/diamond_sword_wide.png-503ae4054e6f03e8f58a19fc48ebb06f.stex" ]
+source_file="res://scenes/items/attack/swords/skins/ruby-jagged.png"
+dest_files=[ "res://.import/ruby-jagged.png-f72118681d85b8af5a7755dff32064c1.stex" ]
 
 [params]
 

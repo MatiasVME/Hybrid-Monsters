@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wood_sword.png-1d24f39fe6cf2d6a29728a964ef46cae.stex"
+path="res://.import/iron-wide.png-e15bee05a47788f148460d4a14b89624.stex"
 
 [deps]
 
-source_file="res://scenes/items/attack/swords/wood_swords/wood_sword.png"
-dest_files=[ "res://.import/wood_sword.png-1d24f39fe6cf2d6a29728a964ef46cae.stex" ]
+source_file="res://scenes/items/attack/swords/skins/iron-wide.png"
+dest_files=[ "res://.import/iron-wide.png-e15bee05a47788f148460d4a14b89624.stex" ]
 
 [params]
 

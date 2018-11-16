@@ -1,5 +1,7 @@
 extends Node2D
 
+var item
+
 func _ready():
 	if $Anim.has_animation("hit"):
 		$Anim.play("hit")

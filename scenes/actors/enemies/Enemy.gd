@@ -70,7 +70,12 @@ func move_or_attack():
 		
 func config_hm_character():
 	character = EnemyGenerator.get_random_enemy_character()
-	$DificultyNum/Num.text = EnemyGenerator.last_enemy_dificulty
+	$DificultyNum/Num.text = str(EnemyGenerator.last_enemy_dificulty)
+	
+	# Le agregamos una espada al enemigo
+	if randi() % 1 == 0:
+		primary_weapon_data = ItemGenerator.get_random_sword_from_enemy(DataManager.players[0].level, EnemyGenerator.last_enemy_dificulty)
+		print("Se genero un primary weapon data!!: ", primary_weapon_data)
 	
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")
@@ -124,17 +129,32 @@ func attack(player):
 		
 	var player_dir = get_players_around_dir(1)[0]
 	
-	# Para testear
-	var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
-	var player_pos = player_dir * 16
-	glove.global_position = player_pos
-	glove.z_index = 1
-	glove.look_at(player_dir)
+	print("PrimaryWeaponData: ", primary_weapon_data)
 	
-	add_child(glove)
-	
-	player.damage(character.get_attack())
-	yield(glove.get_node("Anim"), "animation_finished")
+	if primary_weapon_data != null:
+		var sword = load("res://scenes/items/attack/swords/Sword.tscn").instance()
+		sword.item = primary_weapon_data
+		var player_pos = player_dir * 16
+		sword.global_position = player_pos
+		sword.z_index = 1
+		sword.look_at(player_dir)
+		
+		add_child(sword)
+		print("atacando con espada!!! :b")
+		
+		player.damage(character.get_attack() + primary_weapon_data.damage)
+		yield(sword.get_node("Anim"), "animation_finished")
+	else:
+		var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
+		var player_pos = player_dir * 16
+		glove.global_position = player_pos
+		glove.z_index = 1
+		glove.look_at(player_dir)
+		
+		add_child(glove)
+		
+		player.damage(character.get_attack())
+		yield(glove.get_node("Anim"), "animation_finished")
 	
 	set_process(true)
 
