@@ -7,7 +7,7 @@
 [ext_resource path="res://addons/rpg_elements/icons/RPGWeightInventory.png" type="Texture" id=5]
 [ext_resource path="res://scenes/autoloads/rpg_elements_adaptation/HMRPGHelper.tscn" type="PackedScene" id=6]
 
-[node name="DataManager" type="Node" index="0"]
+[node name="DataManager" type="Node"]
 
 script = ExtResource( 1 )
 

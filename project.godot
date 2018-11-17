@@ -25,6 +25,7 @@ RandomNameGenerator="*res://scenes/autoloads/random_name_generator/RandomNameGen
 EnemyGenerator="*res://scenes/autoloads/EnemyGenerator.gd"
 MusicManager="*res://scenes/autoloads/MusicManager.tscn"
 ItemGenerator="*res://scenes/autoloads/ItemGenerator.gd"
+SoundManager="*res://scenes/autoloads/SoundManager.tscn"
 
 [display]
 

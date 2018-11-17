@@ -15,22 +15,45 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	var material = get_material(item_level)
 		
 	var sword = HMRPGHelper.get_hm_inst_sword()
-	sword.damage = item_level / 2 + 1
+	sword.damage = int(float(item_level) / 2 + 1)
 	
-	var sword_name
+	var material_name
 	
 	match material:
 		Materials.WOOD:
-			sword_name = "Wood Sword"
+			sword.material = Materials.WOOD
+			material_name = "wood"
 		Materials.IRON:
-			sword_name = "Iron Sword"
+			sword.material = Materials.IRON
+			material_name = "iron"
+		Materials.DIAMOND:
+			sword.material = Materials.DIAMOND
+			material_name = "diamond"
+		Materials.RUBY:
+			sword.material = Materials.RUBY
+			material_name = "ruby"
 	
-	sword.item_name = sword_name
+	var form = get_sword_form(sword)
+	var form_name
+	
+	match form:
+		sword.Form.NORMAL:
+			sword.damage -= int(clamp(Main.var_dificulty / 2, 1, 10))
+			form_name = "normal"
+		sword.Form.JAGGED:
+			sword.damage -= int(clamp(Main.var_dificulty * 2, 3, 20))
+			form_name = "jagged"
+		sword.Form.WIDE:
+			sword.damage -= int(clamp(Main.var_dificulty * 3, 8, 30))
+			form_name = "wide"
+	
+	sword.item_name = form_name.capitalize() + " " + material_name.capitalize() + " Sword"
+	sword.texture_path = str("res://scenes/items/attack/swords/skins/", material_name, "-", form_name, ".png")
 	
 	return sword
 
 func get_random_item_level(player_level, level_enemy):
-	return int(round(rand_range(player_level - SCOPE - (level_enemy/2), player_level + SCOPE + (level_enemy / 2))))
+	return clamp(int(round(rand_range(player_level - SCOPE - (level_enemy/2), player_level + SCOPE + (level_enemy / 2)))), 1, 100)
 
 # Devuelve el material del item
 func get_material(item_level):
@@ -39,4 +62,19 @@ func get_material(item_level):
 			return Materials.WOOD
 		11, 12, 13, 14, 15, 16, 17, 18, 19, 20:
 			return Materials.IRON
-		# TODO
+		21, 22, 23, 24, 25, 26, 27, 28, 29, 30:
+			return Materials.DIAMOND
+		
+func get_sword_form(sword):
+	if randi() % 50 == 0:
+		sword.form = sword.Form.WIDE
+		sword.weight = 3
+		return sword.form
+	elif randi() % 20 == 0:
+		sword.form = sword.Form.JAGGED
+		sword.weight = 2
+		return sword.form
+	else:
+		sword.form = sword.Form.NORMAL
+		return sword.form
+	

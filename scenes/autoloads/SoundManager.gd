@@ -1,22 +1,35 @@
-#extends SamplePlayer2D
-#
-#enum Sound {
-#	SOMETHING
-#}
-#var current_sound = ""
-#
-#func select_sound(p_sound):
-#	if not Main.SOUND_ENABLE:
-#		return
-#
-#	current_sound = ""
-#
-#	if p_sound == Sound.ADD_STAT:
-#		current_sound = "AddStat"
-#
-#func play_sound():
-#	if not Main.SOUND_ENABLE:
-#		return
-#
-#	if current_sound != "":
-#		play(current_sound)
+extends Node
+
+enum Sound {
+	HIT_1,
+	HIT_2,
+	HIT_3,
+	HIT_4,
+	LEVEL_UP,
+	SWORD_1,
+	SWORD_2,
+	SWORD_3
+}
+
+func play_sound(sound):
+	if not Main.sound_enable:
+		return
+
+	match sound:
+		Sound.HIT_1:
+			$Hit1.play()
+		Sound.HIT_2:
+			$Hit2.play()
+		Sound.HIT_3:
+			$Hit3.play()
+		Sound.HIT_4:
+			$Hit4.play()
+		Sound.LEVEL_UP:
+			$LevelUp.play()
+		Sound.SWORD_1:
+			$Sword1.play()
+		Sound.SWORD_2:
+			$Sword2.play()
+		Sound.SWORD_3:
+			$Sword3.play()
+	

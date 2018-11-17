@@ -1,7 +1,7 @@
 # HMAttack.gd
 #
 
-extends "../HMItem.gd"
+extends "../HMEquipable.gd"
 
 var damage = 1
 var primary_element

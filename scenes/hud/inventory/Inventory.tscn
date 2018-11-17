@@ -3,11 +3,11 @@
 [ext_resource path="res://scenes/hud/inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://scenes/panels/inventory_panel.png" type="Texture" id=2]
 [ext_resource path="res://scenes/buttons/hud_inventory/HUDInventory.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=4]
-[ext_resource path="res://scenes/items/attack/swords/skins/diamond-jagged.png" type="Texture" id=5]
-[ext_resource path="res://scenes/hud/inventory/ItemDesc-Commons.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/hud/inventory/ItemDesc-Attack.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/hud/inventory/ItemDesc-Sword.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/hud/inventory/Item.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/hud/inventory/ItemDesc-Commons.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/hud/inventory/ItemDesc-Attack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/hud/inventory/ItemDesc-Sword.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/hud/inventory/ItemDesc-AttackButtons.tscn" type="PackedScene" id=8]
 
 [node name="Inventory" type="Node2D"]
 
@@ -115,8 +115,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 94.0
-margin_bottom = 126.0
+margin_right = 106.0
+margin_bottom = 120.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -126,159 +126,11 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="Item" type="Button" parent="Inv/HBox/Items/VBox" index="0"]
+[node name="Item" parent="Inv/HBox/Items/VBox" index="0" instance=ExtResource( 4 )]
 
-self_modulate = Color( 1, 1, 1, 0.666667 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 94.0
-margin_bottom = 22.0
-rect_min_size = Vector2( 0, 20 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Jagged Sword jajaj"
-icon = ExtResource( 5 )
-flat = false
-clip_text = true
-align = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Visibility", "custom_colors", "custom_fonts" ]
-
-[node name="Item2" type="Button" parent="Inv/HBox/Items/VBox" index="1"]
-
-self_modulate = Color( 1, 1, 1, 0.666667 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 26.0
-margin_right = 94.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 0, 20 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Jagged Sword jajaj"
-icon = ExtResource( 5 )
-flat = false
-clip_text = true
-align = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Visibility", "custom_colors", "custom_fonts" ]
-
-[node name="Item3" type="Button" parent="Inv/HBox/Items/VBox" index="2"]
-
-self_modulate = Color( 1, 1, 1, 0.666667 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 52.0
-margin_right = 94.0
-margin_bottom = 74.0
-rect_min_size = Vector2( 0, 20 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Jagged Sword jajaj"
-icon = ExtResource( 5 )
-flat = false
-clip_text = true
-align = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Visibility", "custom_colors", "custom_fonts" ]
-
-[node name="Item4" type="Button" parent="Inv/HBox/Items/VBox" index="3"]
-
-self_modulate = Color( 1, 1, 1, 0.666667 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 78.0
-margin_right = 94.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 0, 20 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Jagged Sword jajaj"
-icon = ExtResource( 5 )
-flat = false
-clip_text = true
-align = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Visibility", "custom_colors", "custom_fonts" ]
-
-[node name="Item5" type="Button" parent="Inv/HBox/Items/VBox" index="4"]
-
-self_modulate = Color( 1, 1, 1, 0.666667 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 104.0
-margin_right = 94.0
-margin_bottom = 126.0
-rect_min_size = Vector2( 0, 20 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 2
-custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Jagged Sword jajaj"
-icon = ExtResource( 5 )
-flat = false
-clip_text = true
-align = 1
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Visibility", "custom_colors", "custom_fonts" ]
+visible = false
+margin_right = 106.0
+rect_scale = Vector2( 1, 1 )
 
 [node name="ItemDesc" type="ScrollContainer" parent="Inv/HBox" index="1"]
 
@@ -320,10 +172,21 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
 
-[node name="Commons" parent="Inv/HBox/ItemDesc/VBox" index="0" instance=ExtResource( 6 )]
+[node name="Commons" parent="Inv/HBox/ItemDesc/VBox" index="0" instance=ExtResource( 5 )]
 
-[node name="Attack" parent="Inv/HBox/ItemDesc/VBox" index="1" instance=ExtResource( 7 )]
+[node name="Attack" parent="Inv/HBox/ItemDesc/VBox" index="1" instance=ExtResource( 6 )]
 
-[node name="Sword" parent="Inv/HBox/ItemDesc/VBox" index="2" instance=ExtResource( 8 )]
+margin_top = 44.0
+margin_bottom = 64.0
+
+[node name="Sword" parent="Inv/HBox/ItemDesc/VBox" index="2" instance=ExtResource( 7 )]
+
+margin_top = 68.0
+margin_bottom = 80.0
+
+[node name="AttackButtons" parent="Inv/HBox/ItemDesc/VBox" index="3" instance=ExtResource( 8 )]
+
+margin_top = 84.0
+margin_bottom = 104.0
 
 

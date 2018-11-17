@@ -283,6 +283,10 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Inventory" parent="." index="3" instance=ExtResource( 5 )]
 
+[node name="Inv" parent="Inventory" index="2"]
+
+editor/display_folded = true
+
 [node name="AnimInv" type="AnimationPlayer" parent="." index="4"]
 
 root_node = NodePath("..")

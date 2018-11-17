@@ -1,35 +1,16 @@
 extends "../Attack.gd"
 
 func _ready():
-	pass
+	update()
+	var rand_sound = int(round(rand_range(SoundManager.SWORD_1, SoundManager.SWORD_3)))
+	SoundManager.play_sound(rand_sound)
 
 # Actualiza la data del sword, como por ejemplo el skin
 func update():
 	if item == null:
 		print("No se puede actualizar ya que no hay item")
 		return
-	
-	var material
-	
-	match item.material:
-		item.Materials.WOOD:
-			material = "wood"
-		item.Materials.IRON:
-			material = "iron"
-		item.Materials.DIAMOND:
-			material = "diamond"
-		item.Materials.RUBY:
-			material = "ruby"
-			
-	var form
-	
-	match item.form:
-		item.Form.NORMAL:
-			form = "normal"
-		item.Form.JAGGED:
-			form = "jagged"
-		item.form.WIDE:
-			form = "wide"
-	
-	var sword_texture = load("res://scenes/items/attack/swords/skins/", material, "-", form, ".png")
+
+	var sword_texture = load(item.texture_path)
+	print(item.texture_path)
 	$Sprite.texture = sword_texture

@@ -96,7 +96,7 @@ func load_user_config():
 #	Main. = user_config["TotalEnemies"]
 
 func create_inventories():
-	var w_inv = $RPGWeightInventory.duplicate()
+	var w_inv = $SomeInv.duplicate()
 	w_inv.max_weight = 10
 	inventories.append(w_inv)
 
