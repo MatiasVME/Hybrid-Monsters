@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/hud/inventory/Inventory.gd" type="Script" id=1]
 [ext_resource path="res://scenes/panels/inventory_panel.png" type="Texture" id=2]
 [ext_resource path="res://scenes/buttons/hud_inventory/HUDInventory.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/hud/inventory/Item.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/hud/inventory/ItemDesc-Commons.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/hud/inventory/ItemDesc-Attack.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/hud/inventory/ItemDesc-Sword.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/hud/inventory/ItemDesc-AttackButtons.tscn" type="PackedScene" id=8]
 
 [node name="Inventory" type="Node2D"]
 
@@ -129,8 +125,6 @@ _sections_unfolded = [ "Size Flags" ]
 [node name="Item" parent="Inv/HBox/Items/VBox" index="0" instance=ExtResource( 4 )]
 
 visible = false
-margin_right = 106.0
-rect_scale = Vector2( 1, 1 )
 
 [node name="ItemDesc" type="ScrollContainer" parent="Inv/HBox" index="1"]
 
@@ -171,22 +165,5 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Size Flags" ]
-
-[node name="Commons" parent="Inv/HBox/ItemDesc/VBox" index="0" instance=ExtResource( 5 )]
-
-[node name="Attack" parent="Inv/HBox/ItemDesc/VBox" index="1" instance=ExtResource( 6 )]
-
-margin_top = 44.0
-margin_bottom = 64.0
-
-[node name="Sword" parent="Inv/HBox/ItemDesc/VBox" index="2" instance=ExtResource( 7 )]
-
-margin_top = 68.0
-margin_bottom = 80.0
-
-[node name="AttackButtons" parent="Inv/HBox/ItemDesc/VBox" index="3" instance=ExtResource( 8 )]
-
-margin_top = 84.0
-margin_bottom = 104.0
 
 

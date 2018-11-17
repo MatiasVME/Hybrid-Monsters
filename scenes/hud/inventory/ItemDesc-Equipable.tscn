@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=1]
 
-[node name="AttackButtons" type="ColorRect"]
+[node name="Equipable" type="ColorRect"]
 
 anchor_left = 0.0
 anchor_top = 0.0

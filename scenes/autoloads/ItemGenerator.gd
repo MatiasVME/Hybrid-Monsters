@@ -38,16 +38,20 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	
 	match form:
 		sword.Form.NORMAL:
-			sword.damage -= int(clamp(Main.var_dificulty / 2, 1, 10))
+			sword.damage -= int(round(clamp(Main.var_dificulty * 2, 1, 10)))
 			form_name = "normal"
 		sword.Form.JAGGED:
-			sword.damage -= int(clamp(Main.var_dificulty * 2, 3, 20))
+			sword.damage -= int(round(clamp(Main.var_dificulty / 2, 3, 20)))
 			form_name = "jagged"
 		sword.Form.WIDE:
-			sword.damage -= int(clamp(Main.var_dificulty * 3, 8, 30))
+			sword.damage -= int(round(clamp(Main.var_dificulty / 3, 8, 30)))
 			form_name = "wide"
 	
-	sword.item_name = form_name.capitalize() + " " + material_name.capitalize() + " Sword"
+	if sword.damage < 0: sword.damage = 1
+	
+	sword.item_type = "sword"
+	
+	sword.item_name = form_name.capitalize() + " " + material_name.capitalize() + " " + sword.item_type.capitalize()
 	sword.texture_path = str("res://scenes/items/attack/swords/skins/", material_name, "-", form_name, ".png")
 	
 	return sword

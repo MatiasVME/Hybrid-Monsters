@@ -1,4 +1,4 @@
-extends Button
+extends HBoxContainer
 
 var hm_item
 
