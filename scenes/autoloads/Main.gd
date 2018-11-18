@@ -11,6 +11,13 @@ var sound_enable = true
 const RES_X = 240
 const RES_Y = 160
 
+# Clases
+#
+
+var HMAttack = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/HMAttack.gd")
+var HMEquipable = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/HMEquipable.gd")
+var HMSword = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/sword/HMSword.gd")
+
 enum Elements {
 	WATER,
 	FIRE,

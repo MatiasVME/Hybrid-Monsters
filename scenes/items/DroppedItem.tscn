@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/items/DroppedItem.gd" type="Script" id=1]
+[ext_resource path="res://scenes/items/attack/swords/skins/ruby-jagged.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4, 4 )
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "drop"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "take"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.4, 1.4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="DroppedItem" type="Node2D" groups=[
+"DroppedItem",
+]]
+
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility" ]
+
+[node name="Area" type="Area2D" parent="." index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="Collision" type="CollisionShape2D" parent="Area" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Anim" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = "drop"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/drop = SubResource( 2 )
+anims/take = SubResource( 3 )
+blend_times = [  ]
+
+[connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
+
+[connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]
+
+

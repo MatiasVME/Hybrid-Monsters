@@ -81,4 +81,44 @@ func get_sword_form(sword):
 	else:
 		sword.form = sword.Form.NORMAL
 		return sword.form
+
+func get_item_image(hm_item):
+	if hm_item is Main.HMSword:
+		hm_item.texture_path = str(
+			"res://scenes/items/attack/swords/skins/", 
+			get_material_name(hm_item.material), 
+			"-", 
+			get_sword_form_name(hm_item), 
+			".png"
+		)
+
+func get_item_in_battle(hm_item):
+	var item_in_battle = load("res://scenes/items/attack/swords/Sword.tscn").instance()
+	item_in_battle.item = hm_item
+	return item_in_battle
+
+func get_material_name(material):
+	match material:
+		Materials.WOOD:
+			return "wood"
+		Materials.IRON:
+			return "iron"
+		Materials.DIAMOND:
+			return "diamond"
+		Materials.RUBY:
+			return "ruby"
+			
+func get_sword_form_name(item):
+	match item.form:
+		item.Form.NORMAL:
+			return "normal"
+		item.Form.JAGGED:
+			return "jagged"
+		item.Form.WIDE:
+			return "wide"
+	
+	
+	
+	
+	
 	

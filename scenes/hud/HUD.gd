@@ -1,11 +1,13 @@
 extends CanvasLayer
 
 var player_data
+# Al HUD se le debe pasar el player completo
+var player # No borrar
 
 func _ready():
 	if DataManager.players.size() > 0:
 		player_data = DataManager.players[0].connect("dead", self, "_on_dead")
-	
+
 func _on_HUDInventory_toggled(button_pressed):
 	if button_pressed:
 		$AnimInv.play("show")

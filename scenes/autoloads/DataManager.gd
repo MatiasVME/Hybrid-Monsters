@@ -44,10 +44,10 @@ func create_data_if_not_exist():
 		load_user_config()
 		load_inventories()
 		
-		# Testeando inventario
-		var sword = ItemGenerator.get_random_sword_from_enemy(10, 2)
-		inventories[0].add_item(sword)
-		save_inventories()
+#		# Testeando inventario
+#		var sword = ItemGenerator.get_random_sword_from_enemy(10, 2)
+#		inventories[0].add_item(sword)
+#		save_inventories()
 	
 func create_global_config():
 	global_config["DeleteData"] = 0 

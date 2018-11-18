@@ -1,13 +1,8 @@
 extends Node2D
 
-# Clases
-#
-
-var HMAttack = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/HMAttack.gd")
-var HMEquipable = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/HMEquipable.gd")
-var HMSword = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/sword/HMSword.gd")
-
 var rec_item = preload("res://scenes/hud/inventory/Item.tscn")
+
+onready var HUD = get_parent()
 
 func _ready():
 	var inv = DataManager.inventories[0].get_inv()
@@ -43,15 +38,18 @@ func describe_commons(hm_item):
 	$Inv/HBox/ItemDesc/VBox.add_child(commons)
 
 func describe_equipable(hm_item):
-	if not hm_item is HMEquipable:
+	if not hm_item is Main.HMEquipable:
 		return
 		
 	var equipable = load("res://scenes/hud/inventory/ItemDesc-Equipable.tscn").instance()
 	
+	equipable.get_node("Equip").connect("toggled", self, "_on_toggled_equip", [hm_item])
+	equipable.get_node("Drop").connect("pressed", self, "_on_drop_equip", [hm_item])
+	
 	$Inv/HBox/ItemDesc/VBox.add_child(equipable)
 
 func describe_attack(hm_item):
-	if not hm_item is HMAttack:
+	if not hm_item is Main.HMAttack:
 		return
 	
 	var attack = load("res://scenes/hud/inventory/ItemDesc-Attack.tscn").instance()
@@ -77,4 +75,15 @@ func _on_item_toggled(button_pressed, item_gui):
 		# Por ahora no usar describe_sword, ya que el puro nombre 
 		# describe el material y la forma
 #		describe_sword(item_gui.hm_item)
+
+func _on_toggled_equip(button_pressed, hm_item):
+	if button_pressed:
+		if hm_item is Main.HMSword:
+			HUD.player.primary_weapon_data = hm_item
+			print("equiped!!")
+	elif not button_pressed:
+		if hm_item is Main.HMSword:
+			HUD.player.primary_weapon_data = null
 	
+func _on_drop_equip(hm_item):
+	pass

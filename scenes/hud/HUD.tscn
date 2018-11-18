@@ -279,9 +279,16 @@ margin_top = 130.0
 margin_right = 225.0
 margin_bottom = 145.0
 rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Inventory" parent="." index="3" instance=ExtResource( 5 )]
+
+[node name="HUDInventory" parent="Inventory" index="1"]
+
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="Inv" parent="Inventory" index="2"]
 
@@ -300,6 +307,7 @@ blend_times = [  ]
 
 [node name="Menu" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
 position = Vector2( 240, 0 )
 scale = Vector2( 1e-05, 1e-05 )
 _sections_unfolded = [ "Transform" ]
@@ -380,6 +388,8 @@ blend_times = [  ]
 margin_left = 220.0
 margin_right = 230.0
 rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Curtain" type="ColorRect" parent="." index="8"]

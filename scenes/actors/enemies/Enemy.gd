@@ -73,7 +73,7 @@ func config_hm_character():
 	$DificultyNum/Num.text = str(EnemyGenerator.last_enemy_dificulty)
 	
 	# Le agregamos una espada al enemigo
-	if randi() % 5 == 0:
+	if randi() % 3 == 0:
 		primary_weapon_data = ItemGenerator.get_random_sword_from_enemy(DataManager.players[0].level, EnemyGenerator.last_enemy_dificulty)
 	
 	character.connect("remove_hp", self, "_on_remove_hp")
@@ -183,6 +183,16 @@ func get_skin(num):
 	var skin = load(str("res://scenes/actors/enemies/skin/", str(num),".png"))
 	return skin
 
+func drop_item(hm_item):
+	var dropped_item = load("res://scenes/items/DroppedItem.tscn").instance()
+	get_parent().add_child(dropped_item)
+	
+	dropped_item.hm_item = hm_item
+	dropped_item.update()
+	
+	dropped_item.global_position = global_position
+	dropped_item.rotation_degrees = int(rand_range(0, 360))
+
 # Signals
 #
 
@@ -208,6 +218,11 @@ func _on_dead():
 	DataManager.players[0].add_xp(xp_drop)
 	
 	Main.store_destroyed_enemies += 1
+	
+	# Probabilidad de dropeo
+	if randi() % 2 == 0:
+		if primary_weapon_data:
+			drop_item(primary_weapon_data)
 
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):

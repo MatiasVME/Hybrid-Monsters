@@ -54,4 +54,5 @@ func _ready():
 	
 	# Añadimos el hud al final para que actualice los datos
 	my_player.set_hud($HUD)
+	$HUD.player = my_player
 	

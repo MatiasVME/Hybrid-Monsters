@@ -77,29 +77,48 @@ func attack(direction):
 	set_process(false)
 	
 	.attack()
-		
-	# Para testear
-	var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
-	var enemy_pos = direction * 16
-	glove.global_position = enemy_pos
-	glove.z_index = 1
-	glove.look_at(direction)
 	
-	add_child(glove)
+	var glove
+	
+	if primary_weapon_data:
+		if primary_weapon_data is Main.HMSword:
+			primary_weapon = ItemGenerator.get_item_in_battle(primary_weapon_data)
+			var enemy_pos = direction * 16
+			primary_weapon.global_position = enemy_pos
+			primary_weapon.z_index = 1
+			primary_weapon.look_at(direction)
+			
+			add_child(primary_weapon)
+			
+	else:
+		glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
+		var enemy_pos = direction * 16
+		glove.global_position = enemy_pos
+		glove.z_index = 1
+		glove.look_at(direction)
+		
+		add_child(glove)
 	
 	# Daño al enemigo
 	for dir in $Around.get_children():
-		print(dir.cast_to)
 		if dir.cast_to == direction:
 			var enemy = dir.get_collider()
 			
 			if enemy:
-				enemy.damage(
-					DataManager.players[Main.current_player].attack
-				)
+				if not primary_weapon:
+					enemy.damage(
+						DataManager.players[Main.current_player].attack
+					)
+				else:
+					enemy.damage(
+						DataManager.players[Main.current_player].attack + primary_weapon_data.damage
+					)
 				break
 	
-	yield(glove.get_node("Anim"), "animation_finished")
+	if glove:
+		yield(glove.get_node("Anim"), "animation_finished")
+	elif primary_weapon:
+		yield(primary_weapon.get_node("Anim"), "animation_finished")
 	
 	set_process(true)
 	
