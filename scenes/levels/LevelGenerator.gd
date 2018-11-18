@@ -53,6 +53,7 @@ func _ready():
 	$Camera.limit_bottom = size_map.y * 16
 	
 	# Añadimos el hud al final para que actualice los datos
-	my_player.set_hud($HUD)
 	$HUD.player = my_player
+	my_player.set_hud($HUD)
+	$HUD.get_node("Inventory").update_inv()
 	

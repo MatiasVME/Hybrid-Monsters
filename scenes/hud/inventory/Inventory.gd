@@ -4,7 +4,7 @@ var rec_item = preload("res://scenes/hud/inventory/Item.tscn")
 
 onready var HUD = get_parent()
 
-func _ready():
+func update_inv():
 	var inv = DataManager.inventories[0].get_inv()
 	
 	for item in inv:
@@ -20,6 +20,10 @@ func add_item(hm_item):
 	item_gui.get_node("Image").texture = load(hm_item.get_texture_path())
 	
 	item_gui.get_node("Button").connect("toggled", self, "_on_item_toggled", [item_gui])
+	
+	# El item debe estar equipado?
+	if hm_item.equiped_how != hm_item.Equipable.NONE:
+		equip(hm_item)
 	
 func deselect_all_items_except(item_gui_except):
 	for item_gui in get_tree().get_nodes_in_group("ItemGUI"):
@@ -43,6 +47,10 @@ func describe_equipable(hm_item):
 		
 	var equipable = load("res://scenes/hud/inventory/ItemDesc-Equipable.tscn").instance()
 	
+	# Si el item esta equipado dejar presionado el botón
+	if hm_item.equiped_how != hm_item.Equipable.NONE:
+		equipable.get_node("Equip").pressed = true
+	
 	equipable.get_node("Equip").connect("toggled", self, "_on_toggled_equip", [hm_item])
 	equipable.get_node("Drop").connect("pressed", self, "_on_drop_equip", [hm_item])
 	
@@ -64,6 +72,20 @@ func remove_all_descriptions():
 	for desc in $Inv/HBox/ItemDesc/VBox.get_children():
 		desc.queue_free()
 
+func equip(hm_item):
+	if hm_item is Main.HMSword:
+		# Desequipar la anterior primary_weapon_data si es que existe
+		if HUD.player.primary_weapon_data:
+			HUD.player.primary_weapon_data.equiped_how = HUD.player.primary_weapon_data.Equipable.NONE
+			
+		HUD.player.primary_weapon_data = hm_item
+		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.PRIMARY_WEAPON
+
+func unequip(hm_item):
+	if hm_item is Main.HMSword:
+		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.NONE
+		HUD.player.primary_weapon_data = null
+
 func _on_item_toggled(button_pressed, item_gui):
 	remove_all_descriptions()
 	
@@ -78,12 +100,9 @@ func _on_item_toggled(button_pressed, item_gui):
 
 func _on_toggled_equip(button_pressed, hm_item):
 	if button_pressed:
-		if hm_item is Main.HMSword:
-			HUD.player.primary_weapon_data = hm_item
-			print("equiped!!")
+		equip(hm_item)
 	elif not button_pressed:
-		if hm_item is Main.HMSword:
-			HUD.player.primary_weapon_data = null
+		unequip(hm_item)
 	
 func _on_drop_equip(hm_item):
 	pass

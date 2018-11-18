@@ -105,7 +105,7 @@ func attack(direction):
 			var enemy = dir.get_collider()
 			
 			if enemy:
-				if not primary_weapon:
+				if not primary_weapon_data:
 					enemy.damage(
 						DataManager.players[Main.current_player].attack
 					)

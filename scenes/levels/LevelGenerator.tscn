@@ -10,7 +10,7 @@
 [ext_resource path="res://scenes/various/camera/Camera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/various/spawns/Spawn.tscn" type="PackedScene" id=9]
 
-[node name="LevelGenerator" type="Node"]
+[node name="LevelGenerator" type="Node" index="0"]
 
 script = ExtResource( 1 )
 

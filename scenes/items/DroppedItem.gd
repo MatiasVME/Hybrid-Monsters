@@ -12,7 +12,6 @@ func _input(event):
 			DataManager.inventories[Main.current_player].add_item(hm_item)
 			HUD.get_node("Inventory").add_item(hm_item)
 			DataManager.save_inventories()
-			queue_free()
 
 func update():
 	if hm_item:
@@ -27,3 +26,7 @@ func _on_Area_area_entered(area):
 func _on_Area_area_exited(area):
 	if area.get_parent().is_in_group("Player"):
 		can_take = false
+
+func _on_Anim_animation_finished(anim_name):
+	if anim_name == "take":
+		queue_free()
