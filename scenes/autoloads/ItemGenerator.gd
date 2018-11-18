@@ -15,36 +15,36 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	var material = get_material(item_level)
 		
 	var sword = HMRPGHelper.get_hm_inst_sword()
-	sword.damage = int(float(item_level) / 2 + 1)
 	
-	var material_name
+	var material_name = get_material_name(material)
+	var max_damage = 5
 	
 	match material:
 		Materials.WOOD:
 			sword.material = Materials.WOOD
-			material_name = "wood"
+			max_damage = 5
 		Materials.IRON:
 			sword.material = Materials.IRON
-			material_name = "iron"
+			max_damage = 10
 		Materials.DIAMOND:
 			sword.material = Materials.DIAMOND
-			material_name = "diamond"
+			max_damage = 15
 		Materials.RUBY:
 			sword.material = Materials.RUBY
-			material_name = "ruby"
+			max_damage = 20
 	
 	var form = get_sword_form(sword)
 	var form_name
 	
 	match form:
 		sword.Form.NORMAL:
-			sword.damage -= int(round(clamp(Main.var_dificulty * 2, 1, 10)))
+			sword.damage = int(round(clamp(float(item_level) / 2, 1, max_damage)))
 			form_name = "normal"
 		sword.Form.JAGGED:
-			sword.damage -= int(round(clamp(Main.var_dificulty / 2, 3, 20)))
+			sword.damage = int(round(clamp(float(item_level) / 2 + Main.var_dificulty * 2, 1, max_damage)))
 			form_name = "jagged"
 		sword.Form.WIDE:
-			sword.damage -= int(round(clamp(Main.var_dificulty / 3, 8, 30)))
+			sword.damage = int(round(clamp(float(item_level) / 2 + Main.var_dificulty * 4, 1, max_damage)))
 			form_name = "wide"
 	
 	if sword.damage < 0: sword.damage = 1
@@ -53,6 +53,9 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	
 	sword.item_name = form_name.capitalize() + " " + material_name.capitalize() + " " + sword.item_type.capitalize()
 	sword.texture_path = str("res://scenes/items/attack/swords/skins/", material_name, "-", form_name, ".png")
+	
+	sword.primary_element = Elements.get_random_element()
+	sword.secundary_element = Elements.get_random_element()
 	
 	return sword
 
@@ -68,6 +71,8 @@ func get_material(item_level):
 			return Materials.IRON
 		21, 22, 23, 24, 25, 26, 27, 28, 29, 30:
 			return Materials.DIAMOND
+		31, 32, 33, 34, 35, 36, 37, 38, 39, 40:
+			return Materials.RUBY
 		
 func get_sword_form(sword):
 	if randi() % 50 == 0:

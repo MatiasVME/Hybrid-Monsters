@@ -31,9 +31,6 @@ func _ready():
 	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.FIRE))
 	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.ELECTRIC))
 	
-#	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element_random())
-#	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element_random())
-#	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element_random())
 	
 
 func _process(delta):

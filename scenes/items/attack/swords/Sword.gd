@@ -12,5 +12,7 @@ func update():
 		return
 
 	var sword_texture = load(item.texture_path)
-	print(item.texture_path)
 	$Sprite.texture = sword_texture
+	
+	$Sprite.material.set_shader_param("r_1", Elements.get_color_element(item.primary_element))
+	$Sprite.material.set_shader_param("r_2", Elements.get_color_element(item.secundary_element))

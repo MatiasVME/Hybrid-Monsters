@@ -13,9 +13,10 @@ func update_inv():
 func add_item(hm_item):
 	var item_gui = rec_item.instance()
 	item_gui.hm_item = hm_item
-
+		
 	$Inv/HBox/Items/VBox.add_child(item_gui)
 	
+	item_gui.update()
 	item_gui.get_node("Button").text = hm_item.item_name
 	item_gui.get_node("Image").texture = load(hm_item.get_texture_path())
 	
