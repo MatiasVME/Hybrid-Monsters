@@ -7,7 +7,12 @@ var HUD
 
 func _input(event):
 	if can_take and event.is_action_pressed("ui_accept"):
+		if not DataManager.inventories[0].can_add_item(hm_item):
+			SoundManager.play_sound(SoundManager.NOPE)
+			return
+		
 		if $Anim.current_animation != "take":
+			SoundManager.play_sound(SoundManager.TAKE_ITEM)
 			$Anim.play("take")
 			DataManager.inventories[Main.current_player].add_item(hm_item)
 			HUD.get_node("Inventory").add_item(hm_item)

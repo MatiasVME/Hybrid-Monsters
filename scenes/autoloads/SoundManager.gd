@@ -8,7 +8,10 @@ enum Sound {
 	LEVEL_UP,
 	SWORD_1,
 	SWORD_2,
-	SWORD_3
+	SWORD_3,
+	NOPE,
+	TAKE_ITEM,
+	DROP
 }
 
 func play_sound(sound):
@@ -32,4 +35,12 @@ func play_sound(sound):
 			$Sword2.play()
 		Sound.SWORD_3:
 			$Sword3.play()
+		Sound.NOPE:
+			$Nope.play()
+		Sound.TAKE_ITEM:
+			$TakeItem.play()
+		Sound.DROP:
+			$Drop.play()
+	
+	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/autoloads/SoundManager.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sfx/hit_1.wav" type="AudioStream" id=2]
@@ -9,8 +9,11 @@
 [ext_resource path="res://sounds/sfx/sword_1.wav" type="AudioStream" id=7]
 [ext_resource path="res://sounds/sfx/sword_2.wav" type="AudioStream" id=8]
 [ext_resource path="res://sounds/sfx/sword_3.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/sfx/nope.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/sfx/take_item.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/sfx/drop.wav" type="AudioStream" id=12]
 
-[node name="SoundManager" type="Node"]
+[node name="SoundManager" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -80,6 +83,33 @@ bus = "Master"
 [node name="Sword3" type="AudioStreamPlayer" parent="." index="7"]
 
 stream = ExtResource( 9 )
+volume_db = 10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Nope" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 10 )
+volume_db = 10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="TakeItem" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 11 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Drop" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 12 )
 volume_db = 10.0
 pitch_scale = 1.0
 autoplay = false
