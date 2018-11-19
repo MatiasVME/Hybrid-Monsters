@@ -5,9 +5,6 @@ extends "../Actor.gd"
 var character
 
 var follow_player = false
-# XP que vota el enemigo cuando muere
-var xp_drop = 5
-
 var players
 
 func _ready():
@@ -70,11 +67,11 @@ func move_or_attack():
 		
 func config_hm_character():
 	character = EnemyGenerator.get_random_enemy_character()
-	$DificultyNum/Num.text = str(EnemyGenerator.last_enemy_dificulty)
+	$DificultyNum/Num.text = str(character.level)
 	
 	# Le agregamos una espada al enemigo
 	if randi() % 3 == 0:
-		primary_weapon_data = ItemGenerator.get_random_sword_from_enemy(DataManager.players[0].level, EnemyGenerator.last_enemy_dificulty)
+		primary_weapon_data = ItemGenerator.get_random_sword_from_enemy(DataManager.players[0].level, character.level)
 	
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")
@@ -215,7 +212,7 @@ func _on_dead():
 	
 	# En un futuro esto tiene que cambiar cuando se tenga
 	# mas de un player
-	DataManager.players[0].add_xp(xp_drop)
+	DataManager.players[0].add_xp(character.xp_drop)
 	
 	Main.store_destroyed_enemies += 1
 	

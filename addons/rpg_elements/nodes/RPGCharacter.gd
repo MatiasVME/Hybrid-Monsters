@@ -44,6 +44,8 @@ export (int) var attack = 1 setget set_attack, get_attack
 var xp = 0
 var xp_required = get_xp_required(level + 1)
 var xp_total = 0
+# XP que suelta al morir, útil para los enemigos
+var xp_drop = 0
 
 # Previene que muera más de una vez. Esto hace que el player
 # no pueda ganar/perder vida/energía cuando esta muerto.

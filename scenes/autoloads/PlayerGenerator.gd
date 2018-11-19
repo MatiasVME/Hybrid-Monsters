@@ -29,6 +29,7 @@ func generate_player():
 	player.max_hp = 20
 	player.energy = 20
 	player.max_energy = 20
+	player.attack = 2
 	
 	return player
 	

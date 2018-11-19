@@ -1,7 +1,7 @@
 extends Node
 
 # -SCOPE | NIVEL | +SCOPE
-const SCOPE = 5
+const scope = 3
 
 enum Materials {
 	WOOD,
@@ -25,12 +25,15 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 			max_damage = 5
 		Materials.IRON:
 			sword.material = Materials.IRON
+			sword.weight += 1
 			max_damage = 10
 		Materials.DIAMOND:
 			sword.material = Materials.DIAMOND
+			sword.weight += 2
 			max_damage = 15
 		Materials.RUBY:
 			sword.material = Materials.RUBY
+			sword.weight += 3
 			max_damage = 20
 	
 	var form = get_sword_form(sword)
@@ -38,14 +41,16 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	
 	match form:
 		sword.Form.NORMAL:
-			sword.damage = int(round(clamp(float(item_level) / 3 + level_enemy, 1, max_damage)))
+			sword.damage = int(round(clamp(float(item_level) / 3 + float(level_enemy), 1, max_damage + level_enemy)))
 			form_name = "normal"
 		sword.Form.JAGGED:
-			sword.damage = int(round(clamp(float(item_level) / 3 + level_enemy + Main.var_dificulty * 2, 1, max_damage)))
+			sword.damage = int(round(clamp(float(item_level) / 3 + float(level_enemy) + Main.var_dificulty * 2, 1, max_damage + level_enemy)))
 			form_name = "jagged"
+			sword.weight += 1
 		sword.Form.WIDE:
-			sword.damage = int(round(clamp(float(item_level) / 3 + level_enemy + Main.var_dificulty * 4, 1, max_damage)))
+			sword.damage = int(round(clamp(float(item_level) / 3 + float(level_enemy) + Main.var_dificulty * 4, 1, max_damage + level_enemy)))
 			form_name = "wide"
+			sword.weight += 2
 	
 	if sword.damage < 0: sword.damage = 1
 	
@@ -57,10 +62,20 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	sword.primary_element = Elements.get_random_element()
 	sword.secundary_element = Elements.get_random_element()
 	
+	sword.buy_price = (sword.weight + sword.damage) * 200
+	sword.sell_price = sword.buy_price / 2
+	
 	return sword
 
 func get_random_item_level(player_level, level_enemy):
-	return clamp(int(round(rand_range(player_level - SCOPE - (level_enemy/2), player_level + SCOPE + (level_enemy / 2)))), 1, 100)
+	if randi() % 10 == 0:
+		scope = 9
+	elif randi() % 5 == 0:
+		scope = 6
+	else:
+		scope = 3
+	
+	return clamp(int(round(rand_range(player_level - scope - (level_enemy/2), player_level + scope + (level_enemy / 2)))), 1, 100)
 
 # Devuelve el material del item
 func get_material(item_level):
@@ -77,11 +92,9 @@ func get_material(item_level):
 func get_sword_form(sword):
 	if randi() % 15 == 0:
 		sword.form = sword.Form.WIDE
-		sword.weight = 3
 		return sword.form
 	elif randi() % 8 == 0:
 		sword.form = sword.Form.JAGGED
-		sword.weight = 2
 		return sword.form
 	else:
 		sword.form = sword.Form.NORMAL

@@ -7,6 +7,8 @@ var player # No borrar
 func _ready():
 	if DataManager.players.size() > 0:
 		player_data = DataManager.players[0].connect("dead", self, "_on_dead")
+	
+	$Debug/VarDificulty.text = str("var_dificulty: ", Main.var_dificulty)
 
 func _on_HUDInventory_toggled(button_pressed):
 	if button_pressed:
