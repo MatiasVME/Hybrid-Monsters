@@ -4,6 +4,8 @@ var rec_item = preload("res://scenes/hud/inventory/Item.tscn")
 
 onready var HUD = get_parent()
 
+signal drop_item(item_dropped)
+
 func update_inv():
 	var inv = DataManager.inventories[0].get_inv()
 	
@@ -106,4 +108,18 @@ func _on_toggled_equip(button_pressed, hm_item):
 		unequip(hm_item)
 	
 func _on_drop_equip(hm_item):
-	pass
+	var inv = DataManager.inventories[Main.current_player]
+	
+	var item_dropped = inv.take_item(hm_item)
+	
+	if item_dropped:
+		emit_signal("drop_item", item_dropped)
+		
+		for item in get_node("Inv/HBox/Items/VBox").get_children():
+			if item.hm_item == item_dropped:
+				if item_dropped.equiped_how != item_dropped.Equipable.NONE:
+					unequip(item_dropped)
+				remove_all_descriptions()
+				get_node("Inv/HBox/Items/VBox").remove_child(item)
+	else:
+		print("El item no pudo ser dropeado")

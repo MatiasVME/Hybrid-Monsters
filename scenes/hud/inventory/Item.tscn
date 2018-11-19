@@ -19,7 +19,7 @@ shader_param/r_3 = null
 shader_param/u_tolerance = 0.0
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[node name="Item" type="HBoxContainer" index="0" groups=[
+[node name="Item" type="HBoxContainer" groups=[
 "ItemGUI",
 ]]
 

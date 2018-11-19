@@ -72,6 +72,15 @@ func take_item_by_id(id):
 	
 	return .take_item_by_id(id)
 
+func take_item(item, amount = 1):
+	var item_taken = .take_item(item, amount)
+	
+	if item_taken:
+		current_weight -= item.weight * item.amount
+		return item_taken
+	else:
+		return
+
 # Borra un item devuelve si lo elimina o no
 # NEEDTEST
 func delete_item(item):

@@ -38,20 +38,20 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	
 	match form:
 		sword.Form.NORMAL:
-			sword.damage = int(round(clamp(float(item_level) / 2, 1, max_damage)))
+			sword.damage = int(round(clamp(float(item_level) / 3 + level_enemy, 1, max_damage)))
 			form_name = "normal"
 		sword.Form.JAGGED:
-			sword.damage = int(round(clamp(float(item_level) / 2 + Main.var_dificulty * 2, 1, max_damage)))
+			sword.damage = int(round(clamp(float(item_level) / 3 + level_enemy + Main.var_dificulty * 2, 1, max_damage)))
 			form_name = "jagged"
 		sword.Form.WIDE:
-			sword.damage = int(round(clamp(float(item_level) / 2 + Main.var_dificulty * 4, 1, max_damage)))
+			sword.damage = int(round(clamp(float(item_level) / 3 + level_enemy + Main.var_dificulty * 4, 1, max_damage)))
 			form_name = "wide"
 	
 	if sword.damage < 0: sword.damage = 1
 	
 	sword.item_type = "sword"
 	
-	sword.item_name = form_name.capitalize() + " " + material_name.capitalize() + " " + sword.item_type.capitalize()
+	sword.item_name = RandomNameGenerator.generate() + " Sword"
 	sword.texture_path = str("res://scenes/items/attack/swords/skins/", material_name, "-", form_name, ".png")
 	
 	sword.primary_element = Elements.get_random_element()
@@ -75,11 +75,11 @@ func get_material(item_level):
 			return Materials.RUBY
 		
 func get_sword_form(sword):
-	if randi() % 50 == 0:
+	if randi() % 15 == 0:
 		sword.form = sword.Form.WIDE
 		sword.weight = 3
 		return sword.form
-	elif randi() % 20 == 0:
+	elif randi() % 8 == 0:
 		sword.form = sword.Form.JAGGED
 		sword.weight = 2
 		return sword.form

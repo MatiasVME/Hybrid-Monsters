@@ -14,10 +14,6 @@ func _ready():
 	
 	add_child(turn_helper)
 	
-	# Random Skin for test
-#	randomize()
-#	var random_skin = int(round(rand_range(1, Main.SKIN_PLAYER_AMOUNT)))
-	
 	$Pivot/Sprite.texture = get_skin(6)
 	
 	config_character()
@@ -31,8 +27,6 @@ func _ready():
 	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.FIRE))
 	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.ELECTRIC))
 	
-	
-
 func _process(delta):
 	if is_mark_to_dead:
 		return
@@ -52,7 +46,8 @@ func set_hud(_hud):
 	HUD = _hud
 	
 	HUD.get_node("Status").update_all_status()
-
+	HUD.get_node("Inventory").connect("drop_item", self, "_on_drop_item")
+	
 func get_input_direction():
 	return Vector2(
 		int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left")),
@@ -222,3 +217,16 @@ func _on_add_xp(amount):
 	
 	if HUD:
 		HUD.get_node("Status").update_xp_progress()
+		
+func _on_drop_item(drop):
+	# TODO: Lo ideal sería que dropeara items alrededor
+	# del player
+	
+	var dropped_item = load("res://scenes/items/DroppedItem.tscn").instance()
+	get_parent().add_child(dropped_item)
+	
+	dropped_item.hm_item = drop
+	dropped_item.update()
+	
+	dropped_item.global_position = global_position
+	dropped_item.rotation_degrees = int(rand_range(0, 360))
