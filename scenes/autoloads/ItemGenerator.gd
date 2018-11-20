@@ -145,4 +145,12 @@ func get_random_health_potion():
 	
 	return potion_inst
 	
+func get_health_potion(potion_type):
+	var potion_inst = HMRPGHelper.get_hm_inst_health_potion()
+	
+	# Esto le asigna el nombre y el health y la textura
+	potion_inst.type_potion = potion_type
+	
+	return potion_inst
+	
 	

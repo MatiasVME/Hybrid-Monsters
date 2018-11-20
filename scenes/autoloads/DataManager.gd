@@ -43,11 +43,6 @@ func create_data_if_not_exist():
 		load_players()
 		load_user_config()
 		load_inventories()
-		
-#		# Testeando inventario
-#		var sword = ItemGenerator.get_random_sword_from_enemy(10, 2)
-#		inventories[0].add_item(sword)
-#		save_inventories()
 	
 func create_global_config():
 	global_config["DeleteData"] = 0 
@@ -98,6 +93,9 @@ func load_user_config():
 func create_inventories():
 	var w_inv = $SomeInv.duplicate()
 	w_inv.max_weight = 10
+	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
+	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
+	
 	inventories.append(w_inv)
 
 	save_inventories()
