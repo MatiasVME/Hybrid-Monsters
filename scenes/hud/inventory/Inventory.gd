@@ -166,5 +166,8 @@ func _on_drop_equip(hm_item):
 				remove_all_descriptions()
 				get_node("Inv/HBox/Items/VBox").remove_child(item)
 				break
+		
+		SoundManager.play_sound(SoundManager.DROP)
+		DataManager.save_inventories()
 	else:
 		print("El item no pudo ser dropeado")

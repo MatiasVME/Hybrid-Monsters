@@ -11,9 +11,8 @@
 [ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=9]
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=10]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 
-resource_name = "hide"
 length = 0.4
 loop = false
 step = 0.1
@@ -30,7 +29,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -142 ), Vector2( 0, 4 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 
 length = 0.4
 loop = false
@@ -48,9 +47,8 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 4 ), Vector2( 0, -142 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 
-resource_name = "hide"
 length = 0.4
 loop = false
 step = 0.1
@@ -91,9 +89,8 @@ tracks/2/keys = {
 "values": [ Vector2( 220, -22 ), Vector2( 220, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
-resource_name = "show"
 length = 0.4
 loop = false
 step = 0.1
@@ -134,9 +131,8 @@ tracks/2/keys = {
 "values": [ Vector2( 220, 0 ), Vector2( 220, -22 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
-resource_name = "hide"
 length = 2.0
 loop = false
 step = 0.1
@@ -165,9 +161,8 @@ tracks/1/keys = {
 "values": [ 0, 0, 2 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 
-resource_name = "show"
 length = 3.0
 loop = false
 step = 0.1
@@ -196,9 +191,8 @@ tracks/1/keys = {
 "values": [ 2, 0, 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 
-resource_name = "show"
 length = 3.0
 loop = false
 step = 0.1
@@ -251,7 +245,7 @@ tracks/3/keys = {
 "values": [ false, false, true, true ]
 }
 
-[node name="HUD" type="CanvasLayer" groups=[
+[node name="HUD" type="CanvasLayer" index="0" groups=[
 "HUD",
 ]]
 
@@ -302,8 +296,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 1 )
-anims/show = SubResource( 2 )
+anims/hide = SubResource( 3 )
+anims/show = SubResource( 4 )
 blend_times = [  ]
 
 [node name="Menu" type="Node2D" parent="." index="5"]
@@ -380,8 +374,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 3 )
-anims/show = SubResource( 4 )
+anims/hide = SubResource( 5 )
+anims/show = SubResource( 6 )
 blend_times = [  ]
 
 [node name="HUDMenuButton" parent="." index="7" instance=ExtResource( 8 )]
@@ -424,8 +418,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 5 )
-anims/show = SubResource( 6 )
+anims/hide = SubResource( 7 )
+anims/show = SubResource( 8 )
 blend_times = [  ]
 
 [node name="WinLost" parent="." index="9" instance=ExtResource( 9 )]
@@ -441,7 +435,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 7 )
+anims/show = SubResource( 9 )
 blend_times = [  ]
 
 [node name="Debug" type="Node2D" parent="." index="11"]
