@@ -17,6 +17,9 @@ const RES_Y = 160
 var HMAttack = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/HMAttack.gd")
 var HMEquipable = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/HMEquipable.gd")
 var HMSword = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/sword/HMSword.gd")
+var HMPotion = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/potion/HMPotion.gd")
+var HMUsable = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/HMUsable.gd")
+var HMHealth = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/potion/HMHealth.gd")
 
 enum Elements {
 	WATER,
@@ -95,11 +98,11 @@ func init_basic_user_config():
 	DataManager.save_user_config()
 
 func increase_dificulty():
-	var_dificulty = clamp(var_dificulty + 0.1, 1, 10)
+	var_dificulty = clamp(var_dificulty + 0.2, 1, 10)
 	map_size = clamp(map_size + 4, 20, 250)
 	total_enemies = clamp(total_enemies + 4, 6, 100)
 
 func diminish_dificulty():
-	var_dificulty = clamp(var_dificulty - 0.1, 1, 10)
+	var_dificulty = clamp(var_dificulty - 0.2, 1, 10)
 	map_size = clamp(map_size - 4, 20, 250)
 	total_enemies = clamp(total_enemies - 4, 6, 100)

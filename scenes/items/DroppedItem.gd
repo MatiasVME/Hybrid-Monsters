@@ -17,16 +17,17 @@ func _input(event):
 			DataManager.inventories[Main.current_player].add_item(hm_item)
 			HUD.get_node("Inventory").add_item(hm_item)
 			DataManager.save_inventories()
-
+	
 func update():
 	if hm_item:
 		$Sprite.texture = load(hm_item.texture_path)
 		
-		$Sprite.material.set_shader_param("r_1", Elements.get_color_element(hm_item.primary_element))
-		$Sprite.material.set_shader_param("r_2", Elements.get_color_element(hm_item.secundary_element))
+		if hm_item is Main.HMAttack:
+			$Sprite.material.set_shader_param("r_1", Elements.get_color_element(hm_item.primary_element))
+			$Sprite.material.set_shader_param("r_2", Elements.get_color_element(hm_item.secundary_element))
 		
 		HUD = get_tree().get_nodes_in_group("HUD")[0]
-
+	
 func _on_Area_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
 		can_take = true

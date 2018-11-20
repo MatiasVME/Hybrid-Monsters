@@ -24,9 +24,10 @@ func add_item(hm_item):
 	
 	item_gui.get_node("Button").connect("toggled", self, "_on_item_toggled", [item_gui])
 	
-	# El item debe estar equipado?
-	if hm_item.equiped_how != hm_item.Equipable.NONE:
-		equip(hm_item)
+	if hm_item is Main.HMEquipable:
+		# El item debe estar equipado?
+		if hm_item.equiped_how != hm_item.Equipable.NONE:
+			equip(hm_item)
 	
 func deselect_all_items_except(item_gui_except):
 	for item_gui in get_tree().get_nodes_in_group("ItemGUI"):
@@ -42,8 +43,31 @@ func describe_commons(hm_item):
 	commons.get_node("BuyPrice").text = str("Buy Price: ", hm_item.buy_price)
 	commons.get_node("SellPrice").text = str("Sell Price: ", hm_item.sell_price)
 
+	commons.get_node("Drop").connect("pressed", self, "_on_drop_equip", [hm_item])
+
 	$Inv/HBox/ItemDesc/VBox.add_child(commons)
 
+func describe_potion(hm_item):
+	if not hm_item is Main.HMPotion:
+		return
+		
+	var desc_potion = load("res://scenes/hud/inventory/ItemDesc-Potion.tscn").instance()
+	
+	if hm_item is Main.HMHealth:
+		desc_potion.get_node("Recharge").text = str("Recharge: ", hm_item.health)
+	
+	$Inv/HBox/ItemDesc/VBox.add_child(desc_potion)
+	
+func describe_usable(hm_item):
+	if not hm_item is Main.HMUsable:
+		return
+	
+	var desc_usable = load("res://scenes/hud/inventory/ItemDesc-Usable.tscn").instance()
+	
+	desc_usable.get_node("Use").connect("pressed", self, "_on_use_item", [hm_item])
+	
+	$Inv/HBox/ItemDesc/VBox.add_child(desc_usable)
+	
 func describe_equipable(hm_item):
 	if not hm_item is Main.HMEquipable:
 		return
@@ -55,7 +79,6 @@ func describe_equipable(hm_item):
 		equipable.get_node("Equip").pressed = true
 	
 	equipable.get_node("Equip").connect("toggled", self, "_on_toggled_equip", [hm_item])
-	equipable.get_node("Drop").connect("pressed", self, "_on_drop_equip", [hm_item])
 	
 	$Inv/HBox/ItemDesc/VBox.add_child(equipable)
 
@@ -95,6 +118,8 @@ func _on_item_toggled(button_pressed, item_gui):
 	if button_pressed:
 		deselect_all_items_except(item_gui)
 		describe_commons(item_gui.hm_item)
+		describe_potion(item_gui.hm_item)
+		describe_usable(item_gui.hm_item)
 		describe_equipable(item_gui.hm_item)
 		describe_attack(item_gui.hm_item)
 		# Por ahora no usar describe_sword, ya que el puro nombre 
@@ -106,7 +131,25 @@ func _on_toggled_equip(button_pressed, hm_item):
 		equip(hm_item)
 	elif not button_pressed:
 		unequip(hm_item)
+
+func _on_use_item(hm_item):
+	if hm_item is Main.HMHealth:
+		DataManager.players[Main.current_player].add_hp(hm_item.health)
+		
+	remove_all_descriptions()
 	
+	for item in get_node("Inv/HBox/Items/VBox").get_children():
+		if item.hm_item == hm_item:
+			get_node("Inv/HBox/Items/VBox").remove_child(item)
+			break
+	
+	HUD.get_node("Status").update_hp_progress()
+	SoundManager.play_sound(SoundManager.BUBBLE)
+	
+	DataManager.inventories[Main.current_player].delete_item(hm_item)
+	
+	DataManager.save_inventories()
+
 func _on_drop_equip(hm_item):
 	var inv = DataManager.inventories[Main.current_player]
 	
@@ -117,9 +160,11 @@ func _on_drop_equip(hm_item):
 		
 		for item in get_node("Inv/HBox/Items/VBox").get_children():
 			if item.hm_item == item_dropped:
-				if item_dropped.equiped_how != item_dropped.Equipable.NONE:
-					unequip(item_dropped)
+				if item is Main.HMEquipable:
+					if item_dropped.equiped_how != item_dropped.Equipable.NONE:
+						unequip(item_dropped)
 				remove_all_descriptions()
 				get_node("Inv/HBox/Items/VBox").remove_child(item)
+				break
 	else:
 		print("El item no pudo ser dropeado")

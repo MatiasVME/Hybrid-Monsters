@@ -22,8 +22,8 @@ func create_rand_easy_enemy(character):
 #	print("hp = ", hp)
 #	print("attack = ", attack)
 	
-	character.hp = hp
 	character.max_hp = hp
+	character.hp = hp
 	character.attack = attack
 	character.xp_drop = int(Main.var_dificulty)
 	
@@ -39,8 +39,8 @@ func create_rand_normal_enemy(character):
 #	print("hp = ", hp)
 #	print("attack = ", attack)
 	
-	character.hp = hp
 	character.max_hp = hp
+	character.hp = hp
 	character.attack = attack
 	character.xp_drop = int(Main.var_dificulty * character.level)
 	
@@ -57,8 +57,8 @@ func create_rand_hard_enemy(character):
 #	print("hp = ", hp)
 #	print("attack = ", attack)
 	
-	character.hp = hp
 	character.max_hp = hp
+	character.hp = hp
 	character.attack = attack
 	character.xp_drop = int(Main.var_dificulty * character.level)
 	

@@ -74,7 +74,7 @@ func attack(direction):
 	
 	if primary_weapon_data:
 		if primary_weapon_data is Main.HMSword:
-			primary_weapon = ItemGenerator.get_item_in_battle(primary_weapon_data)
+			primary_weapon = ItemGenerator.get_item_sword_in_battle(primary_weapon_data)
 			var enemy_pos = direction * 16
 			primary_weapon.global_position = enemy_pos
 			primary_weapon.z_index = 1

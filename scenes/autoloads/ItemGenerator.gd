@@ -110,7 +110,8 @@ func get_item_image(hm_item):
 			".png"
 		)
 
-func get_item_in_battle(hm_item):
+# Le pasamos un HM_Item de una espada y lo convierte a item_in_battle
+func get_item_sword_in_battle(hm_item):
 	var item_in_battle = load("res://scenes/items/attack/swords/Sword.tscn").instance()
 	item_in_battle.item = hm_item
 	return item_in_battle
@@ -134,9 +135,14 @@ func get_sword_form_name(item):
 			return "jagged"
 		item.Form.WIDE:
 			return "wide"
+
+func get_random_health_potion():
+	var potion_inst = HMRPGHelper.get_hm_inst_health_potion()
+	var rand_num = int(round(rand_range(potion_inst.TYPE_5, potion_inst.TYPE_20)))
 	
+	# Esto le asigna el nombre y el health y la textura
+	potion_inst.type_potion = rand_num
 	
-	
-	
+	return potion_inst
 	
 	

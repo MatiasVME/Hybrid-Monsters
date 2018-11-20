@@ -189,6 +189,8 @@ func drop_item(hm_item):
 	
 	dropped_item.global_position = global_position
 	dropped_item.rotation_degrees = int(rand_range(0, 360))
+	
+	SoundManager.play_sound(SoundManager.DROP)
 
 # Signals
 #
@@ -220,6 +222,8 @@ func _on_dead():
 	if randi() % 2 == 0:
 		if primary_weapon_data:
 			drop_item(primary_weapon_data)
+	if randi() % 2 == 0:
+		drop_item(ItemGenerator.get_random_health_potion())
 
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
