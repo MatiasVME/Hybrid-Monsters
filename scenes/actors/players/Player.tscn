@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/actors/players/Player.gd" type="Script" id=2]
@@ -22,6 +22,20 @@ _sections_unfolded = [ "Resource" ]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
+
+[sub_resource type="ShaderMaterial" id=3]
+
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource( 3 )
+shader_param/c_1 = Color( 1, 0, 0, 1 )
+shader_param/c_2 = Color( 0, 1, 0, 1 )
+shader_param/c_3 = null
+shader_param/r_1 = null
+shader_param/r_2 = null
+shader_param/r_3 = null
+shader_param/u_tolerance = null
+_sections_unfolded = [ "Resource", "shader_param" ]
 
 [node name="Player" groups=[
 "Player",
@@ -50,8 +64,6 @@ audio_bus_name = "Master"
 shape = SubResource( 2 )
 
 [node name="Around" type="Node2D" parent="." index="4"]
-
-editor/display_folded = true
 
 [node name="Left" type="RayCast2D" parent="Around" index="0"]
 
@@ -84,5 +96,9 @@ enabled = true
 exclude_parent = true
 cast_to = Vector2( 0, 1 )
 collision_mask = 1
+
+[node name="CurrentWeapon" parent="." index="6"]
+
+material = SubResource( 3 )
 
 

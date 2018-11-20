@@ -150,6 +150,8 @@ func mine(direction):
 		if dir.cast_to == direction:
 			Grid.remove_wall(self, direction)
 	
+	SoundManager.play_sound(SoundManager.MINE)
+	
 	yield(pickaxe.get_node("Anim"), "animation_finished")
 	
 	set_process(true)

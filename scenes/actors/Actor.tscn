@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/actors/Actor.gd" type="Script" id=1]
 [ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=2]
 [ext_resource path="res://scenes/actors/players/skins/6.png" type="Texture" id=3]
+[ext_resource path="res://scenes/items/attack/swords/skins/diamond-wide.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -164,6 +165,20 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
+[sub_resource type="ShaderMaterial" id=8]
+
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/c_1 = Color( 1, 0, 0, 1 )
+shader_param/c_2 = Color( 0, 1, 0, 1 )
+shader_param/c_3 = null
+shader_param/r_1 = null
+shader_param/r_2 = null
+shader_param/r_3 = null
+shader_param/u_tolerance = null
+_sections_unfolded = [ "Resource", "shader_param" ]
+
 [node name="Actor" type="KinematicBody2D"]
 
 position = Vector2( 8, 8 )
@@ -201,6 +216,7 @@ playback/speed = 0.0
 
 [node name="Pivot" type="Position2D" parent="." index="2"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="Pivot" index="0"]
@@ -215,5 +231,14 @@ _sections_unfolded = [ "Material", "Offset", "Transform", "Visibility" ]
 [node name="Collision" type="CollisionShape2D" parent="." index="3"]
 
 shape = SubResource( 7 )
+
+[node name="CurrentWeapon" type="Sprite" parent="." index="4"]
+
+material = SubResource( 8 )
+position = Vector2( -6, 6 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -8 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Z Index" ]
 
 

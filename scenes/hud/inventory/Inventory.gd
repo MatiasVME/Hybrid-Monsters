@@ -103,14 +103,17 @@ func equip(hm_item):
 		# Desequipar la anterior primary_weapon_data si es que existe
 		if HUD.player.primary_weapon_data:
 			HUD.player.primary_weapon_data.equiped_how = HUD.player.primary_weapon_data.Equipable.NONE
-			
+		
+		HUD.player.get_node("CurrentWeapon").texture = load(hm_item.texture_path)
 		HUD.player.primary_weapon_data = hm_item
 		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.PRIMARY_WEAPON
+	
 
 func unequip(hm_item):
 	if hm_item is Main.HMSword:
 		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.NONE
 		HUD.player.primary_weapon_data = null
+		HUD.player.get_node("CurrentWeapon").texture = null
 
 func _on_item_toggled(button_pressed, item_gui):
 	remove_all_descriptions()

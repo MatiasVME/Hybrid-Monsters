@@ -29,7 +29,10 @@ var directions = [
 
 var is_mark_to_dead = false
 
-func spawn():	
+func _ready():
+	$CurrentWeapon.texture = null
+
+func spawn():
 	emit_signal("spawn")
 	
 	$Anim.play("spawn")
@@ -67,6 +70,7 @@ func move_to(target_position):
 func bump():
 	set_process(false)
 	$Anim.play("bump")
+	SoundManager.play_sound(SoundManager.NOPE)
 	yield($Anim, "animation_finished")
 	set_process(true)
 	
