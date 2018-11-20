@@ -4,9 +4,6 @@ var player_data
 # Al HUD se le debe pasar el player completo
 var player # No borrar
 
-# Input
-var inv_pressed = false
-
 func _ready():
 	if DataManager.players.size() > 0:
 		player_data = DataManager.players[0].connect("dead", self, "_on_dead")
@@ -15,15 +12,14 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
-		_on_HUDInventory_toggled(not inv_pressed)
+		$Inventory/HUDInventory.pressed = not $Inventory/HUDInventory.pressed
+		_on_HUDInventory_toggled($Inventory/HUDInventory.pressed)
 
 func _on_HUDInventory_toggled(button_pressed):
 	if button_pressed:
 		$AnimInv.play("show")
-		inv_pressed = true
 	else:
 		$AnimInv.play("hide")
-		inv_pressed = false
 
 func _on_HUDMenuButton_pressed():
 	$AnimMenu.play("show")

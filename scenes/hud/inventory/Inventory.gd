@@ -16,13 +16,12 @@ func add_item(hm_item):
 	var item_gui = rec_item.instance()
 	item_gui.hm_item = hm_item
 		
-	$Inv/HBox/Items/VBox.add_child(item_gui)
+	$Inv/HBox/Items/Grid.add_child(item_gui)
 	
 	item_gui.update()
-	item_gui.get_node("Button").text = hm_item.item_name
-	item_gui.get_node("Image").texture = load(hm_item.get_texture_path())
+	item_gui.get_node("Sprite").texture = load(hm_item.get_texture_path())
 	
-	item_gui.get_node("Button").connect("toggled", self, "_on_item_toggled", [item_gui])
+	item_gui.connect("toggled", self, "_on_item_toggled", [item_gui])
 	
 	if hm_item is Main.HMEquipable:
 		# El item debe estar equipado?
@@ -31,8 +30,8 @@ func add_item(hm_item):
 	
 func deselect_all_items_except(item_gui_except):
 	for item_gui in get_tree().get_nodes_in_group("ItemGUI"):
-		if item_gui != item_gui_except and item_gui.get_node("Button").pressed:
-			item_gui.get_node("Button").pressed = false
+		if item_gui != item_gui_except and item_gui.pressed:
+			item_gui.pressed = false
 	
 func describe_commons(hm_item):
 	var commons = load("res://scenes/hud/inventory/ItemDesc-Commons.tscn").instance()
@@ -141,9 +140,9 @@ func _on_use_item(hm_item):
 		
 	remove_all_descriptions()
 	
-	for item in get_node("Inv/HBox/Items/VBox").get_children():
+	for item in get_node("Inv/HBox/Items/Grid").get_children():
 		if item.hm_item == hm_item:
-			get_node("Inv/HBox/Items/VBox").remove_child(item)
+			get_node("Inv/HBox/Items/Grid").remove_child(item)
 			break
 	
 	HUD.get_node("Status").update_hp_progress()
@@ -161,13 +160,13 @@ func _on_drop_equip(hm_item):
 	if item_dropped:
 		emit_signal("drop_item", item_dropped)
 		
-		for item in get_node("Inv/HBox/Items/VBox").get_children():
+		for item in get_node("Inv/HBox/Items/Grid").get_children():
 			if item.hm_item == item_dropped:
 				if item is Main.HMEquipable:
 					if item_dropped.equiped_how != item_dropped.Equipable.NONE:
 						unequip(item_dropped)
 				remove_all_descriptions()
-				get_node("Inv/HBox/Items/VBox").remove_child(item)
+				get_node("Inv/HBox/Items/Grid").remove_child(item)
 				break
 		
 		SoundManager.play_sound(SoundManager.DROP)
