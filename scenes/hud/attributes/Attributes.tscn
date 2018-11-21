@@ -5,7 +5,7 @@
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/hud/attributes/Stat.tscn" type="PackedScene" id=4]
 
-[node name="Attributes" type="Node2D" index="0"]
+[node name="Attributes" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]

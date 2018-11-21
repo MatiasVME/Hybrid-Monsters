@@ -1,7 +1,6 @@
 extends Node2D
 
-func _ready():
-	pass
+onready var hud = get_parent()
 
 func update():
 	$VBox/Scroll/VBox/StatStrength/Num.text = str(DataManager.stats[Main.current_player].get_stat_value("Strength"))
@@ -45,3 +44,4 @@ func _on_AddStat_Vitality_pressed():
 	DataManager.save_players()
 	DataManager.save_stats()
 	
+	hud.get_node("Status").update_hp_progress()

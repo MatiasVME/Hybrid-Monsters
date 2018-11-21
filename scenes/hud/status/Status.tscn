@@ -9,7 +9,7 @@
 [ext_resource path="res://scenes/hud/status/xp-center-fill.png" type="Texture" id=7]
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=8]
 
-[node name="Status" type="Node2D"]
+[node name="Status" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
