@@ -35,6 +35,7 @@ func create_data_if_not_exist():
 		create_players()
 		create_user_config()
 		create_inventories()
+		create_stats()
 	else:
 		# Carga la data
 		#
@@ -43,6 +44,7 @@ func create_data_if_not_exist():
 		load_players()
 		load_user_config()
 		load_inventories()
+		load_stats()
 	
 func create_global_config():
 	global_config["DeleteData"] = 0 
@@ -117,6 +119,37 @@ func load_inventories():
 	for inventory in temp_data.values():
 		inventories.append($SomeInv.dict2inv(inventory))
 
+func create_stats():
+	var temp_data
+	temp_data = $Stats.get_data("Stats")
+	
+	var first_stats = HMRPGHelper.get_inst_stats()
+	first_stats.add_stat("Strength", 0, 30)
+	first_stats.add_stat("Luck", 0, 30)
+	first_stats.add_stat("Vitality", 0, 30)
+	
+	stats.append(first_stats)
+	
+	temp_data[0] = inst2dict(stats[0])
+	
+	$Stats.save_data("Stats")
+	
+func load_stats():
+	var temp_data = $Stats.get_data("Stats")
+	stats = []
+	
+	for stat in temp_data.values():
+		stats.append(dict2inst(stat))
+	
+func save_stats():
+	var temp_data = $Stats.get_data("Stats")
+	temp_data.clear()
+	
+	for i in stats.size():
+		temp_data[i] = inst2dict(stats[i])
+		
+	$Stats.save_data("Stats")
+
 func save_user_config():
 	user_config["Dificulty"] = Main.dificulty_selected
 	user_config["VarDificulty"] = Main.var_dificulty
@@ -131,3 +164,4 @@ func remove_all_data():
 	$UserConfig.remove_all_data()
 	$Inventories.remove_all_data()
 	$Stats.remove_all_data()
+

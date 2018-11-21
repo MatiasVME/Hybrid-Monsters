@@ -23,20 +23,20 @@
 extends "RPGElement.gd"
 
 func get_inst_character():
-	return load("res://addons/rpg_elements/nodes/RPGCharacter.gd").instance()
+	return load("res://addons/rpg_elements/nodes/RPGCharacter.gd").new()
 	
 func get_inst_dialog():
-	return load("res://addons/rpg_elements/nodes/RPGDialog.gd").instance()
+	return load("res://addons/rpg_elements/nodes/RPGDialog.gd").new()
 
 func get_inst_inventory():
-	return load("res://addons/rpg_elements/nodes/RPGInventory.gd").instance()
+	return load("res://addons/rpg_elements/nodes/RPGInventory.gd").new()
 	
 func get_inst_item():
-	return load("res://addons/rpg_elements/nodes/RPGItem.gd").instance()
+	return load("res://addons/rpg_elements/nodes/RPGItem.gd").new()
 	
 func get_inst_stats():
-	return load("res://addons/rpg_elements/nodes/RPGStats.gd").instance()
+	return load("res://addons/rpg_elements/nodes/RPGStats.gd").new()
 	
 func get_inst_weight_inventory():
-	return load("res://addons/rpg_elements/nodes/RPGWeightInventory.gd").instance()
+	return load("res://addons/rpg_elements/nodes/RPGWeightInventory.gd").new()
 	

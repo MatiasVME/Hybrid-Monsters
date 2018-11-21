@@ -198,18 +198,20 @@ func _on_dead():
 	$Anim.play("dead")
 	
 func _on_level_up(current_level):
-	DataManager.players[0].hp += 4
-	DataManager.players[0].max_hp += 4
-	
 	if int(current_level) % 3 == 0:
 		DataManager.players[0].attack += 1
 #		print("=o attack=",DataManager.players[0].attack)
-
+	
 	var effect_level_up = load("res://scenes/effects/level_up/LevelUp.tscn").instance()
 	add_child(effect_level_up)
 	effect_level_up.position.x += 8
 	effect_level_up.position.y -= 8
 	
+	DataManager.stats[Main.current_player].add_points(3)
+	
+	HUD.get_node("Attributes").update()
+	
+	DataManager.save_stats()
 	DataManager.save_players()
 	
 func _on_add_xp(amount):
