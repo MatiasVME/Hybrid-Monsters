@@ -20,7 +20,7 @@ func update():
 	
 
 func _on_AddStat_Strength_pressed():
-	DataManager.stats[Main.current_player].add_points_to_stat(1, "Strength")
+	AttributesManager.add_strength()
 	update()
 
 func _on_AddStat_Luck_pressed():

@@ -18,7 +18,7 @@ enum ItemType {
 }
 
 func get_item_type_name():
-	match self.item_type:
+	match int(self.item_type):
 		ItemType.GLOVES:
 			return "Gloves"
 		ItemType.SWORD:

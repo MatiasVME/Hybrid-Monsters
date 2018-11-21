@@ -11,12 +11,12 @@ enum BookType {
 
 var book_type setget set_book_type
 
-func _init():
-	self.item_type = self.ItemType.BOOK
+func _ready():
 	self.buy_price = 5000
 	self.sell_price = self.buy_price / 2
 
 func set_book_type(_book_type):
+	self.item_type = self.ItemType.BOOK
 	book_type = _book_type
 
 	match book_type:
@@ -31,7 +31,7 @@ func set_book_type(_book_type):
 			self.item_name = "Vitality Book"
 
 func use():
-	if not book_type:
+	if book_type == null:
 		print("Este libro no tiene book_type")
 		return
 		

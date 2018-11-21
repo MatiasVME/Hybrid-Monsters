@@ -13,6 +13,3 @@ enum Form {
 var material
 # Forma o tipo de espada
 var form
-
-func _init():
-	item_type = ItemType.SWORD

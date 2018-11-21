@@ -203,11 +203,11 @@ func drop():
 	#
 	
 	var drop_primary_weapon = clamp(
-		10.0 - (
-			DataManager.stats[Main.current_player].get_stat_value("Luck") / 2
+		6.0 - (
+			DataManager.stats[Main.current_player].get_stat_value("Luck") / 4
 		), 
 		1, 
-		10
+		6
 	)
 	
 	if randi() % int(round(drop_primary_weapon)) == 0:

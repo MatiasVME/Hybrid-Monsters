@@ -25,6 +25,8 @@ func get_potion_name():
 			return "Health (20)"
 			
 func set_type_potion(_type_potion):
+	self.item_type = self.ItemType.POTION
+	
 	self.texture_path = "res://scenes/items/potions/skins/potion_health.png"
 	type_potion = _type_potion
 	

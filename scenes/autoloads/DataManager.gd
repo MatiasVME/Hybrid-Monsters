@@ -99,6 +99,10 @@ func create_inventories():
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
 	
+	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
+	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
+	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
+	
 	inventories.append(w_inv)
 
 	save_inventories()

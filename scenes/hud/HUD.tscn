@@ -48,7 +48,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 4 ), Vector2( 0, -142 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 
 resource_name = "hide"
 length = 0.4
@@ -79,7 +79,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 250, 160 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 
 resource_name = "show"
 length = 0.4
@@ -110,7 +110,7 @@ tracks/1/keys = {
 "values": [ Vector2( 250, 160 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 
 length = 0.4
 loop = false
@@ -152,7 +152,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, -22 ), Vector2( 220, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 
 length = 0.4
 loop = false
@@ -194,7 +194,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, 0 ), Vector2( 220, -22 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
 length = 2.0
 loop = false
@@ -224,7 +224,7 @@ tracks/1/keys = {
 "values": [ 0, 0, 2 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 
 length = 3.0
 loop = false
@@ -254,7 +254,7 @@ tracks/1/keys = {
 "values": [ 2, 0, 0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 
 length = 3.0
 loop = false
@@ -366,8 +366,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 8 )
-anims/show = SubResource( 9 )
+anims/hide = SubResource( 3 )
+anims/show = SubResource( 4 )
 blend_times = [  ]
 
 [node name="HubOther" parent="." index="6" instance=ExtResource( 6 )]
@@ -456,8 +456,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 3 )
-anims/show = SubResource( 4 )
+anims/hide = SubResource( 5 )
+anims/show = SubResource( 6 )
 blend_times = [  ]
 
 [node name="HUDMenuButton" parent="." index="9" instance=ExtResource( 9 )]
@@ -500,8 +500,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 5 )
-anims/show = SubResource( 6 )
+anims/hide = SubResource( 7 )
+anims/show = SubResource( 8 )
 blend_times = [  ]
 
 [node name="WinLost" parent="." index="11" instance=ExtResource( 10 )]
@@ -517,7 +517,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 7 )
+anims/show = SubResource( 9 )
 blend_times = [  ]
 
 [node name="Debug" type="Node2D" parent="." index="13"]

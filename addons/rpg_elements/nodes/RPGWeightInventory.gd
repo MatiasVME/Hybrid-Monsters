@@ -111,7 +111,7 @@ func is_full():
 	return inventory_full
 
 func set_max_weight(_max_weight):
-	if _max_weight < current_weight:
+	if _max_weight > current_weight:
 		max_weight = _max_weight
 		return true
 	else:

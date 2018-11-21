@@ -57,8 +57,6 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	
 	if sword.damage < 0: sword.damage = 1
 	
-	sword.item_type = "sword"
-	
 	sword.item_name = RandomNameGenerator.generate() + " Sword"
 	sword.texture_path = str("res://scenes/items/attack/swords/skins/", material_name, "-", form_name, ".png")
 	
@@ -68,10 +66,16 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	sword.buy_price = (sword.weight + sword.damage) * 200
 	sword.sell_price = sword.buy_price / 2
 	
+	sword.item_type = sword.ItemType.SWORD
+	
 	return sword
 
 func get_random_item_level(player_level, level_enemy):
-	if randi() % 10 == 0:
+	if randi() % 20 == 0:
+		scope = 15
+	elif randi() % 15 == 0:
+		scope = 12
+	elif randi() % 10 == 0:
 		scope = 9
 	elif randi() % 5 == 0:
 		scope = 6
@@ -79,7 +83,7 @@ func get_random_item_level(player_level, level_enemy):
 		scope = 3
 	
 #	return clamp(int(round(rand_range(player_level - scope - (level_enemy/2), player_level + scope + (level_enemy / 2)))), 1, 100)
-	return clamp(randi() % (player_level + scope + (level_enemy / 2)) + (player_level - scope - (level_enemy / 2)), 1, 100)
+	return clamp(randi() % int(round(player_level + scope + (level_enemy / 2) + 1)) + int(round(player_level - scope - (level_enemy / 2))), 1, 100)
 
 # Devuelve el material del item
 func get_material(item_level):
@@ -142,7 +146,7 @@ func get_sword_form_name(item):
 
 func get_random_health_potion():
 	var potion_inst = HMRPGHelper.get_hm_inst_health_potion()
-	var rand_num = randi() % potion_inst.TYPE_20
+	var rand_num = randi() % (potion_inst.TYPE_20 + 1)
 	
 	# Esto le asigna el nombre y el health y la textura
 	potion_inst.type_potion = rand_num
@@ -160,6 +164,6 @@ func get_health_potion(potion_type):
 func get_random_book():
 	var book_inst = HMRPGHelper.get_hm_inst_book()
 	
-	book_inst.book_type = randi() % book_inst.VITALITY
+	book_inst.book_type = randi() % (book_inst.VITALITY + 1)
 	
 	return book_inst
