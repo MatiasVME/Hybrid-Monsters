@@ -97,6 +97,7 @@ func create_inventories():
 	w_inv.max_weight = 10
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
+	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
 	
 	inventories.append(w_inv)
 
@@ -125,7 +126,7 @@ func create_stats():
 	
 	var first_stats = HMRPGHelper.get_inst_stats()
 	first_stats.add_stat("Strength", 0, 30)
-	first_stats.add_stat("Luck", 0, 30)
+	first_stats.add_stat("Luck", 0, 20)
 	first_stats.add_stat("Vitality", 0, 30)
 	
 	stats.append(first_stats)

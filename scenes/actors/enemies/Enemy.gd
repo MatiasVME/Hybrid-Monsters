@@ -75,9 +75,8 @@ func config_hm_character():
 		
 		$CurrentWeapon.texture = load(primary_weapon_data.texture_path)
 		
-		if primary_weapon_data is Main.HMAttack:
-			$CurrentWeapon.material.set_shader_param("r_1", Elements.get_color_element(primary_weapon_data.primary_element))
-			$CurrentWeapon.material.set_shader_param("r_2", Elements.get_color_element(primary_weapon_data.secundary_element))
+		$CurrentWeapon.material.set_shader_param("r_1", Elements.get_color_element(primary_weapon_data.primary_element))
+		$CurrentWeapon.material.set_shader_param("r_2", Elements.get_color_element(primary_weapon_data.secundary_element))
 		
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")
@@ -224,11 +223,33 @@ func _on_dead():
 	
 	Main.store_destroyed_enemies += 1
 	
-	# Probabilidad de dropeo
-	if randi() % 2 == 0:
+	# Dropeo
+	drop()
+	
+func drop():
+	var drop_primary_weapon = clamp(
+		10.0 - (
+			DataManager.stats[Main.current_player].get_stat_value("Luck") 
+			/ DataManager.stats[Main.current_player].get_stat_max_value("Luck")
+		), 
+		1, 
+		10
+	)
+	
+	if randi() % int(round(drop_primary_weapon)) == 0:
 		if primary_weapon_data:
 			drop_item(primary_weapon_data)
-	if randi() % 6 == 0:
+	
+	var drop_potion = clamp(
+		10.0 - (
+			DataManager.stats[Main.current_player].get_stat_value("Luck") 
+			/ DataManager.stats[Main.current_player].get_stat_max_value("Luck")
+		), 
+		3, 
+		10
+	)
+	
+	if randi() % int(round(drop_potion)) == 0:
 		drop_item(ItemGenerator.get_random_health_potion())
 
 func _on_ViewArea_area_entered(area):
