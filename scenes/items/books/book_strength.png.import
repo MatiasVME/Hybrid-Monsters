@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/book_fuerza.png-14483feae9cee2f832fa74c2c5955229.stex"
+path="res://.import/book_strength.png-3a93e07a031cd7184f297948f387e138.stex"
 
 [deps]
 
-source_file="res://scenes/items/books/book_fuerza.png"
-dest_files=[ "res://.import/book_fuerza.png-14483feae9cee2f832fa74c2c5955229.stex" ]
+source_file="res://scenes/items/books/book_strength.png"
+dest_files=[ "res://.import/book_strength.png-3a93e07a031cd7184f297948f387e138.stex" ]
 
 [params]
 

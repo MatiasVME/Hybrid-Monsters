@@ -8,3 +8,6 @@ func get_hm_inst_sword():
 	
 func get_hm_inst_health_potion():
 	return load("res://scenes/autoloads/rpg_elements_adaptation/item/usable/potion/HMHealth.gd").new()
+	
+func get_hm_inst_book():
+	return load("res://scenes/autoloads/rpg_elements_adaptation/item/usable/book/HMBook.gd").new()

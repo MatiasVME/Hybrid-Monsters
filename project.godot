@@ -26,6 +26,7 @@ EnemyGenerator="*res://scenes/autoloads/EnemyGenerator.gd"
 MusicManager="*res://scenes/autoloads/MusicManager.tscn"
 ItemGenerator="*res://scenes/autoloads/ItemGenerator.gd"
 SoundManager="*res://scenes/autoloads/SoundManager.tscn"
+AttributesManager="*res://scenes/autoloads/AttributesManager.gd"
 
 [display]
 

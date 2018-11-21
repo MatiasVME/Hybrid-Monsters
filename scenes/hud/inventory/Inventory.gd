@@ -37,7 +37,7 @@ func describe_commons(hm_item):
 	var commons = load("res://scenes/hud/inventory/ItemDesc-Commons.tscn").instance()
 	
 	commons.get_node("Name").text = hm_item.item_name
-	commons.get_node("Type").text = str("<", hm_item.item_type, ">")
+	commons.get_node("Type").text = str("<", hm_item.get_item_type_name(), ">")
 	commons.get_node("Weight").text = str("Weight: ", hm_item.weight)
 	commons.get_node("BuyPrice").text = str("Buy Price: ", hm_item.buy_price)
 	commons.get_node("SellPrice").text = str("Sell Price: ", hm_item.sell_price)
@@ -144,9 +144,14 @@ func _on_use_item(hm_item):
 		if item.hm_item == hm_item:
 			get_node("Inv/HBox/Items/Grid").remove_child(item)
 			break
-	
-	HUD.get_node("Status").update_hp_progress()
-	SoundManager.play_sound(SoundManager.BUBBLE)
+			
+	if hm_item is Main.HMHealth:
+		HUD.get_node("Status").update_hp_progress()
+		SoundManager.play_sound(SoundManager.BUBBLE)
+	elif hm_item is Main.HMBook:
+		hm_item.use()
+		HUD.get_node("Attributes").update()
+		SoundManager.play_sound(SoundManager.SPELL)
 	
 	DataManager.inventories[Main.current_player].delete_item(hm_item)
 	

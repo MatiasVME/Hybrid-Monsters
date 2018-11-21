@@ -13,8 +13,17 @@ enum Materials {
 enum ItemType {
 	GLOVES,
 	SWORD,
-	POTION
+	POTION,
+	BOOK
 }
 
-func _ready():
-	pass
+func get_item_type_name():
+	match self.item_type:
+		ItemType.GLOVES:
+			return "Gloves"
+		ItemType.SWORD:
+			return "Sword"
+		ItemType.POTION:
+			return "Potion"
+		ItemType.BOOK:
+			return "Book"

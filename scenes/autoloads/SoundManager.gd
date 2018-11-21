@@ -13,7 +13,8 @@ enum Sound {
 	TAKE_ITEM,
 	DROP,
 	BUBBLE,
-	MINE
+	MINE,
+	SPELL
 }
 
 func play_sound(sound):
@@ -47,5 +48,6 @@ func play_sound(sound):
 			$Bubble.play()
 		Sound.MINE:
 			$Mine.play()
-	
+		Sound.SPELL:
+			$Spell.play()
 	

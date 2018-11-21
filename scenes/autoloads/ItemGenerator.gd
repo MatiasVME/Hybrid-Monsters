@@ -10,6 +10,9 @@ enum Materials {
 	RUBY
 }
 
+func _ready():
+	randomize()
+
 func get_random_sword_from_enemy(player_level, level_enemy):
 	var item_level = get_random_item_level(player_level, level_enemy)
 	var material = get_material(item_level)
@@ -75,7 +78,8 @@ func get_random_item_level(player_level, level_enemy):
 	else:
 		scope = 3
 	
-	return clamp(int(round(rand_range(player_level - scope - (level_enemy/2), player_level + scope + (level_enemy / 2)))), 1, 100)
+#	return clamp(int(round(rand_range(player_level - scope - (level_enemy/2), player_level + scope + (level_enemy / 2)))), 1, 100)
+	return clamp(randi() % (player_level + scope + (level_enemy / 2)) + (player_level - scope - (level_enemy / 2)), 1, 100)
 
 # Devuelve el material del item
 func get_material(item_level):
@@ -138,7 +142,7 @@ func get_sword_form_name(item):
 
 func get_random_health_potion():
 	var potion_inst = HMRPGHelper.get_hm_inst_health_potion()
-	var rand_num = int(round(rand_range(potion_inst.TYPE_5, potion_inst.TYPE_20)))
+	var rand_num = randi() % potion_inst.TYPE_20
 	
 	# Esto le asigna el nombre y el health y la textura
 	potion_inst.type_potion = rand_num
@@ -152,5 +156,10 @@ func get_health_potion(potion_type):
 	potion_inst.type_potion = potion_type
 	
 	return potion_inst
+
+func get_random_book():
+	var book_inst = HMRPGHelper.get_hm_inst_book()
 	
+	book_inst.book_type = randi() % book_inst.VITALITY
 	
+	return book_inst

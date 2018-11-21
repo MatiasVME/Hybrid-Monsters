@@ -197,6 +197,49 @@ func drop_item(hm_item):
 	
 	SoundManager.play_sound(SoundManager.DROP)
 
+
+func drop():
+	# Probabilidad de dropeo de arma primaria
+	#
+	
+	var drop_primary_weapon = clamp(
+		10.0 - (
+			DataManager.stats[Main.current_player].get_stat_value("Luck") / 2
+		), 
+		1, 
+		10
+	)
+	
+	if randi() % int(round(drop_primary_weapon)) == 0:
+		if primary_weapon_data:
+			drop_item(primary_weapon_data)
+	
+	# Probabilidad de dropeo de una pocion
+	#
+	
+	var drop_potion = clamp(
+		10.0 - (
+			DataManager.stats[Main.current_player].get_stat_value("Luck") / 2
+		), 
+		3, 
+		10
+	)
+	
+	if randi() % int(round(drop_potion)) == 0:
+		drop_item(ItemGenerator.get_random_health_potion())
+		
+	# Probabilidad de dropeo de un libro
+	var drop_book = clamp(
+		20.0 - (
+			DataManager.stats[Main.current_player].get_stat_value("Luck") / 2
+		), 
+		10, 
+		20
+	)
+	
+	if randi() % int(round(drop_book)) == 0:
+		drop_item(ItemGenerator.get_random_book())
+
 # Signals
 #
 
@@ -226,32 +269,6 @@ func _on_dead():
 	# Dropeo
 	drop()
 	
-func drop():
-	var drop_primary_weapon = clamp(
-		10.0 - (
-			DataManager.stats[Main.current_player].get_stat_value("Luck") 
-			/ DataManager.stats[Main.current_player].get_stat_max_value("Luck")
-		), 
-		1, 
-		10
-	)
-	
-	if randi() % int(round(drop_primary_weapon)) == 0:
-		if primary_weapon_data:
-			drop_item(primary_weapon_data)
-	
-	var drop_potion = clamp(
-		10.0 - (
-			DataManager.stats[Main.current_player].get_stat_value("Luck") 
-			/ DataManager.stats[Main.current_player].get_stat_max_value("Luck")
-		), 
-		3, 
-		10
-	)
-	
-	if randi() % int(round(drop_potion)) == 0:
-		drop_item(ItemGenerator.get_random_health_potion())
-
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):
 		follow_player = true

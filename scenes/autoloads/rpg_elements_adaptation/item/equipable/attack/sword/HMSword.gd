@@ -14,5 +14,5 @@ var material
 # Forma o tipo de espada
 var form
 
-func _ready():
+func _init():
 	item_type = ItemType.SWORD

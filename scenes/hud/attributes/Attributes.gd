@@ -22,26 +22,12 @@ func update():
 func _on_AddStat_Strength_pressed():
 	DataManager.stats[Main.current_player].add_points_to_stat(1, "Strength")
 	update()
-	
-	DataManager.inventories[Main.current_player].max_weight += 6
-	
-	DataManager.save_stats()
-	DataManager.save_inventories()
 
 func _on_AddStat_Luck_pressed():
-	DataManager.stats[Main.current_player].add_points_to_stat(1, "Luck")
+	AttributesManager.add_luck()
 	update()
-	
-	DataManager.save_stats()
 
 func _on_AddStat_Vitality_pressed():
-	DataManager.stats[Main.current_player].add_points_to_stat(1, "Vitality")
+	AttributesManager.add_vitality()
 	update()
-	
-	DataManager.players[0].hp += 4
-	DataManager.players[0].max_hp += 4
-	
-	DataManager.save_players()
-	DataManager.save_stats()
-	
 	hud.get_node("Status").update_hp_progress()
