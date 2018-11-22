@@ -197,7 +197,6 @@ func drop_item(hm_item):
 	
 	SoundManager.play_sound(SoundManager.DROP)
 
-
 func drop():
 	# Probabilidad de dropeo de arma primaria
 	#
@@ -239,6 +238,9 @@ func drop():
 	
 	if randi() % int(round(drop_book)) == 0:
 		drop_item(ItemGenerator.get_random_book())
+		
+	# MoneyDrop
+	Main.current_gold += character.drop_gold
 
 # Signals
 #

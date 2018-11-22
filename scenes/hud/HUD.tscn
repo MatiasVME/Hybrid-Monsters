@@ -1,16 +1,17 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/status/Status.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=7]
-[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=10]
-[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=11]
+[ext_resource path="res://scenes/hud/money_display/MoneyDisplay.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=8]
+[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=11]
+[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=12]
 
 [sub_resource type="Animation" id=1]
 
@@ -330,7 +331,9 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Status" parent="." index="1" instance=ExtResource( 3 )]
 
-[node name="Inventory" parent="." index="2" instance=ExtResource( 4 )]
+[node name="MoneyDisplay" parent="." index="2" instance=ExtResource( 4 )]
+
+[node name="Inventory" parent="." index="3" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 
@@ -343,7 +346,7 @@ enabled_focus_mode = 0
 
 editor/display_folded = true
 
-[node name="AnimInv" type="AnimationPlayer" parent="." index="3"]
+[node name="AnimInv" type="AnimationPlayer" parent="." index="4"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -354,12 +357,12 @@ anims/hide = SubResource( 1 )
 anims/show = SubResource( 2 )
 blend_times = [  ]
 
-[node name="Attributes" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Attributes" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 250, 160 )
 scale = Vector2( 1e-05, 1e-05 )
 
-[node name="AnimAttributes" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimAttributes" type="AnimationPlayer" parent="." index="6"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -370,7 +373,7 @@ anims/hide = SubResource( 3 )
 anims/show = SubResource( 4 )
 blend_times = [  ]
 
-[node name="HubOther" parent="." index="6" instance=ExtResource( 6 )]
+[node name="HubOther" parent="." index="7" instance=ExtResource( 7 )]
 
 margin_left = 210.0
 margin_top = 130.0
@@ -382,7 +385,7 @@ toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Menu" type="Node2D" parent="." index="7"]
+[node name="Menu" type="Node2D" parent="." index="8"]
 
 editor/display_folded = true
 position = Vector2( 240, 0 )
@@ -406,7 +409,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -417,7 +420,7 @@ _sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
 [node name="Buttons" type="Node2D" parent="Menu/Panel" index="0"]
 
-[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 8 )]
+[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 9 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -433,7 +436,7 @@ margin_bottom = -4.0
 
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 8 )]
+[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 9 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -449,7 +452,7 @@ margin_bottom = 12.0
 
 text = "MENU"
 
-[node name="AnimMenu" type="AnimationPlayer" parent="." index="8"]
+[node name="AnimMenu" type="AnimationPlayer" parent="." index="9"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -460,7 +463,7 @@ anims/hide = SubResource( 5 )
 anims/show = SubResource( 6 )
 blend_times = [  ]
 
-[node name="HUDMenuButton" parent="." index="9" instance=ExtResource( 9 )]
+[node name="HUDMenuButton" parent="." index="10" instance=ExtResource( 10 )]
 
 margin_left = 220.0
 margin_right = 230.0
@@ -469,7 +472,7 @@ focus_mode = 0
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Curtain" type="ColorRect" parent="." index="10"]
+[node name="Curtain" type="ColorRect" parent="." index="11"]
 
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
@@ -504,13 +507,13 @@ anims/hide = SubResource( 7 )
 anims/show = SubResource( 8 )
 blend_times = [  ]
 
-[node name="WinLost" parent="." index="11" instance=ExtResource( 10 )]
+[node name="WinLost" parent="." index="12" instance=ExtResource( 11 )]
 
 visible = false
 position = Vector2( 0, -162 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="AnimWinLost" type="AnimationPlayer" parent="." index="12"]
+[node name="AnimWinLost" type="AnimationPlayer" parent="." index="13"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -520,7 +523,7 @@ playback_speed = 1.0
 anims/show = SubResource( 9 )
 blend_times = [  ]
 
-[node name="Debug" type="Node2D" parent="." index="13"]
+[node name="Debug" type="Node2D" parent="." index="14"]
 
 editor/display_folded = true
 scale = Vector2( 0.6, 0.6 )
@@ -532,7 +535,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 80.0
+margin_left = 3.0
+margin_right = 83.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -540,7 +544,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 11 )
+custom_fonts/font = ExtResource( 12 )
 text = "VarDificulty: 10"
 valign = 1
 percent_visible = 1.0

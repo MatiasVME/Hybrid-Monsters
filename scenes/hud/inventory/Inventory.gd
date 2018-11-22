@@ -191,7 +191,7 @@ func _on_drop_equip(hm_item):
 						unequip(item_dropped)
 				remove_all_descriptions()
 				get_node("Inv/HBox/Items/Grid").remove_child(item)
-				
+		
 		SoundManager.play_sound(SoundManager.DROP)
 		emit_signal("drop_item", item_dropped)
 		

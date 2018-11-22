@@ -49,6 +49,14 @@ enum CellTypes {
 
 var is_first_time = false
 
+# Money = gold
+var current_gold = 0 setget set_current_gold, get_current_gold
+# Emerald igual money + op
+var current_emeralds = 0 # setget # TODO
+
+signal gold_changed(current_gold)
+signal emeralds_changed
+
 # Información del nivel
 #
 
@@ -107,3 +115,13 @@ func diminish_dificulty():
 	var_dificulty = clamp(var_dificulty - 0.2, 1, 10)
 	map_size = clamp(map_size - 4, 20, 250)
 	total_enemies = clamp(total_enemies - 4, 6, 100)
+	
+# Setters/Getters
+#
+
+func set_current_gold(_gold):
+	current_gold = _gold
+	emit_signal("gold_changed", current_gold)
+	
+func get_current_gold():
+	return current_gold

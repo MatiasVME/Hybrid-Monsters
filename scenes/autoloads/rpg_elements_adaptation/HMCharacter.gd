@@ -6,6 +6,9 @@ var element_2 setget set_element_2, get_element_2
 var weapon_primary
 var weapon_secondary
 
+var drop_gold = 0
+var drop_emerald = 0
+
 func set_element_1(element_type):
 	element_1 = element_type
 	

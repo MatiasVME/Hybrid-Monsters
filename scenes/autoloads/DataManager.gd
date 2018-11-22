@@ -14,7 +14,7 @@ var inst_players = []
 
 func _ready():
 	configure_persistence_node()
-	create_data_if_not_exist()
+	create_or_load_data_if_not_exist()
 
 func configure_persistence_node():
 	$GlobalConfig.folder_name = "Global"
@@ -24,7 +24,7 @@ func configure_persistence_node():
 	$Inventories.folder_name = current_user
 	$Stats.folder_name = current_user
 
-func create_data_if_not_exist():
+func create_or_load_data_if_not_exist():
 	global_config = $GlobalConfig.get_data()
 	
 	if global_config.empty():
@@ -50,13 +50,6 @@ func create_global_config():
 	global_config["DeleteData"] = 0 
 	$GlobalConfig.save_data()
 	
-func create_user_config():
-	user_config = $UserConfig.get_data("UserConfig")
-	
-	Main.init_basic_user_config()
-	
-	save_user_config()
-
 func create_players():
 	var temp_data
 	temp_data = $Players.get_data("Players")
@@ -83,6 +76,13 @@ func load_players():
 	for player in temp_data.values():
 		players.append(dict2inst(player))
 
+func create_user_config():
+	user_config = $UserConfig.get_data("UserConfig")
+	
+	Main.init_basic_user_config()
+	
+	save_user_config()
+
 func load_user_config():
 	user_config = $UserConfig.get_data("UserConfig")
 	
@@ -90,7 +90,18 @@ func load_user_config():
 	Main.var_dificulty = user_config["VarDificulty"]
 	Main.map_size = user_config["MapSize"]
 	Main.total_enemies = user_config["TotalEnemies"]
-#	Main. = user_config["TotalEnemies"]
+	Main.current_gold = user_config["Gold"]
+	Main.current_emeralds = user_config["Emeralds"]
+	
+func save_user_config():
+	user_config["Dificulty"] = Main.dificulty_selected
+	user_config["VarDificulty"] = Main.var_dificulty
+	user_config["MapSize"] = Main.map_size
+	user_config["TotalEnemies"] = Main.total_enemies
+	user_config["Gold"] = Main.current_gold
+	user_config["Emeralds"] = Main.current_emeralds
+	
+	$UserConfig.save_data("UserConfig")
 
 func create_inventories():
 	var w_inv = $SomeInv.duplicate()
@@ -99,9 +110,9 @@ func create_inventories():
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
 	
-	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
-	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
-	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
+#	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
+#	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
+#	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
 	
 	inventories.append(w_inv)
 
@@ -154,14 +165,6 @@ func save_stats():
 		temp_data[i] = inst2dict(stats[i])
 		
 	$Stats.save_data("Stats")
-
-func save_user_config():
-	user_config["Dificulty"] = Main.dificulty_selected
-	user_config["VarDificulty"] = Main.var_dificulty
-	user_config["MapSize"] = Main.map_size
-	user_config["TotalEnemies"] = Main.total_enemies
-	
-	$UserConfig.save_data("UserConfig")
 	
 func remove_all_data():
 	$GlobalConfig.remove_all_data()
