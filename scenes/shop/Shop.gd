@@ -5,10 +5,8 @@ var current_item_in_gui
 
 func _ready():
 	add_shop_items()
-		
-	for item in DataManager.inventories[Main.current_player].get_inv():
-		add_item_to_inv(item)
-		
+	add_inv_items()
+	
 	DeliveryManager.connect("new_delivery", self, "_on_new_delivery")
 	
 	update_gold_amount()
@@ -16,9 +14,17 @@ func _ready():
 func update_gold_amount():
 	$GoldAmount.text = str(Main.current_gold)
 
+func add_inv_items():
+	for item in DataManager.inventories[Main.current_player].get_inv():
+		add_item_to_inv(item)
+
 func add_shop_items():
 	for item in DataManager.shop_inventory.get_inv():
 		add_item_to_shop(item)
+
+func update_inv_items():
+	remove_all_inv_item()
+	add_inv_items()
 
 func add_item_to_shop(hm_item):
 	var item_gui = item_in_gui.instance()
@@ -41,6 +47,10 @@ func add_item_to_inv(hm_item):
 func remove_all_shop_items():
 	for item in $Hbox/VBox/ShopItems/Grid.get_children():
 		$Hbox/VBox/ShopItems/Grid.remove_child(item)
+
+func remove_all_inv_item():
+	for item in $Hbox/VBox/InvItem/Grid.get_children():
+		$Hbox/VBox/InvItem/Grid.remove_child(item)
 
 func deselect_all_items_except(item_gui_except):
 	for item_gui in get_tree().get_nodes_in_group("ItemGUI"):
@@ -92,7 +102,7 @@ func can_buy_item(hm_item):
 
 func unequip(hm_item):
 	# Obtener el player
-	var players = get_nodes_in_group("Player")
+	var players = get_tree().get_nodes_in_group("Player")
 	
 	if players.size() > 1:
 		if hm_item is Main.HMSword:
@@ -163,7 +173,7 @@ func _on_Sell_pressed():
 	Main.current_gold += current_item_in_gui.hm_item.sell_price
 	
 	# Si esta equipado lo desequipamos
-	if current_item_in_gui.hm_item.equiped_how != current_item_in_gui.hm_item.Equipable.NONE:
+	if current_item_in_gui.hm_item is Main.HMEquipable and current_item_in_gui.hm_item.equiped_how != current_item_in_gui.hm_item.Equipable.NONE:
 		unequip(current_item_in_gui.hm_item)
 	
 	# Moverlo a la shop visual
