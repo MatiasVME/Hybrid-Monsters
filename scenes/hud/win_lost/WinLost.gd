@@ -25,11 +25,3 @@ func _on_Next_pressed():
 
 func _on_Resume_pressed():
 	get_tree().change_scene("res://scenes/levels/Levels.tscn")
-
-func _on_Shop_toggled(button_pressed):
-	if button_pressed:
-		$Shop.update_gold_amount()
-		$Shop.update_inv_items()
-		$ShopAnim.play("show")
-	else:
-		$ShopAnim.play("hide")

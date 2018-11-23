@@ -40,7 +40,7 @@ func _ready():
 		if my_player.global_position.distance_to(inst_enemy.global_position) <= 16 * 8:
 			print("El enemigo spawneo muy cerca, será eliminado")
 			$World.remove_actor(inst_enemy)
-			inst_enemy.queue_free()
+			inst_enemy.free()
 	
 	# No siempre se añaden todos los enemigos
 	Main.total_enemies = get_tree().get_nodes_in_group("Enemy").size()

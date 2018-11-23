@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/buttons/shop/shop_button-pressed.png" type="Texture" id=2]
 [ext_resource path="res://scenes/buttons/shop/shop_button-hover.png" type="Texture" id=3]
 
-[node name="Shop" type="TextureButton" index="0"]
+[node name="Shop" type="TextureButton"]
 
 anchor_left = 0.0
 anchor_top = 0.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
@@ -7,11 +7,13 @@
 [ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=8]
-[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=11]
-[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=12]
+[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=10]
+[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=13]
+[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=14]
 
 [sub_resource type="Animation" id=1]
 
@@ -109,6 +111,44 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0.25, 0.25 ),
 "update": 0,
 "values": [ Vector2( 250, 160 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "hide"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 240, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "show"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 240, 0 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -309,7 +349,7 @@ tracks/3/keys = {
 "values": [ false, false, true, true ]
 }
 
-[node name="HUD" type="CanvasLayer" groups=[
+[node name="HUD" type="CanvasLayer" index="0" groups=[
 "HUD",
 ]]
 
@@ -385,7 +425,31 @@ toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Menu" type="Node2D" parent="." index="8"]
+[node name="Shop" parent="." index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 240, 0 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="ShopButton" parent="." index="9" instance=ExtResource( 9 )]
+
+margin_left = 220.0
+margin_top = 24.0
+margin_right = 236.0
+margin_bottom = 40.0
+toggle_mode = true
+
+[node name="AnimShop" type="AnimationPlayer" parent="." index="10"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hide = SubResource( 10 )
+anims/show = SubResource( 11 )
+blend_times = [  ]
+
+[node name="Menu" type="Node2D" parent="." index="11"]
 
 editor/display_folded = true
 position = Vector2( 240, 0 )
@@ -409,7 +473,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -420,7 +484,7 @@ _sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
 [node name="Buttons" type="Node2D" parent="Menu/Panel" index="0"]
 
-[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 9 )]
+[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 11 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -436,7 +500,7 @@ margin_bottom = -4.0
 
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 9 )]
+[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 11 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -452,7 +516,7 @@ margin_bottom = 12.0
 
 text = "MENU"
 
-[node name="AnimMenu" type="AnimationPlayer" parent="." index="9"]
+[node name="AnimMenu" type="AnimationPlayer" parent="." index="12"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -463,16 +527,17 @@ anims/hide = SubResource( 5 )
 anims/show = SubResource( 6 )
 blend_times = [  ]
 
-[node name="HUDMenuButton" parent="." index="10" instance=ExtResource( 10 )]
+[node name="HUDMenuButton" parent="." index="13" instance=ExtResource( 12 )]
 
 margin_left = 220.0
 margin_right = 230.0
 rect_scale = Vector2( 2, 2 )
 focus_mode = 0
+toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Curtain" type="ColorRect" parent="." index="11"]
+[node name="Curtain" type="ColorRect" parent="." index="14"]
 
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
@@ -507,13 +572,13 @@ anims/hide = SubResource( 7 )
 anims/show = SubResource( 8 )
 blend_times = [  ]
 
-[node name="WinLost" parent="." index="12" instance=ExtResource( 11 )]
+[node name="WinLost" parent="." index="15" instance=ExtResource( 13 )]
 
 visible = false
 position = Vector2( 0, -162 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="AnimWinLost" type="AnimationPlayer" parent="." index="13"]
+[node name="AnimWinLost" type="AnimationPlayer" parent="." index="16"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -523,9 +588,10 @@ playback_speed = 1.0
 anims/show = SubResource( 9 )
 blend_times = [  ]
 
-[node name="Debug" type="Node2D" parent="." index="14"]
+[node name="Debug" type="Node2D" parent="." index="17"]
 
 editor/display_folded = true
+visible = false
 scale = Vector2( 0.6, 0.6 )
 _sections_unfolded = [ "Transform" ]
 
@@ -544,7 +610,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 14 )
 text = "VarDificulty: 10"
 valign = 1
 percent_visible = 1.0
@@ -556,11 +622,13 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="toggled" from="HubOther" to="." method="_on_HubOther_toggled"]
 
+[connection signal="toggled" from="ShopButton" to="." method="_on_ShopButton_toggled"]
+
 [connection signal="pressed" from="Menu/Panel/Buttons/Resume" to="." method="_on_Resume_pressed"]
 
 [connection signal="pressed" from="Menu/Panel/Buttons/Menu" to="." method="_on_Menu_pressed"]
 
-[connection signal="pressed" from="HUDMenuButton" to="." method="_on_HUDMenuButton_pressed"]
+[connection signal="toggled" from="HUDMenuButton" to="." method="_on_HUDMenuButton_toggled"]
 
 
 [editable path="Inventory"]

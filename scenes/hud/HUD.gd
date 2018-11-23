@@ -20,6 +20,12 @@ func _input(event):
 		$HubOther.pressed = not $HubOther.pressed
 		_on_HubOther_toggled($HubOther.pressed)
 		$Inventory.update_stats()
+	elif event.is_action_pressed("shop"):
+		$ShopButton.pressed = not $ShopButton.pressed
+		_on_ShopButton_toggled($ShopButton.pressed)
+	elif event.is_action_pressed("ui_cancel"):
+		$HUDMenuButton.pressed = not $HUDMenuButton.pressed
+		_on_HUDMenuButton_toggled($HUDMenuButton.pressed)
 
 func _on_HUDInventory_toggled(button_pressed):
 	if button_pressed:
@@ -27,10 +33,11 @@ func _on_HUDInventory_toggled(button_pressed):
 	else:
 		$AnimInv.play("hide")
 
-func _on_HUDMenuButton_pressed():
-	$AnimMenu.play("show")
+#func _on_HUDMenuButton_pressed():
+#	$AnimMenu.play("show")
 
 func _on_Resume_pressed():
+	$HUDMenuButton.pressed = false
 	$AnimMenu.play("hide")
 
 func _on_Menu_pressed():
@@ -64,8 +71,17 @@ func _on_HubOther_toggled(button_pressed):
 		$AnimAttributes.play("show")
 	else:
 		$AnimAttributes.play("hide")
-#
-#func _on_level_up(current_level):
-#	print("Sube de nivel!!!")
-#	$Attributes.update()
-	
+
+func _on_ShopButton_toggled(button_pressed):
+	if button_pressed:
+		$Shop.update_gold_amount()
+		$Shop.update_inv_items()
+		$AnimShop.play("show")
+	else:
+		$AnimShop.play("hide")
+
+func _on_HUDMenuButton_toggled(button_pressed):
+	if button_pressed:
+		$AnimMenu.play("show")
+	else:
+		$AnimMenu.play("hide")
