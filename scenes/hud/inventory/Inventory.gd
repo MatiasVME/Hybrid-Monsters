@@ -19,7 +19,7 @@ func add_item(hm_item):
 	$Inv/HBox/Items/Grid.add_child(item_gui)
 	
 	item_gui.update()
-	item_gui.get_node("Sprite").texture = load(hm_item.get_texture_path())
+#	item_gui.get_node("Sprite").texture = load(hm_item.get_texture_path())
 	
 	item_gui.connect("toggled", self, "_on_item_toggled", [item_gui])
 	

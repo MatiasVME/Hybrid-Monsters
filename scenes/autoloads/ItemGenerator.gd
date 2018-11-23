@@ -167,3 +167,29 @@ func get_random_book():
 	book_inst.book_type = randi() % (book_inst.VITALITY + 1)
 	
 	return book_inst
+	
+func create_item_pack_for_shop(inventory, level = 1):
+	inventory.remove_all_items()
+	
+	# Swords
+	#
+	
+	var sword_num = randi() % 4 + 1
+	for i in sword_num:
+		inventory.add_item(get_random_sword_from_enemy(level, 2))
+	
+	# Health
+	#
+	
+	var health_num = randi() % 7 + 3
+	for i in health_num:
+		inventory.add_item(get_random_health_potion())
+		
+	# Books
+	#
+	
+	var rand_book = randi() % 3
+	for i in rand_book:
+		inventory.add_item(get_random_book())
+		
+		

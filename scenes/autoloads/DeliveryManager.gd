@@ -8,8 +8,9 @@ signal new_delivery(delivery)
 
 func _ready():
 	# Test
-	create_delivery("Pizza", 10)
-	connect("new_delivery", self, "_on_new_delivery")
+#	create_delivery("Pizza", 10)
+#	connect("new_delivery", self, "_on_new_delivery")
+	pass
 
 func create_delivery(delivery_name, time_to_finalize, force_step=0):
 	var last_time_delivery = OS.get_unix_time()
@@ -57,7 +58,7 @@ func get_delivery(delivery_name):
 
 func _on_Timer_timeout():
 	for deli in deliveries:
-		print(delivery_time(deli[0]))
+#		print(delivery_time(deli[0]))
 		
 		if is_delivery_have_passed(deli[0]):
 			reset_delivery_time(deli[0])

@@ -10,6 +10,8 @@ var players = [] # Contiene instancias
 var inventories = []
 var stats = [] 
 
+var shop_inventory
+
 var inst_players = []
 
 func _ready():
@@ -79,6 +81,10 @@ func load_players():
 func create_user_config():
 	user_config = $UserConfig.get_data("UserConfig")
 	
+	DeliveryManager.create_delivery("ShopItems", 60 * 30)
+	shop_inventory = $HMRPGHelper.get_inst_weight_inventory()
+	ItemGenerator.create_item_pack_for_shop(shop_inventory)
+	
 	Main.init_basic_user_config()
 	
 	save_user_config()
@@ -92,6 +98,10 @@ func load_user_config():
 	Main.total_enemies = user_config["TotalEnemies"]
 	Main.current_gold = user_config["Gold"]
 	Main.current_emeralds = user_config["Emeralds"]
+	DeliveryManager.deliveries = user_config["Deliveries"]
+	
+	var temp_inv = $HMRPGHelper.get_inst_weight_inventory()
+	shop_inventory = temp_inv.dict2inv(user_config["ShopInventory"])
 	
 func save_user_config():
 	user_config["Dificulty"] = Main.dificulty_selected
@@ -100,11 +110,13 @@ func save_user_config():
 	user_config["TotalEnemies"] = Main.total_enemies
 	user_config["Gold"] = Main.current_gold
 	user_config["Emeralds"] = Main.current_emeralds
+	user_config["Deliveries"] = DeliveryManager.deliveries
+	user_config["ShopInventory"] = shop_inventory.inv2dict()
 	
 	$UserConfig.save_data("UserConfig")
 
 func create_inventories():
-	var w_inv = $SomeInv.duplicate()
+	var w_inv = HMRPGHelper.get_inst_weight_inventory()
 	w_inv.max_weight = 10
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
 	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
@@ -124,22 +136,22 @@ func save_inventories():
 	
 	for i in inventories.size():
 		temp_data[i] = inventories[i].inv2dict()
-		print(temp_data[i])
-		
+	
 	$Inventories.save_data("Inventories")
 	
 func load_inventories():
 	var temp_data = $Inventories.get_data("Inventories")
+	var temp_inv = $HMRPGHelper.get_inst_weight_inventory()
 	inventories = []
 	
 	for inventory in temp_data.values():
-		inventories.append($SomeInv.dict2inv(inventory))
+		inventories.append(temp_inv.dict2inv(inventory))
 
 func create_stats():
 	var temp_data
 	temp_data = $Stats.get_data("Stats")
 	
-	var first_stats = HMRPGHelper.get_inst_stats()
+	var first_stats = $HMRPGHelper.get_inst_stats()
 	first_stats.add_stat("Strength", 0, 30)
 	first_stats.add_stat("Luck", 0, 20)
 	first_stats.add_stat("Vitality", 0, 30)

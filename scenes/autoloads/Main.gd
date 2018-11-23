@@ -115,7 +115,7 @@ func diminish_dificulty():
 	var_dificulty = clamp(var_dificulty - 0.2, 1, 10)
 	map_size = clamp(map_size - 4, 20, 250)
 	total_enemies = clamp(total_enemies - 4, 6, 100)
-	
+
 # Setters/Getters
 #
 
