@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scenes/autoloads/SoundManager.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sfx/hit_1.wav" type="AudioStream" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://sounds/sfx/bubble.wav" type="AudioStream" id=13]
 [ext_resource path="res://sounds/sfx/mine.wav" type="AudioStream" id=14]
 [ext_resource path="res://sounds/sfx/spell.wav" type="AudioStream" id=15]
+[ext_resource path="res://sounds/sfx/notification.wav" type="AudioStream" id=16]
+[ext_resource path="res://sounds/sfx/coin_1.wav" type="AudioStream" id=17]
+[ext_resource path="res://sounds/sfx/coin_2.wav" type="AudioStream" id=18]
+[ext_resource path="res://sounds/sfx/coin_3.wav" type="AudioStream" id=19]
 
 [node name="SoundManager" type="Node"]
 
@@ -140,6 +144,42 @@ bus = "Master"
 [node name="Spell" type="AudioStreamPlayer" parent="." index="13"]
 
 stream = ExtResource( 15 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Notification" type="AudioStreamPlayer" parent="." index="14"]
+
+stream = ExtResource( 16 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Coin1" type="AudioStreamPlayer" parent="." index="15"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Coin2" type="AudioStreamPlayer" parent="." index="16"]
+
+stream = ExtResource( 18 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Coin3" type="AudioStreamPlayer" parent="." index="17"]
+
+stream = ExtResource( 19 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

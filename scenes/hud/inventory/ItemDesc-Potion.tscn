@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/hud/inventory/ItemDesc-Potion.gd" type="Script" id=1]
+[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=2]
 
 [node name="Potion" type="ColorRect"]
 
@@ -18,6 +19,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0, 0, 0, 0.392157 )
+script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Recharge" type="Label" parent="." index="0"]
@@ -36,7 +38,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.250766, 0.898438, 0.245667, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Recharge: +10"

@@ -11,12 +11,11 @@ enum BookType {
 
 var book_type setget set_book_type
 
-func _ready():
-	self.buy_price = 5000
-	self.sell_price = self.buy_price / 2
-
 func set_book_type(_book_type):
 	self.item_type = self.ItemType.BOOK
+	self.buy_price = 3000
+	self.sell_price = self.buy_price / 2 / 2
+	
 	book_type = _book_type
 
 	match book_type:

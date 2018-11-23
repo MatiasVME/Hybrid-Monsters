@@ -64,7 +64,7 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	sword.secundary_element = Elements.get_random_element()
 	
 	sword.buy_price = (sword.weight + sword.damage) * 200
-	sword.sell_price = sword.buy_price / 2
+	sword.sell_price = sword.buy_price / 2 / 2
 	
 	sword.item_type = sword.ItemType.SWORD
 	

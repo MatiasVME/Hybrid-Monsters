@@ -37,13 +37,9 @@ func deselect_all_items_except(item_gui_except):
 	
 func describe_commons(hm_item):
 	var commons = load("res://scenes/hud/inventory/ItemDesc-Commons.tscn").instance()
+	commons.hm_item = hm_item
+	commons.update()
 	
-	commons.get_node("Name").text = hm_item.item_name
-	commons.get_node("Type").text = str("<", hm_item.get_item_type_name(), ">")
-	commons.get_node("Weight").text = str("Weight: ", hm_item.weight)
-	commons.get_node("BuyPrice").text = str("Buy Price: ", hm_item.buy_price)
-	commons.get_node("SellPrice").text = str("Sell Price: ", hm_item.sell_price)
-
 	commons.get_node("Drop").connect("pressed", self, "_on_drop_equip", [hm_item])
 
 	$Inv/HBox/ItemDesc/VBox.add_child(commons)
@@ -53,10 +49,9 @@ func describe_potion(hm_item):
 		return
 		
 	var desc_potion = load("res://scenes/hud/inventory/ItemDesc-Potion.tscn").instance()
-	
-	if hm_item is Main.HMHealth:
-		desc_potion.get_node("Recharge").text = str("Recharge: ", hm_item.health)
-	
+	desc_potion.hm_item = hm_item
+	desc_potion.update()
+		
 	$Inv/HBox/ItemDesc/VBox.add_child(desc_potion)
 	
 func describe_usable(hm_item):
@@ -88,10 +83,8 @@ func describe_attack(hm_item):
 		return
 	
 	var attack = load("res://scenes/hud/inventory/ItemDesc-Attack.tscn").instance()
-	
-	attack.get_node("Damage").text = str("Damage: ", hm_item.damage)
-	attack.get_node("PrimaryE").text = str("Primary Element: ", hm_item.primary_element_name)
-	attack.get_node("SecundaryE").text = str("Secundary Element: ", hm_item.secundary_element_name)
+	attack.hm_item = hm_item
+	attack.update()
 	
 	$Inv/HBox/ItemDesc/VBox.add_child(attack)
 

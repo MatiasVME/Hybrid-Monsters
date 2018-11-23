@@ -82,6 +82,7 @@ func create_user_config():
 	user_config = $UserConfig.get_data("UserConfig")
 	
 	DeliveryManager.create_delivery("ShopItems", 60 * 30)
+#	DeliveryManager.create_delivery("ShopItems", 5) # test
 	shop_inventory = $HMRPGHelper.get_inst_weight_inventory()
 	ItemGenerator.create_item_pack_for_shop(shop_inventory)
 	
