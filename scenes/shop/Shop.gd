@@ -3,6 +3,8 @@ extends Node2D
 var item_in_gui = preload("res://scenes/hud/inventory/Item.tscn")
 var current_item_in_gui
 
+onready var hud = get_parent()
+
 func _ready():
 	add_shop_items()
 	add_inv_items()
@@ -10,9 +12,13 @@ func _ready():
 	DeliveryManager.connect("new_delivery", self, "_on_new_delivery")
 	
 	update_gold_amount()
+	update_weight()
 
 func update_gold_amount():
 	$GoldAmount.text = str(Main.current_gold)
+
+func update_weight():
+	$Weight.text = str("Weight: ", DataManager.inventories[Main.current_player].current_weight)
 
 func add_inv_items():
 	for item in DataManager.inventories[Main.current_player].get_inv():
@@ -104,12 +110,14 @@ func unequip(hm_item):
 	# Obtener el player
 	var players = get_tree().get_nodes_in_group("Player")
 	
-	if players.size() > 1:
+	if players.size() > 0:
 		if hm_item is Main.HMSword:
 			hm_item.equiped_how = players[0].primary_weapon_data.Equipable.NONE
 			players[0].primary_weapon_data = null
 			players[0].get_node("CurrentWeapon").texture = null
+			print("desiquepado supuestamente")
 	else:
+		print("no desiquipado")
 		return
 		
 func _on_item_toggled(button_pressed, item_gui):
@@ -133,6 +141,9 @@ func _on_item_toggled(button_pressed, item_gui):
 		else:
 			$Hbox/VBox/Buttons/Sell.disabled = false
 			$Hbox/VBox/Buttons/Buy.disabled = true
+	else:
+		$Hbox/VBox/Buttons/Sell.disabled = true
+		$Hbox/VBox/Buttons/Buy.disabled = true
 	
 func _on_new_delivery(delivery):
 	if delivery[0] == "ShopItems":
@@ -165,15 +176,23 @@ func _on_Buy_pressed():
 	
 	# Actualizar label de oro
 	update_gold_amount()
+	update_weight()
 	
 	var rand_sound = int(round(rand_range(SoundManager.COIN_1, SoundManager.COIN_3)))
 	SoundManager.play_sound(rand_sound)
+	
+	hud.get_node("Inventory").update_inv()
+	
+	$Hbox/VBox/Buttons/Sell.disabled = true
+	$Hbox/VBox/Buttons/Buy.disabled = true
+	deselect_all_items_except(null)
 
 func _on_Sell_pressed():
 	Main.current_gold += current_item_in_gui.hm_item.sell_price
 	
 	# Si esta equipado lo desequipamos
 	if current_item_in_gui.hm_item is Main.HMEquipable and current_item_in_gui.hm_item.equiped_how != current_item_in_gui.hm_item.Equipable.NONE:
+		print("Lo desequipamos")
 		unequip(current_item_in_gui.hm_item)
 	
 	# Moverlo a la shop visual
@@ -190,6 +209,13 @@ func _on_Sell_pressed():
 	
 	# Actualizar label de oro
 	update_gold_amount()
+	update_weight()
 	
 	var rand_sound = int(round(rand_range(SoundManager.COIN_1, SoundManager.COIN_3)))
 	SoundManager.play_sound(rand_sound)
+	
+	hud.get_node("Inventory").update_inv()
+
+	$Hbox/VBox/Buttons/Sell.disabled = true
+	$Hbox/VBox/Buttons/Buy.disabled = true
+	deselect_all_items_except(null)

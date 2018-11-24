@@ -5,7 +5,7 @@
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/hud/money_display/gold.png" type="Texture" id=4]
 
-[node name="Shop" type="Node2D"]
+[node name="Shop" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]

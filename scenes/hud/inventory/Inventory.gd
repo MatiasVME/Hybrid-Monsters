@@ -7,6 +7,8 @@ onready var HUD = get_parent()
 signal drop_item(item_dropped)
 
 func update_inv():
+	remove_all_inv_item()
+	
 	var inv = DataManager.inventories[0].get_inv()
 	
 	for item in inv:
@@ -91,6 +93,10 @@ func describe_attack(hm_item):
 func remove_all_descriptions():
 	for desc in $Inv/HBox/ItemDesc/VBox.get_children():
 		desc.queue_free()
+
+func remove_all_inv_item():
+	for item in $Inv/HBox/Items/Grid.get_children():
+		$Inv/HBox/Items/Grid.remove_child(item)
 
 func equip(hm_item):
 	if hm_item is Main.HMSword:

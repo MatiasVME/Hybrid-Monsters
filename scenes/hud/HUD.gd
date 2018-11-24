@@ -33,9 +33,6 @@ func _on_HUDInventory_toggled(button_pressed):
 	else:
 		$AnimInv.play("hide")
 
-#func _on_HUDMenuButton_pressed():
-#	$AnimMenu.play("show")
-
 func _on_Resume_pressed():
 	$HUDMenuButton.pressed = false
 	$AnimMenu.play("hide")
@@ -73,8 +70,11 @@ func _on_HubOther_toggled(button_pressed):
 		$AnimAttributes.play("hide")
 
 func _on_ShopButton_toggled(button_pressed):
+#	Main.current_gold += 10000
+	
 	if button_pressed:
 		$Shop.update_gold_amount()
+		$Shop.update_weight()
 		$Shop.update_inv_items()
 		$AnimShop.play("show")
 	else:
