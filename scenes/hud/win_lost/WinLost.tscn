@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.4, 1.4 ), Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.5, 0.8 ), Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
 }
 
-[node name="WinLost" type="Node2D" index="0"]
+[node name="WinLost" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -221,7 +221,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
-text = "XPCollected:"
+text = "XP Collected:"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

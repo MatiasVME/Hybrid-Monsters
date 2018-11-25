@@ -78,6 +78,8 @@ var result
 var map_size = 36
 var total_enemies = 6
 
+var current_level = 1
+
 # Player con el cual se esta jugando actualmente
 var current_player = 0
 
@@ -120,11 +122,13 @@ func increase_dificulty():
 	var_dificulty = clamp(var_dificulty + 0.2, 1, 10)
 	map_size = clamp(map_size + 4, 20, 250)
 	total_enemies = clamp(total_enemies + 4, 6, 100)
+	current_level = clamp(current_level + 1, 0, 100)
 
 func diminish_dificulty():
 	var_dificulty = clamp(var_dificulty - 0.2, 1, 10)
 	map_size = clamp(map_size - 4, 20, 250)
 	total_enemies = clamp(total_enemies - 4, 6, 100)
+	current_level = clamp(current_level - 1, 0, 100)
 
 # Setters/Getters
 #

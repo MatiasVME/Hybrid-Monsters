@@ -6,6 +6,11 @@ onready var menu_music = get_parent().get_parent().get_node("Underground")
 
 func _ready():
 	$Version.text = "v" + Main.VERSION
+	
+	if not Main.music_enable:
+		$Music.pressed = true
+	if not Main.sound_enable:
+		$Sound.pressed = true
 
 func _on_Play_pressed():
 	emit_signal("play")

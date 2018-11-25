@@ -19,6 +19,3 @@ func _on_Info_pressed():
 
 func _on_BackCredits_pressed():
 	$ScreensAnim.play("credits2menu")
-
-func _on_Sound_pressed():
-	pass # replace with function body

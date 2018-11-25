@@ -207,6 +207,10 @@ func _on_level_up(current_level):
 	effect_level_up.position.x += 8
 	effect_level_up.position.y -= 8
 	
+	# Se da uno de HP por cada nivel
+	DataManager.players[0].hp += 1
+	DataManager.players[0].max_hp += 1
+	
 	DataManager.stats[Main.current_player].add_points(3)
 	
 	HUD.get_node("Attributes").update()

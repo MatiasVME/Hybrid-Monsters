@@ -12,6 +12,7 @@ func _ready():
 
 	$Attributes.update()
 	available_attributes()
+	$StartLevel.text = str("Level ", Main.current_level)
 
 func _input(event):
 	if event.is_action_pressed("inventory"):

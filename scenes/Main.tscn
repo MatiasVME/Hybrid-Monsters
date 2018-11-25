@@ -306,8 +306,6 @@ bus = "Master"
 
 [connection signal="pressed" from="Screens/MainMenu/Info" to="." method="_on_Info_pressed"]
 
-[connection signal="toggled" from="Screens/MainMenu/Sound" to="Screens/MainMenu" method="_on_Sound_toggled"]
-
 [connection signal="pressed" from="Screens/MainMenu/Config" to="." method="_on_Config_pressed"]
 
 [connection signal="pressed" from="Screens/Config/Back" to="." method="_on_Back_pressed"]

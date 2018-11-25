@@ -142,7 +142,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-toggle_mode = false
+toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
@@ -327,6 +327,8 @@ _sections_unfolded = [ "Smoothing", "Transform" ]
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 
 [connection signal="toggled" from="Music" to="." method="_on_Music_toggled"]
+
+[connection signal="toggled" from="Sound" to="." method="_on_Sound_toggled"]
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
 
