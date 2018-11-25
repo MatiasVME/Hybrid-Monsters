@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
@@ -113,7 +113,26 @@ tracks/1/keys = {
 "values": [ Vector2( 250, 160 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=5]
+
+resource_name = "idle"
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("HubOther:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.390625, 0.914307, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
 
 resource_name = "hide"
 length = 0.4
@@ -132,7 +151,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 240, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
 
 resource_name = "show"
 length = 0.4
@@ -151,7 +170,7 @@ tracks/0/keys = {
 "values": [ Vector2( 240, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=8]
 
 length = 0.4
 loop = false
@@ -193,7 +212,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, -22 ), Vector2( 220, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=9]
 
 length = 0.4
 loop = false
@@ -235,7 +254,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, 0 ), Vector2( 220, -22 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=10]
 
 length = 2.0
 loop = false
@@ -265,7 +284,7 @@ tracks/1/keys = {
 "values": [ 0, 0, 2 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=11]
 
 length = 3.0
 loop = false
@@ -295,7 +314,7 @@ tracks/1/keys = {
 "values": [ 2, 0, 0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=12]
 
 length = 3.0
 loop = false
@@ -423,14 +442,24 @@ rect_scale = Vector2( 2, 2 )
 focus_mode = 0
 toggle_mode = true
 enabled_focus_mode = 0
-_sections_unfolded = [ "Rect", "Textures" ]
+_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="Shop" parent="." index="8" instance=ExtResource( 8 )]
+[node name="AvailableAttributes" type="AnimationPlayer" parent="." index="8"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 5 )
+blend_times = [  ]
+
+[node name="Shop" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 240, 0 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="ShopButton" parent="." index="9" instance=ExtResource( 9 )]
+[node name="ShopButton" parent="." index="10" instance=ExtResource( 9 )]
 
 margin_left = 220.0
 margin_top = 24.0
@@ -438,18 +467,18 @@ margin_right = 236.0
 margin_bottom = 40.0
 toggle_mode = true
 
-[node name="AnimShop" type="AnimationPlayer" parent="." index="10"]
+[node name="AnimShop" type="AnimationPlayer" parent="." index="11"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 10 )
-anims/show = SubResource( 11 )
+anims/hide = SubResource( 6 )
+anims/show = SubResource( 7 )
 blend_times = [  ]
 
-[node name="Menu" type="Node2D" parent="." index="11"]
+[node name="Menu" type="Node2D" parent="." index="12"]
 
 editor/display_folded = true
 position = Vector2( 240, 0 )
@@ -516,18 +545,18 @@ margin_bottom = 12.0
 
 text = "MENU"
 
-[node name="AnimMenu" type="AnimationPlayer" parent="." index="12"]
+[node name="AnimMenu" type="AnimationPlayer" parent="." index="13"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 5 )
-anims/show = SubResource( 6 )
+anims/hide = SubResource( 8 )
+anims/show = SubResource( 9 )
 blend_times = [  ]
 
-[node name="HUDMenuButton" parent="." index="13" instance=ExtResource( 12 )]
+[node name="HUDMenuButton" parent="." index="14" instance=ExtResource( 12 )]
 
 margin_left = 220.0
 margin_right = 230.0
@@ -537,7 +566,7 @@ toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Curtain" type="ColorRect" parent="." index="14"]
+[node name="Curtain" type="ColorRect" parent="." index="15"]
 
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
@@ -568,27 +597,27 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 7 )
-anims/show = SubResource( 8 )
+anims/hide = SubResource( 10 )
+anims/show = SubResource( 11 )
 blend_times = [  ]
 
-[node name="WinLost" parent="." index="15" instance=ExtResource( 13 )]
+[node name="WinLost" parent="." index="16" instance=ExtResource( 13 )]
 
 visible = false
 position = Vector2( 0, -162 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="AnimWinLost" type="AnimationPlayer" parent="." index="16"]
+[node name="AnimWinLost" type="AnimationPlayer" parent="." index="17"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 9 )
+anims/show = SubResource( 12 )
 blend_times = [  ]
 
-[node name="Debug" type="Node2D" parent="." index="17"]
+[node name="Debug" type="Node2D" parent="." index="18"]
 
 editor/display_folded = true
 visible = false

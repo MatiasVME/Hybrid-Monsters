@@ -43,7 +43,13 @@ func _ready():
 			inst_enemy.free()
 	
 	# No siempre se añaden todos los enemigos
-	Main.total_enemies = get_tree().get_nodes_in_group("Enemy").size()
+	
+	Main.total_enemies = 0
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		if not enemy.is_queued_for_deletion():
+			Main.total_enemies += 1
+	
+	print("Main.total_enemies: ", Main.total_enemies)
 	
 	$Spawn.cave_spawn(my_player)
 	

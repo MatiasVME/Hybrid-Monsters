@@ -241,6 +241,7 @@ func drop():
 		
 	# MoneyDrop
 	Main.current_gold += character.drop_gold
+	Main.store_gold += character.drop_gold
 
 # Signals
 #
@@ -262,9 +263,8 @@ func _on_dead():
 	Grid.remove_actor(self)
 	$Anim.play("dead")
 	
-	# En un futuro esto tiene que cambiar cuando se tenga
-	# mas de un player
-	DataManager.players[0].add_xp(character.xp_drop)
+	Main.store_xp += character.xp_drop
+	DataManager.players[Main.current_player].add_xp(character.xp_drop)
 	
 	Main.store_destroyed_enemies += 1
 	

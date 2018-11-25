@@ -47,21 +47,24 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Notifications" type="Node2D"]
+[node name="Notifications" type="CanvasLayer"]
 
-z_index = 1
+layer = 2
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Shop" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 176, 56 )
-scale = Vector2( 3, 3 )
+scale = Vector2( 0.207838, 0.207838 )
+z_index = 5
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Label" type="Label" parent="Shop" index="0"]
 

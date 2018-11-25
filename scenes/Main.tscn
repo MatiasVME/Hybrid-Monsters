@@ -185,7 +185,7 @@ tracks/1/keys = {
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]
@@ -305,6 +305,8 @@ mix_target = 0
 bus = "Master"
 
 [connection signal="pressed" from="Screens/MainMenu/Info" to="." method="_on_Info_pressed"]
+
+[connection signal="toggled" from="Screens/MainMenu/Sound" to="Screens/MainMenu" method="_on_Sound_toggled"]
 
 [connection signal="pressed" from="Screens/MainMenu/Config" to="." method="_on_Config_pressed"]
 

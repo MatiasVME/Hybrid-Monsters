@@ -13,10 +13,12 @@ func update():
 		$VBox/Scroll/VBox/StatLuck/AddStat.disabled = false
 		$VBox/Scroll/VBox/StatStrength/AddStat.disabled = false
 		$VBox/Scroll/VBox/StatVitality/AddStat.disabled = false
+		hud.available_attributes()
 	else:
 		$VBox/Scroll/VBox/StatLuck/AddStat.disabled = true
 		$VBox/Scroll/VBox/StatStrength/AddStat.disabled = true
 		$VBox/Scroll/VBox/StatVitality/AddStat.disabled = true
+		hud.available_attributes()
 	
 
 func _on_AddStat_Strength_pressed():

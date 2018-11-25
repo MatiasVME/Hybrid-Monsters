@@ -2,7 +2,7 @@
 
 extends Node
 
-const VERSION = "0.1.0"
+const VERSION = "0.2.0"
 const DEBUG = true
 
 var music_enable = true
@@ -81,8 +81,13 @@ var total_enemies = 6
 # Player con el cual se esta jugando actualmente
 var current_player = 0
 
+# Store: Lugar donde se almacena variables de juego de forma
+#  temporal
+
 # Guardado temporal de estadísticas del nivel
 var store_destroyed_enemies = 0
+var store_gold = 0
+var store_xp = 0
 
 func init_game():
 	store_destroyed_enemies = 0
@@ -94,7 +99,12 @@ func init_game():
 	
 func exit_game():
 	pass
-	
+
+func reset_store():
+	store_destroyed_enemies = 0
+	store_gold = 0
+	store_xp = 0
+
 func init_basic_user_config():
 	var_dificulty = 1.0
 	
