@@ -10,6 +10,10 @@ var players = [] # Contiene instancias
 var inventories = []
 var stats = [] 
 
+# Si este numero cambia la data se borra, normalmente el numero
+# debe ir incrementando
+var delete_data = 1
+
 var shop_inventory
 
 var inst_players = []
@@ -38,18 +42,22 @@ func create_or_load_data_if_not_exist():
 		create_user_config()
 		create_inventories()
 		create_stats()
+	elif global_config["DeleteData"] != delete_data:
+		remove_all_data()
+		get_tree().quit()
 	else:
 		# Carga la data
 		#
 		
-		# TODO: Cargar global_config
+		# GlobalConfig ya se cargo anteriormente.
+		
 		load_players()
 		load_user_config()
 		load_inventories()
 		load_stats()
 	
 func create_global_config():
-	global_config["DeleteData"] = 0 
+	global_config["DeleteData"] = delete_data
 	$GlobalConfig.save_data()
 	
 func create_players():
@@ -187,4 +195,3 @@ func remove_all_data():
 	$UserConfig.remove_all_data()
 	$Inventories.remove_all_data()
 	$Stats.remove_all_data()
-
