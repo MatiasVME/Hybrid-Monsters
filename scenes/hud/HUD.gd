@@ -81,6 +81,9 @@ func _on_enemy_dead():
 	if Main.enemies_required == Main.store_destroyed_enemies:
 		$Display.text = str("Spawn Cave")
 		$Display/Anim.play("show")
+	elif Main.store_destroyed_enemies == Main.total_enemies:
+		$Display.text = str("All Enemies Killed")
+		$Display/Anim.play("show")
 
 func _on_HubOther_toggled(button_pressed):
 	if button_pressed:
