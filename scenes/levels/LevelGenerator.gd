@@ -48,10 +48,13 @@ func _ready():
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		if not enemy.is_queued_for_deletion():
 			Main.total_enemies += 1
+			enemy.connect("dead", self, "_on_enemy_dead", [my_player])
 	
-	print("Main.total_enemies: ", Main.total_enemies)
-	
-	$Spawn.cave_spawn(my_player)
+	if not Main.total_enemies == 0:
+		Main.enemies_required = clamp(int(round(rand_range(1, float(Main.total_enemies) / 2))),1 , Main.total_enemies)
+	else:
+		$Spawn.cave_spawn(my_player)
+		Main.enemies_required = 0
 	
 	$Camera.set_focus(my_player)
 	$Camera.current = true
@@ -62,4 +65,10 @@ func _ready():
 	$HUD.player = my_player
 	my_player.set_hud($HUD)
 	$HUD.get_node("Inventory").update_inv()
+	$HUD.update_enemies_amount()
+	$HUD.update_enemies_required()
+	$HUD.connect_enemies()
 	
+func _on_enemy_dead(player):
+	if Main.enemies_required == Main.store_destroyed_enemies:
+		$Spawn.cave_spawn(player)

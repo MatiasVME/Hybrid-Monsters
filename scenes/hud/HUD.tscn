@@ -4,16 +4,16 @@
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/status/Status.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/hud/money_display/MoneyDisplay.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=10]
-[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=13]
-[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=14]
+[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=5]
+[ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=11]
+[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 
@@ -411,7 +411,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="HUD" type="CanvasLayer" index="0" groups=[
+[node name="HUD" type="CanvasLayer" groups=[
 "HUD",
 ]]
 
@@ -435,7 +435,63 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="MoneyDisplay" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Inventory" parent="." index="3" instance=ExtResource( 5 )]
+[node name="EnemiesAmount" type="Label" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 148.0
+margin_right = 235.0
+margin_bottom = 158.0
+rect_scale = Vector2( 0.6, 0.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.404233, 0.773438, 0.175232, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Enemies: 100/100"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="EnemiesRequired" type="Label" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 152.0
+margin_top = 154.0
+margin_right = 235.0
+margin_bottom = 164.0
+rect_scale = Vector2( 0.6, 0.6 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.404233, 0.773438, 0.175232, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Required: 99"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+
+[node name="Inventory" parent="." index="5" instance=ExtResource( 6 )]
 
 editor/display_folded = true
 
@@ -448,7 +504,7 @@ enabled_focus_mode = 0
 
 editor/display_folded = true
 
-[node name="AnimInv" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimInv" type="AnimationPlayer" parent="." index="6"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -459,12 +515,12 @@ anims/hide = SubResource( 1 )
 anims/show = SubResource( 2 )
 blend_times = [  ]
 
-[node name="Attributes" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Attributes" parent="." index="7" instance=ExtResource( 7 )]
 
 position = Vector2( 250, 160 )
 scale = Vector2( 1e-05, 1e-05 )
 
-[node name="AnimAttributes" type="AnimationPlayer" parent="." index="6"]
+[node name="AnimAttributes" type="AnimationPlayer" parent="." index="8"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -475,7 +531,7 @@ anims/hide = SubResource( 3 )
 anims/show = SubResource( 4 )
 blend_times = [  ]
 
-[node name="HubOther" parent="." index="7" instance=ExtResource( 7 )]
+[node name="HubOther" parent="." index="9" instance=ExtResource( 8 )]
 
 margin_left = 210.0
 margin_top = 130.0
@@ -487,7 +543,7 @@ toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="AvailableAttributes" type="AnimationPlayer" parent="." index="8"]
+[node name="AvailableAttributes" type="AnimationPlayer" parent="." index="10"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -497,12 +553,12 @@ playback_speed = 1.0
 anims/idle = SubResource( 5 )
 blend_times = [  ]
 
-[node name="Shop" parent="." index="9" instance=ExtResource( 8 )]
+[node name="Shop" parent="." index="11" instance=ExtResource( 9 )]
 
 position = Vector2( 240, 0 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="ShopButton" parent="." index="10" instance=ExtResource( 9 )]
+[node name="ShopButton" parent="." index="12" instance=ExtResource( 10 )]
 
 margin_left = 220.0
 margin_top = 24.0
@@ -510,7 +566,7 @@ margin_right = 236.0
 margin_bottom = 40.0
 toggle_mode = true
 
-[node name="AnimShop" type="AnimationPlayer" parent="." index="11"]
+[node name="AnimShop" type="AnimationPlayer" parent="." index="13"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -521,8 +577,9 @@ anims/hide = SubResource( 6 )
 anims/show = SubResource( 7 )
 blend_times = [  ]
 
-[node name="Menu" type="Node2D" parent="." index="12"]
+[node name="Menu" type="Node2D" parent="." index="14"]
 
+editor/display_folded = true
 position = Vector2( 240, 0 )
 scale = Vector2( 1e-05, 1e-05 )
 _sections_unfolded = [ "Transform" ]
@@ -544,7 +601,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -555,7 +612,7 @@ _sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
 [node name="Buttons" type="Node2D" parent="Menu/Panel" index="0"]
 
-[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 11 )]
+[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 12 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -566,12 +623,14 @@ margin_left = -24.0
 margin_top = -19.0
 margin_right = 10.0
 margin_bottom = -4.0
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="Label" parent="Menu/Panel/Buttons/Resume" index="0"]
 
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 11 )]
+[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 12 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -582,12 +641,14 @@ margin_left = -24.0
 margin_top = -3.0
 margin_right = 10.0
 margin_bottom = 12.0
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="Label" parent="Menu/Panel/Buttons/Menu" index="0"]
 
 text = "MENU"
 
-[node name="AnimMenu" type="AnimationPlayer" parent="." index="13"]
+[node name="AnimMenu" type="AnimationPlayer" parent="." index="15"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -598,7 +659,7 @@ anims/hide = SubResource( 8 )
 anims/show = SubResource( 9 )
 blend_times = [  ]
 
-[node name="HUDMenuButton" parent="." index="14" instance=ExtResource( 12 )]
+[node name="HUDMenuButton" parent="." index="16" instance=ExtResource( 13 )]
 
 margin_left = 220.0
 margin_right = 230.0
@@ -608,7 +669,7 @@ toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Curtain" type="ColorRect" parent="." index="15"]
+[node name="Curtain" type="ColorRect" parent="." index="17"]
 
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
@@ -643,13 +704,13 @@ anims/hide = SubResource( 10 )
 anims/show = SubResource( 11 )
 blend_times = [  ]
 
-[node name="WinLost" parent="." index="16" instance=ExtResource( 13 )]
+[node name="WinLost" parent="." index="18" instance=ExtResource( 14 )]
 
 visible = false
 position = Vector2( 0, -162 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="AnimWinLost" type="AnimationPlayer" parent="." index="17"]
+[node name="AnimWinLost" type="AnimationPlayer" parent="." index="19"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -659,7 +720,7 @@ playback_speed = 1.0
 anims/show = SubResource( 12 )
 blend_times = [  ]
 
-[node name="Debug" type="Node2D" parent="." index="18"]
+[node name="Debug" type="Node2D" parent="." index="20"]
 
 editor/display_folded = true
 visible = false
@@ -681,7 +742,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 5 )
 text = "VarDificulty: 10"
 valign = 1
 percent_visible = 1.0
@@ -689,37 +750,39 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="StartLevel" type="Label" parent="." index="19"]
+[node name="Display" type="Label" parent="." index="21"]
 
+editor/display_folded = true
 visible = false
-self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -24.0
-margin_top = -5.0
+margin_top = -6.0
 margin_right = 24.0
-margin_bottom = 5.0
-rect_scale = Vector2( 6, 6 )
-rect_pivot_offset = Vector2( 24, 5 )
+margin_bottom = 22.0
+rect_scale = Vector2( 0.708045, 0.708045 )
+rect_pivot_offset = Vector2( 24, 14 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.0820312, 0.875, 0.131592, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Level 999"
 align = 1
 valign = 1
+autowrap = true
+clip_text = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="Anim" type="AnimationPlayer" parent="StartLevel" index="0"]
+[node name="Anim" type="AnimationPlayer" parent="Display" index="0"]
 
 root_node = NodePath("..")
 autoplay = "show"

@@ -5,7 +5,7 @@
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/hud/attributes/Stat.tscn" type="PackedScene" id=4]
 
-[node name="Attributes" type="Node2D"]
+[node name="Attributes" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -120,23 +120,23 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="StatStrength" parent="VBox/Scroll/VBox" index="0" instance=ExtResource( 4 )]
+[node name="Strength" parent="VBox/Scroll/VBox" index="0" instance=ExtResource( 4 )]
 
-[node name="StatLuck" parent="VBox/Scroll/VBox" index="1" instance=ExtResource( 4 )]
+[node name="Luck" parent="VBox/Scroll/VBox" index="1" instance=ExtResource( 4 )]
 
 margin_top = 20.0
 margin_bottom = 36.0
 
-[node name="StatName" parent="VBox/Scroll/VBox/StatLuck" index="1"]
+[node name="StatName" parent="VBox/Scroll/VBox/Luck" index="1"]
 
 text = "Luck"
 
-[node name="StatVitality" parent="VBox/Scroll/VBox" index="2" instance=ExtResource( 4 )]
+[node name="Vitality" parent="VBox/Scroll/VBox" index="2" instance=ExtResource( 4 )]
 
 margin_top = 40.0
 margin_bottom = 56.0
 
-[node name="StatName" parent="VBox/Scroll/VBox/StatVitality" index="1"]
+[node name="StatName" parent="VBox/Scroll/VBox/Vitality" index="1"]
 
 text = "Vitality"
 
@@ -166,13 +166,13 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[connection signal="pressed" from="VBox/Scroll/VBox/StatStrength/AddStat" to="." method="_on_AddStat_Strength_pressed"]
+[connection signal="pressed" from="VBox/Scroll/VBox/Strength/AddStat" to="." method="_on_AddStat_Strength_pressed"]
 
-[connection signal="pressed" from="VBox/Scroll/VBox/StatLuck/AddStat" to="." method="_on_AddStat_Luck_pressed"]
+[connection signal="pressed" from="VBox/Scroll/VBox/Luck/AddStat" to="." method="_on_AddStat_Luck_pressed"]
 
-[connection signal="pressed" from="VBox/Scroll/VBox/StatVitality/AddStat" to="." method="_on_AddStat_Vitality_pressed"]
+[connection signal="pressed" from="VBox/Scroll/VBox/Vitality/AddStat" to="." method="_on_AddStat_Vitality_pressed"]
 
 
-[editable path="VBox/Scroll/VBox/StatStrength"]
-[editable path="VBox/Scroll/VBox/StatLuck"]
-[editable path="VBox/Scroll/VBox/StatVitality"]
+[editable path="VBox/Scroll/VBox/Strength"]
+[editable path="VBox/Scroll/VBox/Luck"]
+[editable path="VBox/Scroll/VBox/Vitality"]

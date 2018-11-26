@@ -70,9 +70,7 @@ func cave_spawn(player):
 		while occupied_spawn.has(rand_empty_position) or player_pos.distance_to(rand_empty_position) <= (size_tilemap / 2).x - 4:
 			rand_num = int(round(rand_range(0, empty_positions.size() - 1)))
 			rand_empty_position = empty_positions[rand_num]
-#			print(".")
-		
-#		print(rand_empty_position)
+
 		occupied_spawn.append(rand_empty_position)
 		
 		# Añadir el enemy en la posición

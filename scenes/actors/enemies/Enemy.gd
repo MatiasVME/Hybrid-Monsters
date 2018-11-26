@@ -7,6 +7,8 @@ var character
 var follow_player = false
 var players
 
+signal dead
+
 func _ready():
 	# Random Skin for test
 	randomize()
@@ -261,7 +263,6 @@ func _on_remove_hp(amount):
 func _on_dead():
 	is_mark_to_dead = true
 	Grid.remove_actor(self)
-	$Anim.play("dead")
 	
 	Main.store_xp += character.xp_drop
 	DataManager.players[Main.current_player].add_xp(character.xp_drop)
@@ -270,6 +271,9 @@ func _on_dead():
 	
 	# Dropeo
 	drop()
+	
+	emit_signal("dead")
+	$Anim.play("dead")
 	
 func _on_ViewArea_area_entered(area):
 	if area.get_parent().is_in_group("Player"):

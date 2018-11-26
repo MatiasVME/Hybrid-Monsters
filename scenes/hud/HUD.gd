@@ -12,7 +12,7 @@ func _ready():
 
 	$Attributes.update()
 	available_attributes()
-	$StartLevel.text = str("Level ", Main.current_level)
+	$Display.text = str("Level ", Main.current_level)
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
@@ -28,6 +28,21 @@ func _input(event):
 	elif event.is_action_pressed("ui_cancel"):
 		$HUDMenuButton.pressed = not $HUDMenuButton.pressed
 		_on_HUDMenuButton_toggled($HUDMenuButton.pressed)
+
+func connect_enemies():
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		enemy.connect("dead", self, "_on_enemy_dead")
+
+func update_enemies_amount():
+	$EnemiesAmount.text = str(
+		"Enemies: ", 
+		Main.store_destroyed_enemies, 
+		"/", 
+		Main.total_enemies
+	)
+
+func update_enemies_required():
+	$EnemiesRequired.text = str("Required: ", Main.enemies_required)
 
 func available_attributes():
 	if DataManager.stats[Main.current_player].get_points() > 0:
@@ -59,6 +74,13 @@ func _on_dead():
 	Main.result = Main.LOST
 	$WinLost.result()
 	$AnimWinLost.play("show")
+	
+func _on_enemy_dead():
+	update_enemies_amount()
+	
+	if Main.enemies_required == Main.store_destroyed_enemies:
+		$Display.text = str("Spawn Cave")
+		$Display/Anim.play("show")
 
 func _on_HubOther_toggled(button_pressed):
 	if button_pressed:

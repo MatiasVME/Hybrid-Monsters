@@ -2,7 +2,7 @@
 
 extends Node
 
-const VERSION = "0.2.0"
+const VERSION = "0.3.0"
 const DEBUG = true
 
 var music_enable = true
@@ -77,6 +77,7 @@ var result
 
 var map_size = 36
 var total_enemies = 6
+var enemies_required = 0
 
 var current_level = 1
 
