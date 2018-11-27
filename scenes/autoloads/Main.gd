@@ -98,7 +98,8 @@ var spawn_location = Vector2()
 var arrow_active = false
 
 func init_game():
-	store_destroyed_enemies = 0
+	reset_store()
+	arrow_active = false
 	
 	if DataManager.players[0].is_dead:
 		DataManager.players[0].revive()
