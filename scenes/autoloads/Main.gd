@@ -93,6 +93,10 @@ var store_destroyed_enemies = 0
 var store_gold = 0
 var store_xp = 0
 
+# Localización de donde esta el spawn
+var spawn_location = Vector2()
+var arrow_active = false
+
 func init_game():
 	store_destroyed_enemies = 0
 	

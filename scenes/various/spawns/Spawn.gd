@@ -73,5 +73,10 @@ func cave_spawn(player):
 
 		occupied_spawn.append(rand_empty_position)
 		
+		Main.spawn_location = current_tilemap.map_to_world(rand_empty_position)
+		Main.spawn_location.x += 8
+		Main.spawn_location.y += 8
+#		print("Main.spawn_location: ", current_tilemap.map_to_world(Main.spawn_location))
+		
 		# Añadir el enemy en la posición
 		current_tilemap.set_cellv(rand_empty_position, Main.CAVE)

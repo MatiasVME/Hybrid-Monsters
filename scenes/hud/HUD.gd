@@ -90,6 +90,7 @@ func _on_enemy_dead():
 	elif Main.store_destroyed_enemies == Main.total_enemies:
 		$Display.text = str("All Enemies Killed")
 		$Display/Anim.play("show")
+		Main.arrow_active = true
 
 func _on_HubOther_toggled(button_pressed):
 	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)

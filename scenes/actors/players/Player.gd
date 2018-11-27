@@ -40,6 +40,15 @@ func _process(delta):
 	if target_position:
 		move_to(target_position)
 		
+		if Main.arrow_active and self.global_position.distance_to(Main.spawn_location) >= 16*3:
+			if not $Arrow.visible:
+				$Arrow/Anim.play("show")
+			
+			$Arrow.visible = true
+			$Arrow.look_at(Main.spawn_location)
+		else:
+			$Arrow.visible = false
+			
 	turn_helper.enemy_turn()
 
 func set_hud(_hud):
@@ -109,7 +118,6 @@ func attack(direction):
 				
 				enemy.damage(total_damage)
 				break
-				
 	
 	if glove:
 		yield(glove.get_node("Anim"), "animation_finished")
