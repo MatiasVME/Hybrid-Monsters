@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/normal_4.png-d59daa33fa541b704927674c48676eb8.stex"
+path="res://.import/iron_1.png-a2a06f1232540ec7e8bc2825ebd64c1d.stex"
 
 [deps]
 
-source_file="res://scenes/items/armor/armor/normal_4.png"
-dest_files=[ "res://.import/normal_4.png-d59daa33fa541b704927674c48676eb8.stex" ]
+source_file="res://scenes/items/armor/skin/iron_1.png"
+dest_files=[ "res://.import/iron_1.png-a2a06f1232540ec7e8bc2825ebd64c1d.stex" ]
 
 [params]
 

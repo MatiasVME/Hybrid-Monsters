@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/normal_3.png-069ecc468abf6b0af5ac5bb1a88b484d.stex"
+path="res://.import/normal_3.png-8d231836a2de9ed0b9a91d44c30743f4.stex"
 
 [deps]
 
-source_file="res://scenes/items/armor/armor/normal_3.png"
-dest_files=[ "res://.import/normal_3.png-069ecc468abf6b0af5ac5bb1a88b484d.stex" ]
+source_file="res://scenes/items/armor/skin/normal_3.png"
+dest_files=[ "res://.import/normal_3.png-8d231836a2de9ed0b9a91d44c30743f4.stex" ]
 
 [params]
 

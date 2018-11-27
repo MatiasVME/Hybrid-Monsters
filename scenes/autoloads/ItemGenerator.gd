@@ -1,8 +1,5 @@
 extends Node
 
-# -SCOPE | NIVEL | +SCOPE
-const scope = 3
-
 enum Materials {
 	WOOD,
 	IRON,
@@ -71,6 +68,9 @@ func get_random_sword_from_enemy(player_level, level_enemy):
 	return sword
 
 func get_random_item_level(player_level, level_enemy):
+	# -SCOPE | NIVEL | +SCOPE
+	var scope
+	
 	if randi() % 20 == 0:
 		scope = 15
 	elif randi() % 15 == 0:
@@ -167,6 +167,32 @@ func get_random_book():
 	book_inst.book_type = randi() % (book_inst.VITALITY + 1)
 	
 	return book_inst
+
+func get_random_armor():
+	# -SCOPE | NIVEL | +SCOPE
+	var scope
+	
+	if randi() % 20 == 0:
+		scope = 15
+	elif randi() % 15 == 0:
+		scope = 12
+	elif randi() % 10 == 0:
+		scope = 9
+	elif randi() % 5 == 0:
+		scope = 6
+	else:
+		scope = 3
+	
+	var intermediate_value = Main.var_dificulty * 40 + 10
+	var defence = clamp(
+		int(round(rand_range(intermediate_value - scope / 2, intermediate_value + scope))), 
+		10, 
+		50
+	)
+	
+	var armor_inst = HMRPGHelper.get_hm_inst_armor()
+	armor_inst.defence = defence
+	armor_inst.update()
 	
 func create_item_pack_for_shop(inventory, level = 1):
 	inventory.remove_all_items()

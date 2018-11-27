@@ -6,7 +6,7 @@ enum Equipable {
 	SECUNDARY_WEAPON,
 	SHIELD,
 	ARTIFACT,
-	CHESTPLATE,
+	ARMOR,
 	TOOL
 }
 var equiped_how = Equipable.NONE
