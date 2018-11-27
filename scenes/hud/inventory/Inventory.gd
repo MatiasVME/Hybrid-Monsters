@@ -92,6 +92,16 @@ func describe_attack(hm_item):
 	
 	$Inv/HBox/ItemDesc/VBox.add_child(attack)
 
+func describe_armor(hm_item):
+	if not hm_item is Main.HMArmor:
+		return
+		
+	var armor = load("res://scenes/hud/inventory/ItemDesc-Armor.tscn").instance()
+	armor.hm_item = hm_item
+	armor.update()
+	
+	$Inv/HBox/ItemDesc/VBox.add_child(armor)
+
 func remove_all_descriptions():
 	for desc in $Inv/HBox/ItemDesc/VBox.get_children():
 		desc.queue_free()
@@ -109,12 +119,23 @@ func equip(hm_item):
 		HUD.player.get_node("CurrentWeapon").texture = load(hm_item.texture_path)
 		HUD.player.primary_weapon_data = hm_item
 		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.PRIMARY_WEAPON
+	elif hm_item is Main.HMArmor:
+		if HUD.player.armor_data:
+			HUD.player.armor_data.equiped_how = HUD.player.armor_data.Equipable.NONE
+		
+		HUD.player.get_node("CurrentArmor").texture = load(hm_item.texture_path)
+		HUD.player.armor_data = hm_item
+		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.ARMOR
 	
 func unequip(hm_item):
 	if hm_item is Main.HMSword:
 		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.NONE
 		HUD.player.primary_weapon_data = null
 		HUD.player.get_node("CurrentWeapon").texture = null
+	elif hm_item is Main.HMArmor:
+		hm_item.equiped_how = HUD.player.armor.Equipable.NONE
+		HUD.player.armor_data = null
+		HUD.player.get_node("CurrentArmor").texture = null
 
 func describe_stats():
 	var stats = load("res://scenes/hud/inventory/ItemDesc-Stats.tscn").instance()
@@ -141,6 +162,7 @@ func _on_item_toggled(button_pressed, item_gui):
 		describe_potion(item_gui.hm_item)
 		describe_usable(item_gui.hm_item)
 		describe_equipable(item_gui.hm_item)
+		describe_armor(item_gui.hm_item)
 		describe_attack(item_gui.hm_item)
 		# Por ahora no usar describe_sword, ya que el puro nombre 
 		# describe el material y la forma

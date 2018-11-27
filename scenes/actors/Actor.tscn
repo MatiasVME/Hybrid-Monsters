@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/actors/Actor.gd" type="Script" id=1]
 [ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=2]
 [ext_resource path="res://scenes/actors/players/skins/6.png" type="Texture" id=3]
 [ext_resource path="res://scenes/items/attack/swords/skins/diamond-wide.png" type="Texture" id=4]
+[ext_resource path="res://scenes/items/armor/skin/ruby_1.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -235,7 +236,23 @@ shape = SubResource( 7 )
 [node name="CurrentWeapon" type="Sprite" parent="." index="4"]
 
 material = SubResource( 8 )
-position = Vector2( -6, 6 )
+position = Vector2( -6, 12 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -8 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Z Index" ]
+
+[node name="CurrentArmor" type="Sprite" parent="." index="5"]
+
+position = Vector2( 0, 12 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, -8 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Z Index" ]
+
+[node name="CurrentArtifact" type="Sprite" parent="." index="6"]
+
+position = Vector2( 6, 12 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, -8 )

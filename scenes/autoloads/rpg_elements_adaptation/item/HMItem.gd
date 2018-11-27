@@ -14,7 +14,8 @@ enum ItemType {
 	GLOVES,
 	SWORD,
 	POTION,
-	BOOK
+	BOOK,
+	ARMOR
 }
 
 func get_item_type_name():
@@ -27,3 +28,6 @@ func get_item_type_name():
 			return "Potion"
 		ItemType.BOOK:
 			return "Book"
+		ItemType.ARMOR:
+			return "Armor"
+	

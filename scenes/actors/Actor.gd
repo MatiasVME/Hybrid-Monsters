@@ -12,6 +12,8 @@ var primary_weapon
 var primary_weapon_data
 var secondary_weapon
 var secondary_weapon_data
+var armor
+var armor_data
 
 # Debe de ser un Main.CellType
 var type = Main.PLAYER
@@ -31,6 +33,8 @@ var is_mark_to_dead = false
 
 func _ready():
 	$CurrentWeapon.texture = null
+	$CurrentArmor.texture = null
+	$CurrentArtifact.texture = null
 
 func spawn():
 	emit_signal("spawn")

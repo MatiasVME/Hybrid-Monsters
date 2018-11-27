@@ -21,6 +21,7 @@ var HMPotion = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usab
 var HMUsable = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/HMUsable.gd")
 var HMHealth = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/potion/HMHealth.gd")
 var HMBook = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/book/HMBook.gd")
+var HMArmor = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/armor/HMArmor.gd")
 
 enum Elements {
 	WATER,

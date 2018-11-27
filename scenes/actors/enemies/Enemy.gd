@@ -79,7 +79,13 @@ func config_hm_character():
 		
 		$CurrentWeapon.material.set_shader_param("r_1", Elements.get_color_element(primary_weapon_data.primary_element))
 		$CurrentWeapon.material.set_shader_param("r_2", Elements.get_color_element(primary_weapon_data.secundary_element))
+	# Le agregamos una armadura
+	if randi() % 3 == 0:
+		armor_data = ItemGenerator.get_random_armor()
 		
+		$CurrentArmor.texture = load(armor_data.texture_path)
+	
+	
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")
 	
@@ -131,34 +137,40 @@ func attack(player):
 		return
 		
 	var player_dir = get_players_around_dir(1)[0]
+	var total_damage
+	var weapon # glove, sword, etc
 	
-#	print("PrimaryWeaponData: ", primary_weapon_data)
 	
 	if primary_weapon_data != null:
-		var sword = load("res://scenes/items/attack/swords/Sword.tscn").instance()
-		sword.item = primary_weapon_data
+		weapon = load("res://scenes/items/attack/swords/Sword.tscn").instance()
+		weapon.item = primary_weapon_data
 		var player_pos = player_dir * 16
-		sword.global_position = player_pos
-		sword.z_index = 1
-		sword.look_at(player_dir)
+		weapon.global_position = player_pos
+		weapon.z_index = 1
+		weapon.look_at(player_dir)
 		
-		add_child(sword)
+		add_child(weapon)
 #		print("atacando con espada!!! :b")
 		
-		player.damage(character.get_attack() + primary_weapon_data.damage)
-		yield(sword.get_node("Anim"), "animation_finished")
+		total_damage = character.get_attack() + primary_weapon_data.damage
+
 	else:
-		var glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
+		weapon = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
 		var player_pos = player_dir * 16
-		glove.global_position = player_pos
-		glove.z_index = 1
-		glove.look_at(player_dir)
+		weapon.global_position = player_pos
+		weapon.z_index = 1
+		weapon.look_at(player_dir)
 		
-		add_child(glove)
+		add_child(weapon)
 		
-		player.damage(character.get_attack())
-		yield(glove.get_node("Anim"), "animation_finished")
+		total_damage = character.get_attack()
 	
+	if player.armor_data:
+		total_damage -= total_damage * player.armor_data.defence / 100 
+	
+	player.damage(total_damage)
+	yield(weapon.get_node("Anim"), "animation_finished")
+
 	set_process(true)
 
 # Recibe daño
@@ -203,7 +215,7 @@ func drop():
 	# Probabilidad de dropeo de arma primaria
 	#
 	
-	var drop_primary_weapon = clamp(
+	var drop_equip = clamp(
 		6.0 - (
 			DataManager.stats[Main.current_player].get_stat_value("Luck") / 4
 		), 
@@ -211,10 +223,13 @@ func drop():
 		6
 	)
 	
-	if randi() % int(round(drop_primary_weapon)) == 0:
+	if randi() % int(round(drop_equip)) == 0:
 		if primary_weapon_data:
 			drop_item(primary_weapon_data)
-	
+	if randi() % int(round(drop_equip + 1)) == 0:
+		if armor_data:
+			drop_item(armor_data)
+		
 	# Probabilidad de dropeo de una pocion
 	#
 	

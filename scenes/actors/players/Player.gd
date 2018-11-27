@@ -14,7 +14,7 @@ func _ready():
 	
 	add_child(turn_helper)
 	
-	$Pivot/Sprite.texture = get_skin(6)
+	$Pivot/Sprite.texture = get_skin(7)
 	
 	config_character()
 	
@@ -91,6 +91,8 @@ func attack(direction):
 		
 		add_child(glove)
 	
+	var total_damage = 0
+	
 	# Daño al enemigo
 	for dir in $Around.get_children():
 		if dir.cast_to == direction:
@@ -98,14 +100,16 @@ func attack(direction):
 			
 			if enemy:
 				if not primary_weapon_data:
-					enemy.damage(
-						DataManager.players[Main.current_player].attack
-					)
+					total_damage = DataManager.players[Main.current_player].attack
 				else:
-					enemy.damage(
-						DataManager.players[Main.current_player].attack + primary_weapon_data.damage
-					)
+					total_damage = DataManager.players[Main.current_player].attack + primary_weapon_data.damage
+				
+				if enemy.armor_data:
+					total_damage -= total_damage * enemy.armor_data.defence / 100 
+				
+				enemy.damage(total_damage)
 				break
+				
 	
 	if glove:
 		yield(glove.get_node("Anim"), "animation_finished")

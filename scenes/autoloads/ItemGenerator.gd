@@ -107,7 +107,8 @@ func get_sword_form(sword):
 	else:
 		sword.form = sword.Form.NORMAL
 		return sword.form
-
+	
+# Esto debería estar dentro del item
 func get_item_image(hm_item):
 	if hm_item is Main.HMSword:
 		hm_item.texture_path = str(
@@ -183,7 +184,7 @@ func get_random_armor():
 	else:
 		scope = 3
 	
-	var intermediate_value = Main.var_dificulty * 40 + 10
+	var intermediate_value = Main.var_dificulty * 4 + 10
 	var defence = clamp(
 		int(round(rand_range(intermediate_value - scope / 2, intermediate_value + scope))), 
 		10, 
@@ -193,6 +194,8 @@ func get_random_armor():
 	var armor_inst = HMRPGHelper.get_hm_inst_armor()
 	armor_inst.defence = defence
 	armor_inst.update()
+	
+	return armor_inst
 	
 func create_item_pack_for_shop(inventory, level = 1):
 	inventory.remove_all_items()
