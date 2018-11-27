@@ -173,6 +173,9 @@ func create_stats():
 	
 	$Stats.save_data("Stats")
 	
+	# Test
+#	stats[0].add_points(100)
+	
 func load_stats():
 	var temp_data = $Stats.get_data("Stats")
 	stats = []

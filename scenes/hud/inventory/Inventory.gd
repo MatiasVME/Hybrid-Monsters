@@ -43,7 +43,7 @@ func describe_commons(hm_item):
 	commons.update()
 	
 	commons.get_node("Drop").connect("pressed", self, "_on_drop_equip", [hm_item])
-
+	
 	$Inv/HBox/ItemDesc/VBox.add_child(commons)
 
 func describe_potion(hm_item):
@@ -63,6 +63,8 @@ func describe_usable(hm_item):
 	var desc_usable = load("res://scenes/hud/inventory/ItemDesc-Usable.tscn").instance()
 	
 	desc_usable.get_node("Use").connect("pressed", self, "_on_use_item", [hm_item])
+	desc_usable.hm_item = hm_item
+	desc_usable.update()
 	
 	$Inv/HBox/ItemDesc/VBox.add_child(desc_usable)
 	

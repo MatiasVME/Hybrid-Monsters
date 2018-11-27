@@ -46,4 +46,12 @@ func use():
 			AttributesManager.add_luck()
 		VITALITY:
 			AttributesManager.add_vitality()
-			
+
+func get_type_name():
+	match book_type:
+		STRENGTH:
+			return "Strength"
+		LUCK:
+			return "Luck"
+		VITALITY:
+			return "Vitality"

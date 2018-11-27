@@ -65,10 +65,8 @@ func add_points_to_stat(amount, stat_name):
 # points y el máximo de puntos que puede tener una stat.
 func can_add_points_to_stat(stat_name, amount = 1):
 	if amount <= points and amount + get_stat_value(stat_name) <= get_stat_max_value(stat_name):
-		print("truuuuuuuuue")
 		return true
 	else:
-		print("false")
 		return false
 
 # Quita puntos a una stat y los guarda en points
@@ -79,7 +77,7 @@ func remove_points_to_stat(cant, stat_name):
 		stat[1] -= cant
 		points += cant
 	else:
-		.debug("No se puede remover esa cantidad de puntos      ")
+		.debug("No se puede remover esa cantidad de puntos")
 
 # Borra todas las stats
 func clear_stats():

@@ -15,7 +15,7 @@ func result():
 		$Stats/Grid/GC.text = str(Main.store_gold)
 		
 		if Main.store_destroyed_enemies == Main.total_enemies:
-			var bonus_gold = Main.store_gold * 30 / 100
+			var bonus_gold = Main.store_gold * 50 / 100
 			$Stats/Grid/GC.text = str(Main.store_gold, " + ", bonus_gold)
 			Main.current_gold += bonus_gold
 			
