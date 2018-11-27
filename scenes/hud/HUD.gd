@@ -52,16 +52,22 @@ func available_attributes():
 		$HubOther.self_modulate = Color("ffffff")
 
 func _on_HUDInventory_toggled(button_pressed):
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	
 	if button_pressed:
 		$AnimInv.play("show")
 	else:
 		$AnimInv.play("hide")
 
 func _on_Resume_pressed():
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	
 	$HUDMenuButton.pressed = false
 	$AnimMenu.play("hide")
 
 func _on_Menu_pressed():
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	
 	MusicManager.stop_music()
 	get_tree().change_scene("res://scenes/Main.tscn")
 
@@ -86,13 +92,15 @@ func _on_enemy_dead():
 		$Display/Anim.play("show")
 
 func _on_HubOther_toggled(button_pressed):
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	
 	if button_pressed:
 		$AnimAttributes.play("show")
 	else:
 		$AnimAttributes.play("hide")
 
 func _on_ShopButton_toggled(button_pressed):
-#	Main.current_gold += 10000
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
 	
 	if button_pressed:
 		$Shop.update_gold_amount()
@@ -103,6 +111,8 @@ func _on_ShopButton_toggled(button_pressed):
 		$AnimShop.play("hide")
 
 func _on_HUDMenuButton_toggled(button_pressed):
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	
 	if button_pressed:
 		$AnimMenu.play("show")
 	else:

@@ -12,10 +12,12 @@ func _on_Config_pressed():
 	$ScreensAnim.play("menu2config")
 
 func _on_Back_pressed():
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
 	$ScreensAnim.play("config2menu")
 
 func _on_Info_pressed():
 	$ScreensAnim.play("menu2credits")
 
 func _on_BackCredits_pressed():
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
 	$ScreensAnim.play("credits2menu")

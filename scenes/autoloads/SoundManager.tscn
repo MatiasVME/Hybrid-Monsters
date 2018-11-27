@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/autoloads/SoundManager.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sfx/hit_1.wav" type="AudioStream" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://sounds/sfx/coin_1.wav" type="AudioStream" id=17]
 [ext_resource path="res://sounds/sfx/coin_2.wav" type="AudioStream" id=18]
 [ext_resource path="res://sounds/sfx/coin_3.wav" type="AudioStream" id=19]
+[ext_resource path="res://sounds/sfx/button_pressed.wav" type="AudioStream" id=20]
 
 [node name="SoundManager" type="Node"]
 
@@ -180,6 +181,15 @@ bus = "Master"
 [node name="Coin3" type="AudioStreamPlayer" parent="." index="17"]
 
 stream = ExtResource( 19 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="." index="18"]
+
+stream = ExtResource( 20 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

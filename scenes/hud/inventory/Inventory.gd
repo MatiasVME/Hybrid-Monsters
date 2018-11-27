@@ -149,6 +149,8 @@ func _on_item_toggled(button_pressed, item_gui):
 		describe_stats()
 
 func _on_toggled_equip(button_pressed, hm_item):
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	
 	if button_pressed:
 		equip(hm_item)
 	elif not button_pressed:

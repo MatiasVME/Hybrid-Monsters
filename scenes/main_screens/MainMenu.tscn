@@ -326,9 +326,13 @@ _sections_unfolded = [ "Smoothing", "Transform" ]
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
 
+[connection signal="pressed" from="Info" to="." method="_on_Info_pressed"]
+
 [connection signal="toggled" from="Music" to="." method="_on_Music_toggled"]
 
 [connection signal="toggled" from="Sound" to="." method="_on_Sound_toggled"]
+
+[connection signal="pressed" from="Config" to="." method="_on_Config_pressed"]
 
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
 

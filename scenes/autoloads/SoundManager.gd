@@ -18,7 +18,8 @@ enum Sound {
 	NOTIFICATION,
 	COIN_1,
 	COIN_2,
-	COIN_3
+	COIN_3,
+	BUTTON_PRESSED
 }
 
 func play_sound(sound):
@@ -62,4 +63,6 @@ func play_sound(sound):
 			$Coin2.play()
 		Sound.COIN_3:
 			$Coin3.play()
+		Sound.BUTTON_PRESSED:
+			$ButtonPressed.play()
 	
