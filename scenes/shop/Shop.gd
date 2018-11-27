@@ -95,6 +95,16 @@ func describe_attack(hm_item):
 	
 	$Hbox/Desc/VBox.add_child(attack)
 
+func describe_armor(hm_item):
+	if not hm_item is Main.HMArmor:
+		return
+		
+	var armor = load("res://scenes/hud/inventory/ItemDesc-Armor.tscn").instance()
+	armor.hm_item = hm_item
+	armor.update()
+	
+	$Hbox/Desc/VBox.add_child(armor)
+
 func is_shop_item(hm_item):
 	if DataManager.shop_inventory.get_inv().has(hm_item):
 		return true
@@ -129,6 +139,7 @@ func _on_item_toggled(button_pressed, item_gui):
 		
 		deselect_all_items_except(item_gui)
 		describe_commons(item_gui.hm_item)
+		describe_armor(item_gui.hm_item)
 		describe_potion(item_gui.hm_item)
 		describe_attack(item_gui.hm_item)
 		

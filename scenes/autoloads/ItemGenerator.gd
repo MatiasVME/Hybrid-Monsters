@@ -206,6 +206,20 @@ func create_item_pack_for_shop(inventory, level = 1):
 	var sword_num = randi() % 4 + 1
 	for i in sword_num:
 		inventory.add_item(get_random_sword_from_enemy(level, 2))
+		
+	# Armor
+	#
+	
+	var armor = randi() % 3 + 1
+	for i in armor:
+		inventory.add_item(get_random_armor())
+	
+	# Books
+	#
+	
+	var rand_book = randi() % 3
+	for i in rand_book:
+		inventory.add_item(get_random_book())
 	
 	# Health
 	#
@@ -213,12 +227,4 @@ func create_item_pack_for_shop(inventory, level = 1):
 	var health_num = randi() % 7 + 3
 	for i in health_num:
 		inventory.add_item(get_random_health_potion())
-		
-	# Books
-	#
-	
-	var rand_book = randi() % 3
-	for i in rand_book:
-		inventory.add_item(get_random_book())
-		
 		

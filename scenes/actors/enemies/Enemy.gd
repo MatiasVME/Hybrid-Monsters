@@ -166,7 +166,7 @@ func attack(player):
 		total_damage = character.get_attack()
 	
 	if player.armor_data:
-		total_damage -= total_damage * player.armor_data.defence / 100 
+		total_damage -= int(round(float(total_damage) * player.armor_data.defence / 100)) 
 	
 	player.damage(total_damage)
 	yield(weapon.get_node("Anim"), "animation_finished")
@@ -226,7 +226,7 @@ func drop():
 	if randi() % int(round(drop_equip)) == 0:
 		if primary_weapon_data:
 			drop_item(primary_weapon_data)
-	if randi() % int(round(drop_equip + 1)) == 0:
+	if randi() % int(round(drop_equip)) == 0:
 		if armor_data:
 			drop_item(armor_data)
 		

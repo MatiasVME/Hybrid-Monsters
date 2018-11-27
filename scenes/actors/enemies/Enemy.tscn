@@ -71,7 +71,7 @@ shader_param/r_3 = null
 shader_param/u_tolerance = null
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[node name="Enemy" index="0" groups=[
+[node name="Enemy" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
 
@@ -110,9 +110,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -8.0
-margin_top = 7.0
+margin_top = -11.0
 margin_right = 8.0
-margin_bottom = 10.0
+margin_bottom = -8.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1

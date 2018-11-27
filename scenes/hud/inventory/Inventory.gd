@@ -125,7 +125,7 @@ func equip(hm_item):
 		
 		HUD.player.get_node("CurrentArmor").texture = load(hm_item.texture_path)
 		HUD.player.armor_data = hm_item
-		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.ARMOR
+		hm_item.equiped_how = HUD.player.armor_data.Equipable.ARMOR
 	
 func unequip(hm_item):
 	if hm_item is Main.HMSword:

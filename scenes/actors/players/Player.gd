@@ -105,7 +105,7 @@ func attack(direction):
 					total_damage = DataManager.players[Main.current_player].attack + primary_weapon_data.damage
 				
 				if enemy.armor_data:
-					total_damage -= total_damage * enemy.armor_data.defence / 100 
+					total_damage -= int(round(float(total_damage) * enemy.armor_data.defence / 100)) 
 				
 				enemy.damage(total_damage)
 				break
