@@ -20,5 +20,42 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# HookAchievements.gd
+#
+
 tool
 extends "Hook.gd"
+
+var achivements = []
+
+func create_achievement(name, description, reward, texture_path, is_complete = false):
+	var achivement = new_void_achievement()
+	
+	achivement["Name"] = name
+	achivement["Description"] = description
+	achivement["Reward"] = reward
+	achivement["TexturePath"] = texture_path
+	achivement["IsCompleted"] = is_complete
+
+func new_void_achievement():
+	return {
+		Name : "",
+		Description : "",
+		Reward : "",
+		TexturePath : "",
+		IsCompleted : ""
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

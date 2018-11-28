@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/panels/inventory_panel.png" type="Texture" id=1]
+[ext_resource path="res://scenes/hud/achievements/Slot.tscn" type="PackedScene" id=2]
 
-[node name="Achievements" type="Node2D" index="0"]
+[node name="Achievements" type="Node2D"]
 
 [node name="Panel" type="NinePatchRect" parent="." index="0"]
 
@@ -38,7 +39,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 12.0
 margin_top = 12.0
-margin_right = 228.0
+margin_right = 232.0
 margin_bottom = 148.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -49,15 +50,15 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Scroll" type="ScrollContainer" parent="HBox" index="0"]
+[node name="Slots" type="ScrollContainer" parent="HBox" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 108.0
+margin_right = 107.0
 margin_bottom = 136.0
-rect_min_size = Vector2( 108, 68 )
+rect_min_size = Vector2( 107, 68 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -71,7 +72,54 @@ scroll_vertical = 0
 scroll_deadzone = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="Grid" type="GridContainer" parent="HBox/Scroll" index="0"]
+[node name="Grid" type="GridContainer" parent="HBox/Slots" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 52.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+columns = 3
+
+[node name="Slot" parent="HBox/Slots/Grid" index="0" instance=ExtResource( 2 )]
+
+[node name="Slot2" parent="HBox/Slots/Grid" index="1" instance=ExtResource( 2 )]
+
+margin_left = 28.0
+margin_right = 52.0
+
+[node name="Description" type="ScrollContainer" parent="HBox" index="1"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 111.0
+margin_right = 218.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 107, 68 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+scroll_horizontal_enabled = true
+scroll_horizontal = 0
+scroll_vertical_enabled = true
+scroll_vertical = 0
+scroll_deadzone = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Grid" type="GridContainer" parent="HBox/Description" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

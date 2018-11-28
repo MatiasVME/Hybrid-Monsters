@@ -54,6 +54,9 @@ func available_attributes():
 		$AvailableAttributes.stop()
 		$HubOther.self_modulate = Color("ffffff")
 
+func tuiu_sound():
+	SoundManager.play_sound(int(round(rand_range(SoundManager.TUIU_1, SoundManager.TUIU_2))))
+
 func _on_HUDInventory_toggled(button_pressed):
 	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
 	

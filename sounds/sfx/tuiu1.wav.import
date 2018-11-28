@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tuiu1.wav-8c697e50ac16a51ef0c1db05ad1a3369.sample"
+
+[deps]
+
+source_file="res://sounds/sfx/tuiu1.wav"
+dest_files=[ "res://.import/tuiu1.wav-8c697e50ac16a51ef0c1db05ad1a3369.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

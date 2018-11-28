@@ -35,6 +35,9 @@ func turn():
 		move_or_attack()
 	else:
 		random_move()
+	
+	if Main.sound_enable:
+		get_node(str("Footsteps", int(round(rand_range(1, 4))))).play()
 
 func random_move():
 	if is_mark_to_dead:
