@@ -151,6 +151,7 @@ func describe_stats():
 	
 func update_stats():
 	remove_all_descriptions()
+	deselect_all_items_except(null)
 	describe_stats()
 
 func _on_item_toggled(button_pressed, item_gui):

@@ -18,6 +18,9 @@ func _input(event):
 	if event.is_action_pressed("inventory"):
 		$Inventory/HUDInventory.pressed = not $Inventory/HUDInventory.pressed
 		_on_HUDInventory_toggled($Inventory/HUDInventory.pressed)
+		
+		if $Inventory/HUDInventory.pressed:
+			$Inventory.update_stats()
 	elif event.is_action_pressed("attributes"):
 		$HubOther.pressed = not $HubOther.pressed
 		_on_HubOther_toggled($HubOther.pressed)
