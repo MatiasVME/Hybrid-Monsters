@@ -35,22 +35,22 @@ func set_type_potion(_type_potion):
 			health = 5
 			self.item_name = get_potion_name()
 			self.buy_price = 25
-			self.sell_price = self.buy_price / 2
+			self.sell_price = self.buy_price / 4
 		TYPE_10:
 			health = 10
 			self.item_name = get_potion_name()
 			self.buy_price = 50
-			self.sell_price = self.buy_price / 2
+			self.sell_price = self.buy_price / 4
 		TYPE_15:
 			health = 15
 			self.item_name = get_potion_name()
 			self.buy_price = 75
-			self.sell_price = self.buy_price / 2
+			self.sell_price = self.buy_price / 4
 		TYPE_20:
 			health = 20
 			self.item_name = get_potion_name()
 			self.buy_price = 100
-			self.sell_price = self.buy_price / 2
+			self.sell_price = self.buy_price / 4
 	
 func get_type_potion():
 	return type_potion

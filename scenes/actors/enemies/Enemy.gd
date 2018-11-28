@@ -219,7 +219,7 @@ func drop():
 		6.0 - (
 			DataManager.stats[Main.current_player].get_stat_value("Luck") / 4
 		), 
-		1, 
+		3, 
 		6
 	)
 	
@@ -237,7 +237,7 @@ func drop():
 		10.0 - (
 			DataManager.stats[Main.current_player].get_stat_value("Luck") / 2
 		), 
-		3, 
+		4, 
 		10
 	)
 	
@@ -246,11 +246,11 @@ func drop():
 		
 	# Probabilidad de dropeo de un libro
 	var drop_book = clamp(
-		20.0 - (
+		25.0 - (
 			DataManager.stats[Main.current_player].get_stat_value("Luck") / 2
 		), 
-		10, 
-		20
+		15, 
+		25
 	)
 	
 	if randi() % int(round(drop_book)) == 0:

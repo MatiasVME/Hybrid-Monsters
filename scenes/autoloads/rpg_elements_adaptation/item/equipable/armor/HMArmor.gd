@@ -25,4 +25,4 @@ func update():
 	item_type = ItemType.ARMOR
 	
 	buy_price = defence * 150
-	sell_price = buy_price / 2 / 2
+	sell_price = buy_price / 8
