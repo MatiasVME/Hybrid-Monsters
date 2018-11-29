@@ -93,6 +93,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Underground:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.2, 1.0 ]
+}
 
 [sub_resource type="Animation" id=3]
 
@@ -124,6 +136,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Underground:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.2, 1.0 ]
+}
 
 [sub_resource type="Animation" id=4]
 
@@ -154,6 +178,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Underground:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.2, 1.0 ]
+}
 
 [sub_resource type="Animation" id=5]
 
@@ -183,6 +219,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 0.25, 4, 4, 1 ),
 "update": 0,
 "values": [ Vector2( 4, 4 ), Vector2( 5, 5 ), Vector2( 5, 5 ), Vector2( 4, 4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Underground:pitch_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.2, 1.0 ]
 }
 
 [node name="Main" type="Node2D"]
@@ -268,7 +316,7 @@ root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
-playback_speed = 0.6
+playback_speed = 0.4
 anims/config2menu = SubResource( 2 )
 anims/credits2menu = SubResource( 3 )
 anims/menu2config = SubResource( 4 )

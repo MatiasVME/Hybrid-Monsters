@@ -11,6 +11,7 @@ func _ready():
 	var music_num = int(round(rand_range(MusicManager.WAR, MusicManager.TUNINUNININU)))
 	MusicManager.select_music(music_num)
 	MusicManager.play_music()
+	MusicManager.start_anim()
 	
 	var size_map = Vector2(Main.map_size, Main.map_size)
 	

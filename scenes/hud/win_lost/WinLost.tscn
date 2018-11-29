@@ -25,7 +25,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.4, 1.4 ), Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.5, 0.8 ), Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
 }
 
-[node name="WinLost" type="Node2D" index="0"]
+[node name="WinLost" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -311,8 +311,8 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
-custom_colors/font_color = Color( 0.211487, 0.859375, 0.859375, 1 )
-text = "Bonus: All enemies were killed"
+custom_colors/font_color = Color( 0.96875, 0.942586, 0.29895, 1 )
+text = "Gold bonus: All enemies were killed"
 align = 1
 valign = 1
 autowrap = true

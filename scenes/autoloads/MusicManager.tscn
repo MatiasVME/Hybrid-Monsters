@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/autoloads/MusicManager.gd" type="Script" id=1]
 [ext_resource path="res://sounds/bgm/Underground.ogg" type="AudioStream" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://sounds/bgm/March.ogg" type="AudioStream" id=5]
 [ext_resource path="res://sounds/bgm/TuNiNuNiNiNu.ogg" type="AudioStream" id=6]
 [ext_resource path="res://sounds/bgm/War.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sounds/bgm/Crazy.ogg" type="AudioStream" id=8]
 
 [node name="MusicManager" type="Node"]
 
@@ -65,5 +66,23 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="Crazy" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Tween" type="Tween" parent="." index="7"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 

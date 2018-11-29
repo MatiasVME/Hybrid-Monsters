@@ -80,11 +80,13 @@ func _on_Menu_pressed():
 func win():
 	Main.result = Main.WIN
 	$WinLost.result()
+	MusicManager.stop_anim()
 	$AnimWinLost.play("show")
 	
 func _on_dead():
 	Main.result = Main.LOST
 	$WinLost.result()
+	MusicManager.stop_anim()
 	$AnimWinLost.play("show")
 	
 func _on_enemy_dead():
@@ -124,3 +126,8 @@ func _on_HUDMenuButton_toggled(button_pressed):
 		$AnimMenu.play("show")
 	else:
 		$AnimMenu.play("hide")
+
+func _on_AnimWinLost_animation_finished(anim_name):
+	if anim_name == "show":
+		MusicManager.select_music(MusicManager.CRAZY)
+		MusicManager.play_music()

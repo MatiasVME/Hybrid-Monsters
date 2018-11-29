@@ -29,6 +29,7 @@ SoundManager="*res://scenes/autoloads/SoundManager.tscn"
 AttributesManager="*res://scenes/autoloads/AttributesManager.gd"
 DeliveryManager="*res://scenes/autoloads/DeliveryManager.tscn"
 Notifications="*res://scenes/autoloads/Notifications.tscn"
+AchievementsManager="*res://scenes/autoloads/AchievementsManager.tscn"
 
 [display]
 

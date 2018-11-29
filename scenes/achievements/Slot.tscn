@@ -42,7 +42,7 @@ tracks/0/keys = {
 }
 
 [node name="Slot" type="TextureButton" groups=[
-"ItemGUI",
+"AchievementGUI",
 ]]
 
 anchor_left = 0.0

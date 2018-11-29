@@ -26,24 +26,31 @@
 tool
 extends "Hook.gd"
 
-var achivements = []
+var achievements = []
 
 func create_achievement(name, description, reward, texture_path, is_complete = false):
-	var achivement = new_void_achievement()
+	var achievement = new_void_achievement()
 	
-	achivement["Name"] = name
-	achivement["Description"] = description
-	achivement["Reward"] = reward
-	achivement["TexturePath"] = texture_path
-	achivement["IsCompleted"] = is_complete
+	achievement["Name"] = name
+	achievement["Description"] = description
+	achievement["Reward"] = reward
+	achievement["TexturePath"] = texture_path
+	achievement["IsCompleted"] = is_complete
+	
+	achievements.append(achievement)
+
+func search_achievement_by_name(achievement_name):
+	for i in achievements.size():
+		if achievements[i]["Name"] == achievement_name:
+			return achievements[i]
 
 func new_void_achievement():
 	return {
-		Name : "",
-		Description : "",
-		Reward : "",
-		TexturePath : "",
-		IsCompleted : ""
+		"Name" : "",
+		"Description" : "",
+		"Reward" : "",
+		"TexturePath" : "",
+		"IsCompleted" : ""
 	}
 	
 	

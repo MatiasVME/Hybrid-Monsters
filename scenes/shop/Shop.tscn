@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/shop/Shop.gd" type="Script" id=1]
 [ext_resource path="res://scenes/panels/inventory_panel.png" type="Texture" id=2]
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=3]
-[ext_resource path="res://scenes/hud/money_display/gold.png" type="Texture" id=4]
+[ext_resource path="res://scenes/buttons/buy/buy_normal.png" type="Texture" id=4]
+[ext_resource path="res://scenes/buttons/buy/buy_pressed.png" type="Texture" id=5]
+[ext_resource path="res://scenes/buttons/buy/buy_hover.png" type="Texture" id=6]
+[ext_resource path="res://scenes/buttons/buy/buy_disabled.png" type="Texture" id=7]
+[ext_resource path="res://scenes/buttons/sell/sell_normal.png" type="Texture" id=8]
+[ext_resource path="res://scenes/buttons/sell/sell_pressed.png" type="Texture" id=9]
+[ext_resource path="res://scenes/buttons/sell/sell_hover.png" type="Texture" id=10]
+[ext_resource path="res://scenes/buttons/sell/sell_disabled.png" type="Texture" id=11]
+[ext_resource path="res://scenes/hud/money_display/gold.png" type="Texture" id=12]
 
-[node name="Shop" type="Node2D"]
+[node name="Shop" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
@@ -139,7 +147,6 @@ columns = 3
 
 [node name="Buttons" type="HBoxContainer" parent="Hbox/VBox" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -155,13 +162,13 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
 
-[node name="Buy" type="Button" parent="Hbox/VBox/Buttons" index="0"]
+[node name="Buy" type="TextureButton" parent="Hbox/VBox/Buttons" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 21.0
+margin_left = 3.0
 margin_right = 51.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -170,24 +177,25 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 3 )
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-text = "Buy"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 7 )
+_sections_unfolded = [ "Rect", "Textures", "custom_fonts" ]
 
-[node name="Sell" type="Button" parent="Hbox/VBox/Buttons" index="1"]
+[node name="Sell" type="TextureButton" parent="Hbox/VBox/Buttons" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 55.0
-margin_right = 84.0
+margin_right = 103.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -195,15 +203,16 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 3 )
+disabled = true
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-text = "Sell"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+_sections_unfolded = [ "Rect", "Textures", "custom_fonts" ]
 
 [node name="InvItem" type="ScrollContainer" parent="Hbox/VBox" index="2"]
 
@@ -282,7 +291,7 @@ alignment = 0
 [node name="Gold" type="Sprite" parent="." index="3"]
 
 position = Vector2( 8, 8 )
-texture = ExtResource( 4 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="GoldAmount" type="Label" parent="." index="4"]
