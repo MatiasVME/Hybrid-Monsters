@@ -180,7 +180,7 @@ shader_param/r_3 = null
 shader_param/u_tolerance = null
 _sections_unfolded = [ "Resource", "shader_param" ]
 
-[node name="Actor" type="KinematicBody2D"]
+[node name="Actor" type="KinematicBody2D" index="0"]
 
 position = Vector2( 8, 8 )
 z_index = 1

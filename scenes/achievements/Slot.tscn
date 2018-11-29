@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/hud/inventory/slot_inv_pressed.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/inventory/slot_inv_hover.png" type="Texture" id=3]
 [ext_resource path="res://scenes/hud/inventory/slot_inv_disable.png" type="Texture" id=4]
-[ext_resource path="res://scenes/hud/achievements/Slot.gd" type="Script" id=5]
+[ext_resource path="res://scenes/achievements/Slot.gd" type="Script" id=5]
 [ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=6]
 [ext_resource path="res://scenes/items/attack/swords/skins/ruby-wide.png" type="Texture" id=7]
 

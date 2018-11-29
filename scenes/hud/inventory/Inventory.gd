@@ -133,7 +133,7 @@ func unequip(hm_item):
 		HUD.player.primary_weapon_data = null
 		HUD.player.get_node("CurrentWeapon").texture = null
 	elif hm_item is Main.HMArmor:
-		hm_item.equiped_how = HUD.player.armor.Equipable.NONE
+		hm_item.equiped_how = Main.HMArmor.Equipable.NONE
 		HUD.player.armor_data = null
 		HUD.player.get_node("CurrentArmor").texture = null
 

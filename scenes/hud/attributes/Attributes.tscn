@@ -110,7 +110,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 92.0
+margin_right = 90.0
 margin_bottom = 56.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -122,9 +122,12 @@ alignment = 0
 
 [node name="Strength" parent="VBox/Scroll/VBox" index="0" instance=ExtResource( 4 )]
 
+margin_right = 90.0
+
 [node name="Luck" parent="VBox/Scroll/VBox" index="1" instance=ExtResource( 4 )]
 
 margin_top = 20.0
+margin_right = 90.0
 margin_bottom = 36.0
 
 [node name="StatName" parent="VBox/Scroll/VBox/Luck" index="1"]
@@ -134,6 +137,7 @@ text = "Luck"
 [node name="Vitality" parent="VBox/Scroll/VBox" index="2" instance=ExtResource( 4 )]
 
 margin_top = 40.0
+margin_right = 90.0
 margin_bottom = 56.0
 
 [node name="StatName" parent="VBox/Scroll/VBox/Vitality" index="1"]

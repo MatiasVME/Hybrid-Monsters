@@ -425,7 +425,7 @@ tracks/3/keys = {
 } ]
 }
 
-[node name="HUD" type="CanvasLayer" index="0" groups=[
+[node name="HUD" type="CanvasLayer" groups=[
 "HUD",
 ]]
 

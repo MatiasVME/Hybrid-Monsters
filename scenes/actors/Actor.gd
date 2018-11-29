@@ -20,13 +20,9 @@ var type = Main.PLAYER
 
 var directions = [
 	Vector2(-1, 0),
-#	Vector2(-1, -1),
 	Vector2(0, -1),
-#	Vector2(1, -1), 
 	Vector2(1, 0), 
-#	Vector2(1, 1), 
-	Vector2(0, 1) 
-#	Vector2(-1, 1)
+	Vector2(0, 1)
 ]
 
 var is_mark_to_dead = false
@@ -45,11 +41,12 @@ func attack():
 	emit_signal("attack")
 
 func move_to(target_position):
-	emit_signal("move")
+	
 	
 	set_process(false)
+	
+	emit_signal("move")
 	$Anim.play("walk")
-
 	# Move the node to the target cell instantly,
 	# and animate the sprite moving from the start to the target cell
 	var move_direction = (target_position - position).normalized()
@@ -63,9 +60,9 @@ func move_to(target_position):
 		Tween.EASE_IN
 	)
 	position = target_position
-
+	
 	$Tween.start()
-
+	
 	# Stop the function execution until the animation finished
 	yield($Anim, "animation_finished")
 	

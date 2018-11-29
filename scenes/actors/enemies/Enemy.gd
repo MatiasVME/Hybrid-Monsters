@@ -28,21 +28,24 @@ func _ready():
 	
 # Turno del enemigo
 func turn():
+	set_process(false)
 	if is_mark_to_dead:
 		return
+	
+	if Main.sound_enable:
+#		foot_
+		get_node(str("Footsteps", int(round(rand_range(1, 4))))).play()
 	
 	if follow_player:
 		move_or_attack()
 	else:
 		random_move()
+	set_process(true)
 	
-	if Main.sound_enable:
-		get_node(str("Footsteps", int(round(rand_range(1, 4))))).play()
-
 func random_move():
 	if is_mark_to_dead:
 		return
-	
+		
 	var rand_dir = .get_rand_posible_dir()
 	
 	if rand_dir != null:

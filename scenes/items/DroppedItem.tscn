@@ -6,6 +6,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource( 2 )
 shader_param/c_1 = Color( 1, 0, 0, 1 )
@@ -15,7 +16,7 @@ shader_param/r_1 = null
 shader_param/r_2 = null
 shader_param/r_3 = null
 shader_param/u_tolerance = null
-_sections_unfolded = [ "shader_param" ]
+_sections_unfolded = [ "Resource", "shader_param" ]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -70,11 +71,12 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="DroppedItem" type="Node2D" groups=[
+[node name="DroppedItem" type="Node2D" index="0" groups=[
 "DroppedItem",
 ]]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
