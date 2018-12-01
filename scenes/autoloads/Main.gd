@@ -2,7 +2,7 @@
 
 extends Node
 
-const VERSION = "0.3.0"
+const VERSION = "0.3.1"
 const DEBUG = true
 
 var music_enable = true
@@ -96,6 +96,14 @@ var store_xp = 0
 # Localización de donde esta el spawn
 var spawn_location = Vector2()
 var arrow_active = false
+
+func _ready():
+	get_tree().set_auto_accept_quit(false)
+	
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		DataManager.save_all_data()
+		get_tree().quit()
 
 func init_game():
 	reset_store()

@@ -55,7 +55,13 @@ func create_or_load_data_if_not_exist():
 		load_user_config()
 		load_inventories()
 		load_stats()
-	
+
+func save_all_data():
+	save_players()
+	save_user_config()
+	save_inventories()
+	save_stats()
+
 func create_global_config():
 	global_config["DeleteData"] = delete_data
 	$GlobalConfig.save_data()
@@ -89,8 +95,8 @@ func load_players():
 func create_user_config():
 	user_config = $UserConfig.get_data("UserConfig")
 	
-	DeliveryManager.create_delivery("ShopItems", 60 * 10)
-#	DeliveryManager.create_delivery("ShopItems", 10) # test
+	DeliveryManager.get_node("Deliveries").create_delivery("ShopItems", 60 * 10)
+#	DeliveryManager.get_node("Deliveries").create_delivery("ShopItems", 10)
 	shop_inventory = $HMRPGHelper.get_inst_weight_inventory()
 	ItemGenerator.create_item_pack_for_shop(shop_inventory)
 	
@@ -108,7 +114,7 @@ func load_user_config():
 	Main.current_gold = user_config["Gold"]
 	Main.current_emeralds = user_config["Emeralds"]
 	Main.current_level = user_config["CurrentLevel"]
-	DeliveryManager.deliveries = user_config["Deliveries"]
+	DeliveryManager.get_node("Deliveries").deliveries = user_config["Deliveries"]
 	
 	var temp_inv = $HMRPGHelper.get_inst_weight_inventory()
 	shop_inventory = temp_inv.dict2inv(user_config["ShopInventory"])
@@ -121,7 +127,7 @@ func save_user_config():
 	user_config["Gold"] = Main.current_gold
 	user_config["Emeralds"] = Main.current_emeralds
 	user_config["CurrentLevel"] = Main.current_level
-	user_config["Deliveries"] = DeliveryManager.deliveries
+	user_config["Deliveries"] = DeliveryManager.get_node("Deliveries").deliveries
 	user_config["ShopInventory"] = shop_inventory.inv2dict()
 	
 	$UserConfig.save_data("UserConfig")

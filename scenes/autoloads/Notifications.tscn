@@ -47,7 +47,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Notifications" type="CanvasLayer"]
+[node name="Notifications" type="CanvasLayer" index="0"]
 
 layer = 2
 offset = Vector2( 0, 0 )
@@ -104,5 +104,12 @@ playback_default_blend_time = 0.0
 playback_speed = 1.0
 anims/show = SubResource( 1 )
 blend_times = [  ]
+
+[node name="Timer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
 
 
