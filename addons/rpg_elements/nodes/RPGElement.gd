@@ -1,7 +1,6 @@
 # MIT License
 #
 # Copyright (c) 2018 Matías Muñoz Espinoza
-# Copyright (c) 2018 Jovani Pérez
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -28,3 +27,12 @@ export (bool) var debug = false
 func debug(message, something1 = "", something2 = ""):
 	if debug:
 		print("[RPGElements] ", message, " ", something1, " ", something2)
+
+# Función para convertir la extención .gdc a .gd
+func gdc2gd(dict):
+	if typeof(dict) == TYPE_DICTIONARY and dict.has("@path"):
+		dict["@path"] = dict["@path"].replace('.gdc', '.gd')
+		return dict
+	else:
+		debug("gdc2gd(): No es un diccionario o no se encuentra el path")
+		return dict

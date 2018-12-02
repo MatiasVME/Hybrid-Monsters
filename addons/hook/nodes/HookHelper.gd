@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE. 
 
-extends "RPGElement.gd"
+extends "Hook.gd"
 
 #func get_inst_character():
 #	return load("res://addons/rpg_elements/nodes/RPGCharacter.gd").new()

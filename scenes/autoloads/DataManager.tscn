@@ -5,7 +5,7 @@
 [ext_resource path="res://addons/PersistenceNode/icon.png" type="Texture" id=3]
 [ext_resource path="res://scenes/autoloads/rpg_elements_adaptation/HMRPGHelper.tscn" type="PackedScene" id=4]
 
-[node name="DataManager" type="Node" index="0"]
+[node name="DataManager" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -20,7 +20,7 @@ password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = false
+beautifier_active = true
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -35,7 +35,7 @@ password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = false
+beautifier_active = true
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -50,7 +50,7 @@ password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = false
+beautifier_active = true
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -65,7 +65,7 @@ password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = false
+beautifier_active = true
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -80,7 +80,7 @@ password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = false
+beautifier_active = true
 profile_name_min_size = 3
 profile_name_max_size = 15
 

@@ -26,8 +26,8 @@ extends "RPGElement.gd"
 
 export (String) var character_name setget set_character_name, get_character_name
 
-export (int) var level = 1 setget get_level
-export (int) var level_max = 30 setget get_level_max, set_level_max
+export (int) var level = 1 setget , get_level
+export (int) var level_max = 30 setget set_level_max, get_level_max
 
 # Vitalidad
 export (int) var hp = 20 setget set_hp, get_hp

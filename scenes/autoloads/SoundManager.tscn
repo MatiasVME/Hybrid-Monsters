@@ -201,7 +201,7 @@ bus = "Master"
 [node name="Tuiu1" type="AudioStreamPlayer" parent="." index="19"]
 
 stream = ExtResource( 21 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -210,7 +210,7 @@ bus = "Master"
 [node name="Tuiu2" type="AudioStreamPlayer" parent="." index="20"]
 
 stream = ExtResource( 22 )
-volume_db = 0.0
+volume_db = -10.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

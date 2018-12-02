@@ -180,9 +180,6 @@ func _on_toggled_equip(button_pressed, hm_item):
 		unequip(hm_item)
 
 func _on_use_item(hm_item):
-	if hm_item is Main.HMHealth:
-		DataManager.players[Main.current_player].add_hp(hm_item.health)
-		
 	remove_all_descriptions()
 	
 	for item in get_node("Inv/HBox/Items/Grid").get_children():
@@ -191,6 +188,7 @@ func _on_use_item(hm_item):
 			break
 			
 	if hm_item is Main.HMHealth:
+		DataManager.players[Main.current_player].add_hp(hm_item.health)
 		HUD.get_node("Status").update_hp_progress()
 		SoundManager.play_sound(SoundManager.BUBBLE)
 	elif hm_item is Main.HMBook:

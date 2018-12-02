@@ -14,7 +14,7 @@ func _ready():
 	
 	add_child(turn_helper)
 	
-	$Pivot/Sprite.texture = get_skin(7)
+	$Pivot/Sprite.texture = get_skin(6)
 	
 	config_character()
 	

@@ -103,7 +103,13 @@ func _ready():
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		DataManager.save_all_data()
+		
+		change_gdc2gd()
+		
 		get_tree().quit()
+
+func change_gdc2gd():
+	pass
 
 func init_game():
 	reset_store()

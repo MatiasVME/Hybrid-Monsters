@@ -13,7 +13,7 @@
 [ext_resource path="res://scenes/buttons/sell/sell_disabled.png" type="Texture" id=11]
 [ext_resource path="res://scenes/hud/money_display/gold.png" type="Texture" id=12]
 
-[node name="Shop" type="Node2D" index="0"]
+[node name="Shop" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
@@ -173,6 +173,7 @@ margin_right = 51.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -199,6 +200,7 @@ margin_right = 103.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1

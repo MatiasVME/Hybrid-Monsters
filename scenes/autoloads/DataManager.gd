@@ -8,11 +8,11 @@ var user_config # Es una referencia al diccionario de $UserConfig
 
 var players = [] # Contiene instancias
 var inventories = []
-var stats = [] 
+var stats = []
 
 # Si este numero cambia la data se borra, normalmente el numero
 # debe ir incrementando
-var delete_data = 1
+var delete_data = 2
 
 var shop_inventory
 

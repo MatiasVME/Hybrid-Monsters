@@ -9,7 +9,7 @@ func _ready():
 	add_shop_items()
 	add_inv_items()
 	
-	DeliveryManager.connect("new_delivery", self, "_on_new_delivery")
+	DeliveryManager.get_node("Deliveries").connect("new_delivery", self, "_on_new_delivery")
 	
 	update_gold_amount()
 	update_weight()
