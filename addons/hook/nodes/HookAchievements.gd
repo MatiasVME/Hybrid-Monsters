@@ -28,6 +28,8 @@ extends "Hook.gd"
 
 var achievements = []
 
+signal complete_achievement(name)
+
 func create_achievement(name, description, reward, texture_path, is_complete = false):
 	var achievement = new_void_achievement()
 	
@@ -39,10 +41,20 @@ func create_achievement(name, description, reward, texture_path, is_complete = f
 	
 	achievements.append(achievement)
 
-func search_achievement_by_name(achievement_name):
+# Obtener el achievement por el nombre
+func get_achievement_by_name(achievement_name):
 	for i in achievements.size():
 		if achievements[i]["Name"] == achievement_name:
 			return achievements[i]
+
+func complete_achievement(achievement_name):
+	var achievement = get_achievement_by_name(achievement_name)
+	achievement["IsCompleted"] = true
+	emit_signal("completed_achievement", achievement)
+	
+func is_achievement_completed(achievement_name):
+	var achievement = get_achievement_by_name(achievement_name)
+	return achievement["IsCompleted"]
 
 func new_void_achievement():
 	return {
@@ -52,7 +64,6 @@ func new_void_achievement():
 		"TexturePath" : "",
 		"IsCompleted" : ""
 	}
-	
 	
 	
 	

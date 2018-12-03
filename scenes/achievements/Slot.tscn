@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://scenes/hud/inventory/slot_inv_normal.png" type="Texture" id=1]
-[ext_resource path="res://scenes/hud/inventory/slot_inv_pressed.png" type="Texture" id=2]
-[ext_resource path="res://scenes/hud/inventory/slot_inv_hover.png" type="Texture" id=3]
+[ext_resource path="res://scenes/achievements/achievement_slots/incomplete_normal.png" type="Texture" id=1]
+[ext_resource path="res://scenes/achievements/achievement_slots/incomplete_selected.png" type="Texture" id=2]
+[ext_resource path="res://scenes/achievements/achievement_slots/incomplete_hover.png" type="Texture" id=3]
 [ext_resource path="res://scenes/hud/inventory/slot_inv_disable.png" type="Texture" id=4]
 [ext_resource path="res://scenes/achievements/Slot.gd" type="Script" id=5]
 [ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=6]
