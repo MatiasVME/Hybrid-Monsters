@@ -120,6 +120,7 @@ func load_user_config():
 	var temp_inv = $HMRPGHelper.get_inst_weight_inventory()
 	shop_inventory = temp_inv.dict2inv(user_config["ShopInventory"])
 	
+	print(user_config["AchievementsCompleted"])
 	AchievementsManager.get_node("HookAchievements").set_complete_achievements_array(user_config["AchievementsCompleted"])
 	
 func save_user_config():

@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 Main="*res://scenes/autoloads/Main.gd"
 Elements="*res://scenes/autoloads/Elements.gd"
 PlayerGenerator="*res://scenes/autoloads/PlayerGenerator.gd"
+AchievementsManager="*res://scenes/autoloads/AchievementsManager.tscn"
 DataManager="*res://scenes/autoloads/DataManager.tscn"
 HMRPGHelper="*res://scenes/autoloads/rpg_elements_adaptation/HMRPGHelper.tscn"
 RandomNameGenerator="*res://scenes/autoloads/random_name_generator/RandomNameGenerator.tscn"
@@ -29,7 +30,6 @@ SoundManager="*res://scenes/autoloads/SoundManager.tscn"
 AttributesManager="*res://scenes/autoloads/AttributesManager.gd"
 DeliveryManager="*res://scenes/autoloads/DeliveryManager.tscn"
 Notifications="*res://scenes/autoloads/Notifications.tscn"
-AchievementsManager="*res://scenes/autoloads/AchievementsManager.tscn"
 
 [display]
 

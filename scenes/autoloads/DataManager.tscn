@@ -15,12 +15,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-mode = 0
+mode = 1
 password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = true
+beautifier_active = false
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -30,12 +30,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-mode = 0
+mode = 1
 password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = true
+beautifier_active = false
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -45,12 +45,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-mode = 0
+mode = 1
 password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = true
+beautifier_active = false
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -60,12 +60,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-mode = 0
+mode = 1
 password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = true
+beautifier_active = false
 profile_name_min_size = 3
 profile_name_max_size = 15
 
@@ -75,12 +75,12 @@ script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-mode = 0
+mode = 1
 password = "HybridMonsters"
 folder_name = "PersistenceNode"
 no_valid_names = [ "default", "example" ]
 debug = false
-beautifier_active = true
+beautifier_active = false
 profile_name_min_size = 3
 profile_name_max_size = 15
 

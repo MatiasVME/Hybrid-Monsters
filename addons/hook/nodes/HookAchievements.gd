@@ -69,6 +69,7 @@ func get_complete_achievements_array():
 func set_complete_achievements_array(complete_achievements):
 	for i in achievements.size():
 		achievements[i]["IsCompleted"] = complete_achievements[i]
+		print(achievements[i]["IsCompleted"])
 	
 func new_void_achievement():
 	return {
