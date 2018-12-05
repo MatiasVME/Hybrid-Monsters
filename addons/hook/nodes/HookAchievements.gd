@@ -50,12 +50,26 @@ func get_achievement_by_name(achievement_name):
 func complete_achievement(achievement_name):
 	var achievement = get_achievement_by_name(achievement_name)
 	achievement["IsCompleted"] = true
-	emit_signal("completed_achievement", achievement)
+	emit_signal("complete_achievement", achievement)
 	
 func is_achievement_completed(achievement_name):
 	var achievement = get_achievement_by_name(achievement_name)
 	return achievement["IsCompleted"]
 
+# Se obtiene el array que indica que achievements fueron completados
+func get_complete_achievements_array():
+	var complete_achievements = []
+	
+	for achievement in achievements:
+		complete_achievements.append(achievement["IsCompleted"])
+	
+	return complete_achievements
+
+# Se setea el array que indica que achievements fueron completados	
+func set_complete_achievements_array(complete_achievements):
+	for i in achievements.size():
+		achievements[i]["IsCompleted"] = complete_achievements[i]
+	
 func new_void_achievement():
 	return {
 		"Name" : "",
@@ -64,15 +78,6 @@ func new_void_achievement():
 		"TexturePath" : "",
 		"IsCompleted" : ""
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

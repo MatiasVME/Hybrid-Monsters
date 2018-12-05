@@ -1,23 +1,262 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
 [ext_resource path="res://scenes/hud/status/Status.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/hud/money_display/MoneyDisplay.tscn" type="PackedScene" id=4]
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=5]
-[ext_resource path="res://scenes/achievements/notifications.png" type="Texture" id=6]
-[ext_resource path="res://scenes/achievements/achievements_sprites/wood_age.png" type="Texture" id=7]
-[ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=13]
-[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/achievements/Achievements.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/buttons/achievements/Achievement.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/hud/NotificationAchievements.gd" type="Script" id=13]
+[ext_resource path="res://scenes/achievements/notifications.png" type="Texture" id=14]
+[ext_resource path="res://scenes/achievements/achievements_sprites/wood_age.png" type="Texture" id=15]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=16]
+[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=19]
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=2]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Inventory:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( -4, -4 ),
+"update": 0,
+"values": [ Vector2( 0, -142 ), Vector2( 0, 4 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Inventory:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( -4, -4 ),
+"update": 0,
+"values": [ Vector2( 0, 4 ), Vector2( 0, -142 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Attributes:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Attributes:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 250, 160 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Attributes:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Attributes:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 250, 160 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("HubOther:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.184433, 0.925781, 0.196017, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 240, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 240, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Shop:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+
+[sub_resource type="Animation" id=15]
+
+resource_name = "hide"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Achievements:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 240, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Achievements:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[sub_resource type="Animation" id=16]
+
+resource_name = "show"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Achievements:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 240, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Achievements:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+
+[sub_resource type="Animation" id=1]
 
 resource_name = "show_and_hide"
 length = 2.5
@@ -48,162 +287,7 @@ tracks/1/keys = {
 "values": [ false, true, true, false ]
 }
 
-[sub_resource type="Animation" id=1]
-
-length = 0.4
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Inventory:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( -4, -4 ),
-"update": 0,
-"values": [ Vector2( 0, -142 ), Vector2( 0, 4 ) ]
-}
-
-[sub_resource type="Animation" id=2]
-
-length = 0.4
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Inventory:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( -4, -4 ),
-"update": 0,
-"values": [ Vector2( 0, 4 ), Vector2( 0, -142 ) ]
-}
-
-[sub_resource type="Animation" id=3]
-
-resource_name = "hide"
-length = 0.4
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Attributes:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.25, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Attributes:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.25, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 250, 160 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-
-resource_name = "show"
-length = 0.4
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Attributes:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.25, 0.25 ),
-"update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Attributes:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.25, 0.25 ),
-"update": 0,
-"values": [ Vector2( 250, 160 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-
-resource_name = "idle"
-length = 1.0
-loop = true
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("HubOther:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.184433, 0.925781, 0.196017, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-
-resource_name = "hide"
-length = 0.4
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Shop:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.25, 0.25 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 240, 0 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-
-resource_name = "show"
-length = 0.4
-loop = false
-step = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath("Shop:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 0.25, 0.25 ),
-"update": 0,
-"values": [ Vector2( 240, 0 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 length = 0.4
 loop = false
@@ -245,7 +329,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, -22 ), Vector2( 220, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 
 length = 0.4
 loop = false
@@ -287,7 +371,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, 0 ), Vector2( 220, -22 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 
 length = 2.0
 loop = false
@@ -317,7 +401,7 @@ tracks/1/keys = {
 "values": [ 0, 0, 2 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 
 length = 3.0
 loop = false
@@ -347,7 +431,7 @@ tracks/1/keys = {
 "values": [ 2, 0, 0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 
 length = 3.0
 loop = false
@@ -401,9 +485,8 @@ tracks/3/keys = {
 "values": [ false, false, true, true ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 
-resource_name = "show"
 length = 2.0
 loop = false
 step = 0.1
@@ -538,17 +621,134 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="NotificationAchievements" type="Node2D" parent="." index="5"]
+[node name="Inventory" parent="." index="5" instance=ExtResource( 6 )]
+
+editor/display_folded = true
+
+[node name="HUDInventory" parent="Inventory" index="1"]
+
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="Inv" parent="Inventory" index="2"]
+
+editor/display_folded = true
+
+[node name="AnimInv" type="AnimationPlayer" parent="." index="6"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hide = SubResource( 2 )
+anims/show = SubResource( 3 )
+blend_times = [  ]
+
+[node name="Attributes" parent="." index="7" instance=ExtResource( 7 )]
+
+position = Vector2( 250, 160 )
+scale = Vector2( 1e-05, 1e-05 )
+
+[node name="AnimAttributes" type="AnimationPlayer" parent="." index="8"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hide = SubResource( 4 )
+anims/show = SubResource( 5 )
+blend_times = [  ]
+
+[node name="HubOther" parent="." index="9" instance=ExtResource( 8 )]
+
+margin_left = 210.0
+margin_top = 130.0
+margin_right = 225.0
+margin_bottom = 145.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
+
+[node name="AvailableAttributes" type="AnimationPlayer" parent="." index="10"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/idle = SubResource( 6 )
+blend_times = [  ]
+
+[node name="Shop" parent="." index="11" instance=ExtResource( 9 )]
+
+visible = false
+position = Vector2( 240, 0 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="Achievements" parent="." index="12" instance=ExtResource( 10 )]
+
+visible = false
+position = Vector2( 210.38, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="ShopButton" parent="." index="13" instance=ExtResource( 11 )]
+
+margin_left = 220.0
+margin_top = 24.0
+margin_right = 236.0
+margin_bottom = 40.0
+toggle_mode = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Achievement" parent="." index="14" instance=ExtResource( 12 )]
+
+margin_left = 200.0
+margin_top = 2.0
+margin_right = 216.0
+margin_bottom = 18.0
+focus_mode = 0
+toggle_mode = true
+enabled_focus_mode = 0
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="AnimShop" type="AnimationPlayer" parent="." index="15"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hide = SubResource( 7 )
+anims/show = SubResource( 8 )
+blend_times = [  ]
+
+[node name="AnimAchievements" type="AnimationPlayer" parent="." index="16"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/hide = SubResource( 15 )
+anims/show = SubResource( 16 )
+blend_times = [  ]
+
+[node name="NotificationAchievements" type="Node2D" parent="." index="17"]
 
 visible = false
 position = Vector2( 0, -40 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Bg" type="Sprite" parent="NotificationAchievements" index="0"]
 
 position = Vector2( 120, 20 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 6 )
+texture = ExtResource( 14 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Anim" type="AnimationPlayer" parent="NotificationAchievements" index="1"]
@@ -558,16 +758,16 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show_and_hide = SubResource( 14 )
+anims/show_and_hide = SubResource( 1 )
 blend_times = [  ]
 
 [node name="Achievement" type="Sprite" parent="NotificationAchievements" index="2"]
 
 position = Vector2( 70, 16 )
-texture = ExtResource( 7 )
+texture = ExtResource( 15 )
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Text" type="Label" parent="NotificationAchievements" index="3"]
+[node name="Title" type="Label" parent="NotificationAchievements" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -595,93 +795,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Inventory" parent="." index="6" instance=ExtResource( 8 )]
-
-editor/display_folded = true
-
-[node name="HUDInventory" parent="Inventory" index="1"]
-
-focus_mode = 0
-enabled_focus_mode = 0
-
-[node name="Inv" parent="Inventory" index="2"]
-
-editor/display_folded = true
-
-[node name="AnimInv" type="AnimationPlayer" parent="." index="7"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/hide = SubResource( 1 )
-anims/show = SubResource( 2 )
-blend_times = [  ]
-
-[node name="Attributes" parent="." index="8" instance=ExtResource( 9 )]
-
-position = Vector2( 250, 160 )
-scale = Vector2( 1e-05, 1e-05 )
-
-[node name="AnimAttributes" type="AnimationPlayer" parent="." index="9"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/hide = SubResource( 3 )
-anims/show = SubResource( 4 )
-blend_times = [  ]
-
-[node name="HubOther" parent="." index="10" instance=ExtResource( 10 )]
-
-margin_left = 210.0
-margin_top = 130.0
-margin_right = 225.0
-margin_bottom = 145.0
-rect_scale = Vector2( 2, 2 )
-focus_mode = 0
-toggle_mode = true
-enabled_focus_mode = 0
-_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
-
-[node name="AvailableAttributes" type="AnimationPlayer" parent="." index="11"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/idle = SubResource( 5 )
-blend_times = [  ]
-
-[node name="Shop" parent="." index="12" instance=ExtResource( 11 )]
-
-position = Vector2( 240, 0 )
-_sections_unfolded = [ "Transform", "Z Index" ]
-
-[node name="ShopButton" parent="." index="13" instance=ExtResource( 12 )]
-
-margin_left = 220.0
-margin_top = 24.0
-margin_right = 236.0
-margin_bottom = 40.0
-toggle_mode = true
-
-[node name="AnimShop" type="AnimationPlayer" parent="." index="14"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/hide = SubResource( 6 )
-anims/show = SubResource( 7 )
-blend_times = [  ]
-
-[node name="Menu" type="Node2D" parent="." index="15"]
+[node name="Menu" type="Node2D" parent="." index="18"]
 
 editor/display_folded = true
 position = Vector2( 240, 0 )
@@ -705,7 +819,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 13 )
+texture = ExtResource( 16 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -716,7 +830,7 @@ _sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
 [node name="Buttons" type="Node2D" parent="Menu/Panel" index="0"]
 
-[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 14 )]
+[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 17 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -734,7 +848,7 @@ enabled_focus_mode = 0
 
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 14 )]
+[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 17 )]
 
 editor/display_folded = true
 anchor_left = 0.5
@@ -752,18 +866,18 @@ enabled_focus_mode = 0
 
 text = "MENU"
 
-[node name="AnimMenu" type="AnimationPlayer" parent="." index="16"]
+[node name="AnimMenu" type="AnimationPlayer" parent="." index="19"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 8 )
-anims/show = SubResource( 9 )
+anims/hide = SubResource( 9 )
+anims/show = SubResource( 10 )
 blend_times = [  ]
 
-[node name="HUDMenuButton" parent="." index="17" instance=ExtResource( 15 )]
+[node name="HUDMenuButton" parent="." index="20" instance=ExtResource( 18 )]
 
 margin_left = 220.0
 margin_right = 230.0
@@ -773,7 +887,7 @@ toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Curtain" type="ColorRect" parent="." index="18"]
+[node name="Curtain" type="ColorRect" parent="." index="21"]
 
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
@@ -804,27 +918,27 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 10 )
-anims/show = SubResource( 11 )
+anims/hide = SubResource( 11 )
+anims/show = SubResource( 12 )
 blend_times = [  ]
 
-[node name="WinLost" parent="." index="19" instance=ExtResource( 16 )]
+[node name="WinLost" parent="." index="22" instance=ExtResource( 19 )]
 
 visible = false
 position = Vector2( 0, -162 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="AnimWinLost" type="AnimationPlayer" parent="." index="20"]
+[node name="AnimWinLost" type="AnimationPlayer" parent="." index="23"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 12 )
+anims/show = SubResource( 13 )
 blend_times = [  ]
 
-[node name="Debug" type="Node2D" parent="." index="21"]
+[node name="Debug" type="Node2D" parent="." index="24"]
 
 editor/display_folded = true
 visible = false
@@ -854,8 +968,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Display" type="Label" parent="." index="22"]
+[node name="Display" type="Label" parent="." index="25"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 0.5
@@ -892,14 +1007,23 @@ autoplay = "show"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 13 )
+anims/show = SubResource( 14 )
 blend_times = [  ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." index="26"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+_sections_unfolded = [ "Motion" ]
 
 [connection signal="toggled" from="Inventory/HUDInventory" to="." method="_on_HUDInventory_toggled"]
 
 [connection signal="toggled" from="HubOther" to="." method="_on_HubOther_toggled"]
 
 [connection signal="toggled" from="ShopButton" to="." method="_on_ShopButton_toggled"]
+
+[connection signal="toggled" from="Achievement" to="." method="_on_Achievement_toggled"]
 
 [connection signal="pressed" from="Menu/Panel/Buttons/Resume" to="." method="_on_Resume_pressed"]
 

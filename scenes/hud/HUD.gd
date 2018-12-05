@@ -131,3 +131,12 @@ func _on_AnimWinLost_animation_finished(anim_name):
 	if anim_name == "show":
 		MusicManager.select_music(MusicManager.CRAZY)
 		MusicManager.play_music()
+
+func _on_Achievement_toggled(button_pressed):
+	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	
+	if button_pressed:
+		$Achievements.update()
+		$AnimAchievements.play("show")
+	else:
+		$AnimAchievements.play("hide")

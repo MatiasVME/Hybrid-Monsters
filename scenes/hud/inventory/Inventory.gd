@@ -191,6 +191,8 @@ func _on_use_item(hm_item):
 		DataManager.players[Main.current_player].add_hp(hm_item.health)
 		HUD.get_node("Status").update_hp_progress()
 		SoundManager.play_sound(SoundManager.BUBBLE)
+		
+		AchievementsManager.complete_achievement_if_can(AchievementsManager.PROBLEMS_WITH_DRINGKING)		
 	elif hm_item is Main.HMBook:
 		hm_item.use()
 		HUD.get_node("Attributes").update()

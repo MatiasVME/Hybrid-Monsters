@@ -1,6 +1,12 @@
 extends Node2D
 
 func _ready():
+	add_all_achievement_slots()
+
+func add_all_achievement_slots():
+	for child in $HBox/Slots/Grid.get_children():
+		$HBox/Slots/Grid.remove_child(child)
+	
 	var achievements = AchievementsManager.get_all_achievements()
 	
 	for i in achievements.size():
@@ -8,7 +14,11 @@ func _ready():
 		
 	for achievement_gui in get_tree().get_nodes_in_group("AchievementGUI"):
 		achievement_gui.connect("toggled", self, "_on_achievement_toggled", [achievement_gui])
-	
+
+func update():
+	for achievement_gui in get_tree().get_nodes_in_group("AchievementGUI"):
+		achievement_gui.update()
+
 func add_achievement(achievement):
 	var slot = load("res://scenes/achievements/Slot.tscn").instance()
 	slot.add_achievement(achievement)
@@ -26,7 +36,6 @@ func describe_achievement(achievement):
 	
 	$HBox/Description/Grid.add_child(desc_achievement)
 	
-
 func remove_all_descriptions():
 	for child in $HBox/Description/Grid.get_children():
 		$HBox/Description/Grid.remove_child(child)

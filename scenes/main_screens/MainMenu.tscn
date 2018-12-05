@@ -66,7 +66,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
 }
 
-[node name="MainMenu" type="Node2D" index="0"]
+[node name="MainMenu" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -261,6 +261,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="GithubGameOff" type="Label" parent="." index="9"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

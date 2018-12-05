@@ -101,6 +101,7 @@ func create_user_config():
 	ItemGenerator.create_item_pack_for_shop(shop_inventory)
 	
 	Main.init_basic_user_config()
+#	AchievementsManager.create_all_achievements()
 	
 	save_user_config()
 
@@ -119,6 +120,8 @@ func load_user_config():
 	var temp_inv = $HMRPGHelper.get_inst_weight_inventory()
 	shop_inventory = temp_inv.dict2inv(user_config["ShopInventory"])
 	
+	AchievementsManager.get_node("HookAchievements").set_complete_achievements_array(user_config["AchievementsCompleted"])
+	
 func save_user_config():
 	user_config["Dificulty"] = Main.dificulty_selected
 	user_config["VarDificulty"] = Main.var_dificulty
@@ -129,6 +132,7 @@ func save_user_config():
 	user_config["CurrentLevel"] = Main.current_level
 	user_config["Deliveries"] = DeliveryManager.get_node("Deliveries").deliveries
 	user_config["ShopInventory"] = shop_inventory.inv2dict()
+	user_config["AchievementsCompleted"] = AchievementsManager.get_node("HookAchievements").get_complete_achievements_array()
 	
 	$UserConfig.save_data("UserConfig")
 
