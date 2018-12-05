@@ -17,6 +17,19 @@ func _input(event):
 			DataManager.inventories[Main.current_player].add_item(hm_item)
 			HUD.get_node("Inventory").add_item(hm_item)
 			DataManager.save_inventories()
+			
+			if hm_item is Main.HMSword:
+				if hm_item.material == hm_item.Materials.WOOD:
+					AchievementsManager.complete_achievement_if_can(AchievementsManager.WOOD_AGE)
+				elif hm_item.material == hm_item.Materials.IRON:
+					AchievementsManager.complete_achievement_if_can(AchievementsManager.IRON_AGE)
+				elif hm_item.material == hm_item.Materials.DIAMOND:
+					AchievementsManager.complete_achievement_if_can(AchievementsManager.DIAMOND_AGE)
+				elif hm_item.material == hm_item.Materials.RUBY:
+					AchievementsManager.complete_achievement_if_can(AchievementsManager.RUBY_AGE)
+			elif hm_item is Main.HMArmor:
+				AchievementsManager.complete_achievement_if_can(AchievementsManager.IMPROVE_YOUR_OUTFIT)
+					
 	
 func update():
 	if hm_item:
