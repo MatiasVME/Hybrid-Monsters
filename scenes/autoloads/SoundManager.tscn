@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/autoloads/SoundManager.gd" type="Script" id=1]
 [ext_resource path="res://sounds/sfx/hit_1.wav" type="AudioStream" id=2]
@@ -22,6 +22,11 @@
 [ext_resource path="res://sounds/sfx/button_pressed.wav" type="AudioStream" id=20]
 [ext_resource path="res://sounds/sfx/tuiu1.wav" type="AudioStream" id=21]
 [ext_resource path="res://sounds/sfx/tuiu2.wav" type="AudioStream" id=22]
+[ext_resource path="res://sounds/sfx/hit_egg_1.wav" type="AudioStream" id=23]
+[ext_resource path="res://sounds/sfx/hit_egg_2.wav" type="AudioStream" id=24]
+[ext_resource path="res://sounds/sfx/crunch_1.wav" type="AudioStream" id=25]
+[ext_resource path="res://sounds/sfx/crunch_2.wav" type="AudioStream" id=26]
+[ext_resource path="res://sounds/sfx/crunch_3.wav" type="AudioStream" id=27]
 
 [node name="SoundManager" type="Node"]
 
@@ -211,6 +216,51 @@ bus = "Master"
 
 stream = ExtResource( 22 )
 volume_db = -10.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="HitEgg1" type="AudioStreamPlayer" parent="." index="21"]
+
+stream = ExtResource( 23 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="HitEgg2" type="AudioStreamPlayer" parent="." index="22"]
+
+stream = ExtResource( 24 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Crunch1" type="AudioStreamPlayer" parent="." index="23"]
+
+stream = ExtResource( 25 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Crunch2" type="AudioStreamPlayer" parent="." index="24"]
+
+stream = ExtResource( 26 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Crunch3" type="AudioStreamPlayer" parent="." index="25"]
+
+stream = ExtResource( 27 )
+volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0

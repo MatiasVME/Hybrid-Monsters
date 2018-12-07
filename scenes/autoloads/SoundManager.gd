@@ -22,6 +22,11 @@ enum Sound {
 	BUTTON_PRESSED,
 	TUIU_1,
 	TUIU_2
+	HIT_EGG_1,
+	HIT_EGG_2,
+	CRUNCH_1,
+	CRUNCH_2,
+	CRUNCH_3
 }
 
 func play_sound(sound):
@@ -71,4 +76,14 @@ func play_sound(sound):
 			$Tuiu1.play()
 		Sound.TUIU_2:
 			$Tuiu2.play()
+		Sound.HIT_EGG_1:
+			$HitEgg1.play()
+		Sound.HIT_EGG_2:
+			$HitEgg2.play()
+		Sound.CRUNCH_1:
+			$Crunch1.play()
+		Sound.CRUNCH_2:
+			$Crunch2.play()
+		Sound.CRUNCH_3:
+			$Crunch3.play()
 	

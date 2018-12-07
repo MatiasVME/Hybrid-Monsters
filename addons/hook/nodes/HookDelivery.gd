@@ -40,8 +40,13 @@ func _ready():
 	timer.connect("timeout", self, "_on_Timer_timeout")
 
 func create_delivery(delivery_name, time_to_finalize, force_step=0):
-	var last_time_delivery = OS.get_unix_time()
-	deliveries.append([delivery_name, time_to_finalize, force_step, last_time_delivery])
+	var start_time_delivery = OS.get_unix_time()
+	# delivery_name | time_to_finalize: en segundos | force_step | start_time_delivery | time_to_finalize: no debe cambiar
+	deliveries.append([delivery_name, time_to_finalize, force_step, start_time_delivery, time_to_finalize])
+
+func force_step(delivery_name):
+	var delivery = get_delivery(delivery_name)
+	delivery[1] -= delivery[2]
 
 # Devuelve true si ya ha pasado el tiempo del delivery
 func is_delivery_have_passed(delivery_name):
@@ -68,7 +73,22 @@ func delivery_time(delivery_name):
 	
 	# time_to_finalize + last_time_delivery - current_time
 	return delivery[1] + delivery[3] - OS.get_unix_time()
+
+func str_delivery_time(delivery_name):
+	var date_time = OS.get_datetime_from_unix_time(delivery_time(delivery_name))
 	
+	if date_time.empty():
+		return str("Wiii!")
+	
+	if  date_time["day"] - 1 != 0:
+		return str("D: ", date_time["day"] - 1, " H: ", date_time["hour"], " M: ", date_time["minute"], " S: ", date_time["second"])
+	elif date_time["day"] - 1 == 0 and date_time["hour"] > 0:
+		return str("H: ", date_time["hour"], " M: ", date_time["minute"], " S: ", date_time["second"])
+	elif date_time["day"] - 1 == 0 and date_time["hour"] == 0:
+		return str("M: ", date_time["minute"], " S: ", date_time["second"])
+	else:
+		return str("S: ", date_time["second"])
+
 # Reinicia el tiempo de entrega del shop delivery a el tiempo
 # actual
 func reset_delivery_time(delivery_name):

@@ -160,3 +160,24 @@ func set_current_gold(_gold):
 	
 func get_current_gold():
 	return current_gold
+
+func get_random_color():
+	var rand_num = int(round(rand_range(0, 15)))
+	
+	match rand_num:
+		0: return Color("5d5d5d")
+		1: return Color("657392")
+		2: return Color("ff0040")
+		3: return Color("bf6f4a")
+		4: return Color("e07438")
+		5: return Color("ffeb57")
+		6: return Color("ffc825")
+		7: return Color("5ac54f")
+		8: return Color("0069aa")
+		9: return Color("00cdf9")
+		10: return Color("f389f5")
+		11: return Color("3003d9")
+		12: return Color("93388f")
+		13: return Color("ca52c9")
+		14: return Color("ea323c")
+		15: return Color("1e6f50")
