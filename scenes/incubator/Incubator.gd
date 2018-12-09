@@ -1,5 +1,7 @@
 extends Node2D
 
+var eggs = []
+
 func _ready():
 	EggFactory.create_egg(60*10)
 	EggFactory.create_egg(60*20)
@@ -7,6 +9,9 @@ func _ready():
 	
 	for i in EggFactory.eggs.size():
 		add_item(EggFactory.eggs[i])
+		eggs.append(EggFactory.eggs[i])
+		
+	EggFactory.get_delivery().connect("new_delivery", self, "_on_new_egg_opened")
 
 func add_item(egg_data):
 	var egg_slot = load("res://scenes/incubator/EggSlot.tscn").instance()
@@ -24,3 +29,15 @@ func _on_egg_slot_toggled(button_pressed, egg_slot):
 	if button_pressed:
 		deselect_all_slots_except(egg_slot)
 		$Egg.update_with(egg_slot.egg_data)
+
+func _on_new_egg_opened(delivery):
+#	print(delivery)
+	
+#	if delivery[]
+	
+	# Test
+	var rand_sound = int(round(rand_range(SoundManager.MAGICAL_1, SoundManager.MAGICAL_3)))
+	SoundManager.play_sound(rand_sound)
+	$Egg/Anim.play("open")
+	
+	

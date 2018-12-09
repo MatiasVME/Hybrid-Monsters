@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/incubator/Egg.gd" type="Script" id=1]
 [ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=2]
 [ext_resource path="res://scenes/incubator/Eggs/egg_2.png" type="Texture" id=3]
-[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/actors/players/skins/7.png" type="Texture" id=4]
+[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=5]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource( 2 )
 shader_param/c_1 = Color( 1, 0, 0, 1 )
@@ -16,11 +18,65 @@ shader_param/r_1 = null
 shader_param/r_2 = null
 shader_param/r_3 = null
 shader_param/u_tolerance = null
-_sections_unfolded = [ "shader_param" ]
+_sections_unfolded = [ "Resource", "shader_param" ]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 
-resource_name = "touch"
+resource_name = "open"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("EggSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EggSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 4, 1 ),
+"update": 0,
+"values": [ Vector2( 6, 6 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Monster:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7 ),
+"transitions": PoolRealArray( 1, 4, 1 ),
+"update": 0,
+"values": [ -360.0, -360.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Monster:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 0.25, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 7, 7 ), Vector2( 6, 6 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
 length = 0.2
 loop = false
 step = 0.1
@@ -61,7 +117,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="EggSprite" type="Sprite" parent="." index="0"]
 
-material = SubResource( 2 )
+material = SubResource( 1 )
 position = Vector2( 59, 94 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 3 )
@@ -69,17 +125,27 @@ _sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="Crack" type="Sprite" parent="EggSprite" index="0"]
 
-[node name="Anim" type="AnimationPlayer" parent="." index="1"]
+[node name="Monster" type="Sprite" parent="." index="1"]
+
+material = SubResource( 1 )
+position = Vector2( 59, 94 )
+rotation = -6.28319
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
+
+[node name="Anim" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/touch = SubResource( 1 )
+anims/open = SubResource( 3 )
+anims/touch = SubResource( 2 )
 blend_times = [  ]
 
-[node name="TimeToOpen" type="Label" parent="." index="2"]
+[node name="TimeToOpen" type="Label" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -94,7 +160,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.917647, 0.196078, 0.235294, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Time to Open"
@@ -107,7 +173,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Time" type="Label" parent="." index="3"]
+[node name="Time" type="Label" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -122,7 +188,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0.596078, 0.862745, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "D: 100 H: 22 M: 45 S: 30"
@@ -135,7 +201,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Timer" type="Timer" parent="." index="4"]
+[node name="Timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
 wait_time = 1.0

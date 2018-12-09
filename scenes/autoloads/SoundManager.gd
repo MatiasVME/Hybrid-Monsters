@@ -26,7 +26,10 @@ enum Sound {
 	HIT_EGG_2,
 	CRUNCH_1,
 	CRUNCH_2,
-	CRUNCH_3
+	CRUNCH_3,
+	MAGICAL_1,
+	MAGICAL_2,
+	MAGICAL_3
 }
 
 func play_sound(sound):
@@ -86,4 +89,9 @@ func play_sound(sound):
 			$Crunch2.play()
 		Sound.CRUNCH_3:
 			$Crunch3.play()
-	
+		Sound.MAGICAL_1:
+			$Magical1.play()
+		Sound.MAGICAL_2:
+			$Magical2.play()
+		Sound.MAGICAL_3:
+			$Magical3.play()
