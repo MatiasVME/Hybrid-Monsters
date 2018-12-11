@@ -59,6 +59,8 @@ func _ready():
 	
 	$Camera.set_focus(my_player)
 	$Camera.current = true
+	$Camera.limit_left = 0
+	$Camera.limit_top = 0
 	$Camera.limit_right = size_map.x * 16
 	$Camera.limit_bottom = size_map.y * 16
 	

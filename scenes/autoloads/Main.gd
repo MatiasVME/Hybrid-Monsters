@@ -43,7 +43,7 @@ enum CellTypes {
 	WALL,
 	INDESTRUCTIBLE_WALL,
 	CAVE,
-	PLAYER,
+	PLAYER = 1000,
 	ENEMY,
 	OBJECT
 }

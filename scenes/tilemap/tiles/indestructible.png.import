@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cave.png-4df0534bbd59bc04c4497ccf62febb59.stex"
+path="res://.import/indestructible.png-dda8cc42a4c7743ae39194b0b75d0784.stex"
 
 [deps]
 
-source_file="res://scenes/tilemap/terrain/cave.png"
-dest_files=[ "res://.import/cave.png-4df0534bbd59bc04c4497ccf62febb59.stex" ]
+source_file="res://scenes/tilemap/tiles/indestructible.png"
+dest_files=[ "res://.import/indestructible.png-dda8cc42a4c7743ae39194b0b75d0784.stex" ]
 
 [params]
 

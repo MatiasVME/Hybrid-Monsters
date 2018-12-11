@@ -1,12 +1,16 @@
-[gd_resource type="TileSet" load_steps=4 format=2]
+[gd_resource type="TileSet" load_steps=8 format=2]
 
 [ext_resource path="res://scenes/tilemap/terrain/floor_type_1/dirt_tileset.png" type="Texture" id=1]
-[ext_resource path="res://scenes/tilemap/terrain/rock_1.png" type="Texture" id=2]
-[ext_resource path="res://scenes/tilemap/terrain/indestructible.png" type="Texture" id=3]
+[ext_resource path="res://scenes/tilemap/tiles/rock_1.png" type="Texture" id=2]
+[ext_resource path="res://scenes/tilemap/tiles/indestructible.png" type="Texture" id=3]
+[ext_resource path="res://scenes/tilemap/tiles/cave.png" type="Texture" id=4]
+[ext_resource path="res://scenes/tilemap/tiles/floor_base_2.png" type="Texture" id=5]
+[ext_resource path="res://scenes/tilemap/tiles/floor_base_1.png" type="Texture" id=6]
+[ext_resource path="res://scenes/tilemap/tiles/incubator.png" type="Texture" id=7]
 
 [resource]
 
-0/name = "Dirt1"
+0/name = "Floor1"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
@@ -24,35 +28,35 @@
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shapes = [  ]
-2/name = "Dirt2"
-2/texture = ExtResource( 1 )
+2/name = "Indestructible1"
+2/texture = ExtResource( 3 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 16, 0, 16, 16 )
+2/region = Rect2( 0, 0, 16, 16 )
 2/is_autotile = false
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
 2/shapes = [  ]
-3/name = "Dirt3"
-3/texture = ExtResource( 1 )
+3/name = "Cave1"
+3/texture = ExtResource( 4 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 32, 0, 16, 16 )
+3/region = Rect2( 0, 0, 16, 16 )
 3/is_autotile = false
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
 3/shapes = [  ]
-4/name = "Dirt4"
-4/texture = ExtResource( 1 )
+4/name = "BaseFloor1"
+4/texture = ExtResource( 5 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
-4/region = Rect2( 48, 0, 16, 16 )
+4/region = Rect2( 0, 0, 16, 16 )
 4/is_autotile = false
 4/occluder_offset = Vector2( 0, 0 )
 4/navigation_offset = Vector2( 0, 0 )
 4/shapes = [  ]
-5/name = "Indestructible1"
-5/texture = ExtResource( 3 )
+5/name = "BaseFloor2"
+5/texture = ExtResource( 6 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 16, 16 )
@@ -60,4 +64,13 @@
 5/occluder_offset = Vector2( 0, 0 )
 5/navigation_offset = Vector2( 0, 0 )
 5/shapes = [  ]
+6/name = "Incubator"
+6/texture = ExtResource( 7 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 16, 16 )
+6/is_autotile = false
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shapes = [  ]
 
