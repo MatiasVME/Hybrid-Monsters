@@ -41,8 +41,6 @@ func attack():
 	emit_signal("attack")
 
 func move_to(target_position):
-	
-	
 	set_process(false)
 	
 	emit_signal("move")

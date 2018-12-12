@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portal-0.png-40859e7491a2abd58462024b70af0942.stex"
+path="res://.import/incubator_without_egg.png-c05cb40e0438c84d809d8c776b5e94ec.stex"
 
 [deps]
 
-source_file="res://scenes/animated_tiles/portal/portal-0.png"
-dest_files=[ "res://.import/portal-0.png-40859e7491a2abd58462024b70af0942.stex" ]
+source_file="res://scenes/objects_in_world/incubator/incubator_without_egg.png"
+dest_files=[ "res://.import/incubator_without_egg.png-c05cb40e0438c84d809d8c776b5e94ec.stex" ]
 
 [params]
 

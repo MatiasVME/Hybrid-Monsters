@@ -8,6 +8,9 @@ var turn_helper = preload("res://scenes/various/turn_helper/TurnHelper.tscn").in
 
 var character
 
+# ObjectInWorld que toca
+var my_object
+
 func _ready():
 	Grid.connect("can_move", self, "on_can_move")
 	Grid.connect("cant_move", self, "on_cant_move")
@@ -35,6 +38,15 @@ func _process(delta):
 	if not input_direction:
 		return
 	
+	my_object = null
+	my_object = get_a_object(input_direction)
+	if my_object:
+		my_object.touch()
+		
+		if my_object.is_solid:
+			print("return: ", my_object)
+			return
+	
 	var target_position = Grid.request_move(self, input_direction)
 	# Si target no es nulo
 	if target_position:
@@ -51,6 +63,14 @@ func _process(delta):
 			
 	turn_helper.enemy_turn()
 
+# Devuelve un object si es que existe si no existe no
+# devuelve null
+func get_a_object(direction):
+	for ray in $Around.get_children():
+		# se debe poner is_colliding sino funciona mal...
+		if ray.is_colliding() and ray.cast_to == direction and ray.get_collider() and ray.get_collider().is_in_group("ObjectInWorld"):
+			return ray.get_collider()
+	
 func set_hud(_hud):
 	HUD = _hud
 	

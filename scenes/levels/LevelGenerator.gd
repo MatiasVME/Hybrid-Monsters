@@ -67,10 +67,7 @@ func _ready():
 	# Añadimos el hud al final para que actualice los datos
 	$HUD.player = my_player
 	my_player.set_hud($HUD)
-	$HUD.get_node("Inventory").update_inv()
-	$HUD.update_enemies_amount()
-	$HUD.update_enemies_required()
-	$HUD.connect_enemies()
+	$HUD.initial_config($HUD.Mode.BATTLE)
 	
 func _on_enemy_dead(player):
 	if Main.enemies_required == Main.store_destroyed_enemies:

@@ -13,4 +13,4 @@ func _ready():
 	# Añadimos el hud al final para que actualice los datos
 	$HUD.player = $World/Player
 	$World/Player.set_hud($HUD)
-	$HUD.get_node("Inventory").update_inv()
+	$HUD.initial_config()

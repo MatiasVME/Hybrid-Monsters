@@ -4,6 +4,9 @@ var player_data
 # Al HUD se le debe pasar el player completo
 var player # No borrar
 
+enum Mode {LOBBY, BATTLE}
+var mode = Mode.LOBBY
+
 func _ready():
 	if DataManager.players.size() > 0:
 		player_data = DataManager.players[Main.current_player].connect("dead", self, "_on_dead")
@@ -31,6 +34,19 @@ func _input(event):
 	elif event.is_action_pressed("ui_cancel"):
 		$HUDMenuButton.pressed = not $HUDMenuButton.pressed
 		_on_HUDMenuButton_toggled($HUDMenuButton.pressed)
+
+func initial_config(mode = Mode.LOBBY):
+	$Inventory.update_inv()
+	
+	if mode == Mode.LOBBY:
+		$EnemiesAmount.hide()
+		$EnemiesRequired.hide()
+		$Status.hide()
+	else:
+		update_enemies_amount()
+		update_enemies_required()
+		connect_enemies()
+		$Display/Anim.play("show")
 
 func connect_enemies():
 	for enemy in get_tree().get_nodes_in_group("Enemy"):

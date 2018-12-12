@@ -233,7 +233,7 @@ tracks/2/keys = {
 "values": [ 1.0, 1.2, 1.0 ]
 }
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform", "Z Index" ]

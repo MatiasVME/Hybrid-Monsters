@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/animated_tiles/AnimatedTile.gd" type="Script" id=1]
+[ext_resource path="res://scenes/objects_in_world/ObjectInWorld.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[node name="AnimatedTile" type="KinematicBody2D"]
+[node name="ObjectInWorld" type="KinematicBody2D" groups=[
+"ObjectInWorld",
+]]
 
 input_pickable = false
 collision_layer = 1

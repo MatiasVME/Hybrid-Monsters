@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/portal-1.png-dfc84a003c1003640db37cd2d25f3e13.stex"
+path="res://.import/portal-1.png-3232e73077547f47390d28575b84e401.stex"
 
 [deps]
 
-source_file="res://scenes/animated_tiles/portal/portal-1.png"
-dest_files=[ "res://.import/portal-1.png-dfc84a003c1003640db37cd2d25f3e13.stex" ]
+source_file="res://scenes/objects_in_world/portal/portal-1.png"
+dest_files=[ "res://.import/portal-1.png-3232e73077547f47390d28575b84e401.stex" ]
 
 [params]
 

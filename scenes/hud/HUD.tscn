@@ -20,7 +20,7 @@
 [ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=19]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 length = 0.4
 loop = false
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -142 ), Vector2( 0, 4 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 
 length = 0.4
 loop = false
@@ -56,7 +56,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 4 ), Vector2( 0, -142 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 
 length = 0.4
 loop = false
@@ -86,7 +86,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 250, 160 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 
 length = 0.4
 loop = false
@@ -116,7 +116,7 @@ tracks/1/keys = {
 "values": [ Vector2( 250, 160 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 length = 1.0
 loop = true
@@ -134,7 +134,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.184433, 0.925781, 0.196017, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 length = 0.6
 loop = false
@@ -164,7 +164,7 @@ tracks/1/keys = {
 "values": [ true, true, false ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 length = 0.6
 loop = false
@@ -194,7 +194,7 @@ tracks/1/keys = {
 "values": [ false, true, true ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=8]
 
 resource_name = "hide"
 length = 1.0
@@ -225,7 +225,7 @@ tracks/1/keys = {
 "values": [ true, true, false ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=9]
 
 resource_name = "show"
 length = 1.0
@@ -256,9 +256,8 @@ tracks/1/keys = {
 "values": [ false, true, true ]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=10]
 
-resource_name = "show_and_hide"
 length = 2.5
 loop = false
 step = 0.1
@@ -287,7 +286,7 @@ tracks/1/keys = {
 "values": [ false, true, true, false ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 
 length = 0.4
 loop = false
@@ -329,7 +328,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, -22 ), Vector2( 220, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 
 length = 0.4
 loop = false
@@ -371,7 +370,7 @@ tracks/2/keys = {
 "values": [ Vector2( 220, 0 ), Vector2( 220, -22 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 
 length = 2.0
 loop = false
@@ -401,7 +400,7 @@ tracks/1/keys = {
 "values": [ 0, 0, 2 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 
 length = 3.0
 loop = false
@@ -431,7 +430,7 @@ tracks/1/keys = {
 "values": [ 2, 0, 0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=15]
 
 length = 3.0
 loop = false
@@ -485,7 +484,7 @@ tracks/3/keys = {
 "values": [ false, false, true, true ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=16]
 
 length = 2.0
 loop = false
@@ -641,8 +640,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 2 )
-anims/show = SubResource( 3 )
+anims/hide = SubResource( 1 )
+anims/show = SubResource( 2 )
 blend_times = [  ]
 
 [node name="Attributes" parent="." index="7" instance=ExtResource( 7 )]
@@ -657,8 +656,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 4 )
-anims/show = SubResource( 5 )
+anims/hide = SubResource( 3 )
+anims/show = SubResource( 4 )
 blend_times = [  ]
 
 [node name="HubOther" parent="." index="9" instance=ExtResource( 8 )]
@@ -680,7 +679,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/idle = SubResource( 6 )
+anims/idle = SubResource( 5 )
 blend_times = [  ]
 
 [node name="Shop" parent="." index="11" instance=ExtResource( 9 )]
@@ -711,7 +710,6 @@ margin_top = 2.0
 margin_right = 216.0
 margin_bottom = 18.0
 focus_mode = 0
-toggle_mode = true
 enabled_focus_mode = 0
 _sections_unfolded = [ "Rect", "Textures" ]
 
@@ -722,8 +720,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 7 )
-anims/show = SubResource( 8 )
+anims/hide = SubResource( 6 )
+anims/show = SubResource( 7 )
 blend_times = [  ]
 
 [node name="AnimAchievements" type="AnimationPlayer" parent="." index="16"]
@@ -733,8 +731,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 15 )
-anims/show = SubResource( 16 )
+anims/hide = SubResource( 8 )
+anims/show = SubResource( 9 )
 blend_times = [  ]
 
 [node name="NotificationAchievements" type="Node2D" parent="." index="17"]
@@ -758,7 +756,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show_and_hide = SubResource( 1 )
+anims/show_and_hide = SubResource( 10 )
 blend_times = [  ]
 
 [node name="Achievement" type="Sprite" parent="NotificationAchievements" index="2"]
@@ -873,8 +871,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 9 )
-anims/show = SubResource( 10 )
+anims/hide = SubResource( 11 )
+anims/show = SubResource( 12 )
 blend_times = [  ]
 
 [node name="HUDMenuButton" parent="." index="20" instance=ExtResource( 18 )]
@@ -918,8 +916,8 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/hide = SubResource( 11 )
-anims/show = SubResource( 12 )
+anims/hide = SubResource( 13 )
+anims/show = SubResource( 14 )
 blend_times = [  ]
 
 [node name="WinLost" parent="." index="22" instance=ExtResource( 19 )]
@@ -935,7 +933,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 13 )
+anims/show = SubResource( 15 )
 blend_times = [  ]
 
 [node name="Debug" type="Node2D" parent="." index="24"]
@@ -970,8 +968,8 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Display" type="Label" parent="." index="25"]
 
-editor/display_folded = true
 visible = false
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -980,7 +978,7 @@ margin_left = -30.0
 margin_top = -6.0
 margin_right = 30.0
 margin_bottom = 22.0
-rect_scale = Vector2( 0.473706, 0.473706 )
+rect_scale = Vector2( 6, 6 )
 rect_pivot_offset = Vector2( 30, 14 )
 rect_clip_content = false
 mouse_filter = 2
@@ -1003,11 +1001,11 @@ _sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 [node name="Anim" type="AnimationPlayer" parent="Display" index="0"]
 
 root_node = NodePath("..")
-autoplay = "show"
+autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/show = SubResource( 14 )
+anims/show = SubResource( 16 )
 blend_times = [  ]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="." index="26"]
