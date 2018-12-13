@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ParallelWorld.ogg-be150116998d8b1e3e6e5c0aad474162.oggstr"
+
+[deps]
+
+source_file="res://sounds/bgm/ParallelWorld.ogg"
+dest_files=[ "res://.import/ParallelWorld.ogg-be150116998d8b1e3e6e5c0aad474162.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

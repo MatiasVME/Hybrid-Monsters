@@ -7,7 +7,8 @@ enum Music {
 	FLY,
 	MARCH,
 	TUNINUNININU,
-	CRAZY
+	CRAZY,
+	PARALLEL_WORLD
 }
 var current_music = null
 var current_pos = -1
@@ -34,6 +35,8 @@ func select_music(p_music):
 			current_music = $TuNiNuNiNiNu
 		Music.CRAZY:
 			current_music = $Crazy
+		Music.PARALLEL_WORLD:
+			current_music = $ParallelWorld
 
 func play_music():
 	if not Main.music_enable:

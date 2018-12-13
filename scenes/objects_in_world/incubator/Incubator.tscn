@@ -1,18 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/objects_in_world/ObjectInWorld.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/objects_in_world/incubator/incubator_with_egg.png" type="Texture" id=2]
+[ext_resource path="res://scenes/objects_in_world/incubator/Incubator.gd" type="Script" id=2]
+[ext_resource path="res://scenes/objects_in_world/incubator/incubator_with_egg.png" type="Texture" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
 [node name="Incubator" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
 
 [node name="ASprite" parent="." index="1"]
 

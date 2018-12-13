@@ -1,11 +1,8 @@
 extends Node2D
 
 func _ready():
-	randomize()
-	var music_num = int(round(rand_range(MusicManager.WAR, MusicManager.TUNINUNININU)))
-	MusicManager.select_music(music_num)
+	MusicManager.select_music(MusicManager.Music.PARALLEL_WORLD)
 	MusicManager.play_music()
-	MusicManager.start_anim()
 	
 	$Camera.set_focus($World/Player)
 	$Camera.current = true
