@@ -41,10 +41,10 @@ func _process(delta):
 	my_object = null
 	my_object = get_a_object(input_direction)
 	if my_object:
-		my_object.touch()
+		my_object.touch(self)
 		
 		if my_object.is_solid:
-			print("return: ", my_object)
+#			print("return: ", my_object)
 			return
 	
 	var target_position = Grid.request_move(self, input_direction)
@@ -161,7 +161,6 @@ func damage(damage):
 func turn():
 	pass
 	
-
 func mine(direction):
 	if not directions.has(direction):
 		bump()

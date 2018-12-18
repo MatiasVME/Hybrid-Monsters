@@ -8,8 +8,11 @@ enum Music {
 	MARCH,
 	TUNINUNININU,
 	CRAZY,
-	PARALLEL_WORLD
+	PARALLEL_WORLD,
+	NEVER_SEE_THE_SUN,
+	DIGGING
 }
+
 var current_music = null
 var current_pos = -1
 
@@ -37,6 +40,10 @@ func select_music(p_music):
 			current_music = $Crazy
 		Music.PARALLEL_WORLD:
 			current_music = $ParallelWorld
+		Music.NEVER_SEE_THE_SUN:
+			current_music = $NeverSeeTheSun
+		Music.DIGGING:
+			current_music = $Digging
 
 func play_music():
 	if not Main.music_enable:
@@ -63,8 +70,4 @@ func stop_anim():
 		
 	$Tween.interpolate_property(current_music, "pitch_scale", 1, 0, 2, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
-	
-	
-	
-	
 	

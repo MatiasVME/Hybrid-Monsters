@@ -13,7 +13,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Incubator" instance=ExtResource( 1 )]
+[node name="Incubator" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 

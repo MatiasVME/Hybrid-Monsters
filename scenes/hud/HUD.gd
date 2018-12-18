@@ -145,7 +145,11 @@ func _on_HUDMenuButton_toggled(button_pressed):
 
 func _on_AnimWinLost_animation_finished(anim_name):
 	if anim_name == "show":
-		MusicManager.select_music(MusicManager.CRAZY)
+		if Main.result == Main.Result.WIN:
+			MusicManager.select_music(MusicManager.Music.DIGGING)
+		else:
+			MusicManager.select_music(MusicManager.CRAZY)
+		
 		MusicManager.play_music()
 
 func _on_Achievement_toggled(button_pressed):
