@@ -2,7 +2,9 @@ extends KinematicBody2D
 
 onready var Grid = get_parent()
 
-var rec_damage_num = preload("res://scenes/effects/damage_num/DamageNum.tscn")
+class_name Actor
+
+onready var rec_damage_num = preload("res://scenes/effects/damage_num/DamageNum.tscn")
 
 signal move
 signal attack
@@ -16,7 +18,8 @@ var armor
 var armor_data
 
 # Debe de ser un Main.CellType
-var type = Main.PLAYER
+#var type = Main.CellTypes.PLAYER
+var type = 1000
 
 var directions = [
 	Vector2(-1, 0),
@@ -37,7 +40,7 @@ func spawn():
 	
 	$Anim.play("spawn")
 
-func attack():
+func attack(direction):
 	emit_signal("attack")
 
 func move_to(target_position):
@@ -69,7 +72,7 @@ func move_to(target_position):
 func bump():
 	set_process(false)
 	$Anim.play("bump")
-	SoundManager.play_sound(SoundManager.NOPE)
+	SoundManager.play_sound(SoundManager.Sound.NOPE)
 	yield($Anim, "animation_finished")
 	set_process(true)
 	

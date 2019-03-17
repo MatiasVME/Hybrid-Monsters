@@ -3,6 +3,8 @@
 
 extends "../HMEquipable.gd"
 
+class_name HMAttack
+
 var damage = 1
 
 var primary_element setget set_primary_element, get_primary_element

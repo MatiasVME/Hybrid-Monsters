@@ -29,7 +29,7 @@ func update_crack():
 func _on_Egg_button_down():
 	$Anim.play("touch")
 	
-	var rand_sound = int(round(rand_range(SoundManager.HIT_EGG_1, SoundManager.HIT_EGG_2)))
+	var rand_sound = int(round(rand_range(SoundManager.Sound.HIT_EGG_1, SoundManager.Sound.HIT_EGG_2)))
 	SoundManager.play_sound(rand_sound)
 	
 	EggFactory.force_step(current_egg["Delivery"])

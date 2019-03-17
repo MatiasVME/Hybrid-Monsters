@@ -3,6 +3,8 @@
 
 extends "res://addons/rpg_elements/nodes/RPGItem.gd"
 
+class_name HMItem
+
 enum Materials {
 	WOOD,
 	IRON,
@@ -17,6 +19,7 @@ enum ItemType {
 	BOOK,
 	ARMOR
 }
+var item_type = ItemType.GLOVES
 
 func get_item_type_name():
 	match int(self.item_type):

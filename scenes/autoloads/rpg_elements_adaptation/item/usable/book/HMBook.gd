@@ -3,6 +3,8 @@
 
 extends "../HMUsable.gd"
 
+class_name HMBook
+
 enum BookType {
 	STRENGTH,
 	LUCK,
@@ -19,13 +21,13 @@ func set_book_type(_book_type):
 	book_type = _book_type
 
 	match book_type:
-		STRENGTH:
+		BookType.STRENGTH:
 			self.texture_path = "res://scenes/items/books/book_strength.png"
 			self.item_name = "Strength Book"
-		LUCK:
+		BookType.LUCK:
 			self.texture_path = "res://scenes/items/books/book_luck.png"
 			self.item_name = "Luck Book"
-		VITALITY:
+		BookType.VITALITY:
 			self.texture_path = "res://scenes/items/books/book_vitality.png"
 			self.item_name = "Vitality Book"
 
@@ -40,18 +42,18 @@ func use():
 	AttributesManager.add_points()
 	
 	match book_type:
-		STRENGTH:
+		BookType.STRENGTH:
 			AttributesManager.add_strength()
-		LUCK:
+		BookType.LUCK:
 			AttributesManager.add_luck()
-		VITALITY:
+		BookType.VITALITY:
 			AttributesManager.add_vitality()
 
 func get_type_name():
 	match book_type:
-		STRENGTH:
+		BookType.STRENGTH:
 			return "Strength"
-		LUCK:
+		BookType.LUCK:
 			return "Luck"
-		VITALITY:
+		BookType.VITALITY:
 			return "Vitality"

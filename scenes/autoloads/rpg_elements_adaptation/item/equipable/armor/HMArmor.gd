@@ -1,7 +1,9 @@
 # HMArmor.gd
 #
 
-extends "../HMEquipable.gd"
+extends HMEquipable
+
+class_name HMArmor
  
 var defence = 0
 

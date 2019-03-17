@@ -15,7 +15,7 @@ func _ready():
 	var random_skin = int(round(rand_range(1, Main.SKIN_NORMAL_ENEMY_AMOUNT)))
 	$Pivot/Sprite.texture = get_skin(random_skin)
 	
-	type = Main.ENEMY
+	type = Main.CellTypes.ENEMY
 	
 	# Configura el character con datos aleatorios
 	config_hm_character()
@@ -115,7 +115,7 @@ func get_players_around_dir(players_num):
 		search_pos.x += dir.x
 		search_pos.y += dir.y
 		
-		if Grid.get_cellv(search_pos) == Main.PLAYER:
+		if Grid.get_cellv(search_pos) == Main.CellTypes.PLAYER:
 			player_positions.append(dir)
 			
 			if players_num == 1:
@@ -215,7 +215,7 @@ func drop_item(hm_item):
 	dropped_item.global_position = global_position
 	dropped_item.rotation_degrees = int(rand_range(0, 360))
 	
-	SoundManager.play_sound(SoundManager.DROP)
+	SoundManager.play_sound(SoundManager.Sound.DROP)
 
 func drop():
 	# Probabilidad de dropeo de arma primaria

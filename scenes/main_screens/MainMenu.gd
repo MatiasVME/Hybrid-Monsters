@@ -16,7 +16,7 @@ func _on_Play_pressed():
 	emit_signal("play")
 	$Anim.play("play")
 	
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 func _on_Anim_animation_finished(anim_name):
 	if anim_name == "play":
@@ -24,7 +24,7 @@ func _on_Anim_animation_finished(anim_name):
 		get_tree().change_scene("res://scenes/lobby/Lobby.tscn")
 
 func _on_Music_toggled(button_pressed):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		menu_music.stop()
@@ -34,7 +34,7 @@ func _on_Music_toggled(button_pressed):
 		menu_music.play()
 
 func _on_Sound_toggled(button_pressed):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		Main.sound_enable = false
@@ -42,7 +42,7 @@ func _on_Sound_toggled(button_pressed):
 		Main.sound_enable = true
 	
 func _on_Info_pressed():
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 
 func _on_Config_pressed():
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)

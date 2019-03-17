@@ -71,10 +71,10 @@ func available_attributes():
 		$HubOther.self_modulate = Color("ffffff")
 
 func tuiu_sound():
-	SoundManager.play_sound(int(round(rand_range(SoundManager.TUIU_1, SoundManager.TUIU_2))))
+	SoundManager.play_sound(int(round(rand_range(SoundManager.Sound.TUIU_1, SoundManager.Sound.TUIU_2))))
 
 func _on_HUDInventory_toggled(button_pressed):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		$AnimInv.play("show")
@@ -82,25 +82,25 @@ func _on_HUDInventory_toggled(button_pressed):
 		$AnimInv.play("hide")
 
 func _on_Resume_pressed():
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	$HUDMenuButton.pressed = false
 	$AnimMenu.play("hide")
 
 func _on_Menu_pressed():
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	MusicManager.stop_music()
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 func win():
-	Main.result = Main.WIN
+	Main.result = Main.Result.WIN
 	$WinLost.result()
 	MusicManager.stop_anim()
 	$AnimWinLost.play("show")
 	
 func _on_dead():
-	Main.result = Main.LOST
+	Main.result = Main.Result.LOST
 	$WinLost.result()
 	MusicManager.stop_anim()
 	$AnimWinLost.play("show")
@@ -117,7 +117,7 @@ func _on_enemy_dead():
 		Main.arrow_active = true
 
 func _on_HubOther_toggled(button_pressed):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		$AnimAttributes.play("show")
@@ -125,7 +125,7 @@ func _on_HubOther_toggled(button_pressed):
 		$AnimAttributes.play("hide")
 
 func _on_ShopButton_toggled(button_pressed):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		$Shop.update_gold_amount()
@@ -136,7 +136,7 @@ func _on_ShopButton_toggled(button_pressed):
 		$AnimShop.play("hide")
 
 func _on_HUDMenuButton_toggled(button_pressed):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		$AnimMenu.play("show")
@@ -148,12 +148,12 @@ func _on_AnimWinLost_animation_finished(anim_name):
 		if Main.result == Main.Result.WIN:
 			MusicManager.select_music(MusicManager.Music.DIGGING)
 		else:
-			MusicManager.select_music(MusicManager.CRAZY)
+			MusicManager.select_music(MusicManager.Music.CRAZY)
 		
 		MusicManager.play_music()
 
 func _on_Achievement_toggled(button_pressed):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		$Achievements.update()

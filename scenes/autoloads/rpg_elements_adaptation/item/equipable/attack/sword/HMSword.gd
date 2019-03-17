@@ -1,7 +1,9 @@
 # HMSword.gd
 #
 
-extends "../HMAttack.gd"
+extends HMAttack
+
+class_name HMSword
 
 enum Form {
 	NORMAL,

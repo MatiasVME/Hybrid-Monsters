@@ -5,8 +5,8 @@ func generate_first_player():
 	
 	# Define los primeros elementos del primer
 	# monstruo
-	player.element_1 = Main.FIRE
-	player.element_2 = Main.WATER
+	player.element_1 = Main.Elements.FIRE
+	player.element_2 = Main.Elements.WATER
 	
 	# Seleccionar un numero de skin
 	var skin_num = 6

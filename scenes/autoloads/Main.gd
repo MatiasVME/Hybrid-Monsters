@@ -11,18 +11,6 @@ var sound_enable = true
 const RES_X = 240
 const RES_Y = 160
 
-# Clases
-#
-
-var HMAttack = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/HMAttack.gd")
-var HMEquipable = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/HMEquipable.gd")
-var HMSword = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/attack/sword/HMSword.gd")
-var HMPotion = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/potion/HMPotion.gd")
-var HMUsable = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/HMUsable.gd")
-var HMHealth = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/potion/HMHealth.gd")
-var HMBook = preload("res://scenes/autoloads/rpg_elements_adaptation/item/usable/book/HMBook.gd")
-var HMArmor = preload("res://scenes/autoloads/rpg_elements_adaptation/item/equipable/armor/HMArmor.gd")
-
 enum Elements {
 	WATER,
 	FIRE,

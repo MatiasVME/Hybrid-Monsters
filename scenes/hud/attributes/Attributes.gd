@@ -25,17 +25,17 @@ func attribute_button_enabler(stat_name):
 		get_node(str("VBox/Scroll/VBox/", stat_name,"/AddStat")).disabled = true
 	
 func _on_AddStat_Strength_pressed():
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	AttributesManager.add_strength()
 	update()
 
 func _on_AddStat_Luck_pressed():
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	AttributesManager.add_luck()
 	update()
 
 func _on_AddStat_Vitality_pressed():
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	AttributesManager.add_vitality()
 	update()
 	hud.get_node("Status").update_hp_progress()

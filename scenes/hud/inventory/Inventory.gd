@@ -25,7 +25,7 @@ func add_item(hm_item):
 	
 	item_gui.connect("toggled", self, "_on_item_toggled", [item_gui])
 	
-	if hm_item is Main.HMEquipable:
+	if hm_item is HMEquipable:
 		# El item debe estar equipado?
 		if hm_item.equiped_how != hm_item.Equipable.NONE:
 			equip(hm_item)
@@ -47,7 +47,7 @@ func describe_commons(hm_item):
 	$Inv/HBox/ItemDesc/VBox.add_child(commons)
 
 func describe_potion(hm_item):
-	if not hm_item is Main.HMPotion:
+	if not hm_item is HMPotion:
 		return
 		
 	var desc_potion = load("res://scenes/hud/inventory/ItemDesc-Potion.tscn").instance()
@@ -57,7 +57,7 @@ func describe_potion(hm_item):
 	$Inv/HBox/ItemDesc/VBox.add_child(desc_potion)
 	
 func describe_usable(hm_item):
-	if not hm_item is Main.HMUsable:
+	if not hm_item is HMUsable:
 		return
 	
 	var desc_usable = load("res://scenes/hud/inventory/ItemDesc-Usable.tscn").instance()
@@ -69,7 +69,7 @@ func describe_usable(hm_item):
 	$Inv/HBox/ItemDesc/VBox.add_child(desc_usable)
 	
 func describe_equipable(hm_item):
-	if not hm_item is Main.HMEquipable:
+	if not hm_item is HMEquipable:
 		return
 		
 	var equipable = load("res://scenes/hud/inventory/ItemDesc-Equipable.tscn").instance()
@@ -83,7 +83,7 @@ func describe_equipable(hm_item):
 	$Inv/HBox/ItemDesc/VBox.add_child(equipable)
 
 func describe_attack(hm_item):
-	if not hm_item is Main.HMAttack:
+	if not hm_item is HMAttack:
 		return
 	
 	var attack = load("res://scenes/hud/inventory/ItemDesc-Attack.tscn").instance()
@@ -93,7 +93,7 @@ func describe_attack(hm_item):
 	$Inv/HBox/ItemDesc/VBox.add_child(attack)
 
 func describe_armor(hm_item):
-	if not hm_item is Main.HMArmor:
+	if not hm_item is HMArmor:
 		return
 		
 	var armor = load("res://scenes/hud/inventory/ItemDesc-Armor.tscn").instance()
@@ -111,7 +111,7 @@ func remove_all_inv_item():
 		$Inv/HBox/Items/Grid.remove_child(item)
 
 func equip(hm_item):
-	if hm_item is Main.HMSword:
+	if hm_item is HMSword:
 		# Desequipar la anterior primary_weapon_data si es que existe
 		if HUD.player.primary_weapon_data:
 			HUD.player.primary_weapon_data.equiped_how = HUD.player.primary_weapon_data.Equipable.NONE
@@ -119,7 +119,7 @@ func equip(hm_item):
 		HUD.player.get_node("CurrentWeapon").texture = load(hm_item.texture_path)
 		HUD.player.primary_weapon_data = hm_item
 		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.PRIMARY_WEAPON
-	elif hm_item is Main.HMArmor:
+	elif hm_item is HMArmor:
 		if HUD.player.armor_data:
 			HUD.player.armor_data.equiped_how = HUD.player.armor_data.Equipable.NONE
 		
@@ -128,12 +128,12 @@ func equip(hm_item):
 		hm_item.equiped_how = HUD.player.armor_data.Equipable.ARMOR
 	
 func unequip(hm_item):
-	if hm_item is Main.HMSword:
+	if hm_item is HMSword:
 		hm_item.equiped_how = HUD.player.primary_weapon_data.Equipable.NONE
 		HUD.player.primary_weapon_data = null
 		HUD.player.get_node("CurrentWeapon").texture = null
-	elif hm_item is Main.HMArmor:
-		hm_item.equiped_how = Main.HMArmor.Equipable.NONE
+	elif hm_item is HMArmor:
+		hm_item.equiped_how = HMArmor.Equipable.NONE
 		HUD.player.armor_data = null
 		HUD.player.get_node("CurrentArmor").texture = null
 
@@ -172,7 +172,7 @@ func _on_item_toggled(button_pressed, item_gui):
 		describe_stats()
 
 func _on_toggled_equip(button_pressed, hm_item):
-	SoundManager.play_sound(SoundManager.BUTTON_PRESSED)
+	SoundManager.play_sound(SoundManager.Sound.BUTTON_PRESSED)
 	
 	if button_pressed:
 		equip(hm_item)
@@ -187,16 +187,16 @@ func _on_use_item(hm_item):
 			get_node("Inv/HBox/Items/Grid").remove_child(item)
 			break
 			
-	if hm_item is Main.HMHealth:
+	if hm_item is HMHealth:
 		DataManager.players[Main.current_player].add_hp(hm_item.health)
 		HUD.get_node("Status").update_hp_progress()
-		SoundManager.play_sound(SoundManager.BUBBLE)
+		SoundManager.play_sound(SoundManager.Sound.BUBBLE)
 		
-		AchievementsManager.complete_achievement_if_can(AchievementsManager.PROBLEMS_WITH_DRINGKING)		
-	elif hm_item is Main.HMBook:
+		AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.PROBLEMS_WITH_DRINGKING)		
+	elif hm_item is HMBook:
 		hm_item.use()
 		HUD.get_node("Attributes").update()
-		SoundManager.play_sound(SoundManager.SPELL)
+		SoundManager.play_sound(SoundManager.Sound.SPELL)
 	
 	DataManager.inventories[Main.current_player].delete_item(hm_item)
 	
@@ -212,13 +212,13 @@ func _on_drop_equip(hm_item):
 	if item_dropped:
 		for item in get_node("Inv/HBox/Items/Grid").get_children():
 			if item.hm_item == item_dropped:
-				if item.hm_item is Main.HMEquipable:
+				if item.hm_item is HMEquipable:
 					if item_dropped.equiped_how != item_dropped.Equipable.NONE:
 						unequip(item_dropped)
 				remove_all_descriptions()
 				get_node("Inv/HBox/Items/Grid").remove_child(item)
 		
-		SoundManager.play_sound(SoundManager.DROP)
+		SoundManager.play_sound(SoundManager.Sound.DROP)
 		emit_signal("drop_item", item_dropped)
 		
 		DataManager.save_inventories()

@@ -1,4 +1,6 @@
-extends "../HMItem.gd"
+extends HMItem
+
+class_name HMEquipable
 
 enum Equipable {
 	NONE = -1,

@@ -1,10 +1,7 @@
 extends Node2D
 
-func _ready():
-	pass
-
 func result():
-	if Main.result == Main.WIN:
+	if Main.result == Main.Result.WIN:
 		$Title.text = "You Win!"
 		$Stats/Grid/DE.text = str(
 			Main.store_destroyed_enemies,
@@ -25,7 +22,7 @@ func result():
 		Main.increase_dificulty()
 		$Resume.hide()
 		$Next.show()
-	elif Main.result == Main.LOST:
+	elif Main.result == Main.Result.LOST:
 		$Title.text = "You Lost"
 		$Stats/Grid/DE.text = str(
 			Main.store_destroyed_enemies,

@@ -1,6 +1,8 @@
 # Player.gd
 
-extends "../Actor.gd"
+extends "res://scenes/actors/Actor.gd"
+
+class_name Player
 
 var HUD # Necesita ser seteado
 
@@ -26,9 +28,9 @@ func _ready():
 	$Pivot/Sprite.material.set_shader_param("c_2", Color(0,1,0))
 	$Pivot/Sprite.material.set_shader_param("c_3", Color(0,0,1))
 	
-	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element(Main.WATER))
-	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.FIRE))
-	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.ELECTRIC))
+	$Pivot/Sprite.material.set_shader_param("r_1", Elements.get_color_element(Main.Elements.WATER))
+	$Pivot/Sprite.material.set_shader_param("r_2", Elements.get_color_element(Main.Elements.FIRE))
+	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.Elements.ELECTRIC))
 	
 func _process(delta):
 	if is_mark_to_dead:
@@ -88,6 +90,7 @@ func get_skin(num):
 		print("Probablemente el skin ", num, ".png no existe")
 	
 	var skin = load(str("res://scenes/actors/players/skins/", str(num),".png"))
+	
 	return skin
 	
 func attack(direction):
@@ -97,12 +100,12 @@ func attack(direction):
 	
 	set_process(false)
 	
-	.attack()
+	.attack(direction)
 	
 	var glove
 	
 	if primary_weapon_data:
-		if primary_weapon_data is Main.HMSword:
+		if primary_weapon_data is HMSword:
 			primary_weapon = ItemGenerator.get_item_sword_in_battle(primary_weapon_data)
 			var enemy_pos = direction * 16
 			primary_weapon.global_position = enemy_pos
@@ -181,7 +184,7 @@ func mine(direction):
 		if dir.cast_to == direction:
 			Grid.remove_wall(self, direction)
 	
-	SoundManager.play_sound(SoundManager.MINE)
+	SoundManager.play_sound(SoundManager.Sound.MINE)
 	
 	yield(pickaxe.get_node("Anim"), "animation_finished")
 	
@@ -191,19 +194,19 @@ func on_can_move(cell_type):
 	pass
 	
 func on_cant_move(pawn, cell_dest_type, direction):
-	if pawn.type != Main.PLAYER:
+	if pawn.type != Main.CellTypes.PLAYER:
 		return
 	
-	print(cell_dest_type, "=", Main.CAVE)
+	print(cell_dest_type, "=", Main.CellTypes.CAVE)
 	
 	match cell_dest_type:
-		Main.WALL:
+		Main.CellTypes.WALL:
 			mine(direction)
-		Main.INDESTRUCTIBLE_WALL:
+		Main.CellTypes.INDESTRUCTIBLE_WALL:
 			bump()
-		Main.ENEMY:
+		Main.CellTypes.ENEMY:
 			attack(direction)
-		Main.CAVE:
+		Main.CellTypes.CAVE:
 			set_process(false)
 			HUD.win()
 			yield(HUD.get_node("AnimWinLost"), "animation_finished")

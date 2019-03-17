@@ -3,7 +3,7 @@ extends Camera2D
 var focus
 
 enum Mode {MODE_FOCUS, MODE_FREE}
-export (Mode) var mode = MODE_FREE
+export (Mode) var mode = Mode.MODE_FREE
 
 #var camera_speed = 450
 #var camera_movement = Vector2()

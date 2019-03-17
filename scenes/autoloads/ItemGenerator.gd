@@ -110,7 +110,7 @@ func get_sword_form(sword):
 	
 # Esto debería estar dentro del item
 func get_item_image(hm_item):
-	if hm_item is Main.HMSword:
+	if hm_item is HMSword:
 		hm_item.texture_path = str(
 			"res://scenes/items/attack/swords/skins/", 
 			get_material_name(hm_item.material), 
@@ -147,7 +147,7 @@ func get_sword_form_name(item):
 
 func get_random_health_potion():
 	var potion_inst = HMRPGHelper.get_hm_inst_health_potion()
-	var rand_num = randi() % (potion_inst.TYPE_20 + 1)
+	var rand_num = randi() % (potion_inst.TypePotion.TYPE_20 + 1)
 	
 	# Esto le asigna el nombre y el health y la textura
 	potion_inst.type_potion = rand_num
@@ -165,7 +165,7 @@ func get_health_potion(potion_type):
 func get_random_book():
 	var book_inst = HMRPGHelper.get_hm_inst_book()
 	
-	book_inst.book_type = randi() % (book_inst.VITALITY + 1)
+	book_inst.book_type = randi() % (book_inst.BookType.VITALITY + 1)
 	
 	return book_inst
 

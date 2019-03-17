@@ -9,11 +9,8 @@
 [ext_resource path="res://sounds/bgm/Underground.ogg" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "stop_music"
 length = 2.5
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Curtain/Black:color")
 tracks/0/interp = 1
@@ -64,11 +61,8 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "config2menu"
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:position")
 tracks/0/interp = 1
@@ -107,11 +101,8 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 resource_name = "credits2menu"
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:position")
 tracks/0/interp = 1
@@ -150,10 +141,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:position")
 tracks/0/interp = 1
@@ -192,10 +180,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:position")
 tracks/0/interp = 1
@@ -234,136 +219,71 @@ tracks/2/keys = {
 }
 
 [node name="Main" type="Node2D"]
-
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
 
-[node name="Camera" type="Camera2D" parent="." index="0"]
-
+[node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 120, 80 )
-anchor_mode = 1
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
-smoothing_enabled = false
 smoothing_speed = 1.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
 
-[node name="Front" parent="Camera" index="0" instance=ExtResource( 2 )]
-
+[node name="Front" parent="Camera" instance=ExtResource( 2 )]
 position = Vector2( -120, -80 )
 
-[node name="Background" type="Sprite" parent="Camera" index="1"]
-
+[node name="Background" type="Sprite" parent="Camera"]
 scale = Vector2( 4, 4 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Offset", "Region", "Transform" ]
 
-[node name="Screens" type="Node" parent="." index="1"]
+[node name="Screens" type="Node" parent="."]
 
-[node name="MainMenu" parent="Screens" index="0" instance=ExtResource( 4 )]
-
+[node name="MainMenu" parent="Screens" instance=ExtResource( 4 )]
 editor/display_folded = true
 
 [node name="Camera" parent="Screens/MainMenu" index="11"]
-
 current = false
 
-[node name="Config" parent="Screens" index="1" instance=ExtResource( 5 )]
-
+[node name="Config" parent="Screens" instance=ExtResource( 5 )]
 editor/display_folded = true
 position = Vector2( -240, 0 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Credits" parent="Screens" index="2" instance=ExtResource( 6 )]
-
+[node name="Credits" parent="Screens" instance=ExtResource( 6 )]
 editor/display_folded = true
 position = Vector2( 240, 0 )
-_sections_unfolded = [ "Transform", "custom_colors", "custom_fonts" ]
 
-[node name="Anim" type="AnimationPlayer" parent="." index="2"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="Anim" type="AnimationPlayer" parent="."]
 anims/stop_music = SubResource( 1 )
-blend_times = [  ]
 
-[node name="ScreensAnim" type="AnimationPlayer" parent="." index="3"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
+[node name="ScreensAnim" type="AnimationPlayer" parent="."]
 playback_speed = 0.4
 anims/config2menu = SubResource( 2 )
 anims/credits2menu = SubResource( 3 )
 anims/menu2config = SubResource( 4 )
 anims/menu2credits = SubResource( 5 )
-blend_times = [  ]
-_sections_unfolded = [ "Playback Options" ]
 
-[node name="Curtain" type="Node2D" parent="." index="4"]
-
+[node name="Curtain" type="Node2D" parent="."]
 z_index = 1
-_sections_unfolded = [ "Z Index" ]
 
-[node name="Black" type="ColorRect" parent="Curtain" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Black" type="ColorRect" parent="Curtain"]
 margin_right = 240.0
 margin_bottom = 160.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 0 )
-_sections_unfolded = [ "Grow Direction", "Hint", "Margin", "Mouse", "Rect" ]
 
-[node name="Underground" type="AudioStreamPlayer" parent="." index="5"]
-
+[node name="Underground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = 0.0
-pitch_scale = 1.0
 autoplay = true
-mix_target = 0
-bus = "Master"
 
 [connection signal="pressed" from="Screens/MainMenu/Info" to="." method="_on_Info_pressed"]
-
 [connection signal="pressed" from="Screens/MainMenu/Config" to="." method="_on_Config_pressed"]
-
 [connection signal="pressed" from="Screens/Config/Back" to="." method="_on_Back_pressed"]
-
 [connection signal="pressed" from="Screens/Credits/Back" to="." method="_on_BackCredits_pressed"]
 
-
 [editable path="Screens/MainMenu"]
+
 [editable path="Screens/Config"]
+
 [editable path="Screens/Credits"]

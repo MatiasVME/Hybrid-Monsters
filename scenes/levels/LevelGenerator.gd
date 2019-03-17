@@ -8,7 +8,7 @@ func _ready():
 	
 	# Random Music
 	randomize()
-	var music_num = int(round(rand_range(MusicManager.WAR, MusicManager.TUNINUNININU)))
+	var music_num = int(round(rand_range(MusicManager.Music.WAR, MusicManager.Music.TUNINUNININU)))
 	MusicManager.select_music(music_num)
 	MusicManager.play_music()
 	MusicManager.start_anim()
@@ -24,7 +24,7 @@ func _ready():
 		true
 	)
 	
-	$CaveGenerator.add_border(Main.INDESTRUCTIBLE_WALL)
+	$CaveGenerator.add_border(Main.CellTypes.INDESTRUCTIBLE_WALL)
 
 	var my_player = rec_player.instance()
 

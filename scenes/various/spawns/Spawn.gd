@@ -56,7 +56,7 @@ func enemy_spawn(enemy):
 		enemy.global_position.y += 8
 		
 		# Añadir el tipo a la celda
-		current_tilemap.set_cellv(rand_empty_position, Main.ENEMY)
+		current_tilemap.set_cellv(rand_empty_position, Main.CellTypes.ENEMY)
 		
 		enemy.spawn()
 		
@@ -79,4 +79,4 @@ func cave_spawn(player):
 #		print("Main.spawn_location: ", current_tilemap.map_to_world(Main.spawn_location))
 		
 		# Añadir el enemy en la posición
-		current_tilemap.set_cellv(rand_empty_position, Main.CAVE)
+		current_tilemap.set_cellv(rand_empty_position, Main.CellTypes.CAVE)

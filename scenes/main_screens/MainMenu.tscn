@@ -17,11 +17,9 @@
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=15]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "idle"
 length = 4.0
 loop = true
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Title1:rect_scale")
 tracks/0/interp = 1
@@ -48,11 +46,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "play"
 length = 2.5
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera:zoom")
 tracks/0/interp = 1
@@ -67,274 +62,128 @@ tracks/0/keys = {
 }
 
 [node name="MainMenu" type="Node2D"]
-
 script = ExtResource( 1 )
 
-[node name="Placeholder" type="Sprite" parent="." index="0"]
-
+[node name="Placeholder" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
 centered = false
-_sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Play" parent="." index="1" instance=ExtResource( 3 )]
-
+[node name="Play" parent="." instance=ExtResource( 3 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 80.0
-margin_top = 64.0
-margin_right = 96.0
-margin_bottom = 80.0
+margin_left = 110.0
+margin_top = 90.0
+margin_right = 126.0
+margin_bottom = 106.0
 rect_pivot_offset = Vector2( 8, 8 )
 
-[node name="Info" parent="." index="2" instance=ExtResource( 4 )]
-
+[node name="Info" parent="." instance=ExtResource( 4 )]
 margin_left = 200.0
 margin_top = 8.0
 margin_right = 208.0
 margin_bottom = 17.0
 
-[node name="Music" type="TextureButton" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Music" type="TextureButton" parent="."]
 margin_left = 200.0
 margin_top = 64.0
 margin_right = 208.0
 margin_bottom = 73.0
 rect_scale = Vector2( 4, 4 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Sound" type="TextureButton" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Sound" type="TextureButton" parent="."]
 margin_left = 200.0
 margin_top = 112.0
 margin_right = 208.0
 margin_bottom = 121.0
 rect_scale = Vector2( 4, 4 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 toggle_mode = true
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 8 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Config" type="TextureButton" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Config" type="TextureButton" parent="."]
+visible = false
 margin_left = 8.0
 margin_top = 112.0
 margin_right = 16.0
 margin_bottom = 121.0
 rect_scale = Vector2( 4, 4 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 11 )
 texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 13 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Title2" type="Label" parent="." index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Title2" type="Label" parent="."]
 margin_left = 44.0
 margin_top = 31.0
 margin_right = 179.0
 margin_bottom = 61.0
 rect_rotation = -9.5
 rect_pivot_offset = Vector2( 72, 15 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0.352941, 0.772549, 0.309804, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Monsters"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Title1" type="Label" parent="." index="7"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Title1" type="Label" parent="."]
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 112.0
 margin_bottom = 46.0
 rect_pivot_offset = Vector2( 46, 15 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 14 )
 custom_colors/font_color = Color( 0, 0.596078, 0.862745, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Hybrid"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Version" type="Label" parent="." index="8"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Version" type="Label" parent="."]
 margin_left = 189.0
 margin_top = 150.0
 margin_right = 237.0
 margin_bottom = 160.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0, 0.596078, 0.862745, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0.1.0"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="GithubGameOff" type="Label" parent="." index="9"]
-
+[node name="GithubGameOff" type="Label" parent="."]
 visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = 80.0
 margin_top = 144.0
 margin_right = 159.0
 margin_bottom = 154.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0.148284, 0.862745, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "#GithubGameOff"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Anim" type="AnimationPlayer" parent="." index="10"]
-
-root_node = NodePath("..")
+[node name="Anim" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
 anims/idle = SubResource( 1 )
 anims/play = SubResource( 2 )
-blend_times = [  ]
 
-[node name="Camera" type="Camera2D" parent="." index="11"]
-
+[node name="Camera" type="Camera2D" parent="."]
 visible = false
 position = Vector2( 120, 80 )
-anchor_mode = 1
-rotating = false
 current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Smoothing", "Transform" ]
 
 [connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
-
 [connection signal="pressed" from="Info" to="." method="_on_Info_pressed"]
-
 [connection signal="toggled" from="Music" to="." method="_on_Music_toggled"]
-
 [connection signal="toggled" from="Sound" to="." method="_on_Sound_toggled"]
-
 [connection signal="pressed" from="Config" to="." method="_on_Config_pressed"]
-
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
-
-

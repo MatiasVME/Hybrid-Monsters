@@ -2,3 +2,5 @@
 #
 
 extends "../HMUsable.gd"
+
+class_name HMPotion

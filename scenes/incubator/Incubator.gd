@@ -36,7 +36,7 @@ func _on_new_egg_opened(delivery):
 #	if delivery[]
 	
 	# Test
-	var rand_sound = int(round(rand_range(SoundManager.MAGICAL_1, SoundManager.MAGICAL_3)))
+	var rand_sound = int(round(rand_range(SoundManager.Sound.MAGICAL_1, SoundManager.Sound.MAGICAL_3)))
 	SoundManager.play_sound(rand_sound)
 	$Egg/Anim.play("open")
 	

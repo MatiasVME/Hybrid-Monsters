@@ -12,7 +12,7 @@ var stats = []
 
 # Si este numero cambia la data se borra, normalmente el numero
 # debe ir incrementando
-var delete_data = 2
+var delete_data = 3
 
 var shop_inventory
 
@@ -139,9 +139,9 @@ func save_user_config():
 func create_inventories():
 	var w_inv = HMRPGHelper.get_inst_weight_inventory()
 	w_inv.max_weight = 10
-	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
-	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
-	w_inv.add_item(ItemGenerator.get_health_potion(Main.HMHealth.TYPE_10))
+	w_inv.add_item(ItemGenerator.get_health_potion(HMHealth.TypePotion.TYPE_10))
+	w_inv.add_item(ItemGenerator.get_health_potion(HMHealth.TypePotion.TYPE_10))
+	w_inv.add_item(ItemGenerator.get_health_potion(HMHealth.TypePotion.TYPE_10))
 	
 #	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))
 #	w_inv.add_item(ItemGenerator.get_random_sword_from_enemy(20,20))

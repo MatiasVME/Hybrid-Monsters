@@ -4,7 +4,7 @@ func _ready():
 	DeliveryManager.get_node("Deliveries").connect("new_delivery", self, "_on_new_delivery")
 
 func _on_new_delivery(delivery):
-	SoundManager.play_sound(SoundManager.NOTIFICATION)
+	SoundManager.play_sound(SoundManager.Sound.NOTIFICATION)
 	
 	if delivery[0] == "ShopItems":
 		$ShopAnim.play("show")

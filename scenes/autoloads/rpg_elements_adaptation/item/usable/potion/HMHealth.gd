@@ -3,6 +3,8 @@
 
 extends "HMPotion.gd"
 
+class_name HMHealth
+
 var health
 
 enum TypePotion {
@@ -15,13 +17,13 @@ var type_potion = TypePotion.TYPE_5 setget set_type_potion, get_type_potion
 
 func get_potion_name():
 	match type_potion:
-		TYPE_5:
+		TypePotion.TYPE_5:
 			return "Health (5)"
-		TYPE_10:
+		TypePotion.TYPE_10:
 			return "Health (10)"
-		TYPE_15:
+		TypePotion.TYPE_15:
 			return "Health (15)"
-		TYPE_20:
+		TypePotion.TYPE_20:
 			return "Health (20)"
 			
 func set_type_potion(_type_potion):
@@ -31,22 +33,22 @@ func set_type_potion(_type_potion):
 	type_potion = _type_potion
 	
 	match _type_potion:
-		TYPE_5:
+		TypePotion.TYPE_5:
 			health = 5
 			self.item_name = get_potion_name()
 			self.buy_price = 25
 			self.sell_price = self.buy_price / 4
-		TYPE_10:
+		TypePotion.TYPE_10:
 			health = 10
 			self.item_name = get_potion_name()
 			self.buy_price = 50
 			self.sell_price = self.buy_price / 4
-		TYPE_15:
+		TypePotion.TYPE_15:
 			health = 15
 			self.item_name = get_potion_name()
 			self.buy_price = 75
 			self.sell_price = self.buy_price / 4
-		TYPE_20:
+		TypePotion.TYPE_20:
 			health = 20
 			self.item_name = get_potion_name()
 			self.buy_price = 100

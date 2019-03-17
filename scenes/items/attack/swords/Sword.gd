@@ -2,7 +2,7 @@ extends "../Attack.gd"
 
 func _ready():
 	update()
-	var rand_sound = int(round(rand_range(SoundManager.SWORD_1, SoundManager.SWORD_3)))
+	var rand_sound = int(round(rand_range(SoundManager.Sound.SWORD_1, SoundManager.Sound.SWORD_3)))
 	SoundManager.play_sound(rand_sound)
 
 # Actualiza la data del sword, como por ejemplo el skin

@@ -76,7 +76,7 @@ func describe_commons(hm_item):
 	$Hbox/Desc/VBox.add_child(commons)
 
 func describe_potion(hm_item):
-	if not hm_item is Main.HMPotion:
+	if not hm_item is HMPotion:
 		return
 		
 	var desc_potion = load("res://scenes/hud/inventory/ItemDesc-Potion.tscn").instance()
@@ -86,7 +86,7 @@ func describe_potion(hm_item):
 	$Hbox/Desc/VBox.add_child(desc_potion)
 
 func describe_attack(hm_item):
-	if not hm_item is Main.HMAttack:
+	if not hm_item is HMAttack:
 		return
 	
 	var attack = load("res://scenes/hud/inventory/ItemDesc-Attack.tscn").instance()
@@ -96,7 +96,7 @@ func describe_attack(hm_item):
 	$Hbox/Desc/VBox.add_child(attack)
 
 func describe_armor(hm_item):
-	if not hm_item is Main.HMArmor:
+	if not hm_item is HMArmor:
 		return
 		
 	var armor = load("res://scenes/hud/inventory/ItemDesc-Armor.tscn").instance()
@@ -121,7 +121,7 @@ func unequip(hm_item):
 	var players = get_tree().get_nodes_in_group("Player")
 	
 	if players.size() > 0:
-		if hm_item is Main.HMSword:
+		if hm_item is HMSword:
 			hm_item.equiped_how = players[0].primary_weapon_data.Equipable.NONE
 			players[0].primary_weapon_data = null
 			players[0].get_node("CurrentWeapon").texture = null
@@ -170,7 +170,7 @@ func _on_Buy_pressed():
 
 	# Pregunta si puede añadir el item dependiendo de su peso
 	if not DataManager.inventories[Main.current_player].can_add_item(current_item_in_gui.hm_item):
-		SoundManager.play_sound(SoundManager.NOPE)
+		SoundManager.play_sound(SoundManager.Sound.NOPE)
 		return
 
 	# Moverlo al inventario visual del jugador
@@ -189,7 +189,7 @@ func _on_Buy_pressed():
 	update_gold_amount()
 	update_weight()
 	
-	var rand_sound = int(round(rand_range(SoundManager.COIN_1, SoundManager.COIN_3)))
+	var rand_sound = int(round(rand_range(SoundManager.Sound.COIN_1, SoundManager.Sound.COIN_3)))
 	SoundManager.play_sound(rand_sound)
 	
 	hud.get_node("Inventory").update_inv()
@@ -202,7 +202,7 @@ func _on_Sell_pressed():
 	Main.current_gold += current_item_in_gui.hm_item.sell_price
 	
 	# Si esta equipado lo desequipamos
-	if current_item_in_gui.hm_item is Main.HMEquipable and current_item_in_gui.hm_item.equiped_how != current_item_in_gui.hm_item.Equipable.NONE:
+	if current_item_in_gui.hm_item is HMEquipable and current_item_in_gui.hm_item.equiped_how != current_item_in_gui.hm_item.Equipable.NONE:
 		print("Lo desequipamos")
 		unequip(current_item_in_gui.hm_item)
 	
@@ -222,7 +222,7 @@ func _on_Sell_pressed():
 	update_gold_amount()
 	update_weight()
 	
-	var rand_sound = int(round(rand_range(SoundManager.COIN_1, SoundManager.COIN_3)))
+	var rand_sound = int(round(rand_range(SoundManager.Sound.COIN_1, SoundManager.Sound.COIN_3)))
 	SoundManager.play_sound(rand_sound)
 	
 	hud.get_node("Inventory").update_inv()
