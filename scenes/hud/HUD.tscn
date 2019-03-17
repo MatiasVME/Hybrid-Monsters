@@ -21,10 +21,7 @@
 [ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Inventory:position")
 tracks/0/interp = 1
@@ -39,10 +36,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Inventory:position")
 tracks/0/interp = 1
@@ -57,10 +51,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Attributes:scale")
 tracks/0/interp = 1
@@ -87,10 +78,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Attributes:scale")
 tracks/0/interp = 1
@@ -117,10 +105,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-
-length = 1.0
 loop = true
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("HubOther:self_modulate")
 tracks/0/interp = 1
@@ -135,10 +120,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-
 length = 0.6
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Shop:position")
 tracks/0/interp = 1
@@ -165,10 +147,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-
 length = 0.6
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Shop:position")
 tracks/0/interp = 1
@@ -195,11 +174,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-
 resource_name = "hide"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Achievements:position")
 tracks/0/interp = 1
@@ -226,11 +201,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-
 resource_name = "show"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Achievements:position")
 tracks/0/interp = 1
@@ -257,10 +228,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-
 length = 2.5
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -287,10 +255,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Menu:position")
 tracks/0/interp = 1
@@ -329,10 +294,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=12]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Menu:position")
 tracks/0/interp = 1
@@ -371,10 +333,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-
 length = 2.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -401,10 +360,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-
 length = 3.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -431,10 +387,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-
 length = 3.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Curtain:modulate")
 tracks/0/interp = 1
@@ -485,10 +438,7 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=16]
-
 length = 2.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -540,128 +490,70 @@ tracks/3/keys = {
 } ]
 }
 
-[node name="HUD" type="CanvasLayer" index="0" groups=[
+[node name="HUD" type="CanvasLayer" groups=[
 "HUD",
 ]]
-
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Placeholder" type="Sprite" parent="." index="0"]
-
+[node name="Placeholder" type="Sprite" parent="."]
 visible = false
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
-_sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Status" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Status" parent="." instance=ExtResource( 3 )]
 
-[node name="MoneyDisplay" parent="." index="2" instance=ExtResource( 4 )]
+[node name="MoneyDisplay" parent="." instance=ExtResource( 4 )]
 
-[node name="EnemiesAmount" type="Label" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="EnemiesAmount" type="Label" parent="."]
 margin_left = 152.0
 margin_top = 148.0
 margin_right = 235.0
 margin_bottom = 158.0
 rect_scale = Vector2( 0.6, 0.6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.404233, 0.773438, 0.175232, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Enemies: 100/100"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="EnemiesRequired" type="Label" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="EnemiesRequired" type="Label" parent="."]
 margin_left = 152.0
 margin_top = 154.0
 margin_right = 235.0
 margin_bottom = 164.0
 rect_scale = Vector2( 0.6, 0.6 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.404233, 0.773438, 0.175232, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Required: 99"
 align = 1
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Inventory" parent="." index="5" instance=ExtResource( 6 )]
-
+[node name="Inventory" parent="." instance=ExtResource( 6 )]
 editor/display_folded = true
 
 [node name="HUDInventory" parent="Inventory" index="1"]
-
 focus_mode = 0
 enabled_focus_mode = 0
 
 [node name="Inv" parent="Inventory" index="2"]
-
 editor/display_folded = true
 
-[node name="AnimInv" type="AnimationPlayer" parent="." index="6"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimInv" type="AnimationPlayer" parent="."]
 anims/hide = SubResource( 1 )
 anims/show = SubResource( 2 )
-blend_times = [  ]
 
-[node name="Attributes" parent="." index="7" instance=ExtResource( 7 )]
-
+[node name="Attributes" parent="." instance=ExtResource( 7 )]
 position = Vector2( 250, 160 )
 scale = Vector2( 1e-05, 1e-05 )
 
-[node name="AnimAttributes" type="AnimationPlayer" parent="." index="8"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimAttributes" type="AnimationPlayer" parent="."]
 anims/hide = SubResource( 3 )
 anims/show = SubResource( 4 )
-blend_times = [  ]
 
-[node name="HubOther" parent="." index="9" instance=ExtResource( 8 )]
-
+[node name="HubOther" parent="." instance=ExtResource( 8 )]
 margin_left = 210.0
 margin_top = 130.0
 margin_right = 225.0
@@ -670,116 +562,64 @@ rect_scale = Vector2( 2, 2 )
 focus_mode = 0
 toggle_mode = true
 enabled_focus_mode = 0
-_sections_unfolded = [ "Rect", "Textures", "Visibility" ]
 
-[node name="AvailableAttributes" type="AnimationPlayer" parent="." index="10"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AvailableAttributes" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 5 )
-blend_times = [  ]
 
-[node name="Shop" parent="." index="11" instance=ExtResource( 9 )]
-
+[node name="Shop" parent="." instance=ExtResource( 9 )]
 visible = false
 position = Vector2( 240, 0 )
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Achievements" parent="." index="12" instance=ExtResource( 10 )]
-
+[node name="Achievements" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 210.38, 0 )
-_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="ShopButton" parent="." index="13" instance=ExtResource( 11 )]
-
+[node name="ShopButton" parent="." instance=ExtResource( 11 )]
 margin_left = 220.0
 margin_top = 24.0
 margin_right = 236.0
 margin_bottom = 40.0
+focus_mode = 0
 toggle_mode = true
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Achievement" parent="." index="14" instance=ExtResource( 12 )]
-
+[node name="Achievement" parent="." instance=ExtResource( 12 )]
 margin_left = 200.0
 margin_top = 2.0
 margin_right = 216.0
 margin_bottom = 18.0
 focus_mode = 0
 enabled_focus_mode = 0
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="AnimShop" type="AnimationPlayer" parent="." index="15"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimShop" type="AnimationPlayer" parent="."]
 anims/hide = SubResource( 6 )
 anims/show = SubResource( 7 )
-blend_times = [  ]
 
-[node name="AnimAchievements" type="AnimationPlayer" parent="." index="16"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimAchievements" type="AnimationPlayer" parent="."]
 anims/hide = SubResource( 8 )
 anims/show = SubResource( 9 )
-blend_times = [  ]
 
-[node name="NotificationAchievements" type="Node2D" parent="." index="17"]
-
+[node name="NotificationAchievements" type="Node2D" parent="."]
+editor/display_folded = true
 visible = false
 position = Vector2( 0, -40 )
 script = ExtResource( 13 )
-_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Bg" type="Sprite" parent="NotificationAchievements" index="0"]
-
+[node name="Bg" type="Sprite" parent="NotificationAchievements"]
 position = Vector2( 120, 20 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 14 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Anim" type="AnimationPlayer" parent="NotificationAchievements" index="1"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="Anim" type="AnimationPlayer" parent="NotificationAchievements"]
 anims/show_and_hide = SubResource( 10 )
-blend_times = [  ]
 
-[node name="Achievement" type="Sprite" parent="NotificationAchievements" index="2"]
-
+[node name="Achievement" type="Sprite" parent="NotificationAchievements"]
 position = Vector2( 70, 16 )
 texture = ExtResource( 15 )
-_sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Title" type="Label" parent="NotificationAchievements" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Title" type="Label" parent="NotificationAchievements"]
 margin_left = 86.0
 margin_right = 186.0
 margin_bottom = 34.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.780392, 0.811765, 0.866667, 1 )
 custom_colors/font_color_shadow = Color( 0.101961, 0.0980392, 0.196078, 1 )
@@ -788,35 +628,18 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Menu" type="Node2D" parent="." index="18"]
-
+[node name="Menu" type="Node2D" parent="."]
 editor/display_folded = true
 position = Vector2( 240, 0 )
 scale = Vector2( 1e-05, 1e-05 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="Panel" type="NinePatchRect" parent="Menu" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Panel" type="NinePatchRect" parent="Menu"]
 margin_left = 70.0
 margin_top = 28.0
 margin_right = 120.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 texture = ExtResource( 16 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -824,12 +647,11 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-_sections_unfolded = [ "Axis Stretch", "Patch Margin", "Rect" ]
 
-[node name="Buttons" type="Node2D" parent="Menu/Panel" index="0"]
+[node name="Buttons" type="Node2D" parent="Menu/Panel"]
+position = Vector2( 31.9507, 32 )
 
-[node name="Resume" parent="Menu/Panel/Buttons" index="0" instance=ExtResource( 17 )]
-
+[node name="Resume" parent="Menu/Panel/Buttons" instance=ExtResource( 17 )]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -843,11 +665,9 @@ focus_mode = 0
 enabled_focus_mode = 0
 
 [node name="Label" parent="Menu/Panel/Buttons/Resume" index="0"]
-
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" index="1" instance=ExtResource( 17 )]
-
+[node name="Menu" parent="Menu/Panel/Buttons" instance=ExtResource( 17 )]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -861,113 +681,58 @@ focus_mode = 0
 enabled_focus_mode = 0
 
 [node name="Label" parent="Menu/Panel/Buttons/Menu" index="0"]
-
 text = "MENU"
 
-[node name="AnimMenu" type="AnimationPlayer" parent="." index="19"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimMenu" type="AnimationPlayer" parent="."]
 anims/hide = SubResource( 11 )
 anims/show = SubResource( 12 )
-blend_times = [  ]
 
-[node name="HUDMenuButton" parent="." index="20" instance=ExtResource( 18 )]
-
+[node name="HUDMenuButton" parent="." instance=ExtResource( 18 )]
 margin_left = 220.0
 margin_right = 230.0
 rect_scale = Vector2( 2, 2 )
 focus_mode = 0
 toggle_mode = true
 enabled_focus_mode = 0
-_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="Curtain" type="ColorRect" parent="." index="21"]
-
+[node name="Curtain" type="ColorRect" parent="."]
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -8.0
 margin_top = -8.0
 margin_right = 248.0
 margin_bottom = 168.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 1 )
-_sections_unfolded = [ "Material", "Mouse", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AnimCurtain" type="AnimationPlayer" parent="Curtain" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimCurtain" type="AnimationPlayer" parent="Curtain"]
 anims/hide = SubResource( 13 )
 anims/show = SubResource( 14 )
-blend_times = [  ]
 
-[node name="WinLost" parent="." index="22" instance=ExtResource( 19 )]
-
+[node name="WinLost" parent="." instance=ExtResource( 19 )]
 visible = false
 position = Vector2( 0, -162 )
-_sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="AnimWinLost" type="AnimationPlayer" parent="." index="23"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="AnimWinLost" type="AnimationPlayer" parent="."]
 anims/show = SubResource( 15 )
-blend_times = [  ]
 
-[node name="Debug" type="Node2D" parent="." index="24"]
-
+[node name="Debug" type="Node2D" parent="."]
 editor/display_folded = true
 visible = false
 scale = Vector2( 0.6, 0.6 )
-_sections_unfolded = [ "Transform" ]
 
-[node name="VarDificulty" type="Label" parent="Debug" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VarDificulty" type="Label" parent="Debug"]
 margin_left = 3.0
 margin_right = 83.0
 margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 text = "VarDificulty: 10"
 valign = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
 
-[node name="Display" type="Label" parent="." index="25"]
-
+[node name="Display" type="Label" parent="."]
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
@@ -980,11 +745,6 @@ margin_right = 30.0
 margin_bottom = 22.0
 rect_scale = Vector2( 6, 6 )
 rect_pivot_offset = Vector2( 30, 14 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.0820312, 0.875, 0.131592, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -993,45 +753,23 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Visibility", "custom_colors", "custom_fonts" ]
 
-[node name="Anim" type="AnimationPlayer" parent="Display" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="Anim" type="AnimationPlayer" parent="Display"]
 anims/show = SubResource( 16 )
-blend_times = [  ]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="." index="26"]
-
-motion_scale = Vector2( 1, 1 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion" ]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 
 [connection signal="toggled" from="Inventory/HUDInventory" to="." method="_on_HUDInventory_toggled"]
-
 [connection signal="toggled" from="HubOther" to="." method="_on_HubOther_toggled"]
-
 [connection signal="toggled" from="ShopButton" to="." method="_on_ShopButton_toggled"]
-
 [connection signal="toggled" from="Achievement" to="." method="_on_Achievement_toggled"]
-
 [connection signal="pressed" from="Menu/Panel/Buttons/Resume" to="." method="_on_Resume_pressed"]
-
 [connection signal="pressed" from="Menu/Panel/Buttons/Menu" to="." method="_on_Menu_pressed"]
-
 [connection signal="toggled" from="HUDMenuButton" to="." method="_on_HUDMenuButton_toggled"]
-
 [connection signal="animation_finished" from="AnimWinLost" to="." method="_on_AnimWinLost_animation_finished"]
 
-
 [editable path="Inventory"]
+
 [editable path="Menu/Panel/Buttons/Resume"]
+
 [editable path="Menu/Panel/Buttons/Menu"]

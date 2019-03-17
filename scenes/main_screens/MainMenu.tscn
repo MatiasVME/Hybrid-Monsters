@@ -110,7 +110,6 @@ texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 10 )
 
 [node name="Config" type="TextureButton" parent="."]
-visible = false
 margin_left = 8.0
 margin_top = 112.0
 margin_right = 16.0
