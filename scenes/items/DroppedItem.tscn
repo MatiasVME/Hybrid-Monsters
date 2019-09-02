@@ -5,9 +5,7 @@
 [ext_resource path="res://scenes/items/attack/swords/skins/ruby-jagged.png" type="Texture" id=3]
 
 [sub_resource type="ShaderMaterial" id=1]
-
 resource_local_to_scene = true
-render_priority = 0
 shader = ExtResource( 2 )
 shader_param/c_1 = Color( 1, 0, 0, 1 )
 shader_param/c_2 = Color( 0, 1, 0, 1 )
@@ -16,18 +14,11 @@ shader_param/r_1 = null
 shader_param/r_2 = null
 shader_param/r_3 = null
 shader_param/u_tolerance = null
-_sections_unfolded = [ "Resource", "shader_param" ]
 
 [sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
 extents = Vector2( 4, 4 )
 
 [sub_resource type="Animation" id=3]
-
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
 tracks/0/interp = 1
@@ -42,10 +33,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-
 length = 0.4
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
 tracks/0/interp = 1
@@ -74,46 +62,22 @@ tracks/1/keys = {
 [node name="DroppedItem" type="Node2D" groups=[
 "DroppedItem",
 ]]
-
 script = ExtResource( 1 )
-_sections_unfolded = [ "Material" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
-
+[node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 scale = Vector2( 0.143583, 0.143583 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Transform", "Visibility" ]
 
-[node name="Area" type="Area2D" parent="." index="1"]
+[node name="Area" type="Area2D" parent="."]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="Collision" type="CollisionShape2D" parent="Area" index="0"]
-
+[node name="Collision" type="CollisionShape2D" parent="Area"]
 shape = SubResource( 2 )
 
-[node name="Anim" type="AnimationPlayer" parent="." index="2"]
-
-root_node = NodePath("..")
+[node name="Anim" type="AnimationPlayer" parent="."]
 autoplay = "drop"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
 anims/drop = SubResource( 3 )
 anims/take = SubResource( 4 )
-blend_times = [  ]
-
 [connection signal="area_entered" from="Area" to="." method="_on_Area_area_entered"]
-
 [connection signal="area_exited" from="Area" to="." method="_on_Area_area_exited"]
-
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
-
-

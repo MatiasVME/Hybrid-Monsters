@@ -8,17 +8,17 @@
 [ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/achievements/Achievements.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/buttons/achievements/Achievement.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/hud/NotificationAchievements.gd" type="Script" id=13]
-[ext_resource path="res://scenes/achievements/notifications.png" type="Texture" id=14]
-[ext_resource path="res://scenes/achievements/achievements_sprites/wood_age.png" type="Texture" id=15]
-[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=16]
-[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/hud/NotificationAchievements.gd" type="Script" id=9]
+[ext_resource path="res://scenes/achievements/notifications.png" type="Texture" id=10]
+[ext_resource path="res://scenes/achievements/achievements_sprites/wood_age.png" type="Texture" id=11]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=12]
+[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/achievements/Achievements.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/buttons/achievements/Achievement.tscn" type="PackedScene" id=19]
 
 [sub_resource type="Animation" id=1]
 length = 0.4
@@ -566,30 +566,6 @@ enabled_focus_mode = 0
 [node name="AvailableAttributes" type="AnimationPlayer" parent="."]
 anims/idle = SubResource( 5 )
 
-[node name="Shop" parent="." instance=ExtResource( 9 )]
-visible = false
-position = Vector2( 240, 0 )
-
-[node name="Achievements" parent="." instance=ExtResource( 10 )]
-visible = false
-position = Vector2( 210.38, 0 )
-
-[node name="ShopButton" parent="." instance=ExtResource( 11 )]
-margin_left = 220.0
-margin_top = 24.0
-margin_right = 236.0
-margin_bottom = 40.0
-focus_mode = 0
-toggle_mode = true
-
-[node name="Achievement" parent="." instance=ExtResource( 12 )]
-margin_left = 200.0
-margin_top = 2.0
-margin_right = 216.0
-margin_bottom = 18.0
-focus_mode = 0
-enabled_focus_mode = 0
-
 [node name="AnimShop" type="AnimationPlayer" parent="."]
 anims/hide = SubResource( 6 )
 anims/show = SubResource( 7 )
@@ -602,19 +578,19 @@ anims/show = SubResource( 9 )
 editor/display_folded = true
 visible = false
 position = Vector2( 0, -40 )
-script = ExtResource( 13 )
+script = ExtResource( 9 )
 
 [node name="Bg" type="Sprite" parent="NotificationAchievements"]
 position = Vector2( 120, 20 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 14 )
+texture = ExtResource( 10 )
 
 [node name="Anim" type="AnimationPlayer" parent="NotificationAchievements"]
 anims/show_and_hide = SubResource( 10 )
 
 [node name="Achievement" type="Sprite" parent="NotificationAchievements"]
 position = Vector2( 70, 16 )
-texture = ExtResource( 15 )
+texture = ExtResource( 11 )
 
 [node name="Title" type="Label" parent="NotificationAchievements"]
 margin_left = 86.0
@@ -640,7 +616,7 @@ margin_top = 28.0
 margin_right = 120.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
-texture = ExtResource( 16 )
+texture = ExtResource( 12 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -651,7 +627,7 @@ axis_stretch_vertical = 1
 [node name="Buttons" type="Node2D" parent="Menu/Panel"]
 position = Vector2( 31.9507, 32 )
 
-[node name="Resume" parent="Menu/Panel/Buttons" instance=ExtResource( 17 )]
+[node name="Resume" parent="Menu/Panel/Buttons" instance=ExtResource( 13 )]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -667,7 +643,7 @@ enabled_focus_mode = 0
 [node name="Label" parent="Menu/Panel/Buttons/Resume" index="0"]
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" instance=ExtResource( 17 )]
+[node name="Menu" parent="Menu/Panel/Buttons" instance=ExtResource( 13 )]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -687,7 +663,7 @@ text = "MENU"
 anims/hide = SubResource( 11 )
 anims/show = SubResource( 12 )
 
-[node name="HUDMenuButton" parent="." instance=ExtResource( 18 )]
+[node name="HUDMenuButton" parent="." instance=ExtResource( 14 )]
 margin_left = 220.0
 margin_right = 230.0
 rect_scale = Vector2( 2, 2 )
@@ -712,9 +688,33 @@ __meta__ = {
 anims/hide = SubResource( 13 )
 anims/show = SubResource( 14 )
 
-[node name="WinLost" parent="." instance=ExtResource( 19 )]
+[node name="WinLost" parent="." instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 0, -162 )
+
+[node name="Shop" parent="." instance=ExtResource( 16 )]
+visible = false
+position = Vector2( 240, 0 )
+
+[node name="Achievements" parent="." instance=ExtResource( 17 )]
+visible = false
+position = Vector2( 210.38, 0 )
+
+[node name="ShopButton" parent="." instance=ExtResource( 18 )]
+margin_left = 220.0
+margin_top = 24.0
+margin_right = 236.0
+margin_bottom = 40.0
+focus_mode = 0
+toggle_mode = true
+
+[node name="Achievement" parent="." instance=ExtResource( 19 )]
+margin_left = 200.0
+margin_top = 2.0
+margin_right = 216.0
+margin_bottom = 18.0
+focus_mode = 0
+enabled_focus_mode = 0
 
 [node name="AnimWinLost" type="AnimationPlayer" parent="."]
 anims/show = SubResource( 15 )
@@ -733,6 +733,7 @@ text = "VarDificulty: 10"
 valign = 1
 
 [node name="Display" type="Label" parent="."]
+editor/display_folded = true
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
@@ -758,14 +759,13 @@ clip_text = true
 anims/show = SubResource( 16 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-
 [connection signal="toggled" from="Inventory/HUDInventory" to="." method="_on_HUDInventory_toggled"]
 [connection signal="toggled" from="HubOther" to="." method="_on_HubOther_toggled"]
-[connection signal="toggled" from="ShopButton" to="." method="_on_ShopButton_toggled"]
-[connection signal="toggled" from="Achievement" to="." method="_on_Achievement_toggled"]
 [connection signal="pressed" from="Menu/Panel/Buttons/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Menu/Panel/Buttons/Menu" to="." method="_on_Menu_pressed"]
 [connection signal="toggled" from="HUDMenuButton" to="." method="_on_HUDMenuButton_toggled"]
+[connection signal="toggled" from="ShopButton" to="." method="_on_ShopButton_toggled"]
+[connection signal="toggled" from="Achievement" to="." method="_on_Achievement_toggled"]
 [connection signal="animation_finished" from="AnimWinLost" to="." method="_on_AnimWinLost_animation_finished"]
 
 [editable path="Inventory"]

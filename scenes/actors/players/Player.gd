@@ -157,6 +157,10 @@ func config_character():
 	DataManager.players[0].connect("level_up", self, "_on_level_up")
 	DataManager.players[0].connect("add_xp", self, "_on_add_xp")
 
+func monster_say(text : String):
+	$Say.text = text
+	$Say/Anim.play("Show")
+
 func damage(damage):
 	$Anim.play("damage")
 	DataManager.players[0].damage(damage)
@@ -272,3 +276,11 @@ func _on_drop_item(drop):
 	
 	dropped_item.global_position = global_position
 	dropped_item.rotation_degrees = int(rand_range(0, 360))
+
+
+func _on_PlayerArea_area_entered(area):
+	if area.get_parent() is DroppedItem:
+		monster_say("Press Space to get the item")
+
+
+

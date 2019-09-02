@@ -65,7 +65,7 @@ shader_param/r_2 = null
 shader_param/r_3 = null
 shader_param/u_tolerance = null
 
-[node name="Enemy" index="0" groups=[
+[node name="Enemy" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )

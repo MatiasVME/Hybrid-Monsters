@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/actors/Actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/actors/players/Player.gd" type="Script" id=2]
 [ext_resource path="res://shaders/ReplaceColors.shader" type="Shader" id=3]
 [ext_resource path="res://scenes/actors/players/arrows/arrow.png" type="Texture" id=4]
+[ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "touch"
@@ -61,6 +62,22 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "Show"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
 [node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
@@ -68,9 +85,6 @@ script = ExtResource( 2 )
 
 [node name="Anim" parent="." index="0"]
 anims/touch = SubResource( 1 )
-
-[node name="Pivot" parent="." index="2"]
-editor/display_folded = false
 
 [node name="Sprite" parent="Pivot" index="0"]
 material = SubResource( 2 )
@@ -83,6 +97,7 @@ editor/display_folded = true
 shape = SubResource( 3 )
 
 [node name="Around" type="Node2D" parent="." index="4"]
+editor/display_folded = true
 
 [node name="Left" type="RayCast2D" parent="Around" index="0"]
 position = Vector2( -10, 0 )
@@ -135,3 +150,22 @@ offset = Vector2( 28, 0 )
 
 [node name="Anim" type="AnimationPlayer" parent="Arrow" index="0"]
 anims/show = SubResource( 5 )
+
+[node name="Say" type="Label" parent="." index="10"]
+margin_left = -51.931
+margin_top = -35.429
+margin_right = 52.069
+margin_bottom = -9.42899
+rect_scale = Vector2( 0, 0 )
+rect_pivot_offset = Vector2( 51.2799, 13.1247 )
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 0.705882 )
+text = "Hello, I am a hybrid monster"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="Anim" type="AnimationPlayer" parent="Say" index="0"]
+anims/Show = SubResource( 6 )
+[connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]

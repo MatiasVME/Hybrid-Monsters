@@ -5,6 +5,9 @@ func _ready():
 	
 	$Screens/MainMenu.connect("play", self, "_on_play")
 	
+	if not Main.music_enable:
+		$Underground.stop()
+	
 func _on_play():
 	$Anim.play("stop_music")
 

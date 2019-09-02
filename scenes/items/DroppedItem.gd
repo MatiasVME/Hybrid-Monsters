@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name DroppedItem
+
 var hm_item
 var can_take = false
 

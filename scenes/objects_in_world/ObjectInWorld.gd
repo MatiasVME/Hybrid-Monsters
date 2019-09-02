@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name ObjectInWorld
+
 var is_solid = true
 
 signal touched(who)

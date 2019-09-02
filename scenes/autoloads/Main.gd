@@ -5,7 +5,7 @@ extends Node
 const VERSION = "0.4.0"
 const DEBUG = true
 
-var music_enable = true
+var music_enable = false
 var sound_enable = true
 
 const RES_X = 240

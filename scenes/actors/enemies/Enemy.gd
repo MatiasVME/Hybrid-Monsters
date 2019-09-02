@@ -90,7 +90,6 @@ func config_hm_character():
 		
 		$CurrentArmor.texture = load(armor_data.texture_path)
 	
-	
 	character.connect("remove_hp", self, "_on_remove_hp")
 	character.connect("dead", self, "_on_dead")
 	
@@ -155,7 +154,6 @@ func attack(player):
 		weapon.look_at(player_dir)
 		
 		add_child(weapon)
-#		print("atacando con espada!!! :b")
 		
 		total_damage = character.get_attack() + primary_weapon_data.damage
 
@@ -264,7 +262,10 @@ func drop():
 	# MoneyDrop
 	Main.current_gold += character.drop_gold
 	Main.store_gold += character.drop_gold
-
+	
+	print("+gold: ", character.drop_gold)
+	print("+drop: ", character.xp_drop)
+	
 # Signals
 #
 
