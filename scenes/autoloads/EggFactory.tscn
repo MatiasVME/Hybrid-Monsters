@@ -5,14 +5,10 @@
 [ext_resource path="res://addons/hook/icons/hook_delivery.png" type="Texture" id=3]
 
 [node name="EggFactory" type="Node"]
-
 script = ExtResource( 1 )
 
-[node name="EggDelivery" type="Node" parent="." index="0"]
-
+[node name="EggDelivery" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-
-

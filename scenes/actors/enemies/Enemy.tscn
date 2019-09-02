@@ -12,11 +12,9 @@
 [ext_resource path="res://sounds/sfx/footsteps_4.wav" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "win"
 length = 3.0
 loop = true
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Sprite:position")
 tracks/0/interp = 1
@@ -43,9 +41,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="ShaderMaterial" id=2]
-
 resource_local_to_scene = true
-render_priority = 0
 shader = ExtResource( 3 )
 shader_param/c_1 = null
 shader_param/c_2 = null
@@ -54,17 +50,12 @@ shader_param/r_1 = null
 shader_param/r_2 = null
 shader_param/r_3 = null
 shader_param/u_tolerance = null
-_sections_unfolded = [ "Resource" ]
 
 [sub_resource type="CircleShape2D" id=3]
-
-custom_solver_bias = 0.0
 radius = 56.0
 
 [sub_resource type="ShaderMaterial" id=4]
-
 resource_local_to_scene = true
-render_priority = 0
 shader = ExtResource( 3 )
 shader_param/c_1 = Color( 1, 0, 0, 1 )
 shader_param/c_2 = Color( 0, 1, 0, 1 )
@@ -73,124 +64,52 @@ shader_param/r_1 = null
 shader_param/r_2 = null
 shader_param/r_3 = null
 shader_param/u_tolerance = null
-_sections_unfolded = [ "Resource", "shader_param" ]
 
-[node name="Enemy" groups=[
+[node name="Enemy" index="0" groups=[
 "Enemy",
 ] instance=ExtResource( 1 )]
-
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision", "Material", "Offset", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 
 [node name="Anim" parent="." index="0"]
-
 anims/win = SubResource( 1 )
 
 [node name="Sprite" parent="Pivot" index="0"]
-
 material = SubResource( 2 )
 position = Vector2( 0, 0 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform", "Visibility" ]
 
 [node name="ViewArea" type="Area2D" parent="." index="3"]
 
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
 [node name="Collision" type="CollisionShape2D" parent="ViewArea" index="0"]
-
 shape = SubResource( 3 )
 
 [node name="DificultyNum" parent="." index="5" instance=ExtResource( 4 )]
 
 [node name="LifeBar" type="TextureProgress" parent="." index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_left = -8.0
 margin_top = -11.0
 margin_right = 8.0
 margin_bottom = -8.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
 texture_under = ExtResource( 5 )
-texture_over = null
 texture_progress = ExtResource( 6 )
-radial_fill_degrees = 360.0
-radial_center_offset = Vector2( 0, 0 )
-nine_patch_stretch = false
-_sections_unfolded = [ "Textures" ]
 
 [node name="CurrentWeapon" parent="." index="7"]
-
 material = SubResource( 4 )
 
 [node name="Footsteps1" type="AudioStreamPlayer2D" parent="." index="10"]
-
 stream = ExtResource( 7 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
 max_distance = 200.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="Footsteps2" type="AudioStreamPlayer2D" parent="." index="11"]
-
 stream = ExtResource( 8 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
 max_distance = 200.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="Footsteps3" type="AudioStreamPlayer2D" parent="." index="12"]
-
 stream = ExtResource( 9 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
 max_distance = 200.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
 
 [node name="Footsteps4" type="AudioStreamPlayer2D" parent="." index="13"]
-
 stream = ExtResource( 10 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
 max_distance = 200.0
-attenuation = 1.0
-bus = "Master"
-area_mask = 1
-
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
-
 [connection signal="area_entered" from="ViewArea" to="." method="_on_ViewArea_area_entered"]
-
 [connection signal="area_exited" from="ViewArea" to="." method="_on_ViewArea_area_exited"]
-
-

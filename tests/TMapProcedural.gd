@@ -15,7 +15,8 @@ func _ready():
 		true
 	)
 	
-	$CaveGenerator.add_border(Main.INDESTRUCTIBLE_WALL)
+	$CaveGenerator.add_border(Main.CellTypes.INDESTRUCTIBLE_WALL)
+	$CaveGenerator.replace_wall_for(7)
 
 	var my_player = rec_player.instance()
 

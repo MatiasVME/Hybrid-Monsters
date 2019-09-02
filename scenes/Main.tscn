@@ -276,7 +276,6 @@ color = Color( 0, 0, 0, 0 )
 [node name="Underground" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
-
 [connection signal="pressed" from="Screens/MainMenu/Info" to="." method="_on_Info_pressed"]
 [connection signal="pressed" from="Screens/MainMenu/Config" to="." method="_on_Config_pressed"]
 [connection signal="pressed" from="Screens/Config/Back" to="." method="_on_Back_pressed"]

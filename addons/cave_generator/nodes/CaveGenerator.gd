@@ -29,6 +29,8 @@ var map = []
 var tilemap
 var fill_wall_percent = 50
 
+var tile_wall := 1 # No esta funcionando ... al parecer
+
 # Métodos públicos y Setters/Getters
 #
 
@@ -54,7 +56,7 @@ func generate_walls(_tilemap, _smooth_iteration = 0, _sizev = Vector2(35, 35), _
 # demás son variaciones.
 func generate_floor_map(tilemap, sizev):
 	# Cantidad de tipos de tiles que hay en el tilemap
-	var tile_type_amount = tilemap.tile_set.get_tiles_ids().size()
+	var tile_type_amount = tilemap.tile_set.get_tiles_ids().size() - 1
 	print(tile_type_amount)
 	
 	for i in sizev.y:
@@ -64,12 +66,24 @@ func generate_floor_map(tilemap, sizev):
 			else:
 				tilemap.set_cellv(Vector2(j, i), 0)
 
+func set_tile_wall(num = 1):
+	tile_wall = num
+
 func add_border(border_tile_num):
 	for i in size.y:
 		for j in size.x:
 			if j == 0 or i == 0 or j == size.y - 1 or i == size.x - 1:
 				tilemap.set_cellv(Vector2(i, j), border_tile_num)
 
+func replace_wall_for():
+	for i in size.y:
+		for j in size.x:
+			if tilemap.get_cell(i, j) == tile_wall:
+				tilemap.set_cellv(Vector2(i, j), tile_wall, false, false, true)
+				
+	
+	tilemap.update_bitmask_region(Vector2(), Vector2(size.x, size.y))
+	
 func smooth():
 	# new map to apply changes
 	var new_map = []
@@ -82,14 +96,14 @@ func smooth():
 	for y in range(1,size.y -1):
 		for x in range(1,size.x - 1):
 			var i = y * size.x + x
-			if map[i] == 1: # if it was a wall
+			if map[i] == tile_wall: # if it was a wall
 				if touching_walls(Vector2(x,y)) >= 4: # and 4 or more of its eight neighbors were walls
-					new_map[i] = 1 # it becomes a wall
+					new_map[i] = tile_wall # it becomes a wall
 				else:
 					new_map[i] = 0
 			elif map[i] == 0: # if it was empty
 				if touching_walls(Vector2(x,y)) >= 5: # we need 5 or neighbors
-					new_map[i] = 1
+					new_map[i] = tile_wall
 				else:
 					new_map[i] = 0
 	
@@ -118,7 +132,7 @@ func base_algoritm():
 			
 			# fill map with random tiles
 			if randi() % 101 < fill_wall_percent or x == 0 or x == size.x - 1 or y == 0 or y == size.y - 1:
-				map[i] = 1 # wall
+				map[i] = tile_wall # wall
 			else:
 				map[i] = 0 # empty
 	# draw the map

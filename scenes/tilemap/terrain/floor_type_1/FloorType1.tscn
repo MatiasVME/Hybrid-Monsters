@@ -1,62 +1,40 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/tilemap/terrain/floor_type_1/dirt_tileset.png" type="Texture" id=1]
+[ext_resource path="res://scenes/tilemap/tiles/floor.png" type="Texture" id=2]
 
-
-[node name="FloorType1" type="TileMap" index="0"]
-
-mode = 0
-tile_set = null
+[node name="FloorType1" type="TileMap"]
 cell_size = Vector2( 15, 15 )
-cell_quadrant_size = 16
-cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-cell_half_offset = 2
-cell_tile_origin = 0
-cell_y_sort = false
-cell_clip_uv = false
-collision_use_kinematic = false
-collision_friction = 1.0
-collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
-occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray(  )
-_sections_unfolded = [ "Cell" ]
 
-[node name="Dirt0" type="Sprite" parent="." index="0"]
-
+[node name="Dirt0" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 16 )
-_sections_unfolded = [ "Offset", "Region" ]
 
-[node name="Dirt1" type="Sprite" parent="." index="1"]
-
+[node name="Dirt1" type="Sprite" parent="."]
 position = Vector2( 16, 0 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 16, 0, 16, 16 )
-_sections_unfolded = [ "Offset", "Region" ]
 
-[node name="Dirt2" type="Sprite" parent="." index="2"]
-
+[node name="Dirt2" type="Sprite" parent="."]
 position = Vector2( 32, 0 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 32, 0, 16, 16 )
-_sections_unfolded = [ "Offset", "Region" ]
 
-[node name="Dirt3" type="Sprite" parent="." index="3"]
-
+[node name="Dirt3" type="Sprite" parent="."]
 position = Vector2( 48, 0 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 48, 0, 16, 16 )
-_sections_unfolded = [ "Offset", "Region" ]
 
+[node name="Floor" type="Sprite" parent="."]
+position = Vector2( 64, 80 )
+texture = ExtResource( 2 )
 

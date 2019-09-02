@@ -3,6 +3,8 @@ extends Node
 var rec_player = preload("res://scenes/actors/players/Player.tscn")
 var rec_enemy = preload("res://scenes/actors/enemies/Enemy.tscn")
 
+var size_map
+
 func _ready():
 	Main.init_game()
 	
@@ -13,10 +15,11 @@ func _ready():
 	MusicManager.play_music()
 	MusicManager.start_anim()
 	
-	var size_map = Vector2(Main.map_size, Main.map_size)
+	size_map = Vector2(Main.map_size, Main.map_size)
 	
 	$CaveGenerator.generate_floor_map($Floor, size_map)
-
+	
+	$CaveGenerator.set_tile_wall(1)
 	$CaveGenerator.generate_walls(
 		$World,
 		5,
@@ -69,6 +72,11 @@ func _ready():
 	my_player.set_hud($HUD)
 	$HUD.initial_config($HUD.Mode.BATTLE)
 	
+	for y in size_map.y:
+		for x in size_map.x:
+			$World.update_bitmask_area(Vector2(x, y))
+	
 func _on_enemy_dead(player):
 	if Main.enemies_required == Main.store_destroyed_enemies:
 		$Spawn.cave_spawn(player)
+	

@@ -206,4 +206,3 @@ position = Vector2( 6, 12 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 4 )
 offset = Vector2( 0, -8 )
-

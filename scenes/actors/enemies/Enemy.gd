@@ -33,7 +33,6 @@ func turn():
 		return
 	
 	if Main.sound_enable:
-#		foot_
 		get_node(str("Footsteps", int(round(rand_range(1, 4))))).play()
 	
 	if follow_player:

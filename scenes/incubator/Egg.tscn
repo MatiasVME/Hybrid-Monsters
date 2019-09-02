@@ -7,9 +7,7 @@
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
-
 resource_local_to_scene = true
-render_priority = 0
 shader = ExtResource( 2 )
 shader_param/c_1 = Color( 1, 0, 0, 1 )
 shader_param/c_2 = Color( 0, 1, 0, 1 )
@@ -18,14 +16,9 @@ shader_param/r_1 = null
 shader_param/r_2 = null
 shader_param/r_3 = null
 shader_param/u_tolerance = null
-_sections_unfolded = [ "Resource", "shader_param" ]
 
-[sub_resource type="Animation" id=3]
-
+[sub_resource type="Animation" id=2]
 resource_name = "open"
-length = 1.0
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("EggSprite:modulate")
 tracks/0/interp = 1
@@ -75,11 +68,8 @@ tracks/3/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 7, 7 ), Vector2( 6, 6 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-
+[sub_resource type="Animation" id=3]
 length = 0.2
-loop = false
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("EggSprite:scale")
 tracks/0/interp = 1
@@ -94,72 +84,34 @@ tracks/0/keys = {
 }
 
 [node name="Egg" type="TextureButton"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
 anchor_bottom = 1.0
 margin_right = 120.0
 rect_min_size = Vector2( 120, 160 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
 
-[node name="EggSprite" type="Sprite" parent="." index="0"]
-
+[node name="EggSprite" type="Sprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 59, 94 )
 scale = Vector2( 6, 6 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Crack" type="Sprite" parent="EggSprite" index="0"]
+[node name="Crack" type="Sprite" parent="EggSprite"]
 
-[node name="Monster" type="Sprite" parent="." index="1"]
-
+[node name="Monster" type="Sprite" parent="."]
 material = SubResource( 1 )
 position = Vector2( 59, 94 )
 rotation = -6.28319
 scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
-[node name="Anim" type="AnimationPlayer" parent="." index="2"]
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/open = SubResource( 2 )
+anims/touch = SubResource( 3 )
 
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/open = SubResource( 3 )
-anims/touch = SubResource( 2 )
-blend_times = [  ]
-
-[node name="TimeToOpen" type="Label" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="TimeToOpen" type="Label" parent="."]
 margin_top = 12.0
 margin_right = 120.0
 margin_bottom = 28.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.917647, 0.196078, 0.235294, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -168,26 +120,11 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Time" type="Label" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Time" type="Label" parent="."]
 margin_top = 28.0
 margin_right = 120.0
 margin_bottom = 44.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0.596078, 0.862745, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -196,20 +133,8 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Timer" type="Timer" parent="." index="5"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = false
+[node name="Timer" type="Timer" parent="."]
 autostart = true
-
 [connection signal="button_down" from="." to="." method="_on_Egg_button_down"]
-
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
-
-
