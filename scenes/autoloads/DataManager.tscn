@@ -6,84 +6,51 @@
 [ext_resource path="res://scenes/autoloads/rpg_elements_adaptation/HMRPGHelper.tscn" type="PackedScene" id=4]
 
 [node name="DataManager" type="Node"]
-
 script = ExtResource( 1 )
 
-[node name="GlobalConfig" type="Node" parent="." index="0"]
-
+[node name="GlobalConfig" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
 mode = 1
 password = "HybridMonsters"
-folder_name = "PersistenceNode"
-no_valid_names = [ "default", "example" ]
-debug = false
 beautifier_active = false
-profile_name_min_size = 3
-profile_name_max_size = 15
 
-[node name="Players" type="Node" parent="." index="1"]
-
+[node name="Players" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
 mode = 1
 password = "HybridMonsters"
-folder_name = "PersistenceNode"
-no_valid_names = [ "default", "example" ]
-debug = false
 beautifier_active = false
-profile_name_min_size = 3
-profile_name_max_size = 15
 
-[node name="UserConfig" type="Node" parent="." index="2"]
-
+[node name="UserConfig" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
 mode = 1
 password = "HybridMonsters"
-folder_name = "PersistenceNode"
-no_valid_names = [ "default", "example" ]
-debug = false
 beautifier_active = false
-profile_name_min_size = 3
-profile_name_max_size = 15
 
-[node name="Inventories" type="Node" parent="." index="3"]
-
+[node name="Inventories" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
 mode = 1
 password = "HybridMonsters"
-folder_name = "PersistenceNode"
-no_valid_names = [ "default", "example" ]
-debug = false
 beautifier_active = false
-profile_name_min_size = 3
-profile_name_max_size = 15
 
-[node name="Stats" type="Node" parent="." index="4"]
-
+[node name="Stats" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
 mode = 1
 password = "HybridMonsters"
-folder_name = "PersistenceNode"
-no_valid_names = [ "default", "example" ]
-debug = false
 beautifier_active = false
-profile_name_min_size = 3
-profile_name_max_size = 15
 
-[node name="HMRPGHelper" parent="." index="5" instance=ExtResource( 4 )]
-
-
+[node name="HMRPGHelper" parent="." instance=ExtResource( 4 )]

@@ -32,268 +32,104 @@
 [ext_resource path="res://sounds/sfx/magical_3.wav" type="AudioStream" id=30]
 
 [node name="SoundManager" type="Node"]
-
 script = ExtResource( 1 )
 
-[node name="Hit1" type="AudioStreamPlayer" parent="." index="0"]
-
+[node name="Hit1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Hit2" type="AudioStreamPlayer" parent="." index="1"]
-
+[node name="Hit2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Hit3" type="AudioStreamPlayer" parent="." index="2"]
-
+[node name="Hit3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Hit4" type="AudioStreamPlayer" parent="." index="3"]
-
+[node name="Hit4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="LevelUp" type="AudioStreamPlayer" parent="." index="4"]
-
+[node name="LevelUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -20.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Sword1" type="AudioStreamPlayer" parent="." index="5"]
-
+[node name="Sword1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = 15.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Sword2" type="AudioStreamPlayer" parent="." index="6"]
-
+[node name="Sword2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = 15.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Sword3" type="AudioStreamPlayer" parent="." index="7"]
-
+[node name="Sword3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = 10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Nope" type="AudioStreamPlayer" parent="." index="8"]
-
+[node name="Nope" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="TakeItem" type="AudioStreamPlayer" parent="." index="9"]
-
+[node name="TakeItem" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -5.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Drop" type="AudioStreamPlayer" parent="." index="10"]
-
+[node name="Drop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = 10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Bubble" type="AudioStreamPlayer" parent="." index="11"]
-
+[node name="Bubble" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Mine" type="AudioStreamPlayer" parent="." index="12"]
-
+[node name="Mine" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Spell" type="AudioStreamPlayer" parent="." index="13"]
-
+[node name="Spell" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Notification" type="AudioStreamPlayer" parent="." index="14"]
-
+[node name="Notification" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Coin1" type="AudioStreamPlayer" parent="." index="15"]
-
+[node name="Coin1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Coin2" type="AudioStreamPlayer" parent="." index="16"]
-
+[node name="Coin2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Coin3" type="AudioStreamPlayer" parent="." index="17"]
-
+[node name="Coin3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="ButtonPressed" type="AudioStreamPlayer" parent="." index="18"]
-
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Tuiu1" type="AudioStreamPlayer" parent="." index="19"]
-
+[node name="Tuiu1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
 volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Tuiu2" type="AudioStreamPlayer" parent="." index="20"]
-
+[node name="Tuiu2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 volume_db = -10.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="HitEgg1" type="AudioStreamPlayer" parent="." index="21"]
-
+[node name="HitEgg1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="HitEgg2" type="AudioStreamPlayer" parent="." index="22"]
-
+[node name="HitEgg2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 24 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Crunch1" type="AudioStreamPlayer" parent="." index="23"]
-
+[node name="Crunch1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Crunch2" type="AudioStreamPlayer" parent="." index="24"]
-
+[node name="Crunch2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 26 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Crunch3" type="AudioStreamPlayer" parent="." index="25"]
-
+[node name="Crunch3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 27 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Magical1" type="AudioStreamPlayer" parent="." index="26"]
-
+[node name="Magical1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 28 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Magical2" type="AudioStreamPlayer" parent="." index="27"]
-
+[node name="Magical2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 29 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
-[node name="Magical3" type="AudioStreamPlayer" parent="." index="28"]
-
+[node name="Magical3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
-volume_db = 0.0
-pitch_scale = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-

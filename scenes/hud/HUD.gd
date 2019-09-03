@@ -18,6 +18,8 @@ func _ready():
 	$Display.text = str("Level ", Main.current_level)
 	
 	DeliveryManager.get_node("Deliveries").connect("new_delivery", self, "_on_new_delivery")
+	
+	update_potion_button()
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
@@ -56,9 +58,9 @@ func connect_enemies():
 
 func update_enemies_amount():
 	$EnemiesAmount.text = str(
-		"Enemies: ", 
-		Main.store_destroyed_enemies, 
-		"/", 
+		"Enemies: ",
+		Main.store_destroyed_enemies,
+		"/",
 		Main.total_enemies
 	)
 
@@ -114,6 +116,15 @@ func lose():
 	$AnimWinLost.play("show")
 	$Time/Clock.stop()
 	player.can_move = false
+	
+func update_potion_button():
+	if DataManager.players[0].hp != DataManager.players[0].max_hp:
+		for item in DataManager.inventories[0].get_inv():
+			if item is HMHealth:
+				$Potion.show()
+				return
+	
+	$Potion.hide()
 	
 func _on_enemy_dead():
 	update_enemies_amount()
@@ -192,3 +203,22 @@ func _on_new_delivery(delivery):
 	if delivery[0] == "TimeToLose":
 		lose()
 
+func _on_Potion_pressed():
+	if DataManager.players[0].hp != DataManager.players[0].max_hp:
+		for item in DataManager.inventories[0].get_inv():
+			if item is HMHealth:
+				DataManager.players[Main.current_player].add_hp(item.health)
+				$Status.update_hp_progress()
+				
+				AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.PROBLEMS_WITH_DRINGKING)
+				DataManager.inventories[Main.current_player].delete_item(item)
+				
+				SoundManager.play_sound(SoundManager.Sound.BUBBLE)
+				update_potion_button()
+				$Inventory.update_inv()
+				return
+				
+	update_potion_button()
+	# Si no encuentra una pocion o no puede tomarla
+	SoundManager.play_sound(SoundManager.Sound.NOPE)
+	

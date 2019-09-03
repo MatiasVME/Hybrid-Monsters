@@ -31,7 +31,8 @@ func _input(event):
 					AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.RUBY_AGE)
 			elif hm_item is HMArmor:
 				AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.IMPROVE_YOUR_OUTFIT)
-					
+			elif hm_item is HMHealth:
+				HUD.update_potion_button()
 	
 func update():
 	if hm_item:

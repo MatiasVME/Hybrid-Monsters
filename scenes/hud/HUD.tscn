@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/hud/HUD.gd" type="Script" id=1]
 [ext_resource path="res://scenes/hud/hud-layout.png" type="Texture" id=2]
@@ -8,17 +8,19 @@
 [ext_resource path="res://scenes/hud/inventory/Inventory.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/hud/attributes/Attributes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/buttons/hud_other/HubOther.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/hud/NotificationAchievements.gd" type="Script" id=9]
-[ext_resource path="res://scenes/achievements/notifications.png" type="Texture" id=10]
-[ext_resource path="res://scenes/achievements/achievements_sprites/wood_age.png" type="Texture" id=11]
-[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=12]
-[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/achievements/Achievements.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/buttons/achievements/Achievement.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/buttons/potion_button/PotionButton-2.png" type="Texture" id=9]
+[ext_resource path="res://scenes/buttons/potion_button/PotionButton-3.png" type="Texture" id=10]
+[ext_resource path="res://scenes/hud/NotificationAchievements.gd" type="Script" id=11]
+[ext_resource path="res://scenes/achievements/notifications.png" type="Texture" id=12]
+[ext_resource path="res://scenes/achievements/achievements_sprites/wood_age.png" type="Texture" id=13]
+[ext_resource path="res://scenes/panels/menu_panel.png" type="Texture" id=14]
+[ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/buttons/hud_menu/HUDMenuButton.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/hud/win_lost/WinLost.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/shop/Shop.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/achievements/Achievements.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/buttons/shop/Shop.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/buttons/achievements/Achievement.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Animation" id=1]
 length = 0.4
@@ -561,6 +563,7 @@ margin_bottom = 145.0
 rect_scale = Vector2( 2, 2 )
 focus_mode = 0
 toggle_mode = true
+shortcut_in_tooltip = false
 enabled_focus_mode = 0
 
 [node name="AvailableAttributes" type="AnimationPlayer" parent="."]
@@ -574,23 +577,49 @@ anims/show = SubResource( 7 )
 anims/hide = SubResource( 8 )
 anims/show = SubResource( 9 )
 
+[node name="Potion" type="TextureButton" parent="."]
+margin_left = 216.0
+margin_top = 104.0
+margin_right = 228.0
+margin_bottom = 118.0
+rect_scale = Vector2( 2, 2 )
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+
+[node name="Time" type="Label" parent="."]
+margin_left = 144.0
+margin_top = 8.60504
+margin_right = 195.0
+margin_bottom = 22.605
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.862745, 0.666667, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+
+[node name="Clock" type="Timer" parent="Time"]
+autostart = true
+
 [node name="NotificationAchievements" type="Node2D" parent="."]
 editor/display_folded = true
 visible = false
 position = Vector2( 0, -40 )
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 
 [node name="Bg" type="Sprite" parent="NotificationAchievements"]
 position = Vector2( 120, 20 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 10 )
+texture = ExtResource( 12 )
 
 [node name="Anim" type="AnimationPlayer" parent="NotificationAchievements"]
 anims/show_and_hide = SubResource( 10 )
 
 [node name="Achievement" type="Sprite" parent="NotificationAchievements"]
 position = Vector2( 70, 16 )
-texture = ExtResource( 11 )
+texture = ExtResource( 13 )
 
 [node name="Title" type="Label" parent="NotificationAchievements"]
 margin_left = 86.0
@@ -616,7 +645,7 @@ margin_top = 28.0
 margin_right = 120.0
 margin_bottom = 88.0
 rect_scale = Vector2( 2, 2 )
-texture = ExtResource( 12 )
+texture = ExtResource( 14 )
 patch_margin_left = 8
 patch_margin_top = 8
 patch_margin_right = 8
@@ -627,7 +656,7 @@ axis_stretch_vertical = 1
 [node name="Buttons" type="Node2D" parent="Menu/Panel"]
 position = Vector2( 31.9507, 32 )
 
-[node name="Resume" parent="Menu/Panel/Buttons" instance=ExtResource( 13 )]
+[node name="Resume" parent="Menu/Panel/Buttons" instance=ExtResource( 15 )]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -643,7 +672,7 @@ enabled_focus_mode = 0
 [node name="Label" parent="Menu/Panel/Buttons/Resume" index="0"]
 text = "RESUME"
 
-[node name="Menu" parent="Menu/Panel/Buttons" instance=ExtResource( 13 )]
+[node name="Menu" parent="Menu/Panel/Buttons" instance=ExtResource( 15 )]
 editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
@@ -663,27 +692,14 @@ text = "MENU"
 anims/hide = SubResource( 11 )
 anims/show = SubResource( 12 )
 
-[node name="HUDMenuButton" parent="." instance=ExtResource( 14 )]
+[node name="HUDMenuButton" parent="." instance=ExtResource( 16 )]
 margin_left = 220.0
 margin_right = 230.0
 rect_scale = Vector2( 2, 2 )
 focus_mode = 0
 toggle_mode = true
+shortcut_in_tooltip = false
 enabled_focus_mode = 0
-
-[node name="Time" type="Label" parent="."]
-margin_left = 144.0
-margin_top = 8.60504
-margin_right = 195.0
-margin_bottom = 22.605
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 0.862745, 0.666667, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-align = 1
-valign = 1
-
-[node name="Clock" type="Timer" parent="Time"]
-autostart = true
 
 [node name="Curtain" type="ColorRect" parent="."]
 editor/display_folded = true
@@ -702,32 +718,34 @@ __meta__ = {
 anims/hide = SubResource( 13 )
 anims/show = SubResource( 14 )
 
-[node name="WinLost" parent="." instance=ExtResource( 15 )]
+[node name="WinLost" parent="." instance=ExtResource( 17 )]
 visible = false
 position = Vector2( 0, -162 )
 
-[node name="Shop" parent="." instance=ExtResource( 16 )]
+[node name="Shop" parent="." instance=ExtResource( 18 )]
 visible = false
 position = Vector2( 240, 0 )
 
-[node name="Achievements" parent="." instance=ExtResource( 17 )]
+[node name="Achievements" parent="." instance=ExtResource( 19 )]
 visible = false
-position = Vector2( 210.38, 0 )
+position = Vector2( 240, 0 )
 
-[node name="ShopButton" parent="." instance=ExtResource( 18 )]
+[node name="ShopButton" parent="." instance=ExtResource( 20 )]
 margin_left = 220.0
 margin_top = 24.0
 margin_right = 236.0
 margin_bottom = 40.0
 focus_mode = 0
 toggle_mode = true
+shortcut_in_tooltip = false
 
-[node name="Achievement" parent="." instance=ExtResource( 19 )]
+[node name="Achievement" parent="." instance=ExtResource( 21 )]
 margin_left = 200.0
 margin_top = 2.0
 margin_right = 216.0
 margin_bottom = 18.0
 focus_mode = 0
+shortcut_in_tooltip = false
 enabled_focus_mode = 0
 
 [node name="AnimWinLost" type="AnimationPlayer" parent="."]
@@ -775,10 +793,11 @@ anims/show = SubResource( 16 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 [connection signal="toggled" from="Inventory/HUDInventory" to="." method="_on_HUDInventory_toggled"]
 [connection signal="toggled" from="HubOther" to="." method="_on_HubOther_toggled"]
+[connection signal="pressed" from="Potion" to="." method="_on_Potion_pressed"]
+[connection signal="timeout" from="Time/Clock" to="." method="_on_Clock_timeout"]
 [connection signal="pressed" from="Menu/Panel/Buttons/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Menu/Panel/Buttons/Menu" to="." method="_on_Menu_pressed"]
 [connection signal="toggled" from="HUDMenuButton" to="." method="_on_HUDMenuButton_toggled"]
-[connection signal="timeout" from="Time/Clock" to="." method="_on_Clock_timeout"]
 [connection signal="toggled" from="ShopButton" to="." method="_on_ShopButton_toggled"]
 [connection signal="toggled" from="Achievement" to="." method="_on_Achievement_toggled"]
 [connection signal="animation_finished" from="AnimWinLost" to="." method="_on_AnimWinLost_animation_finished"]

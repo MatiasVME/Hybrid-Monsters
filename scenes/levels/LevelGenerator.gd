@@ -80,7 +80,7 @@ func _ready():
 	DeliveryManager.get_node("Deliveries").remove_delivery("TimeToLose")
 	DeliveryManager.get_node("Deliveries").create_delivery(
 		"TimeToLose", 
-		60 * ((Main.current_level + 1) * 1.25), 
+		sqrt(Main.current_level + 1) * 95, 
 		0, 
 		true, 
 		false

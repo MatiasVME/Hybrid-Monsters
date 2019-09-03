@@ -46,7 +46,6 @@ func _process(delta):
 		my_object.touch(self)
 		
 		if my_object.is_solid:
-#			print("return: ", my_object)
 			return
 	
 	var target_position = Grid.request_move(self, input_direction)
@@ -223,6 +222,9 @@ func _on_remove_hp(amount):
 
 	if HUD:
 		HUD.get_node("Status").update_hp_progress()
+		
+		if not HUD.get_node("Potion").visible:
+			HUD.update_potion_button()
 	
 func _on_dead():
 	is_mark_to_dead = true
@@ -276,7 +278,6 @@ func _on_drop_item(drop):
 	
 	dropped_item.global_position = global_position
 	dropped_item.rotation_degrees = int(rand_range(0, 360))
-
 
 func _on_PlayerArea_area_entered(area):
 	if area.get_parent() is DroppedItem:

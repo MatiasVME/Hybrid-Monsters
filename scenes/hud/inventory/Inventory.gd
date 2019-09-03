@@ -190,6 +190,7 @@ func _on_use_item(hm_item):
 	if hm_item is HMHealth:
 		DataManager.players[Main.current_player].add_hp(hm_item.health)
 		HUD.get_node("Status").update_hp_progress()
+		HUD.update_potion_button()
 		SoundManager.play_sound(SoundManager.Sound.BUBBLE)
 		
 		AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.PROBLEMS_WITH_DRINGKING)		
