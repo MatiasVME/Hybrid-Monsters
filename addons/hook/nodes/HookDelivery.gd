@@ -23,7 +23,7 @@
 tool
 extends "Hook.gd"
 
-var deliveries = []
+var deliveries := []
 var timer
 
 signal new_delivery(delivery)
@@ -44,6 +44,12 @@ func create_delivery(delivery_name, time_to_finalize, force_step = 0, can_be_fin
 	# delivery_name | time_to_finalize: en segundos | force_step | start_time_delivery | time_to_finalize: no debe cambiar
 	deliveries.append([delivery_name, time_to_finalize, force_step, start_time_delivery, time_to_finalize, can_be_finished, is_finished])
 
+func remove_delivery(delivery_name):
+	for i in deliveries.size():
+		if deliveries[i][0] == delivery_name:
+			deliveries.remove(i)
+			break
+	
 func force_step(delivery_name):
 	var delivery = get_delivery(delivery_name)
 	
@@ -122,6 +128,8 @@ func get_delivery(delivery_name):
 	for deli in deliveries:
 		if deli.has(delivery_name):
 			return deli
+	
+	print("No existe el delivery " + delivery_name)
 
 func _on_Timer_timeout():
 	for deli in deliveries:

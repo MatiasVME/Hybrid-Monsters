@@ -6,7 +6,7 @@ func ready():
 func get_random_enemy_character():
 	var character = HMRPGHelper.get_hm_inst_character()
 	
-	if randi() % 14 == 0:
+	if randi() % 18 == 0:
 		return create_rand_hard_enemy(character)
 	elif randi() % 4 == 0:
 		return create_rand_normal_enemy(character)

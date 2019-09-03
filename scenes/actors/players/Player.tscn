@@ -78,7 +78,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Player" groups=[
+[node name="Player" index="0" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -151,11 +151,15 @@ offset = Vector2( 28, 0 )
 [node name="Anim" type="AnimationPlayer" parent="Arrow" index="0"]
 anims/show = SubResource( 5 )
 
-[node name="Say" type="Label" parent="." index="10"]
-margin_left = -51.931
-margin_top = -35.429
-margin_right = 52.069
-margin_bottom = -9.42899
+[node name="MonsterSay" type="Node2D" parent="." index="10"]
+position = Vector2( -50, -18 )
+z_index = 1
+
+[node name="Say" type="Label" parent="MonsterSay" index="0"]
+margin_left = -0.6511
+margin_top = -22.3043
+margin_right = 103.349
+margin_bottom = 3.69571
 rect_scale = Vector2( 0, 0 )
 rect_pivot_offset = Vector2( 51.2799, 13.1247 )
 custom_fonts/font = ExtResource( 5 )
@@ -166,6 +170,6 @@ valign = 1
 autowrap = true
 clip_text = true
 
-[node name="Anim" type="AnimationPlayer" parent="Say" index="0"]
+[node name="Anim" type="AnimationPlayer" parent="MonsterSay/Say" index="0"]
 anims/Show = SubResource( 6 )
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]

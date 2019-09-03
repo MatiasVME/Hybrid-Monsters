@@ -2,10 +2,10 @@
 
 extends Node
 
-const VERSION = "0.4.0"
+const VERSION = "0.5.0"
 const DEBUG = true
 
-var music_enable = false
+var music_enable = true
 var sound_enable = true
 
 const RES_X = 240
@@ -129,16 +129,19 @@ func init_basic_user_config():
 
 func increase_dificulty():
 	var_dificulty = clamp(var_dificulty + 0.2, 1, 10)
-	map_size = clamp(map_size + 4, 20, 250)
-	total_enemies = clamp(total_enemies + 4, 6, 100)
+	map_size = clamp(map_size + 2, 20, 224)
 	current_level = clamp(current_level + 1, 0, 100)
+	# TODO: total_enemies creo que ya no es necesario
+	total_enemies = clamp(total_enemies + 4, 6, 100)
+	
 
 func diminish_dificulty():
 	var_dificulty = clamp(var_dificulty - 0.2, 1, 10)
-	map_size = clamp(map_size - 4, 20, 250)
-	total_enemies = clamp(total_enemies - 4, 6, 100)
+	map_size = clamp(map_size - 2, 20, 224)
 	current_level = clamp(current_level - 1, 0, 100)
-
+	# TODO: total_enemies creo que ya no es necesario
+	total_enemies = clamp(total_enemies - 4, 6, 100)
+	
 # Setters/Getters
 #
 

@@ -1,5 +1,0 @@
-# DeliveryManager.gd
-#
-
-extends Node
-

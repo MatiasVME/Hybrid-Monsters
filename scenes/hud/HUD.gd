@@ -16,6 +16,8 @@ func _ready():
 	$Attributes.update()
 	available_attributes()
 	$Display.text = str("Level ", Main.current_level)
+	
+	DeliveryManager.get_node("Deliveries").connect("new_delivery", self, "_on_new_delivery")
 
 func _input(event):
 	if event.is_action_pressed("inventory"):
@@ -98,12 +100,20 @@ func win():
 	$WinLost.result()
 	MusicManager.stop_anim()
 	$AnimWinLost.play("show")
+	DeliveryManager.get_node("Deliveries").remove_delivery("TimeToLose")
+	$Time/Clock.stop()
+	player.can_move = false
 	
 func _on_dead():
+	lose()
+	
+func lose():
 	Main.result = Main.Result.LOST
 	$WinLost.result()
 	MusicManager.stop_anim()
 	$AnimWinLost.play("show")
+	$Time/Clock.stop()
+	player.can_move = false
 	
 func _on_enemy_dead():
 	update_enemies_amount()
@@ -160,3 +170,25 @@ func _on_Achievement_toggled(button_pressed):
 		$AnimAchievements.play("show")
 	else:
 		$AnimAchievements.play("hide")
+
+func _on_Clock_timeout():
+	if mode == Mode.LOBBY:
+		return
+	
+	var time_to_lose_str = DeliveryManager.get_node("Deliveries").str_delivery_time("TimeToLose")
+	print(DeliveryManager.get_node("Deliveries").deliveries)
+	
+	if time_to_lose_str:
+		$Time.text = str(time_to_lose_str)
+	else:
+		$Time.text = ""
+		print(time_to_lose_str)
+	pass
+	
+func _on_new_delivery(delivery):
+	if mode == Mode.LOBBY:
+		return
+		
+	if delivery[0] == "TimeToLose":
+		lose()
+

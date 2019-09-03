@@ -7,11 +7,9 @@
 [ext_resource path="res://scenes/buttons/wide/Wide.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "idle"
 length = 4.0
 loop = true
-step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -25,25 +23,14 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.4, 1.4 ), Vector2( 1, 1 ), Vector2( 0.8, 1.2 ), Vector2( 1, 1 ), Vector2( 1.5, 0.8 ), Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
 }
 
-[node name="WinLost" type="Node2D" index="0"]
-
+[node name="WinLost" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Panel" type="NinePatchRect" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Panel" type="NinePatchRect" parent="."]
 margin_right = 120.0
 margin_bottom = 80.0
 rect_scale = Vector2( 2, 2 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 texture = ExtResource( 2 )
 patch_margin_left = 8
 patch_margin_top = 8
@@ -51,265 +38,125 @@ patch_margin_right = 8
 patch_margin_bottom = 8
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
-_sections_unfolded = [ "Axis Stretch", "Mouse", "Patch Margin", "Rect", "Size Flags" ]
 
-[node name="Title" type="Label" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Title" type="Label" parent="."]
 margin_right = 240.0
 margin_bottom = 28.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.929412, 0.462745, 0.0784314, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "hola"
 align = 1
 valign = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="Stats" type="Container" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Stats" type="Container" parent="."]
 margin_left = 36.0
 margin_top = 32.0
 margin_right = 200.0
 margin_bottom = 92.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 
-[node name="Grid" type="GridContainer" parent="Stats" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
+[node name="Grid" type="GridContainer" parent="Stats"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 columns = 2
-_sections_unfolded = [ "Anchor" ]
 
-[node name="DeadEnemies" type="Label" parent="Stats/Grid" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="DeadEnemies" type="Label" parent="Stats/Grid"]
 margin_right = 80.0
 margin_bottom = 10.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
 text = "Dead Enemies:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="DE" type="Label" parent="Stats/Grid" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="DE" type="Label" parent="Stats/Grid"]
 margin_left = 84.0
 margin_right = 164.0
 margin_bottom = 10.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
 text = "100/100"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="GoldCollected" type="Label" parent="Stats/Grid" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="GoldCollected" type="Label" parent="Stats/Grid"]
 margin_top = 14.0
 margin_right = 80.0
 margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
 text = "Gold Collected:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="GC" type="Label" parent="Stats/Grid" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="GC" type="Label" parent="Stats/Grid"]
 margin_left = 84.0
 margin_top = 14.0
 margin_right = 164.0
 margin_bottom = 24.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
 text = "100"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="XPCollected" type="Label" parent="Stats/Grid" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="XPCollected" type="Label" parent="Stats/Grid"]
 margin_top = 28.0
 margin_right = 80.0
 margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
 text = "XP Collected:"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="XPC" type="Label" parent="Stats/Grid" index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="XPC" type="Label" parent="Stats/Grid"]
 margin_left = 84.0
 margin_top = 28.0
 margin_right = 164.0
 margin_bottom = 38.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0, 0.223529, 0.427451, 1 )
 text = "100"
 align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
 
-[node name="Menu" parent="." index="3" instance=ExtResource( 5 )]
-
+[node name="Menu" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
 margin_left = 8.0
 margin_top = 124.0
 margin_right = 42.0
 margin_bottom = 139.0
 rect_scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Label" parent="Menu" index="0"]
-
 text = "MENU"
 
-[node name="Resume" parent="." index="4" instance=ExtResource( 5 )]
-
+[node name="Resume" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
 margin_left = 88.0
 margin_top = 124.0
 margin_right = 122.0
 margin_bottom = 139.0
 rect_scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Label" parent="Resume" index="0"]
-
 text = "RESUME"
 
-[node name="Next" parent="." index="5" instance=ExtResource( 5 )]
-
+[node name="Next" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true
 margin_left = 164.0
 margin_top = 124.0
 margin_right = 198.0
 margin_bottom = 139.0
 rect_scale = Vector2( 2, 2 )
-_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Label" parent="Next" index="0"]
-
 text = "NEXT"
 
-[node name="BonusDisplay" type="Label" parent="." index="6"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="BonusDisplay" type="Label" parent="."]
 margin_left = 44.0
 margin_top = 84.0
 margin_right = 200.0
 margin_bottom = 116.0
 rect_pivot_offset = Vector2( 78, 16 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.96875, 0.942586, 0.29895, 1 )
 text = "Gold bonus: All enemies were killed"
@@ -317,28 +164,15 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Material", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Anim" type="AnimationPlayer" parent="BonusDisplay" index="0"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
+[node name="Anim" type="AnimationPlayer" parent="BonusDisplay"]
 anims/idle = SubResource( 1 )
-blend_times = [  ]
-
 [connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
-
 [connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
-
 [connection signal="pressed" from="Next" to="." method="_on_Next_pressed"]
 
-
 [editable path="Menu"]
+
 [editable path="Resume"]
+
 [editable path="Next"]

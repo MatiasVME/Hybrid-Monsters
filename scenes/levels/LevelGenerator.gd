@@ -36,7 +36,7 @@ func _ready():
 	$Spawn.player_spawn(my_player)
 	
 	# Generamos los enemigos
-	for i in Main.total_enemies:
+	for i in int(round(sqrt(Main.current_level + 1))) * 5:
 		var inst_enemy = rec_enemy.instance()
 		$Spawn.enemy_spawn(inst_enemy)
 
@@ -72,9 +72,20 @@ func _ready():
 	my_player.set_hud($HUD)
 	$HUD.initial_config($HUD.Mode.BATTLE)
 	
+	# Hace que se vea bien el tilemap
 	for y in size_map.y:
 		for x in size_map.x:
 			$World.update_bitmask_area(Vector2(x, y))
+	
+	DeliveryManager.get_node("Deliveries").remove_delivery("TimeToLose")
+	DeliveryManager.get_node("Deliveries").create_delivery(
+		"TimeToLose", 
+		60 * ((Main.current_level + 1) * 1.25), 
+		0, 
+		true, 
+		false
+	)
+	$HUD.mode = $HUD.Mode.BATTLE
 	
 func _on_enemy_dead(player):
 	if Main.enemies_required == Main.store_destroyed_enemies:

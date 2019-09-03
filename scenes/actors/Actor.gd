@@ -17,6 +17,8 @@ var secondary_weapon_data
 var armor
 var armor_data
 
+var can_move = true
+
 # Debe de ser un Main.CellType
 #var type = Main.CellTypes.PLAYER
 var type = 1000

@@ -671,6 +671,20 @@ focus_mode = 0
 toggle_mode = true
 enabled_focus_mode = 0
 
+[node name="Time" type="Label" parent="."]
+margin_left = 144.0
+margin_top = 8.60504
+margin_right = 195.0
+margin_bottom = 22.605
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.862745, 0.666667, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+
+[node name="Clock" type="Timer" parent="Time"]
+autostart = true
+
 [node name="Curtain" type="ColorRect" parent="."]
 editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
@@ -764,6 +778,7 @@ anims/show = SubResource( 16 )
 [connection signal="pressed" from="Menu/Panel/Buttons/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Menu/Panel/Buttons/Menu" to="." method="_on_Menu_pressed"]
 [connection signal="toggled" from="HUDMenuButton" to="." method="_on_HUDMenuButton_toggled"]
+[connection signal="timeout" from="Time/Clock" to="." method="_on_Clock_timeout"]
 [connection signal="toggled" from="ShopButton" to="." method="_on_ShopButton_toggled"]
 [connection signal="toggled" from="Achievement" to="." method="_on_Achievement_toggled"]
 [connection signal="animation_finished" from="AnimWinLost" to="." method="_on_AnimWinLost_animation_finished"]

@@ -33,7 +33,7 @@ func _ready():
 	$Pivot/Sprite.material.set_shader_param("r_3", Elements.get_color_element(Main.Elements.ELECTRIC))
 	
 func _process(delta):
-	if is_mark_to_dead:
+	if is_mark_to_dead or not can_move:
 		return
 	
 	var input_direction = get_input_direction()
@@ -158,8 +158,8 @@ func config_character():
 	DataManager.players[0].connect("add_xp", self, "_on_add_xp")
 
 func monster_say(text : String):
-	$Say.text = text
-	$Say/Anim.play("Show")
+	$MonsterSay/Say.text = text
+	$MonsterSay/Say/Anim.play("Show")
 
 func damage(damage):
 	$Anim.play("damage")
@@ -201,7 +201,7 @@ func on_cant_move(pawn, cell_dest_type, direction):
 	if pawn.type != Main.CellTypes.PLAYER:
 		return
 	
-	print(cell_dest_type, "=", Main.CellTypes.CAVE)
+#	print(cell_dest_type, "=", Main.CellTypes.CAVE)
 	
 	match cell_dest_type:
 		Main.CellTypes.WALL:
