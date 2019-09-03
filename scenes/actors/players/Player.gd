@@ -7,6 +7,7 @@ class_name Player
 var HUD # Necesita ser seteado
 
 var turn_helper = preload("res://scenes/various/turn_helper/TurnHelper.tscn").instance()
+var rec_glove = preload("res://scenes/items/attack/gloves/AGloves.tscn")
 
 var character
 
@@ -114,7 +115,7 @@ func attack(direction):
 			add_child(primary_weapon)
 			
 	else:
-		glove = load("res://scenes/items/attack/gloves/AGloves.tscn").instance()
+		glove = rec_glove.instance()
 		var enemy_pos = direction * 16
 		glove.global_position = enemy_pos
 		glove.z_index = 1
@@ -131,9 +132,9 @@ func attack(direction):
 			
 			if enemy:
 				if not primary_weapon_data:
-					total_damage = DataManager.players[Main.current_player].attack
+					total_damage = DataManager.players[Main.current_player].attack + DataManager.stats[Main.current_player].get_stat_value("Strength") / 3
 				else:
-					total_damage = DataManager.players[Main.current_player].attack + primary_weapon_data.damage
+					total_damage = DataManager.players[Main.current_player].attack + primary_weapon_data.damage + DataManager.stats[Main.current_player].get_stat_value("Strength") / 3
 				
 				if enemy.armor_data:
 					total_damage -= int(round(float(total_damage) * enemy.armor_data.defence / 100)) 

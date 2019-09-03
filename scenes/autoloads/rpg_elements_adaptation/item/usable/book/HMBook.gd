@@ -15,8 +15,8 @@ var book_type setget set_book_type
 
 func set_book_type(_book_type):
 	self.item_type = self.ItemType.BOOK
-	self.buy_price = 3000
-	self.sell_price = self.buy_price / 8
+	self.buy_price = 2000
+	self.sell_price = self.buy_price / 4
 	
 	book_type = _book_type
 

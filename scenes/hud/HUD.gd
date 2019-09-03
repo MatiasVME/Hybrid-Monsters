@@ -101,6 +101,7 @@ func win():
 	Main.result = Main.Result.WIN
 	$WinLost.result()
 	MusicManager.stop_anim()
+	MusicManager.change_pitch()
 	$AnimWinLost.play("show")
 	DeliveryManager.get_node("Deliveries").remove_delivery("TimeToLose")
 	$Time/Clock.stop()
@@ -113,6 +114,7 @@ func lose():
 	Main.result = Main.Result.LOST
 	$WinLost.result()
 	MusicManager.stop_anim()
+	MusicManager.change_pitch()
 	$AnimWinLost.play("show")
 	$Time/Clock.stop()
 	player.can_move = false
@@ -187,14 +189,19 @@ func _on_Clock_timeout():
 		return
 	
 	var time_to_lose_str = DeliveryManager.get_node("Deliveries").str_delivery_time("TimeToLose")
-	print(DeliveryManager.get_node("Deliveries").deliveries)
 	
 	if time_to_lose_str:
 		$Time.text = str(time_to_lose_str)
+		print(time_to_lose_str)
+		
+		match str(time_to_lose_str):
+			"S: 50": MusicManager.change_pitch(1.1)
+			"S: 40": MusicManager.change_pitch(1.2)
+			"S: 30": MusicManager.change_pitch(1.3)
+			"S: 20": MusicManager.change_pitch(1.4)
+			"S: 10": MusicManager.change_pitch(1.5)
 	else:
 		$Time.text = ""
-		print(time_to_lose_str)
-	pass
 	
 func _on_new_delivery(delivery):
 	if mode == Mode.LOBBY:
