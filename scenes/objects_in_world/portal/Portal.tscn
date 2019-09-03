@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/objects_in_world/portal/portal-1.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
-
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
@@ -15,11 +14,7 @@ animations = [ {
 } ]
 
 [node name="Portal" instance=ExtResource( 1 )]
-
 script = ExtResource( 2 )
 
 [node name="ASprite" parent="." index="1"]
-
 frames = SubResource( 1 )
-
-

@@ -4,15 +4,11 @@
 [ext_resource path="res://addons/hook/nodes/HookAchievements.gd" type="Script" id=2]
 [ext_resource path="res://addons/hook/icons/hook_achievements.png" type="Texture" id=3]
 
-[node name="AchievementsManager" type="Node" index="0"]
-
+[node name="AchievementsManager" type="Node"]
 script = ExtResource( 1 )
 
-[node name="HookAchievements" type="Node" parent="." index="0"]
-
+[node name="HookAchievements" type="Node" parent="."]
 script = ExtResource( 2 )
 __meta__ = {
 "_editor_icon": ExtResource( 3 )
 }
-
-

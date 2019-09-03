@@ -11,6 +11,8 @@ var rec_glove = preload("res://scenes/items/attack/gloves/AGloves.tscn")
 
 var character
 
+var can_get_object = true
+
 # ObjectInWorld que toca
 var my_object
 
@@ -43,8 +45,12 @@ func _process(delta):
 	
 	my_object = null
 	my_object = get_a_object(input_direction)
-	if my_object:
+		
+	if my_object and can_get_object:
 		my_object.touch(self)
+		
+		can_get_object = false
+		$CanGetObject.start()
 		
 		if my_object.is_solid:
 			return
@@ -284,5 +290,5 @@ func _on_PlayerArea_area_entered(area):
 	if area.get_parent() is DroppedItem:
 		monster_say("Press Space to get the item")
 
-
-
+func _on_CanGetObject_timeout():
+	can_get_object = true

@@ -80,12 +80,18 @@ func _ready():
 	DeliveryManager.get_node("Deliveries").remove_delivery("TimeToLose")
 	DeliveryManager.get_node("Deliveries").create_delivery(
 		"TimeToLose", 
-		sqrt(Main.current_level + 1) * 95, 
+		sqrt(Main.current_level + 1) * 80, 
 		0, 
 		true, 
 		false
 	)
 	$HUD.mode = $HUD.Mode.BATTLE
+	
+	match Main.current_level:
+		3: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.LVL3)
+		5: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.LVL5)
+		10: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.LVL10)
+		15: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.LVL15)
 	
 func _on_enemy_dead(player):
 	if Main.enemies_required == Main.store_destroyed_enemies:

@@ -92,11 +92,17 @@ func get_points():
 
 # Retorna el valor de la stat
 func get_stat_value(stat_name):
-	return get_stat(stat_name)[1]
-
+	if get_stat(stat_name):
+		return get_stat(stat_name)[1]
+	else:
+		print("No se encuentra: " + str(stat_name))
+		
 # Retorna el valor maximo de la stat
 func get_stat_max_value(stat_name):
-	return get_stat(stat_name)[2]
+	if get_stat(stat_name):
+		return get_stat(stat_name)[2]
+	else:
+		print("No se encuentra: " + str(stat_name))
 	
 # Retorna el arreglo de la stat
 func get_stat(stat_name):

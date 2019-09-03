@@ -78,7 +78,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Player" index="0" groups=[
+[node name="Player" groups=[
 "Player",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -152,6 +152,7 @@ offset = Vector2( 28, 0 )
 anims/show = SubResource( 5 )
 
 [node name="MonsterSay" type="Node2D" parent="." index="10"]
+editor/display_folded = true
 position = Vector2( -50, -18 )
 z_index = 1
 
@@ -172,4 +173,7 @@ clip_text = true
 
 [node name="Anim" type="AnimationPlayer" parent="MonsterSay/Say" index="0"]
 anims/Show = SubResource( 6 )
+
+[node name="CanGetObject" type="Timer" parent="." index="11"]
 [connection signal="area_entered" from="PlayerArea" to="." method="_on_PlayerArea_area_entered"]
+[connection signal="timeout" from="CanGetObject" to="." method="_on_CanGetObject_timeout"]

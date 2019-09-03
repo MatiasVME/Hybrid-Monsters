@@ -23,6 +23,19 @@ func _ready():
 	create_or_load_data_if_not_exist()
 
 func configure_persistence_node():
+	if Main.DEBUG_PERSISTENCE_NODE:
+		$GlobalConfig.mode = $GlobalConfig.Mode.TEXT
+		$Players.mode = $Players.Mode.TEXT
+		$UserConfig.mode = $UserConfig.Mode.TEXT
+		$Inventories.mode = $Inventories.Mode.TEXT
+		$Stats.mode = $Stats.Mode.TEXT
+	else:
+		$GlobalConfig.mode = $GlobalConfig.Mode.ENCRYPTED
+		$Players.mode = $Players.Mode.ENCRYPTED
+		$UserConfig.mode = $UserConfig.Mode.ENCRYPTED
+		$Inventories.mode = $Inventories.Mode.ENCRYPTED
+		$Stats.mode = $Stats.Mode.ENCRYPTED
+	
 	$GlobalConfig.folder_name = "Global"
 	
 	$UserConfig.folder_name = current_user

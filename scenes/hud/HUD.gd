@@ -192,7 +192,6 @@ func _on_Clock_timeout():
 	
 	if time_to_lose_str:
 		$Time.text = str(time_to_lose_str)
-		print(time_to_lose_str)
 		
 		match str(time_to_lose_str):
 			"S: 50": MusicManager.change_pitch(1.1)

@@ -31,10 +31,6 @@ func _on_egg_slot_toggled(button_pressed, egg_slot):
 		$Egg.update_with(egg_slot.egg_data)
 
 func _on_new_egg_opened(delivery):
-#	print(delivery)
-	
-#	if delivery[]
-	
 	# Test
 	var rand_sound = int(round(rand_range(SoundManager.Sound.MAGICAL_1, SoundManager.Sound.MAGICAL_3)))
 	SoundManager.play_sound(rand_sound)

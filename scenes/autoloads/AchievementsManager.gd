@@ -6,7 +6,11 @@ enum Achievements {
 	DIAMOND_AGE,
 	RUBY_AGE,
 	PROBLEMS_WITH_DRINGKING,
-	IMPROVE_YOUR_OUTFIT
+	IMPROVE_YOUR_OUTFIT,
+	LVL3,
+	LVL5,
+	LVL10,
+	LVL15
 }
 
 func _ready():
@@ -28,6 +32,14 @@ func complete_achievement_if_can(achievement_enum):
 			achievement_str = "Problems with drinking"
 		Achievements.IMPROVE_YOUR_OUTFIT:
 			achievement_str = "Improve your outfit"
+		Achievements.LVL3:
+			achievement_str = "OMG!! Level 3!"
+		Achievements.LVL5:
+			achievement_str = "WTF!! Level 5!"
+		Achievements.LVL10:
+			achievement_str = "Cool!! Level 10!"
+		Achievements.LVL15:
+			achievement_str = "O_o! Level 15!"
 	
 	if not $HookAchievements.is_achievement_completed(achievement_str):
 		$HookAchievements.complete_achievement(achievement_str)
@@ -68,6 +80,30 @@ func create_all_achievements():
 		"Get a armor, enemies who have armor sometimes drop it.",
 		null,
 		"res://scenes/achievements/achievements_sprites/improve_your_outfit.png"
+	)
+	$HookAchievements.create_achievement(
+		"OMG!! Level 3!",
+		"Reach level 3",
+		null,
+		"res://scenes/achievements/achievements_sprites/level3.png"
+	)
+	$HookAchievements.create_achievement(
+		"WTF!! Level 5!",
+		"Reach level 5",
+		null,
+		"res://scenes/achievements/achievements_sprites/level5.png"
+	)
+	$HookAchievements.create_achievement(
+		"OMG!! Level 3!",
+		"Reach level 10",
+		null,
+		"res://scenes/achievements/achievements_sprites/level10.png"
+	)
+	$HookAchievements.create_achievement(
+		"O_o! Level 15!",
+		"Reach level 15",
+		null,
+		"res://scenes/achievements/achievements_sprites/level15.png"
 	)
 	
 func get_achievement(achievement_name):
