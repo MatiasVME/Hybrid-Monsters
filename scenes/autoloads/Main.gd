@@ -69,6 +69,7 @@ var result
 var map_size = 36
 var total_enemies = 6
 var enemies_required = 0
+var assessinated = 0
 
 var current_level = 1
 

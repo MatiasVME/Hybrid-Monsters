@@ -10,7 +10,15 @@ enum Achievements {
 	LVL3,
 	LVL5,
 	LVL10,
-	LVL15
+	LVL15,
+	ASSASSIN10,
+	ASSASSIN25,
+	ASSASSIN50,
+	ASSASSIN75,
+	ASSASSIN100,
+	ASSASSIN150,
+	ASSASSIN250,
+	ASSASSIN500
 }
 
 func _ready():
@@ -40,6 +48,22 @@ func complete_achievement_if_can(achievement_enum):
 			achievement_str = "Cool!! Level 10!"
 		Achievements.LVL15:
 			achievement_str = "O_o! Level 15!"
+		Achievements.ASSASSIN10:
+			achievement_str = "10 Enemies Killed!!"
+		Achievements.ASSASSIN25:
+			achievement_str = "25 Enemies Killed!!"
+		Achievements.ASSASSIN50:
+			achievement_str = "50 Enemies Killed!!"
+		Achievements.ASSASSIN75:
+			achievement_str = "75 Enemies Killed!!"
+		Achievements.ASSASSIN100:
+			achievement_str = "100 Enemies Killed!!"
+		Achievements.ASSASSIN150:
+			achievement_str = "150 Enemies Killed!!"
+		Achievements.ASSASSIN250:
+			achievement_str = "250 Enemies Killed!!"
+		Achievements.ASSASSIN500:
+			achievement_str = "500 Enemies Killed!!"
 	
 	if not $HookAchievements.is_achievement_completed(achievement_str):
 		$HookAchievements.complete_achievement(achievement_str)
@@ -104,6 +128,54 @@ func create_all_achievements():
 		"Reach level 15",
 		null,
 		"res://scenes/achievements/achievements_sprites/level15.png"
+	)
+	$HookAchievements.create_achievement(
+		"10 Enemies Killed!!",
+		"Kill 10 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin10.png"
+	)
+	$HookAchievements.create_achievement(
+		"25 Enemies Killed!!",
+		"Kill 25 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin25.png"
+	)
+	$HookAchievements.create_achievement(
+		"50 Enemies Killed!!",
+		"Kill 50 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin50.png"
+	)
+	$HookAchievements.create_achievement(
+		"75 Enemies Killed!!",
+		"Kill 75 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin75.png"
+	)
+	$HookAchievements.create_achievement(
+		"100 Enemies Killed!!",
+		"Kill 100 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin100.png"
+	)
+	$HookAchievements.create_achievement(
+		"155 Enemies Killed!!",
+		"Kill 150 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin150.png"
+	)
+	$HookAchievements.create_achievement(
+		"250 Enemies Killed!!",
+		"Kill 250 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin250.png"
+	)
+	$HookAchievements.create_achievement(
+		"500 Enemies Killed!!",
+		"Kill 500 Enemies",
+		null,
+		"res://scenes/achievements/achievements_sprites/Assassin500.png"
 	)
 	
 func get_achievement(achievement_name):

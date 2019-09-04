@@ -293,6 +293,18 @@ func _on_dead():
 	# Dropeo
 	drop()
 	
+	Main.assessinated += 1
+	
+	match Main.assessinated:
+		10: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN10)
+		25: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN25)
+		50: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN50)
+		75: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN75)
+		100: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN100)
+		150: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN150)
+		250: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN250)
+		500: AchievementsManager.complete_achievement_if_can(AchievementsManager.Achievements.ASSASSIN500)
+		
 	emit_signal("dead")
 	$Anim.play("dead")
 	

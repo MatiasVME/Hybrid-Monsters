@@ -128,6 +128,7 @@ func load_user_config():
 	Main.current_gold = user_config["Gold"]
 	Main.current_emeralds = user_config["Emeralds"]
 	Main.current_level = user_config["CurrentLevel"]
+	Main.assessinated = user_config["Assassinated"]
 	DeliveryManager.get_node("Deliveries").deliveries = user_config["Deliveries"]
 	
 	var temp_inv = $HMRPGHelper.get_inst_weight_inventory()
@@ -145,6 +146,7 @@ func save_user_config():
 	user_config["CurrentLevel"] = Main.current_level
 	user_config["Deliveries"] = DeliveryManager.get_node("Deliveries").deliveries
 	user_config["ShopInventory"] = shop_inventory.inv2dict()
+	user_config["Assassinated"] = Main.assessinated
 	user_config["AchievementsCompleted"] = AchievementsManager.get_node("HookAchievements").get_complete_achievements_array()
 	
 	$UserConfig.save_data("UserConfig")
