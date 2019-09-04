@@ -1,42 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/hud/inventory/ItemDesc-Commons.gd" type="Script" id=1]
 [ext_resource path="res://fonts/nokia/mini-nokia-8.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/buttons/drop/Drop1.png" type="Texture" id=3]
+[ext_resource path="res://scenes/buttons/drop/Drop2.png" type="Texture" id=4]
 
 [node name="Commons" type="ColorRect"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 106.0
 margin_bottom = 44.0
 rect_min_size = Vector2( 0, 44 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 0, 0, 0, 0.392157 )
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
 
-[node name="Name" type="Label" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Name" type="Label" parent="."]
 margin_right = 118.0
 margin_bottom = 25.0
 rect_scale = Vector2( 0.8, 0.8 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.290283, 0.372091, 0.90625, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -45,27 +24,12 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Type" type="Label" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Type" type="Label" parent="."]
 margin_top = 20.0
 margin_right = 90.0
 margin_bottom = 34.0
 rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.245667, 0.730145, 0.898438, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -74,28 +38,13 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Weight" type="Label" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Weight" type="Label" parent="."]
 margin_left = 46.0
 margin_top = 21.0
 margin_right = 132.0
 margin_bottom = 33.0
 rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.303772, 0.808907, 0.984375, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -104,28 +53,13 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="BuyPrice" type="Label" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="BuyPrice" type="Label" parent="."]
 margin_left = 2.0
 margin_top = 27.0
 margin_right = 92.0
 margin_bottom = 39.0
 rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.303772, 0.808907, 0.984375, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -133,28 +67,13 @@ text = "BuyPrice: 100000"
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="SellPrice" type="Label" parent="." index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="SellPrice" type="Label" parent="."]
 margin_left = 48.0
 margin_top = 27.0
 margin_right = 140.0
 margin_bottom = 39.0
 rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.303772, 0.808907, 0.984375, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -162,36 +81,14 @@ text = "SellPrice: 100000"
 valign = 1
 autowrap = true
 clip_text = true
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Drop" type="Button" parent="." index="5"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Drop" type="TextureButton" parent="."]
 margin_left = 38.0
 margin_top = 34.0
 margin_right = 88.0
 margin_bottom = 50.0
 rect_scale = Vector2( 0.5, 0.5 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
-toggle_mode = false
+focus_mode = 0
 enabled_focus_mode = 0
-shortcut = null
-group = null
-text = "Drop"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
-
-
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )

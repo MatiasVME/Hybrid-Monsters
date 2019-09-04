@@ -58,6 +58,9 @@ func stop_music():
 	current_music.stop()
 
 func change_pitch(pitch_scale := 1.0):
+	if not Main.music_enable:
+		return
+	
 	current_music.pitch_scale = pitch_scale 
 
 func start_anim():
