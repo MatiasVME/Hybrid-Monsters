@@ -2,10 +2,9 @@
 
 extends Node
 
-const VERSION = "0.5.0"
-const DEBUG = true
+const VERSION = "0.5.1"
+const DEBUG = false
 const DEBUG_PERSISTENCE_NODE = false
-
 
 var music_enable = true
 var sound_enable = true

@@ -22,6 +22,8 @@
 
 extends Node
 
+class_name RPGElement
+
 export (bool) var debug = false
 
 func debug(message, something1 = "", something2 = ""):
@@ -36,3 +38,4 @@ func gdc2gd(dict):
 	else:
 		debug("gdc2gd(): No es un diccionario o no se encuentra el path")
 		return dict
+		

@@ -241,7 +241,6 @@ texture = ExtResource( 3 )
 [node name="Screens" type="Node" parent="."]
 
 [node name="MainMenu" parent="Screens" instance=ExtResource( 4 )]
-editor/display_folded = true
 
 [node name="Camera" parent="Screens/MainMenu" index="11"]
 current = false

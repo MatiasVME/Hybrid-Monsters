@@ -263,8 +263,8 @@ func drop():
 	Main.current_gold += character.drop_gold
 	Main.store_gold += character.drop_gold
 	
-	print("+gold: ", character.drop_gold)
-	print("+drop: ", character.xp_drop)
+#	print("+gold: ", character.drop_gold)
+#	print("+xp: ", character.xp_drop)
 	
 # Signals
 #

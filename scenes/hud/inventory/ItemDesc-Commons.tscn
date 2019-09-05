@@ -85,10 +85,12 @@ clip_text = true
 [node name="Drop" type="TextureButton" parent="."]
 margin_left = 38.0
 margin_top = 34.0
-margin_right = 88.0
-margin_bottom = 50.0
+margin_right = 90.0
+margin_bottom = 54.0
 rect_scale = Vector2( 0.5, 0.5 )
 focus_mode = 0
+shortcut_in_tooltip = false
 enabled_focus_mode = 0
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 4 )
+expand = true

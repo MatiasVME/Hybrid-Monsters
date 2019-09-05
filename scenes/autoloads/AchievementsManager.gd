@@ -118,7 +118,7 @@ func create_all_achievements():
 		"res://scenes/achievements/achievements_sprites/level5.png"
 	)
 	$HookAchievements.create_achievement(
-		"OMG!! Level 3!",
+		"Cool!! Level 10!",
 		"Reach level 10",
 		null,
 		"res://scenes/achievements/achievements_sprites/level10.png"
@@ -160,7 +160,7 @@ func create_all_achievements():
 		"res://scenes/achievements/achievements_sprites/Assassin100.png"
 	)
 	$HookAchievements.create_achievement(
-		"155 Enemies Killed!!",
+		"150 Enemies Killed!!",
 		"Kill 150 Enemies",
 		null,
 		"res://scenes/achievements/achievements_sprites/Assassin150.png"

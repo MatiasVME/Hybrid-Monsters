@@ -78,5 +78,7 @@ func cave_spawn(player):
 		Main.spawn_location.y += 8
 #		print("Main.spawn_location: ", current_tilemap.map_to_world(Main.spawn_location))
 		
-		# Añadir el enemy en la posición
+		# TODO: Matar al enemigo si la cueva hace spawn sobre el.
+		
+		# Añadir la cave en la posición
 		current_tilemap.set_cellv(rand_empty_position, Main.CellTypes.CAVE)

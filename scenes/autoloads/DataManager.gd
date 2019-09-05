@@ -85,7 +85,8 @@ func create_players():
 	
 	players.append(PlayerGenerator.generate_first_player())
 	
-	temp_data[0] = inst2dict(players[0])
+	var rpge = RPGElement.new()
+	temp_data[0] = rpge.gdc2gd(inst2dict(players[0]))
 	
 	$Players.save_data("Players")
 	
@@ -93,8 +94,10 @@ func save_players():
 	var temp_data = $Players.get_data("Players")
 	temp_data.clear()
 	
+	var rpge = RPGElement.new()
+	
 	for i in players.size():
-		temp_data[i] = inst2dict(players[i])
+		temp_data[i] = rpge.gdc2gd(inst2dict(players[i]))
 		
 	$Players.save_data("Players")
 	
@@ -115,7 +118,7 @@ func create_user_config():
 	
 	Main.init_basic_user_config()
 #	AchievementsManager.create_all_achievements()
-	
+
 	save_user_config()
 
 func load_user_config():
@@ -194,14 +197,19 @@ func create_stats():
 	
 	stats.append(first_stats)
 	
-	temp_data[0] = inst2dict(stats[0])
+	var rpge = RPGElement.new()
+	temp_data[0] = rpge.gdc2gd(inst2dict(stats[0]))
 	
 	$Stats.save_data("Stats")
 	
 	# Test
 #	stats[0].add_points(100)
 	
+# Carga las stats de cada personaje
 func load_stats():
+#	var rpge = RPGElement.new()
+#	var temp_data = rpge.gdc2gd($Stats.get_data("Stats"))
+
 	var temp_data = $Stats.get_data("Stats")
 	stats = []
 	
@@ -212,8 +220,10 @@ func save_stats():
 	var temp_data = $Stats.get_data("Stats")
 	temp_data.clear()
 	
+	var rpge = RPGElement.new()
+	
 	for i in stats.size():
-		temp_data[i] = inst2dict(stats[i])
+		temp_data[i] = rpge.gdc2gd(inst2dict(stats[i]))
 		
 	$Stats.save_data("Stats")
 	
